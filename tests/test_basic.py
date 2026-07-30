@@ -1,7 +1,7 @@
 """
 Test di base del modello. Non sono test di validazione quantitativa
 rispetto all'articolo (richiederebbero i dati numerici esatti delle
-figure, che non sono disponibili), ma controlli di sanita' fisica:
+figure, che non sono disponibili), ma controlli di sanità fisica:
 il modello deve produrre numeri nell'ordine di grandezza giusto e con il
 comportamento qualitativo descritto nell'articolo.
 
@@ -25,18 +25,9 @@ def _make_systems():
 
 
 def test_short_range_battery_converges():
-    """A corto raggio e bassa velocita' la batteria deve almeno convergere
-    a un aeromobile fisicamente valido (Section 8, conclusioni).
+    """A corto raggio e bassa velocità la batteria deve almeno convergere
+    a un aeromobile fisicamente valido"""
 
-    NOTA: questo test NON verifica che la batteria sia il sistema piu'
-    efficiente in questo scenario, a differenza di quanto mostrato in
-    Fig. 3/5 dell'articolo per corto raggio. Con le curve Fig. 9
-    approssimate attualmente in propulsive_efficiency.py (vedi le
-    avvertenze in quel file) il modello a volte fa risultare la fuel cell
-    piu' efficiente della batteria anche a distanze molto brevi: e' il
-    principale punto aperto da validare/tarare prima di usare il modello
-    per conclusioni quantitative (si veda il README, sezione "Stato di
-    validazione")."""
     tech, systems = _make_systems()
     mission = Mission(range_nmi=30, cruise_speed_kt=200, propulsor="propeller")
 
@@ -49,10 +40,10 @@ def test_short_range_battery_converges():
 
 
 def test_hydrogen_combustion_beats_esaf_everywhere():
-    """L'idrogeno ha una produzione well-to-tank piu' efficiente dell'e-SAF
-    a parita' di energia in volo, quindi la combustione a idrogeno deve
-    richiedere meno elettricita' rinnovabile dell'e-SAF in ogni missione
-    testata (Section 3 dell'articolo)."""
+    """L'idrogeno ha una produzione well-to-tank più efficiente dell'e-SAF
+    a parità di energia in volo, quindi la combustione a idrogeno deve
+    richiedere meno elettricità rinnovabile dell'e-SAF in ogni missione
+    testata"""
     tech, systems = _make_systems()
     by_name = {s.name: s for s in systems}
 
@@ -67,7 +58,7 @@ def test_hydrogen_combustion_beats_esaf_everywhere():
 def test_empty_weight_fraction_is_physically_reasonable():
     """Per aeromobili convenzionali (e-SAF, nessuna correzione) la frazione
     di peso a vuoto deve restare in un intervallo plausibile (circa 0.4-0.7,
-    coerente con velivoli commerciali reali, si veda Fig. 7)."""
+    coerente con velivoli commerciali reali)"""
     from cnav import T_to_W_definitions as TWdef
 
     for mtow in (10_000, 80_000, 250_000):

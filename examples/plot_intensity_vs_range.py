@@ -1,6 +1,6 @@
 """
-Riproduce, in stile, la Fig. 4 dell'articolo: intensita' di elettricita'
-rinnovabile [MJ/(pax*nmi)] in funzione del range, a velocita' di crociera
+Riproduce, in stile, la Fig. 4 dell'articolo: intensità di elettricità
+rinnovabile [MJ/(pax*nmi)] in funzione del range, a velocità di crociera
 fissata, un pannello per i velivoli a getto/fan e uno per quelli a elica.
 
 Uso:
@@ -41,7 +41,7 @@ for propulsor, speed_kt, ax, title in panels:
 
     ax.set_xscale("log")
     ax.set_ylim(0, 15)
-    ax.set_ylabel("Elettricita' rinnovabile\n[MJ/(pax*nmi)]")
+    ax.set_ylabel("Electricity Intensity\n[MJ/(pax*nmi)]")
     ax.set_title(title)
     ax.grid(True, which="both", alpha=0.3)
 

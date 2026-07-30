@@ -76,8 +76,8 @@ ax.pcolormesh(ranges_nmi, speeds_kt, best_index_remapped, cmap=cmap,
 
 ax.set_xscale("log")
 ax.set_xlabel("Range [nmi]")
-ax.set_ylabel("Velocita' di crociera [kt]")
-ax.set_title("Sistema propulsivo carbon-neutral piu' efficiente")
+ax.set_ylabel("Velocità di crociera [kt]")
+ax.set_title("Sistema propulsivo carbon-neutral più efficiente")
 
 legend_handles = [Patch(color=colors[i], label=used_labels[i]) for i in range(len(used_labels))]
 ax.legend(handles=legend_handles, loc="upper left", fontsize=8, framealpha=0.92)
