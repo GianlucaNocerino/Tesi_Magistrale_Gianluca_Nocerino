@@ -118,7 +118,7 @@ def breguet_fuel_weight_kg(mtow_kg: float, ld: float, eta_overall: float,
     """Equazione di Breguet classica, dati il range (distance_m), l'efficienza globale
     del sistema propulsivo (eta_overall) e l'efficienza aerodinamica (ld)"""
     import math
-    exponent = distance_m / (eta_overall * specific_energy_J_per_kg * ld)
+    exponent = distance_m * G / (eta_overall * specific_energy_J_per_kg * ld)
     return mtow_kg * (1.0 - math.exp(-exponent))
 
 
