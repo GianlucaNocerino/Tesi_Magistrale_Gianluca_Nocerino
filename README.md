@@ -130,7 +130,7 @@ python examples/plot_best_system_map.py
 Questo è un primo modello funzionante, non ancora una riproduzione
 quantitativa validata dell'articolo. In particolare:
 
-1. **Fig. 9 (fattore di scala dell'efficienza propulsiva): risolta per il fan, ancora aperta per l'elica**
+1. **Fattore di scala dell'efficienza propulsiva: risolta per il fan, ancora aperta per l'elica**
    Recuperati e controllati entrambi i riferimenti citati dall'articolo:
    - **Fan**: Michel, U. (2011), "The benefits of variable area fan nozzles
      on turbofan engines", AIAA 2011-226 [55], fornisce un'equazione chiusa
@@ -152,6 +152,12 @@ quantitativa validata dell'articolo. In particolare:
 4. **Quota di crociera**
    Come quota di crociera, fondamentale per calcolare, passando per il modello atmosferico, il
    Mach, in questo modello si considera non quella teorica (25000 ft per propeller e 35000 ft per fan), ma quella effettiva (che potrebbe essere minore, nel caso la missione sia breve e la salita occupa più di metà della missione totale).
+4. **Electricity Intensity a bassi Range**
+   A bassi Range, in tutti i tipi di sistema propulsivo, il valore calcolato con questo codice
+   della EI risulta molto maggiore di quello che risulta dall'articolo (Fig. 4).
+   Per quanto riguarda specificamente i sistemi a batteria, nel caso di sistema con propeller,
+   l'asintoto verticale si presenta a Range minori, mentre nel caso di sistemi con fan, non è mai feasible.
+   C'è una discrepanza del modello con i risultati dell'articolo anche a Range molto elevati, ma questo potrebbe essere legato alle stime empiriche usate (soprattutto per la definizione dei rendimenti nei motori a combustione).
 
 
 ## Riferimenti
