@@ -1,7 +1,7 @@
 """
-Riproduce, in stile, la Fig. 4 dell'articolo: intensità di elettricità
-rinnovabile [MJ/(pax*nmi)] in funzione del range, a velocità di crociera
-fissata, un pannello per i velivoli a getto/fan e uno per quelli a elica.
+Riproduce la Fig. 4 dell'articolo: Electricity Intensity [MJ/(pax*nmi)] 
+in funzione del range, a velocità di crociera fissata, 
+un pannello per i velivoli a getto/fan e uno per quelli a elica.
 
 Uso:
     python examples/plot_intensity_vs_range.py
