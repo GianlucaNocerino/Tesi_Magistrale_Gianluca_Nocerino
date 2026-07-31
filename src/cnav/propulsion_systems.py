@@ -101,7 +101,6 @@ class BatteryElectric(PropulsionSystem):
     name = "Battery-electric"
     has_tms = True
     mass_decays_in_flight = False
-    OEW_FRACTION_BASELINE = 0.37  # esclude già il peso del motore
 
     def __init__(self, energy_carrier: EnergyCarrier):
         self.energy_carrier = energy_carrier
@@ -117,7 +116,7 @@ class BatteryElectric(PropulsionSystem):
 
     def operating_empty_weight_kg(self, mtow_kg, power_req_kW, ld, mission,
                                    we_fuel_estimate_kg, tech) -> float:
-        oew_baseline = self.OEW_FRACTION_BASELINE * mtow_kg
+        oew_baseline = tech.battery_oew_fraction * mtow_kg
         w_motor = power_req_kW / tech.motor_specific_power_kW_per_kg
         w_tms, _ = self.tms_weight_and_drag(mtow_kg, ld, mission, tech)
         return oew_baseline + w_motor + w_tms

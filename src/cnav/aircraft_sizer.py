@@ -37,7 +37,7 @@ class AircraftSizer:
     numeri via via più grandi e privi di significato fisico
     """
 
-    def __init__(self, tech: TechAssumptions, max_iter: int = 300, tol_kg: float = 1e-3,
+    def __init__(self, tech: TechAssumptions, max_iter: int = 4000, tol_kg: float = 1e-2,
                  max_mtow_kg: float = 1e7):
         self.tech = tech
         self.max_iter = max_iter
