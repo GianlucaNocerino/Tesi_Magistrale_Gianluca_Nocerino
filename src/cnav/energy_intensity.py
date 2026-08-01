@@ -38,7 +38,8 @@ def compute_intensity(mission: Mission, system: PropulsionSystem, tech: TechAssu
     if pax_weight_kg is None:
         pax_weight_kg = tech.pax_weight_kg
 
-    energy_at_tank_MJ = sizing.we_total_kg * system.specific_energy_J_per_kg(tech) / 1e6
+    we_for_intensity_kg = sizing.we_climb_kg + sizing.we_cruise_kg  # esclude la riserva
+    energy_at_tank_MJ = we_for_intensity_kg * system.specific_energy_J_per_kg(tech) / 1e6
     renewable_MJ = system.energy_carrier.renewable_electricity_for_MJ(energy_at_tank_MJ)
 
     n_pax = sizing.payload_kg / pax_weight_kg
