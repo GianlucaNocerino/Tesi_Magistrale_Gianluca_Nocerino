@@ -135,7 +135,9 @@ quantitativa validata dell'articolo. In particolare:
    - **Fan**: Michel, U. (2011), "The benefits of variable area fan nozzles
      on turbofan engines", AIAA 2011-226 [55], fornisce un'equazione chiusa
      per l'efficienza propulsiva di un fan senza perdite in funzione del 
-     Mach di volo e del rapporto di compressione del fan.
+     Mach di volo e del rapporto di compressione del fan. Per ottenere lo
+     Scaling Factor si normalizza l'efficienza propulsiva per il suo valore
+     a Mach=0.85.
    - **Elica**: Alves, Silvestre, Gamboa (2020), "Aircraft Propellers - Is
      There a Future?", Energies 13(16), 4157 [56], non fornisce
      un'equazione chiusa per l'elica: usa la stessa formula generale 
@@ -153,8 +155,7 @@ quantitativa validata dell'articolo. In particolare:
    Come quota di crociera, fondamentale per calcolare, passando per il modello atmosferico, il
    Mach, in questo modello si considera non quella teorica (25000 ft per propeller e 35000 ft per fan), ma quella effettiva (che potrebbe essere minore, nel caso la missione sia breve e la salita occupa più di metà della missione totale).
 4. **Electricity Intensity**
-   Il modello, per tutti i tipi di sistema propulsivo, in modo più evidente a bassi Range, tende 
-   a sovrastimare, rispetto ai risultarti dell'articolo, l'Electricity Intensity. La differenza, non trascurabili ma non di grandissima entità, aumenta nei sistemi a combustione, e ancora di più nelle soluzioni con fan. Il battery fan, invece, risulta essere infeasible per ogni Range.
+   Il modello, per tutti i tipi di sistema propulsivo, tende a sovrastimare o sottostimare, a seconda del Range, rispetto ai risultati dell'articolo, l'Electricity Intensity. La differenza aumenta nei sistemi a combustione e ancora di più nelle soluzioni con fan. Il battery fan, invece, risulta essere infeasible per ogni Range, alla velocità di 450 kn.
 
 
 ## Riferimenti
