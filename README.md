@@ -152,12 +152,9 @@ quantitativa validata dell'articolo. In particolare:
 4. **Quota di crociera**
    Come quota di crociera, fondamentale per calcolare, passando per il modello atmosferico, il
    Mach, in questo modello si considera non quella teorica (25000 ft per propeller e 35000 ft per fan), ma quella effettiva (che potrebbe essere minore, nel caso la missione sia breve e la salita occupa più di metà della missione totale).
-4. **Electricity Intensity a bassi Range**
-   A bassi Range, in tutti i tipi di sistema propulsivo, il valore calcolato con questo codice
-   della EI risulta molto maggiore di quello che risulta dall'articolo (Fig. 4).
-   Per quanto riguarda specificamente i sistemi a batteria, nel caso di sistema con propeller,
-   l'asintoto verticale si presenta a Range minori, mentre nel caso di sistemi con fan, non è mai feasible.
-   C'è una discrepanza del modello con i risultati dell'articolo anche a Range molto elevati, ma questo potrebbe essere legato alle stime empiriche usate (soprattutto per la definizione dei rendimenti nei motori a combustione).
+4. **Electricity Intensity**
+   Il modello, per tutti i tipi di sistema propulsivo, in modo più evidente a bassi Range, tende 
+   a sovrastimare, rispetto ai risultarti dell'articolo, l'Electricity Intensity. La differenza, non trascurabili ma non di grandissima entità, aumenta nei sistemi a combustione, e ancora di più nelle soluzioni con fan. Il battery fan, invece, risulta essere infeasible per ogni Range.
 
 
 ## Riferimenti
