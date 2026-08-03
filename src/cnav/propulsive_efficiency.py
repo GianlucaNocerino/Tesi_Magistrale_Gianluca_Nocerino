@@ -33,14 +33,14 @@ def fan_efficiency_scaling(mach: float, fan_pressure_ratio: float = 1.5, gamma: 
         * 2.0 / (gamma - 1.0)
     jet_mach = math.sqrt(max(jet_mach_sq, 0.0))
     eta_p_current = 2.0 * mach / (jet_mach + mach)
-    """Efficienza propulsiva al Mach di riferimento (0.85)"""
-    mach_ref = 0.85
+    """Efficienza propulsiva al Mach di riferimento (0.8)"""
+    mach_ref = 0.8
     jet_mach_sq_ref = ((fan_pressure_ratio ** exponent) * (1.0 + (gamma - 1.0) / 2.0 * mach_ref ** 2) - 1.0) \
         * 2.0 / (gamma - 1.0)
     jet_mach_ref = math.sqrt(max(jet_mach_sq_ref, 0.0))
     eta_p_ref = 2.0 * mach_ref / (jet_mach_ref + mach_ref)
     """Lo scaling Factor è l'efficienza propulsiva (Michel, [55]) normalizzata per il suo valore
-    a Mach=0.85"""
+    a Mach=0.8"""
     return eta_p_current / eta_p_ref
 
 
