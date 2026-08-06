@@ -109,7 +109,10 @@ def hydrogen_tank_weight_kg(fuel_weight_kg: float, gamma_tank: float) -> float:
 def reserve_range_m(mission: Mission, tech: TechAssumptions) -> float:
     """Range della riserva (rotta verso l'aeroporto alternativo + loiter)"""
     alternate_m = min(mission.range_m, tech.reserve_alternate_range_nmi * 1852.0)
-    loiter_m = tech.reserve_loiter_time_s * mission.cruise_speed_ms
+    loiter_m = tech.reserve_loiter_time_s * mission.cruise_speed_ms 
+    # se si vuole inserire una velocità di loiter diversa da quella di crociera, 
+    # sostituire mission.cruise_speed_ms con tech.reserve_loiter_speed_kt*0.514444 o
+    # viceversa
     return alternate_m + loiter_m
 
 

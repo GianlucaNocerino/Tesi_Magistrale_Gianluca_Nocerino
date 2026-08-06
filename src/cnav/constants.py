@@ -58,6 +58,7 @@ class TechAssumptions:
     # --- missione di riserva ---
     reserve_loiter_time_s: float = 45 * 60.0
     reserve_alternate_range_nmi: float = 200.0
+    reserve_loiter_speed_kt: float = 200.0  # nell'articolo è assunta uguale a quella di crociera
 
     # --- per la normalizzazione per passeggero ---
     pax_weight_kg: float = 100.0                   # non specificato dall'articolo
@@ -95,8 +96,7 @@ class TechAssumptions:
     propeller_curve_decay_width: float = 0.038
 
     def with_changes(self, **kwargs) -> "TechAssumptions":
-        """Comodo per il futuro modulo di incertezza: restituisce una copia
-        con solo alcuni parametri modificati, es.:
+        """restituisce una copia con solo alcuni parametri modificati, es.:
             tech2 = tech.with_changes(e_battery_Wh_per_kg=600.0)
         """
         return replace(self, **kwargs)
@@ -115,9 +115,9 @@ class WellToTankEfficiencies:
         return replace(self, **kwargs)
 
 
-# Poteri calorifici inferiori (Lower Heating Value): sono proprietà
-# chimiche di sostanze pure (idrogeno) o quasi (e-SAF), non parametri
-# tecnologici incerti, per questo restano costanti fisse e NON dentro
-# TechAssumptions
+"""Poteri calorifici inferiori (Lower Heating Value): sono proprietà
+chimiche di sostanze pure (idrogeno) o quasi (e-SAF), non parametri
+tecnologici incerti, per questo restano costanti fisse e NON dentro
+TechAssumptions"""
 LHV_HYDROGEN_J_per_kg = 120e6   # 120 MJ/kg
 LHV_ESAF_J_per_kg = 43e6        # 43 MJ/kg
