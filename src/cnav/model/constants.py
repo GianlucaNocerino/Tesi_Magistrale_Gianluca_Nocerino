@@ -55,10 +55,18 @@ class TechAssumptions:
     turbofan_core_specific_power_kW_per_kg: float = 15.0
     turboprop_specific_power_kW_per_kg: float = 4.0
 
+    # --- salita ---
+    climb_rate_ft_per_min: float = 1500.0          # rateo di salita
+    climb_speed_fraction: float = 0.75             # frazione della velocità di crociera usata come velocità di avanzamento in salita
+
     # --- missione di riserva ---
     reserve_loiter_time_s: float = 45 * 60.0
     reserve_alternate_range_nmi: float = 200.0
-    reserve_loiter_speed_kt: float = 200.0  # nell'articolo è assunta uguale a quella di crociera
+    # velocità di loiter: NaN (default) = usa la velocità di crociera della
+    # missione (assunzione dell'articolo di riferimento); un valore numerico
+    # esplicito la tratta come parametro indipendente, perturbabile nella
+    # sensitivity analysis (vedi reserve_range_m in T_to_W_definitions.py)
+    reserve_loiter_speed_kt: float = float("nan")
 
     # --- per la normalizzazione per passeggero ---
     pax_weight_kg: float = 100.0                   # non specificato dall'articolo

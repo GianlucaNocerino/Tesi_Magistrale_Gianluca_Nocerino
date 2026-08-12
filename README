@@ -27,30 +27,49 @@ di "eccellenza" di ciascun sistema.
 ```
 carbon_neutral_aviation/
 ├── src/cnav/                      # il pacchetto Python
-│   ├── units.py                   # conversioni unità di misura
-│   ├── constants.py               # Tutti gli input: parametri tecnologici + coefficienti per fit empirici + WTT
-│   ├── atmosphere.py              # velocità del suono
-│   ├── propulsive_efficiency.py   # fattore di scala (fan e propeller)
-│   ├── mission.py                 # classe Mission (range, velocità, e propeller o fan)
-│   ├── T_to_W_definitions.py      # tutte le definizioni per la catena tank-to-wake: fisica condivisa + stime empiriche di peso
-│   ├── well_to_tank.py            # catena well-to-tank
-│   ├── propulsion_systems.py      # classe generale e una sottoclasse per ogni tipo di sistema propulsivo carbon neutral
-│   ├── aircraft_sizer.py          # ciclo iterativo di dimensionamento dell'aeroplano
-│   └── energy_intensity.py        # well-to-tank + tank-to-wake -> MJ/(pax*nmi)
+│   ├── model/                     # il modello deterministico
+│   │   ├── units.py                   # conversioni unità di misura
+│   │   ├── constants.py               # Tutti gli input: parametri tecnologici + coefficienti per fit empirici + WTT
+│   │   ├── atmosphere.py              # velocità del suono
+│   │   ├── propulsive_efficiency.py   # fattore di scala (fan e propeller)
+│   │   ├── mission.py                 # classe Mission (range, velocità, e propeller o fan)
+│   │   ├── T_to_W_definitions.py      # tutte le definizioni per la catena tank-to-wake: fisica condivisa + stime empiriche di peso
+│   │   ├── well_to_tank.py            # catena well-to-tank
+│   │   ├── propulsion_systems.py      # classe generale e una sottoclasse per ogni tipo di sistema propulsivo carbon neutral
+│   │   ├── aircraft_sizer.py          # ciclo iterativo di dimensionamento dell'aeroplano
+│   │   └── energy_intensity.py        # well-to-tank + tank-to-wake -> MJ/(pax*nmi)
+│   ├── calibration/                # calibrazione del modello rispetto al paper
+│   │   └── cost_functions.py          # funzioni di costo WLS (per sistema, globali fan/propeller), dati del paper
+│   └── sensitivity/                # analisi di sensibilità
+│       ├── sensitivity_analysis_tools.py  # motore generico: indici di elasticità, tornado plot, sweep, superfici 3D, slider
+│       └── local_sensitivity.py           # Fase 3 (consegna): condizioni operative standard, verifica di robustezza rispetto alla perturbazione, confini tra tecnologie
 ├── examples/
 │   ├── plot_intensity_vs_range.py   # riproduce la Fig. 4 dell'articolo
-│   └── plot_best_system_map.py      # riproduce la Fig. 3 dell'articolo
+│   ├── plot_best_system_map.py      # riproduce la Fig. 3 dell'articolo
+│   ├── calibrate_model.py           # esempio d'uso della calibrazione
+│   ├── sensitivity_analysis.py      # demo strumenti "continui" (vs range, superficie 3D)
+│   └── local_sensitivity_report.py  # esempio d'uso della Fase 3 (sensibilità locale completa)
 └── tests/
     └── test_basic.py               # test per il controllo del codice
 ```
 
-Il pacchetto è organizzato a "strati": `constants`/`units`/`atmosphere` sono
-i mattoncini di base; `T_to_W_definitions.py` contiene tutte le formule condivise fra i
-4 sistemi propulsivi; `propulsion_systems.py` definisce solo le differenze
-fra un sistema e l'altro; `aircraft_sizer.py` e' il ciclo iterativo generico; 
-`energy_intensity.py` e' il livello piu' alto. Se in futuro si vuole aggiungere un
-quinto sistema propulsivo (es. una configurazione ibrida), basterà scrivere
-una nuova sottoclasse di `PropulsionSystem` in `propulsion_systems.py`.
+Il pacchetto è organizzato in tre sottopacchetti concettualmente distinti:
+`cnav.model` è il modello deterministico vero e proprio (a sua volta a
+"strati": `constants`/`units`/`atmosphere` sono i mattoncini di base;
+`T_to_W_definitions.py` contiene tutte le formule condivise fra i 4
+sistemi propulsivi; `propulsion_systems.py` definisce solo le differenze
+fra un sistema e l'altro; `aircraft_sizer.py` e' il ciclo iterativo
+generico; `energy_intensity.py` e' il livello piu' alto). `cnav.calibration`
+e `cnav.sensitivity` sono due strumenti indipendenti che lavorano
+*sopra* il modello, senza modificarlo: se in futuro si vuole aggiungere
+un quinto sistema propulsivo (es. una configurazione ibrida), basterà
+scrivere una nuova sottoclasse di `PropulsionSystem` in
+`cnav/model/propulsion_systems.py`.
+
+`from cnav import ...` continua a esporre direttamente i nomi più usati
+del modello e della calibrazione (es. `Mission`, `TechAssumptions`,
+`compute_intensity`, `fan_cost`); gli strumenti di sensitivity si
+importano invece esplicitamente da `cnav.sensitivity.sensitivity_analysis_tools`.
 
 ## Uso rapido
 

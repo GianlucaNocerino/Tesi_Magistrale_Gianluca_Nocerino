@@ -4,7 +4,7 @@ from . import atmosphere
 from . import propulsive_efficiency as pe
 from .constants import TechAssumptions
 from .mission import Mission
-from .units import FT_TO_M, G
+from .units import FT_TO_M, G, KT_TO_MS
 
 """
 Di seguito tutte le definizioni necessarie per l'analisi Tank-to-Wake, divise in due cateegorie:
@@ -30,26 +30,26 @@ def cruise_altitude_m(propulsor: str) -> float:
     return (25_000.0 if propulsor == "propeller" else 35_000.0) * FT_TO_M
 
 
-def _actual_altitude_m(mission: Mission) -> float:
+def _actual_altitude_m(mission: Mission, tech: TechAssumptions) -> float:
     """Quota effettivamente raggiunta durante la missione:
     può essere inferiore alla quota teorica di crociera se il range è
     troppo corto per completare la salita entro la prima metà del volo"""
     cruise_alt_m = cruise_altitude_m(mission.propulsor)
-    climb_rate_ms = (1500.0 * FT_TO_M) / 60.0
-    climb_speed_ms = 0.75 * mission.cruise_speed_ms # velocità di avanzamento in salita
+    climb_rate_ms = (tech.climb_rate_ft_per_min * FT_TO_M) / 60.0
+    climb_speed_ms = tech.climb_speed_fraction * mission.cruise_speed_ms  # velocità di avanzamento in salita
     half_mission_time_s = 0.5 * mission.range_m / climb_speed_ms
     return min(cruise_alt_m, climb_rate_ms * half_mission_time_s)
 
 
-def cruise_mach(mission: Mission) -> float:
-    return mission.cruise_speed_ms / atmosphere.speed_of_sound_ms(_actual_altitude_m(mission))
+def cruise_mach(mission: Mission, tech: TechAssumptions) -> float:
+    return mission.cruise_speed_ms / atmosphere.speed_of_sound_ms(_actual_altitude_m(mission, tech))
 
 
 def propulsive_efficiency(mission: Mission, tech: TechAssumptions) -> float:
     """Efficienza propulsiva effettiva alla velocità di crociera data:
     valore "fissato" (da constants, in tech) moltiplicato per il fattore di scala
     dipendente dal Mach"""
-    mach = cruise_mach(mission)
+    mach = cruise_mach(mission, tech)
     if mission.propulsor == "fan":
         return tech.eta_p_fan * pe.fan_efficiency_scaling(mach, tech.fan_pressure_ratio)
     return tech.eta_p_propeller * pe.propeller_efficiency_scaling(
@@ -107,12 +107,17 @@ def hydrogen_tank_weight_kg(fuel_weight_kg: float, gamma_tank: float) -> float:
 
 
 def reserve_range_m(mission: Mission, tech: TechAssumptions) -> float:
-    """Range della riserva (rotta verso l'aeroporto alternativo + loiter)"""
+    """Range della riserva (rotta verso l'aeroporto alternativo + loiter).
+
+    La velocità di loiter usa tech.reserve_loiter_speed_kt se specificata
+    (valore numerico); di default (NaN) usa la velocità di crociera della
+    missione, come assunto nell'articolo di riferimento."""
     alternate_m = min(mission.range_m, tech.reserve_alternate_range_nmi * 1852.0)
-    loiter_m = tech.reserve_loiter_time_s * mission.cruise_speed_ms 
-    # se si vuole inserire una velocità di loiter diversa da quella di crociera, 
-    # sostituire mission.cruise_speed_ms con tech.reserve_loiter_speed_kt*0.514444 o
-    # viceversa
+    if math.isnan(tech.reserve_loiter_speed_kt):
+        loiter_speed_ms = mission.cruise_speed_ms
+    else:
+        loiter_speed_ms = tech.reserve_loiter_speed_kt * KT_TO_MS
+    loiter_m = tech.reserve_loiter_time_s * loiter_speed_ms
     return alternate_m + loiter_m
 
 
@@ -126,7 +131,7 @@ def breguet_fuel_weight_kg(mtow_kg: float, ld: float, eta_overall: float,
 
 
 def climb_energy_weight_kg(mtow_kg: float, mission: Mission, eta_overall: float,
-                            specific_energy_J_per_kg: float) -> float:
+                            specific_energy_J_per_kg: float, tech: TechAssumptions) -> float:
     """Peso dell'energia (combustibile o batteria) necessaria
     per la salita, stimata come la somma degli incrementi di energia cinetica 
     e potenziale, convertita in massa attraverso l'efficienza propulsiva globale.
@@ -137,7 +142,7 @@ def climb_energy_weight_kg(mtow_kg: float, mission: Mission, eta_overall: float,
     (è un'assunzione comune nei modelli concettuali di questo tipo, ma
     andrebbe verificata se serve una riproduzione quantitativa esatta).
     """
-    climb_alt_m = _actual_altitude_m(mission)
+    climb_alt_m = _actual_altitude_m(mission, tech)
 
     delta_pe_J_per_kg = G * climb_alt_m
     delta_ke_J_per_kg = 0.5 * mission.cruise_speed_ms ** 2
@@ -165,7 +170,7 @@ def combustion_overall_efficiency(mission: Mission, tech: TechAssumptions,
     """Efficienza complessiva di un motore a combustione (idrogeno o e-SAF, fan o propeller).
     Si assume una configurazione bimotore"""
     power_per_engine_MW = max((power_req_kW / 2.0) / 1000.0, 1e-6)
-    mach = cruise_mach(mission)
+    mach = cruise_mach(mission, tech)
     if mission.propulsor == "fan":
         eta_base = turbofan_overall_efficiency(power_per_engine_MW)
         scale = pe.fan_efficiency_scaling(mach, tech.fan_pressure_ratio)

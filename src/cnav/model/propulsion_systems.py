@@ -76,7 +76,7 @@ class PropulsionSystem(ABC):
                          power_req_kW: float) -> float:
         eta = self.overall_efficiency(mission, tech, power_req_kW)
         e_spec = self.specific_energy_J_per_kg(tech)
-        return TWdef.climb_energy_weight_kg(mtow_kg, mission, eta, e_spec)
+        return TWdef.climb_energy_weight_kg(mtow_kg, mission, eta, e_spec, tech)
 
     def cruise_and_reserve_energy_kg(self, mtow_kg: float, ld: float, mission: Mission,
                                       tech: TechAssumptions, power_req_kW: float) -> tuple[float, float]:
