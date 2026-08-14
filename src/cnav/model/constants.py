@@ -50,6 +50,7 @@ class TechAssumptions:
     eta_p_propeller: float = 0.85                  # efficienza propulsiva di riferimento (propeller)
     eta_p_fan: float = 0.75                        # efficienza propulsiva di riferimento (fan/getto)
     fan_pressure_ratio: float = 1.5                # rapporto di compressione fan
+    fan_scaling_mach_ref: float = 0.8              # Mach di normalizzazione per il fan scaling factor
 
     # --- motori convenzionali (per il "sottraggo il motore a combustione" nella fuel cell) ---
     turbofan_core_specific_power_kW_per_kg: float = 15.0

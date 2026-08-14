@@ -19,7 +19,7 @@ from cnav import propulsive_efficiency as pe
 tech = TechAssumptions()
 machs = np.linspace(0.0, 1.0, 400)
 
-fan_vals = [pe.fan_efficiency_scaling(m, tech.fan_pressure_ratio) for m in machs]
+fan_vals = [pe.fan_efficiency_scaling(m, tech.fan_pressure_ratio, tech.fan_scaling_mach_ref) for m in machs]
 prop_vals = [pe.propeller_efficiency_scaling(
     m, tech.propeller_curve_peak_mach, tech.propeller_curve_rise_rate,
     tech.propeller_curve_decay_width) for m in machs]

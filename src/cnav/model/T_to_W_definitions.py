@@ -51,7 +51,7 @@ def propulsive_efficiency(mission: Mission, tech: TechAssumptions) -> float:
     dipendente dal Mach"""
     mach = cruise_mach(mission, tech)
     if mission.propulsor == "fan":
-        return tech.eta_p_fan * pe.fan_efficiency_scaling(mach, tech.fan_pressure_ratio)
+        return tech.eta_p_fan * pe.fan_efficiency_scaling(mach, tech.fan_pressure_ratio, tech.fan_scaling_mach_ref)
     return tech.eta_p_propeller * pe.propeller_efficiency_scaling(
             mach, tech.propeller_curve_peak_mach, tech.propeller_curve_rise_rate,
             tech.propeller_curve_decay_width,
@@ -173,7 +173,7 @@ def combustion_overall_efficiency(mission: Mission, tech: TechAssumptions,
     mach = cruise_mach(mission, tech)
     if mission.propulsor == "fan":
         eta_base = turbofan_overall_efficiency(power_per_engine_MW)
-        scale = pe.fan_efficiency_scaling(mach, tech.fan_pressure_ratio)
+        scale = pe.fan_efficiency_scaling(mach, tech.fan_pressure_ratio, tech.fan_scaling_mach_ref)
     else:
         eta_thermal = turboprop_thermal_efficiency(power_per_engine_MW)
         eta_base = eta_thermal * tech.eta_p_propeller

@@ -22,7 +22,7 @@ l'andamento dello scaling factor per il rpopeller mostrato da Adler & Martins.
 import math
 
 
-def fan_efficiency_scaling(mach: float, fan_pressure_ratio: float = 1.5, gamma: float = 1.4) -> float:
+def fan_efficiency_scaling(mach: float, fan_pressure_ratio: float = 1.5, mach_ref: float = 0.8, gamma: float = 1.4) -> float:
     """Efficienza propulsiva di un fan senza perdite, in funzione del Mach 
     di volo e del rapporto di compressione del fan"""
     if mach <= 0.0:
@@ -34,7 +34,6 @@ def fan_efficiency_scaling(mach: float, fan_pressure_ratio: float = 1.5, gamma: 
     jet_mach = math.sqrt(max(jet_mach_sq, 0.0))
     eta_p_current = 2.0 * mach / (jet_mach + mach)
     """Efficienza propulsiva al Mach di riferimento (0.8)"""
-    mach_ref = 0.8
     jet_mach_sq_ref = ((fan_pressure_ratio ** exponent) * (1.0 + (gamma - 1.0) / 2.0 * mach_ref ** 2) - 1.0) \
         * 2.0 / (gamma - 1.0)
     jet_mach_ref = math.sqrt(max(jet_mach_sq_ref, 0.0))

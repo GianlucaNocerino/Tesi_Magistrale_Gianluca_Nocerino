@@ -113,7 +113,7 @@ SHARED_PARAMETERS = [
     "oew_prop_a", "oew_prop_b", "oew_prop_c",
     "payload_a", "payload_b", "payload_c", "payload_d", "payload_e",
     "ld_baseline_fan", "ld_baseline_propeller",
-    "eta_p_fan", "eta_p_propeller", "fan_pressure_ratio",
+    "eta_p_fan", "eta_p_propeller", "fan_pressure_ratio", "fan_scaling_mach_ref",
     "propeller_curve_peak_mach", "propeller_curve_rise_rate", "propeller_curve_decay_width",
     "reserve_loiter_time_s", "reserve_alternate_range_nmi", "reserve_loiter_speed_kt",
     "pax_weight_kg",

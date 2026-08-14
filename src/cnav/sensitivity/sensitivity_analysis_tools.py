@@ -19,7 +19,7 @@ Libreria degli strumenti per l'analisi di sensibilità.
 CATEGORIES = {
     "Technological": [
         "eta_motor", "e_battery_Wh_per_kg", "eta_fuel_cell", 
-        "fan_pressure_ratio", "ld_baseline_propeller", "ld_baseline_fan",
+        "fan_pressure_ratio", "fan_scaling_mach_ref", "ld_baseline_propeller", "ld_baseline_fan",
         "eta_p_propeller", "eta_p_fan", "turbofan_core_specific_power_kW_per_kg",
         "turboprop_specific_power_kW_per_kg", "gamma_tank", 
         "delta_TMS_N_per_kW", "kappa_TMS_kg_per_kW",
