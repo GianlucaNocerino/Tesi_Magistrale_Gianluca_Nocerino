@@ -16,6 +16,12 @@ from .cost_functions import (
     max_feasible_range_nmi,
 )
 
+from .deterministic_calibration import (
+    FRACTION_PARAMETERS, CalibrationRun, default_bounds, manual_bounds,
+    theta_to_tech_wtt, make_objective, latin_hypercube_starts,
+    run_deterministic_calibration, summarize_multiple_minima,
+)
+
 __all__ = [
     "PAPER_DATA", "SYSTEM_PARAMETERS", "SHARED_PARAMETERS", "DEFAULT_NONCONVERGENCE_PENALTY",
     "fan_cost", "propeller_cost", "global_cost", "system_cost", "max_feasible_range_nmi",
