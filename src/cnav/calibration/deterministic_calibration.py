@@ -3,9 +3,15 @@ Calibrazione deterministica iniziale:
 
     theta* = argmin_theta J(theta)
 
-dove J è la funzione di costo già definita in cost_functions.py (fan_cost,
-propeller_cost). Questo modulo consente di risolvere il sopracitato problema 
-di minimizzazione:
+Questo modulo è un motore di ottimizzazione GENERICO rispetto a J: non sa
+nulla di fan_cost/propeller_cost/combined_cost - quelle vivono in
+cost_functions.py. Chi chiama sceglie quale funzione di costo calibrare
+(fan_cost, propeller_cost, cost_functions.combined_cost, o qualunque altra
+funzione con la stessa forma cost_fn(tech, wtt, **kwargs) -> (totale,
+dettaglio)), la trasforma in J con make_objective, e passa J a
+run_deterministic_calibration. Vedi examples/deterministic_calibration_execution.py
+per un esempio completo (calibrazione congiunta fan+propeller con
+combined_cost).
 
 1. default_bounds / manual_bounds - bounds fisicamente plausibili di
    partenza per l'ottimizzatore, sono solo una scatola entro cui 
@@ -15,9 +21,11 @@ di minimizzazione:
    percentuale o bound assoluto
 2. theta_to_tech_wtt / make_objective - "adattatore" tra un vettore piatto
    theta (quello che vuole scipy.optimize) e TechAssumptions o
-   WellToTankEfficiencies (quello che vogliono fan_cost/propeller_cost)
-3. run_deterministic_calibration - il solutore vero e proprio,
-   più ottimizzazioni Nelder-Mead da punti iniziali diversi (Latin
+   WellToTankEfficiencies (quello che vuole una cost_fn del tipo
+   cost_fn(tech, wtt, **kwargs) -> (totale, dettaglio))
+3. run_deterministic_calibration - il solutore vero e proprio: prende una
+   J già pronta (costruita con make_objective o a mano) e ci fa girare
+   sopra più ottimizzazioni Nelder-Mead da punti iniziali diversi (Latin
    Hypercube) e/o differential_evolution ripetuta con seed diversi, come
    raccomandato ("non utilizzare un solo punto iniziale")
 4. summarize_multiple_minima - diagnostica preliminare per l'identificabilità, 
@@ -36,7 +44,7 @@ evolution)
 """
 import dataclasses
 from dataclasses import dataclass, field
-from typing import Optional
+from typing import Callable, Optional
 
 import numpy as np
 import pandas as pd
@@ -44,7 +52,6 @@ from scipy.optimize import differential_evolution, minimize
 from scipy.stats import qmc
 
 from ..model.constants import TechAssumptions, WellToTankEfficiencies
-from .cost_functions import fan_cost, propeller_cost
 
 # parametri "di frazione/efficienza pura", fisicamente in [0, 1]: i bounds
 # di default li tengono dentro (0.02, 0.98) invece che lasciarli sconfinare
@@ -182,44 +189,37 @@ def theta_to_tech_wtt(theta, param_names,
     return base_tech.with_changes(**tech_kwargs), base_wtt.with_changes(**wtt_kwargs)
 
 
-def make_objective(param_names, objective: str = "combined",
+def make_objective(cost_fn: Callable, param_names,
                     base_tech: Optional[TechAssumptions] = None,
                     base_wtt: Optional[WellToTankEfficiencies] = None,
-                    fan_kwargs: Optional[dict] = None,
-                    propeller_kwargs: Optional[dict] = None,
+                    cost_kwargs: Optional[dict] = None,
                     penalty_on_error: float = 1e6):
-    """Costruisce J: R^n_theta -> R da passare a scipy.optimize.
+    """Costruisce J: R^n_theta -> R da passare a scipy.optimize, a partire
+    da una QUALSIASI funzione di costo cost_fn(tech, wtt, **cost_kwargs) ->
+    (totale, dettaglio) - tipicamente cnav.calibration.cost_functions.fan_cost,
+    propeller_cost, o combined_cost, ma può essere una qualunque funzione
+    con quella forma (anche definita altrove, non necessariamente in
+    cost_functions.py).
 
-    objective:
-      - "combined" (default) J = J_fan + J_propeller, cioè le due "figure"
-        indipendenti del paper (Fig. 4 fan@450kt e Fig. 4 propeller@250kt)
-        sommate come nell'Eq. 3 della guideline (qui con peso implicito 1
-        ciascuna: per pesarle diversamente passa system_weights/
-        range_weights dentro fan_kwargs/propeller_kwargs, che vengono
-        girati a fan_cost/propeller_cost così come sono);
-      - "fan": solo J_fan;
-      - "propeller": solo J_propeller.
+    Questo modulo non ha nessuna conoscenza di cosa cost_fn faccia
+    internamente: il "significato fisico" di J (fan, propeller, una loro
+    combinazione pesata, o altro ancora) è deciso interamente da quale
+    cost_fn passi qui, non da questo modulo.
+
+    cost_kwargs: passati così come sono a cost_fn (es. per combined_cost:
+    {"fan_weight": 2.0, "propeller_weight": 1.0}).
 
     penalty_on_error: valore restituito se la valutazione del modello
     solleva un'eccezione per un dato theta (es. bounds troppo larghi che
     portano a punti fisicamente degeneri) - grande ma finito, per non far
     bloccare l'ottimizzatore.
     """
-    if objective not in ("combined", "fan", "propeller"):
-        raise ValueError("objective deve essere 'combined', 'fan' o 'propeller'")
-    fan_kwargs = fan_kwargs or {}
-    propeller_kwargs = propeller_kwargs or {}
+    cost_kwargs = cost_kwargs or {}
 
     def J(theta):
         try:
             tech, wtt = theta_to_tech_wtt(theta, param_names, base_tech, base_wtt)
-            total = 0.0
-            if objective in ("combined", "fan"):
-                j_fan, _ = fan_cost(tech, wtt, **fan_kwargs)
-                total += j_fan
-            if objective in ("combined", "propeller"):
-                j_prop, _ = propeller_cost(tech, wtt, **propeller_kwargs)
-                total += j_prop
+            total, _ = cost_fn(tech, wtt, **cost_kwargs)
             if not np.isfinite(total):
                 return penalty_on_error
             return total
@@ -263,16 +263,25 @@ class CalibrationRun:
     n_eval: int
 
 
-def run_deterministic_calibration(param_names, bounds: Optional[dict] = None,
+def run_deterministic_calibration(J: Callable, param_names, bounds: Optional[dict] = None,
                                    method: str = "differential_evolution",
                                    n_starts: int = 8, n_de_runs: int = 3,
-                                   objective: str = "combined",
                                    nelder_mead_kwargs: Optional[dict] = None,
                                    de_kwargs: Optional[dict] = None,
                                    base_tech: Optional[TechAssumptions] = None,
                                    base_wtt: Optional[WellToTankEfficiencies] = None,
                                    seed: int = 0, verbose: bool = True):
     """Risolve theta* = argmin_theta J(theta) (par. 5.1).
+
+    J: la funzione di costo da minimizzare, R^n_theta -> R, tipicamente
+    costruita con make_objective(cost_fn, param_names, ...) a partire da
+    una cost_fn di cnav.calibration.cost_functions (fan_cost, propeller_cost,
+    combined_cost, ...) - ma questo modulo accetta qualunque callable con
+    quella firma, non ha nessuna conoscenza di cosa J rappresenti
+    fisicamente. base_tech/base_wtt qui sotto servono solo per calcolare
+    bounds di default quando bounds=None (default_bounds ha bisogno dei
+    valori nominali) - se costruisci J con base_tech/base_wtt diversi,
+    passa qui gli stessi per coerenza.
 
     method controlla quale/i metodo/i usare, tra quelli elencati al par.
     5.1 ("Least-squares; Nelder-Mead; differential evolution; CMA-ES;
@@ -299,8 +308,9 @@ def run_deterministic_calibration(param_names, bounds: Optional[dict] = None,
         trovati (preliminare al par. 5.2, vedi summarize_multiple_minima).
 
     Costo computazionale: ogni valutazione di J(theta) chiama il modello
-    completo (fan_cost e/o propeller_cost, cioè fino a 4 sistemi propulsivi
-    su 10 Range ciascuno) e costa indicativamente 0.3-0.6s. Una singola
+    completo (via la cost_fn con cui hai costruito J) e costa
+    indicativamente 0.3-0.6s (di più se J combina più configurazioni, es.
+    combined_cost chiama sia fan_cost che propeller_cost). Una singola
     differential_evolution con i default sotto (maxiter=60, popsize=12,
     per n_theta=6 -> popolazione iniziale 72) valuta tipicamente
     qualche migliaio di punti: anche solo UNA run può richiedere
@@ -318,8 +328,6 @@ def run_deterministic_calibration(param_names, bounds: Optional[dict] = None,
         bounds = default_bounds(param_names, tech=base_tech, wtt=base_wtt)
     bounds = {p: bounds[p] for p in param_names}  # forza l'ordine di param_names
     bounds_list = [bounds[p] for p in param_names]
-
-    J = make_objective(param_names, objective=objective, base_tech=base_tech, base_wtt=base_wtt)
 
     runs = []
 

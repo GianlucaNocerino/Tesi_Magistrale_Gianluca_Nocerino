@@ -307,3 +307,40 @@ def fan_cost(tech: TechAssumptions, wtt: WellToTankEfficiencies, **kwargs) -> tu
 def propeller_cost(tech: TechAssumptions, wtt: WellToTankEfficiencies, **kwargs) -> tuple:
     """Funzione di costo globale per i sistemi con elica (@250 kt)."""
     return global_cost("propeller", tech, wtt, **kwargs)
+
+
+def combined_cost(tech: TechAssumptions, wtt: WellToTankEfficiencies,
+                   fan_weight: float = 1.0, propeller_weight: float = 1.0,
+                   fan_kwargs: Optional[dict] = None,
+                   propeller_kwargs: Optional[dict] = None) -> tuple:
+    """Costo combinato delle due configurazioni del paper (fan @450kt,
+    propeller @250kt), pesato:
+
+        costo_totale = fan_weight * J_fan + propeller_weight * J_propeller.
+
+    fan_weight/propeller_weight: pesi globali dei due termini nella somma.
+    Di default 1.0 e 1.0 (nessun bilanciamento). Utili perché le due
+    configurazioni non hanno lo stesso numero di sistemi nel paper (3 per
+    il fan, 4 per il propeller - vedi PAPER_DATA), quindi a parità di pesi
+    il propeller tende a "pesare" un po' di più nella somma; alza
+    fan_weight se vuoi ribilanciare.
+
+    fan_kwargs/propeller_kwargs: girati così come sono a fan_cost/
+    propeller_cost rispettivamente.
+
+    Ritorna (costo_totale, dettaglio), con dettaglio =
+        {"fan": {"total": J_fan, "per_system": {...}},
+         "propeller": {"total": J_propeller, "per_system": {...}}}
+    - i due "total" qui dentro sono i costi non pesati, utili per
+      la diagnostica di quanto si adatta bene ciascun ramo separatamente
+      anche se sono stati calibrati insieme.
+    """
+    fan_kwargs = fan_kwargs or {}
+    propeller_kwargs = propeller_kwargs or {}
+    j_fan, per_system_fan = fan_cost(tech, wtt, **fan_kwargs)
+    j_prop, per_system_prop = propeller_cost(tech, wtt, **propeller_kwargs)
+    total = fan_weight * j_fan + propeller_weight * j_prop
+    return total, {
+        "fan": {"total": j_fan, "per_system": per_system_fan},
+        "propeller": {"total": j_prop, "per_system": per_system_prop},
+    }

@@ -11,6 +11,7 @@ from .cost_functions import (
     DEFAULT_NONCONVERGENCE_PENALTY,
     fan_cost,
     propeller_cost,
+    combined_cost,
     global_cost,
     system_cost,
     max_feasible_range_nmi,
@@ -24,5 +25,5 @@ from .deterministic_calibration import (
 
 __all__ = [
     "PAPER_DATA", "SYSTEM_PARAMETERS", "SHARED_PARAMETERS", "DEFAULT_NONCONVERGENCE_PENALTY",
-    "fan_cost", "propeller_cost", "global_cost", "system_cost", "max_feasible_range_nmi",
+    "fan_cost", "propeller_cost", "combined_cost", "global_cost", "system_cost", "max_feasible_range_nmi",
 ]

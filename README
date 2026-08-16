@@ -46,7 +46,8 @@ carbon_neutral_aviation/
 ├── examples/
 │   ├── plot_intensity_vs_range.py   # riproduce la Fig. 4 dell'articolo
 │   ├── plot_best_system_map.py      # riproduce la Fig. 3 dell'articolo
-│   ├── calibrate_model.py           # esempio d'uso della calibrazione
+│   ├── cost_function_computation.py # esempio d'uso delle funzioni di costo (fan/propeller/combinata)
+│   ├── deterministic_calibration_execution.py  # esecuzione della calibrazione deterministica (theta*)
 │   ├── sensitivity_analysis.py      # demo strumenti "continui" (vs range, superficie 3D)
 │   └── local_sensitivity_report.py  # esempio d'uso della Fase 3 (sensibilità locale completa)
 └── tests/

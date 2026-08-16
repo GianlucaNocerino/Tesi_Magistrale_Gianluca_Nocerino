@@ -60,6 +60,7 @@ from .calibration import (
     SHARED_PARAMETERS,
     fan_cost,
     propeller_cost,
+    combined_cost,
     global_cost,
     system_cost,
     max_feasible_range_nmi,
@@ -75,5 +76,5 @@ __all__ = [
     "EnergyCarrier", "build_energy_carriers",
     "T_to_W_definitions", "propulsive_efficiency", "atmosphere", "units",
     "PAPER_DATA", "SYSTEM_PARAMETERS", "SHARED_PARAMETERS",
-    "fan_cost", "propeller_cost", "global_cost", "system_cost", "max_feasible_range_nmi",
+    "fan_cost", "propeller_cost", "combined_cost", "global_cost", "system_cost", "max_feasible_range_nmi",
 ]
