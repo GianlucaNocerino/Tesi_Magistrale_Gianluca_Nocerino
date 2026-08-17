@@ -61,13 +61,34 @@ DE_MAXITER = 15  # per la calibrazione "vera": alza a 40-60
 DE_POPSIZE = 8   # per la calibrazione "vera": alza a 10-15
 
 # Pesi globali fan/propeller dentro combined_cost: J = fan_weight*J_fan +
-# propeller_weight*J_propeller. Di default 1.0 e 1.0 (nessun
-# bilanciamento): alzali se un ramo "domina" il compromesso sui parametri
-# condivisi (es. la config propeller ha un sistema in più nel paper,
-# Hydrogen fuel cell, quindi a parità di pesi tende a pesare di più
+# propeller_weight*J_propeller. Invece di pesi fissi, uso il reciproco
+# del costo nominale grezzo (non pesato) di ciascun ramo, così
+# J_fan(theta_nominale)*fan_weight == 1 e
+# J_propeller(theta_nominale)*propeller_weight == 1 
+# I due rami partono sulla stessa scala, e nessuno dei due domina il compromesso
+# sui parametri condivisi solo perchè parte "più grande" in valore
+# assoluto (es. la config propeller ha un sistema in più nel paper,
+# Hydrogen fuel cell, che a parità di pesi tenderebbe a pesare di più
 # nella somma).
-FAN_WEIGHT = 1.0
-PROPELLER_WEIGHT = 1.0
+tech_nominal, wtt_nominal = TechAssumptions(), WellToTankEfficiencies()
+_, nominal_detail_raw = combined_cost(tech_nominal, wtt_nominal,
+                                       fan_weight=1.0, propeller_weight=1.0)
+
+j_fan_nominal = nominal_detail_raw["fan"]["total"]
+j_propeller_nominal = nominal_detail_raw["propeller"]["total"]
+
+if j_fan_nominal <= 0 or j_propeller_nominal <= 0:
+    raise ValueError(
+        f"Costo nominale non positivo (fan={j_fan_nominal}, "
+        f"propeller={j_propeller_nominal}): impossibile usarne il "
+        f"reciproco come peso."
+    )
+
+FAN_WEIGHT = 1.0 / j_fan_nominal
+PROPELLER_WEIGHT = 1.0 / j_propeller_nominal
+
+print(f"J_fan(nominale) grezzo        = {j_fan_nominal:.4f}  -> fan_weight = {FAN_WEIGHT:.4g}")
+print(f"J_propeller(nominale) grezzo  = {j_propeller_nominal:.4f}  -> propeller_weight = {PROPELLER_WEIGHT:.4g}")
 
 # ---------------------------------------------------------------------
 # Parametri comuni a fan e propeller: un'unica voce, un unico
@@ -79,9 +100,7 @@ PROPELLER_WEIGHT = 1.0
 #     per i dettagli)
 # ---------------------------------------------------------------------
 SHARED_BOUNDS = {
-    "pax_weight_kg": (70, 130),
-    "oew_fan_b": 0.20,                      # nominale di 0.466
-    "oew_fan_c": 0.20,                      # nominale di 0.6553
+    "pax_weight_kg": (70, 130)
 }
 
 # ---------------------------------------------------------------------
@@ -102,9 +121,7 @@ PROPELLER_ONLY_BOUNDS = {
     "propeller_curve_peak_mach": 0.20,      # nominale di 0.628
     "propeller_curve_rise_rate": 0.15,      # nominale di 11.65
     "propeller_curve_decay_width": 0.20,    # nominale di 0.038
-    "ld_baseline_propeller": (16.0, 24.0),
-    "oew_prop_b": 0.20,                     # nominale di 0.8564
-    "oew_prop_c": 0.20,                     # nominale di 0.7493
+    "ld_baseline_propeller": (11.0, 19)
 }
 
 ALL_BOUNDS_SPEC = {**SHARED_BOUNDS, **FAN_ONLY_BOUNDS, **PROPELLER_ONLY_BOUNDS}
@@ -151,9 +168,10 @@ else:
 # punto theta* trovato - combined_cost li restituisce già scorporati nel
 # dettaglio, non serve nessuna funzione ausiliaria.
 # ---------------------------------------------------------------------
-tech_nominal, wtt_nominal = TechAssumptions(), WellToTankEfficiencies()
-_, nominal_detail = combined_cost(tech_nominal, wtt_nominal,
-                                   fan_weight=FAN_WEIGHT, propeller_weight=PROPELLER_WEIGHT)
+# nominal_detail_raw è già stato calcolato sopra (serviva per fissare
+# i pesi), lo riuso qui invece di richiamare combined_cost una seconda
+# volta sul nominale
+nominal_detail = nominal_detail_raw
 
 theta_star = [best_run.theta_star[p] for p in param_names]
 tech_star, wtt_star = theta_to_tech_wtt(theta_star, param_names)
