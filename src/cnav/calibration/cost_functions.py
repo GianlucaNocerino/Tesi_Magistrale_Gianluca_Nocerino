@@ -31,10 +31,10 @@ from ..model.propulsion_systems import build_default_systems
 from ..model.well_to_tank import build_energy_carriers
 
 # ---------------------------------------------------------------------
-# 1. Dati di riferimento letti dalle tabelle del paper (Fig. 4)
-#    None = il paper segna "infeasible" in quel punto (nessun confronto
-#    sull'intensity lì: il mismatch di fattibilità è già catturato dal
-#    terzo termine, max_range_nmi, per Battery-electric)
+# Dati di riferimento letti dalle tabelle del paper (Fig. 4)
+# None = il paper segna "infeasible" in quel punto (nessun confronto
+# sull'intensity lì: il mismatch di fattibilità è già catturato dal
+# terzo termine, max_range_nmi, per Battery-electric)
 # ---------------------------------------------------------------------
 
 PAPER_DATA = {
@@ -76,13 +76,13 @@ PAPER_DATA = {
 }
 
 # ---------------------------------------------------------------------
-# 2. Parametri "di competenza" di ciascun sistema: quali campi di
-#    TechAssumptions/WellToTankEfficiencies muovono principalmente
-#    l'output di quel sistema. Non usati per calcolare il costo (che
-#    valuta sempre il modello completo), ma predisposti per il passo
-#    successivo: una sensitivity analysis / ottimizzazione mirata che
-#    su ciascuna funzione di costo di sistema vari solo i parametri
-#    di sua competenza, invece di tutti i parametri del modello insieme.
+# Parametri "di competenza" di ciascun sistema: quali campi di
+# TechAssumptions/WellToTankEfficiencies muovono principalmente
+# l'output di quel sistema. Non usati per calcolare il costo (che
+# valuta sempre il modello completo), ma predisposti per il passo
+# successivo: una sensitivity analysis / ottimizzazione mirata che
+# su ciascuna funzione di costo di sistema vari solo i parametri
+# di sua competenza, invece di tutti i parametri del modello insieme.
 # ---------------------------------------------------------------------
 
 SYSTEM_PARAMETERS = {
@@ -143,8 +143,8 @@ def _normalized_sq_residual(model_val: float, target_val: float,
 
 
 # ---------------------------------------------------------------------
-# 3. Range massimo fattibile per la batteria (non è un output diretto
-#    del modello: va ricavato per bisezione su sizing.converged)
+# Range massimo fattibile per la batteria (non è un output diretto
+# del modello: va ricavato per bisezione su sizing.converged)
 # ---------------------------------------------------------------------
 
 def max_feasible_range_nmi(tech: TechAssumptions, wtt: WellToTankEfficiencies,
@@ -187,7 +187,7 @@ def max_feasible_range_nmi(tech: TechAssumptions, wtt: WellToTankEfficiencies,
 
 
 # ---------------------------------------------------------------------
-# 4. Funzione di costo di un singolo sistema propulsivo
+# Funzione di costo di un singolo sistema propulsivo
 # ---------------------------------------------------------------------
 
 def system_cost(system_name: str, propulsor: str, tech: TechAssumptions,
@@ -253,8 +253,8 @@ def system_cost(system_name: str, propulsor: str, tech: TechAssumptions,
 
 
 # ---------------------------------------------------------------------
-# 5. Funzioni di costo globali (fan / propeller): somma pesata dei
-#    costi di sistema
+# Funzioni di costo globali (fan / propeller): somma pesata dei
+# costi di sistema
 # ---------------------------------------------------------------------
 
 def global_cost(propulsor: str, tech: TechAssumptions, wtt: WellToTankEfficiencies,

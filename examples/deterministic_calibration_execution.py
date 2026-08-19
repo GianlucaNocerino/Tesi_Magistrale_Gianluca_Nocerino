@@ -53,12 +53,12 @@ from cnav.calibration import (
 # ---------------------------------------------------------------------
 # Budget di calcolo (abbassali/alzali qui)
 # ---------------------------------------------------------------------
-N_DE_RUNS = 1    # differential_evolution ripetuta N_DE_RUNS volte (seed diversi):
+N_DE_RUNS = 5    # differential_evolution ripetuta N_DE_RUNS volte (seed diversi):
                  # è il modo per avere "più punti iniziali diversi"
                  # con un metodo globale popolazione-based come DE.
                  # Per la calibrazione "vera": alza a 3-5.
-DE_MAXITER = 15  # per la calibrazione "vera": alza a 40-60
-DE_POPSIZE = 8   # per la calibrazione "vera": alza a 10-15
+DE_MAXITER = 60  # per la calibrazione "vera": alza a 40-60
+DE_POPSIZE = 15   # per la calibrazione "vera": alza a 10-15
 
 # Pesi globali fan/propeller dentro combined_cost: J = fan_weight*J_fan +
 # propeller_weight*J_propeller. Invece di pesi fissi, uso il reciproco
@@ -100,7 +100,7 @@ print(f"J_propeller(nominale) grezzo  = {j_propeller_nominal:.4f}  -> propeller_
 #     per i dettagli)
 # ---------------------------------------------------------------------
 SHARED_BOUNDS = {
-    "pax_weight_kg": (70, 130)
+    "pax_weight_kg": 0.15                   # nominale di 100
 }
 
 # ---------------------------------------------------------------------
@@ -108,9 +108,8 @@ SHARED_BOUNDS = {
 # nel calcolo di J_propeller, quindi si calibrano solo rispetto a J_fan.
 # ---------------------------------------------------------------------
 FAN_ONLY_BOUNDS = {
-    "fan_pressure_ratio": 0.20,             # nominale di 1.5
-    "fan_scaling_mach_ref": (0.5, 0.9),
-    "ld_baseline_fan": (16.0, 24.0),
+    "fan_pressure_ratio": 0.30,             # nominale di 1.5
+    "fan_scaling_mach_ref": (0.7, 0.9)
 }
 
 # ---------------------------------------------------------------------
@@ -118,10 +117,9 @@ FAN_ONLY_BOUNDS = {
 # compaiono nel calcolo di J_fan, si calibrano solo rispetto a J_propeller.
 # ---------------------------------------------------------------------
 PROPELLER_ONLY_BOUNDS = {
-    "propeller_curve_peak_mach": 0.20,      # nominale di 0.628
-    "propeller_curve_rise_rate": 0.15,      # nominale di 11.65
-    "propeller_curve_decay_width": 0.20,    # nominale di 0.038
-    "ld_baseline_propeller": (11.0, 19)
+    "propeller_curve_peak_mach": 0.50,      # nominale di 0.628
+    "propeller_curve_rise_rate": 0.50,      # nominale di 11.65
+    "propeller_curve_decay_width": 0.50    # nominale di 0.038
 }
 
 ALL_BOUNDS_SPEC = {**SHARED_BOUNDS, **FAN_ONLY_BOUNDS, **PROPELLER_ONLY_BOUNDS}
@@ -159,7 +157,7 @@ print(df_runs[["method", "cost", "success", "n_eval"]].to_string(index=False))
 near_best, equifinality_suspected = summarize_multiple_minima(df_runs, rel_tol=0.05)
 if equifinality_suspected:
     print("\n  ATTENZIONE: tra i tentativi entro il 5% dal costo minimo, theta* varia "
-          "in modo apprezzabile: possibile equifinality (da approfondire al par. 5.2).")
+          "in modo apprezzabile: possibile equifinality")
 else:
     print("\n  Nessun indizio preliminare di più minimi ben separati")
 
@@ -168,31 +166,41 @@ else:
 # punto theta* trovato - combined_cost li restituisce già scorporati nel
 # dettaglio, non serve nessuna funzione ausiliaria.
 # ---------------------------------------------------------------------
+
 # nominal_detail_raw è già stato calcolato sopra (serviva per fissare
-# i pesi), lo riuso qui invece di richiamare combined_cost una seconda
-# volta sul nominale
+# i pesi della combined cost function), lo riuso qui invece di richiamare 
+# combined_cost una seconda volta sul nominale
 nominal_detail = nominal_detail_raw
 
-theta_star = [best_run.theta_star[p] for p in param_names]
-tech_star, wtt_star = theta_to_tech_wtt(theta_star, param_names)
-_, star_detail = combined_cost(tech_star, wtt_star,
-                                fan_weight=FAN_WEIGHT, propeller_weight=PROPELLER_WEIGHT)
+df_runs_sorted = df_runs.sort_values("cost").reset_index(drop=True)
 
-for label, key in [("FAN", "fan"), ("PROPELLER", "propeller")]:
-    j_nominal = nominal_detail[key]["total"]
-    j_star = star_detail[key]["total"]
-    print(f"\n{'=' * 70}\nRISULTATO {label}\n{'=' * 70}")
-    print(f"  J(theta_nominale) = {j_nominal:8.4f}")
-    print(f"  J(theta*)          = {j_star:8.4f}")
-    print(f"  Riduzione: {100 * (1 - j_star / j_nominal):.1f}%")
-    print("\n  Dettaglio costo per sistema, con theta*:")
-    for name, c in star_detail[key]["per_system"].items():
-        print(f"    {name:25s} {c:8.4f}")
+for i, row in df_runs_sorted.iterrows():
+    is_best = (i == 0)
+    run_theta_star = [row[f"theta_{p}"] for p in param_names]
+    tech_star, wtt_star = theta_to_tech_wtt(run_theta_star, param_names)
+    _, star_detail = combined_cost(tech_star, wtt_star,
+                                    fan_weight=FAN_WEIGHT, propeller_weight=PROPELLER_WEIGHT)
 
-print(f"\n{'=' * 70}\nTHETA* (valori calibrati, condivisi + specifici)\n{'=' * 70}")
-for group_label, group in [("condiviso", SHARED_BOUNDS), ("solo-fan", FAN_ONLY_BOUNDS),
-                            ("solo-propeller", PROPELLER_ONLY_BOUNDS)]:
-    for p in group:
-        nominal_val = getattr(tech_nominal, p) if hasattr(tech_nominal, p) else getattr(wtt_nominal, p)
-        print(f"  [{group_label:14s}] {p:35s} nominale={nominal_val:10.4g}   "
-              f"calibrato={best_run.theta_star[p]:10.4g}")
+    header = f"RUN #{i + 1}  [{row['method']}]  costo J = {row['cost']:.6g}"
+    if is_best:
+        header += "   <-- MIGLIORE"
+    print(f"\n\n{'#' * 70}\n{header}\n{'#' * 70}")
+
+    for label, key in [("FAN", "fan"), ("PROPELLER", "propeller")]:
+        j_nominal = nominal_detail[key]["total"]
+        j_star = star_detail[key]["total"]
+        print(f"\n{'=' * 70}\nRISULTATO {label}\n{'=' * 70}")
+        print(f"  J(theta_nominale) = {j_nominal:8.4f}")
+        print(f"  J(theta*)          = {j_star:8.4f}")
+        print(f"  Riduzione: {100 * (1 - j_star / j_nominal):.1f}%")
+        print("\n  Dettaglio costo per sistema, con theta*:")
+        for name, c in star_detail[key]["per_system"].items():
+            print(f"    {name:25s} {c:8.4f}")
+
+    print(f"\n{'=' * 70}\nTHETA* (valori calibrati, condivisi + specifici)\n{'=' * 70}")
+    for group_label, group in [("condiviso", SHARED_BOUNDS), ("solo-fan", FAN_ONLY_BOUNDS),
+                                ("solo-propeller", PROPELLER_ONLY_BOUNDS)]:
+        for p in group:
+            nominal_val = getattr(tech_nominal, p) if hasattr(tech_nominal, p) else getattr(wtt_nominal, p)
+            print(f"  [{group_label:14s}] {p:35s} nominale={nominal_val:10.4g}   "
+                  f"calibrato={row[f'theta_{p}']:10.4g}")
