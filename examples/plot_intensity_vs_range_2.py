@@ -2,7 +2,7 @@
 Riproduce la Fig. 4 dell'articolo: Electricity Intensity [MJ/(pax*nmi)] 
 in funzione del range, a velocità di crociera fissata, 
 un pannello per i velivoli a getto/fan e uno per quelli a elica.
-Dopo aver effettuato la prima calibrazione...
+Dopo aver effettuato la terza calibrazione...
 
 Uso:
     python examples/plot_intensity_vs_range_1.py
@@ -18,8 +18,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from cnav import (Mission, TechAssumptions, WellToTankEfficiencies,
                    build_default_systems, build_energy_carriers, compute_intensity)
 
-tech1 = TechAssumptions()
-tech = tech1.with_changes(pax_weight_kg=85.02, fan_pressure_ratio=1.056, fan_scaling_mach_ref=0.7025, propeller_curve_peak_mach=0.4094, propeller_curve_rise_rate=17.24, propeller_curve_decay_width=0.01913)
+tech2 = TechAssumptions()
+tech = tech2.with_changes(pax_weight_kg=75, fan_pressure_ratio=1.3, fan_scaling_mach_ref=0.78, propeller_curve_peak_mach=0.4899, propeller_curve_rise_rate=7.504, propeller_curve_decay_width=0.03354)
 wtt = WellToTankEfficiencies()
 systems = build_default_systems(build_energy_carriers(wtt))
 
@@ -51,6 +51,6 @@ axes[0].legend(loc="upper right", fontsize=8)
 axes[-1].set_xlabel("Range [nmi]")
 fig.tight_layout()
 
-out_path = Path(__file__).resolve().parent / "intensity_vs_range_1.png"
+out_path = Path(__file__).resolve().parent / "intensity_vs_range_2.png"
 fig.savefig(out_path, dpi=150)
 print(f"Grafico salvato in: {out_path}")

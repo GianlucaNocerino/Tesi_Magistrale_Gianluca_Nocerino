@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
 
 from ..calibration.cost_functions import max_feasible_range_nmi
 from ..model.constants import TechAssumptions, WellToTankEfficiencies
@@ -503,3 +504,140 @@ def plot_all_condition_tornados(df_elasticities: pd.DataFrame, top_n=None, thres
         plot_condition_tornado(df_elasticities, condition=row["condition"],
                                 system_name=row["system_name"], output=row["output"],
                                 top_n=top_n, threshold=threshold)
+
+# ---------------------------------------------------------------------
+# Indice di elasticità medio dei parametri rilevanti, per sistema
+#
+#    "Rilevante" = stesso criterio di selezione usato dai tornado plot
+#    (plot_tornado_from_sweep/plot_condition_tornado): |elasticità| >
+#    threshold. Qui non si ricalcola nulla: si riusa df_elasticities
+#    (output di run_local_sensitivity_report) e si applica lo stesso
+#    filtro, poi si fa la media SOLO sulle condizioni in cui il
+#    parametro ha effettivamente superato la soglia (cioè sulle
+#    condizioni in cui sarebbe comparso nel tornado plot). Le condizioni
+#    in cui il parametro non è rilevante non entrano nella media
+#
+# ---------------------------------------------------------------------
+
+def average_relevant_elasticities(df_elasticities: pd.DataFrame, threshold: float,
+                                   group_cols=("system_name", "propulsor", "output")) -> pd.DataFrame:
+    """Per ogni combinazione di group_cols (default: sistema, propulsore,
+    output) e per ogni parametro, calcola l'indice di elasticità medio
+    S_loc sulle sole condizioni operative in cui |S_loc| > threshold
+    (cioè le condizioni in cui il parametro comparirebbe nel tornado
+    plot corrispondente).
+
+    threshold non ha un default apposta: deve coincidere con quello
+    usato per generare i tornado plot che si vogliono riassumere (es.
+    examples/local_sensitivity_report.py chiama
+    plot_all_condition_tornados(df_elasticities, threshold=0.05), se
+    qui si passasse un valore diverso, "parametro rilevante" avrebbe un
+    significato diverso da quello dei tornado plot effettivamente
+    generati, ed è esattamente l'ambiguità da evitare.
+
+    Ritorna un DataFrame con una riga per (system_name, propulsor,
+    output, param_name, category):
+    - mean_elasticity: media di S_loc (con segno) sulle condizioni rilevanti
+    - std_elasticity: deviazione standard di S_loc sulle stesse condizioni
+      (NaN se n_relevant == 1); utile per capire se il segno/l'ordine di
+      grandezza è stabile o cambia tra le condizioni (es. vicino a un
+      confine tra tecnologie)
+    - mean_abs_elasticity: media di |S_loc|, usata per l'ordinamento -
+      non si vuole che un parametro che oscilla di segno tra condizioni
+      diverse (media con segno vicina a 0) sembri poco influente
+    - n_relevant: in quante condizioni il parametro è risultato rilevante
+    - n_conditions_total: quante condizioni sono state valutate in totale
+      per quella combinazione (n_relevant/n_conditions_total dà una
+      misura di quanto "sistematicamente" rilevante sia il parametro,
+      non solo isolato in un punto)
+    """
+    group_cols = list(group_cols)
+    total_counts = (df_elasticities.groupby(group_cols)["condition"]
+                     .nunique().rename("n_conditions_total").reset_index())
+
+    relevant = df_elasticities[df_elasticities["elasticity"].abs() > threshold]
+    if relevant.empty:
+        return pd.DataFrame(columns=group_cols + ["param_name", "category", "mean_elasticity",
+                                                    "std_elasticity", "mean_abs_elasticity",
+                                                    "std_abs_elasticity", "n_relevant",
+                                                    "n_conditions_total"])
+
+    grouped = (relevant.groupby(group_cols + ["param_name", "category"])
+               .agg(mean_elasticity=("elasticity", "mean"),
+                    std_elasticity=("elasticity", "std"),
+                    mean_abs_elasticity=("elasticity", lambda s: s.abs().mean()),
+                    std_abs_elasticity=("elasticity", lambda s: s.abs().std()),
+                    n_relevant=("elasticity", "count"))
+               .reset_index())
+    grouped = grouped.merge(total_counts, on=group_cols, how="left")
+    grouped = grouped.sort_values(group_cols + ["mean_abs_elasticity"],
+                                   ascending=[True] * len(group_cols) + [False])
+    return grouped.reset_index(drop=True)
+
+
+def plot_average_elasticity(df_avg: pd.DataFrame, system_name: str, propulsor: str,
+                             output: str = "intensity", top_n=None, min_n_relevant: int = 2,
+                             title: str = None):
+    """Tornado-style plot dell'indice di elasticità medio (da
+    average_relevant_elasticities) per un singolo (system_name,
+    propulsor, output), es. plot_average_elasticity(df_avg,
+    "Battery-electric", "fan").
+
+    Le barre di errore mostrano ±1 deviazione standard tra le condizioni
+    su cui è stata fatta la media (solo se n_relevant > 1). L'etichetta
+    di ogni parametro riporta anche "n=n_relevant/n_conditions_total",
+    per distinguere a colpo d'occhio un parametro rilevante quasi
+    ovunque da uno rilevante solo in una condizione isolata.
+
+    min_n_relevant: mostra solo i parametri rilevanti in almeno questo
+    numero di condizioni (default 2, non 1: con n_relevant=1 la "media"
+    coincide col valore di un'unica condizione - vedi il docstring di
+    average_relevant_elasticities - e mescolarla senza distinzione con
+    medie vere su più condizioni nello stesso grafico è fuorviante;
+    passa min_n_relevant=1 esplicitamente se vuoi comunque vederli).
+    """
+    subset = df_avg[
+        (df_avg["system_name"] == system_name) &
+        (df_avg["propulsor"] == propulsor) &
+        (df_avg["output"] == output)
+    ].copy()
+    subset = subset[subset["n_relevant"] >= min_n_relevant]
+    subset = subset.sort_values("mean_abs_elasticity")
+    if top_n is not None:
+        subset = subset.tail(top_n)
+
+    if subset.empty:
+        print(f"Nessun dato da plottare per system_name={system_name!r}, "
+              f"propulsor={propulsor!r}, output={output!r}.")
+        return
+
+    labels = [f"{row.param_name}  (n={row.n_relevant}/{row.n_conditions_total})"
+              for row in subset.itertuples()]
+    values = subset["mean_abs_elasticity"].tolist()
+    errs = subset["std_abs_elasticity"].fillna(0.0).tolist()
+
+    if title is None:
+        out_label = "Range massimo fattibile" if output == "max_range_nmi" else "Electricity Intensity"
+        title = (f'Tornado Plot - Elasticità media assoluta (parametri rilevanti)\n'
+                  f'{system_name} ({propulsor}) — {out_label}')
+
+    plt.figure(figsize=(10, 6))
+    plt.barh(labels, values, xerr=errs, color='#4c72b0', edgecolor='black', capsize=3)
+    plt.xlabel('Media di |Indice di Elasticità|', fontsize=12)
+    plt.title(title, fontsize=14)
+    plt.grid(axis='x', linestyle='--', alpha=0.7)
+    plt.tight_layout()
+    plt.show(block=False)
+
+def plot_all_average_elasticities(df_avg: pd.DataFrame, top_n=None, min_n_relevant: int = 2):
+    """Genera un plot_average_elasticity per ogni combinazione
+    (system_name, propulsor, output) presente in df_avg, comodo per
+    rivedere tutti i sistemi/propulsori in un colpo solo, invece di
+    richiamare plot_average_elasticity singolarmente per ciascuno.
+    Analoga a plot_all_condition_tornados, ma sui dati aggregati invece
+    che sulle singole condizioni
+    """
+    combos = df_avg[["system_name", "propulsor", "output"]].drop_duplicates()
+    for _, row in combos.iterrows():
+        plot_average_elasticity(df_avg, system_name=row["system_name"], propulsor=row["propulsor"],
+                                 output=row["output"], top_n=top_n, min_n_relevant=min_n_relevant)

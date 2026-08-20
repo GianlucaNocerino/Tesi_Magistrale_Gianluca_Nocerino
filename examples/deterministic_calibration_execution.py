@@ -104,7 +104,7 @@ print(f"J_propeller(nominale) grezzo  = {j_propeller_nominal:.4f}  -> propeller_
 #     per i dettagli)
 # ---------------------------------------------------------------------
 SHARED_BOUNDS = {
-    "pax_weight_kg": 0.15                   # nominale di 100
+    "pax_weight_kg": (75, 105)                   
 }
 
 # ---------------------------------------------------------------------
@@ -112,8 +112,8 @@ SHARED_BOUNDS = {
 # nel calcolo di J_propeller, quindi si calibrano solo rispetto a J_fan.
 # ---------------------------------------------------------------------
 FAN_ONLY_BOUNDS = {
-    "fan_pressure_ratio": 0.30,             # nominale di 1.5
-    "fan_scaling_mach_ref": (0.7, 0.9)
+    "fan_pressure_ratio": (1.3, 1.55),
+    "fan_scaling_mach_ref": (0.78, 0.85)
 }
 
 # ---------------------------------------------------------------------
@@ -121,9 +121,9 @@ FAN_ONLY_BOUNDS = {
 # compaiono nel calcolo di J_fan, si calibrano solo rispetto a J_propeller.
 # ---------------------------------------------------------------------
 PROPELLER_ONLY_BOUNDS = {
-    "propeller_curve_peak_mach": 0.50,      # nominale di 0.628
-    "propeller_curve_rise_rate": 0.50,      # nominale di 11.65
-    "propeller_curve_decay_width": 0.50    # nominale di 0.038
+    "propeller_curve_peak_mach": (0.45, 0.60),      
+    "propeller_curve_rise_rate": (5, 20), 
+    "propeller_curve_decay_width": (0.02, 0.08)
 }
 
 ALL_BOUNDS_SPEC = {**SHARED_BOUNDS, **FAN_ONLY_BOUNDS, **PROPELLER_ONLY_BOUNDS}

@@ -4,7 +4,10 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
-from cnav.sensitivity.local_sensitivity import run_local_sensitivity_report, plot_all_condition_tornados
+from cnav.sensitivity.local_sensitivity import (
+    run_local_sensitivity_report, plot_all_condition_tornados,
+    average_relevant_elasticities, plot_all_average_elasticities,
+)
 
 """
 Analisi di sensibilità locale:
@@ -59,6 +62,17 @@ else:
 # numero (top_n=None, il default).
 print("\n(genero un tornado plot per ogni condizione/sistema/output)")
 plot_all_condition_tornados(df_elasticities, threshold=0.05)
+
+# Indice di elasticità medio (dei valori assoluti) dei parametri rilevanti,
+# per sistema/propulsore/output: media calcolata solo sulle condizioni in
+# cui il parametro supera la stessa soglia usata sopra per i tornado plot
+# (0.05, non a caso)
+df_avg = average_relevant_elasticities(df_elasticities, threshold=0.05)
+print("\n=== Elasticità media assoluta dei parametri rilevanti, per sistema/propulsore/output ===")
+print(df_avg.to_string(index=False))
+
+print("\n(genero un tornado plot dell'elasticità media assoluta per ogni sistema/propulsore/output)")
+plot_all_average_elasticities(df_avg)
 
 plt.show()
 
