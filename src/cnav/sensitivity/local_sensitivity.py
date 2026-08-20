@@ -577,7 +577,7 @@ def average_relevant_elasticities(df_elasticities: pd.DataFrame, threshold: floa
 
 def plot_average_elasticity(df_avg: pd.DataFrame, system_name: str, propulsor: str,
                              output: str = "intensity", top_n=None, min_n_relevant: int = 2,
-                             title: str = None):
+                             title: str = None, reference_line: float = None):
     """Tornado-style plot dell'indice di elasticità medio (da
     average_relevant_elasticities) per un singolo (system_name,
     propulsor, output), es. plot_average_elasticity(df_avg,
@@ -623,13 +623,18 @@ def plot_average_elasticity(df_avg: pd.DataFrame, system_name: str, propulsor: s
 
     plt.figure(figsize=(10, 6))
     plt.barh(labels, values, xerr=errs, color='#4c72b0', edgecolor='black', capsize=3)
+    if reference_line is not None:
+        plt.axvline(reference_line, color='black', linestyle='--', linewidth=1.2,
+                    label=f'riferimento = {reference_line}')
+        plt.legend(loc='lower right', fontsize=9)
     plt.xlabel('Media di |Indice di Elasticità|', fontsize=12)
     plt.title(title, fontsize=14)
     plt.grid(axis='x', linestyle='--', alpha=0.7)
     plt.tight_layout()
     plt.show(block=False)
 
-def plot_all_average_elasticities(df_avg: pd.DataFrame, top_n=None, min_n_relevant: int = 2):
+def plot_all_average_elasticities(df_avg: pd.DataFrame, top_n=None, min_n_relevant: int = 2, 
+                                  reference_line: float = None):
     """Genera un plot_average_elasticity per ogni combinazione
     (system_name, propulsor, output) presente in df_avg, comodo per
     rivedere tutti i sistemi/propulsori in un colpo solo, invece di
@@ -640,4 +645,5 @@ def plot_all_average_elasticities(df_avg: pd.DataFrame, top_n=None, min_n_releva
     combos = df_avg[["system_name", "propulsor", "output"]].drop_duplicates()
     for _, row in combos.iterrows():
         plot_average_elasticity(df_avg, system_name=row["system_name"], propulsor=row["propulsor"],
-                                 output=row["output"], top_n=top_n, min_n_relevant=min_n_relevant)
+                                 output=row["output"], top_n=top_n, min_n_relevant=min_n_relevant, 
+                                 reference_line=reference_line)
