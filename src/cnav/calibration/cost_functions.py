@@ -40,70 +40,39 @@ from ..model.well_to_tank import build_energy_carriers
 PAPER_DATA = {
     "fan": {
         "speed_kt": 450,
-        "ranges_nmi": [10, 20, 50, 100, 200, 500, 1000, 2000, 5000, 10000],
+        "ranges_nmi": [1, 10, 20, 30, 40, 50, 80, 100, 120, 150, 200, 300, 400, 500, 1000, 2000, 4000, 6000, 8000, 10000],
         "systems": {
             "Battery-electric": {
-                "intensity": [6.36, 6.63, None, None, None, None, None, None, None, None],
+                "intensity": [None, 6.36, 6.63, 11.85, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None],
                 "max_range_nmi": 31.0,  # "infeasible (>31 nmi)" al Range=50
             },
             "e-SAF combustion": {
-                "intensity": [8.76, 7.16, 6.18, 5.87, 5.70, 5.15, 4.81, 4.68, 5.09, 6.03],
+                "intensity": [None, 8.76, 7.16, 6.58, 6.33, 6.18, 5.91, 5.87, 5.77, 5.77, 5.70, 5.48, 5.27, 5.15, 4.81, 4.68, 4.92, 5.27, 5.70, 6.03],
             },
             "Hydrogen combustion": {
-                "intensity": [5.90, 4.82, 4.17, 3.95, 3.83, 3.44, 3.21, 3.10, 3.34, 4.06],
+                "intensity": [None, 5.90, 4.82, 4.42, 4.28, 4.17, 4.00, 3.95, 3.86, 3.86, 3.83, 3.64, 3.50, 3.44, 3.21, 3.10, 3.22, 3.47, 3.79, 4.06],
             },
         },
     },
     "propeller": {
         "speed_kt": 250,
-        "ranges_nmi": [10, 20, 50, 100, 200, 500, 1000, 2000, 5000, 10000],
+        "ranges_nmi": [1, 10, 20, 30, 40, 50, 80, 100, 120, 150, 200, 300, 400, 500, 1000, 2000, 4000, 6000, 8000, 10000],
         "systems": {
             "Battery-electric": {
-                "intensity": [1.42, 1.41, 2.29, None, None, None, None, None, None, None],
+                "intensity": [None, 1.42, 1.41, 1.59, 1.84, 2.29, None, None, None, None, None, None, None, None, None, None, None, None, None, None],
                 "max_range_nmi": 79.0,  # "infeasible (>79 nmi)" al Range=100
             },
             "e-SAF combustion": {
-                "intensity": [9.97, 9.39, 9.07, 8.96, 8.40, 7.49, 6.95, 7.17, 9.17, 12.12],
+                "intensity": [None, 9.97, 9.39, 9.23, 9.13, 9.07, 9.02, 8.96, 8.81, 8.63, 8.40, 7.96, 7.68, 7.49, 6.95, 7.17, 8.49, 10.01, 11.29, 12.12],
             },
             "Hydrogen combustion": {
-                "intensity": [6.99, 6.59, 6.33, 6.21, 5.75, 5.04, 4.65, 4.78, 6.11, 8.81],
+                "intensity": [None, 6.99, 6.59, 6.47, 6.40, 6.33, 6.26, 6.21, 6.12, 5.91, 5.75, 5.41, 5.20, 5.04, 4.65, 4.78, 5.66, 6.72, 7.85, 8.81],
             },
             "Hydrogen fuel cell": {
-                "intensity": [6.31, 5.71, 5.34, 5.16, 4.56, 3.93, 3.79, 4.14, 5.85, 9.83],
+                "intensity": [None, 6.31, 5.71, 5.48, 5.41, 5.34, 5.20, 5.16, 4.99, 4.78, 4.56, 4.21, 4.07, 3.93, 3.79, 4.14, 5.31, 6.50, 8.42, 9.83],
             },
         },
     },
-}
-
-# ---------------------------------------------------------------------
-# Parametri "di competenza" di ciascun sistema: quali campi di
-# TechAssumptions/WellToTankEfficiencies muovono principalmente
-# l'output di quel sistema. Non usati per calcolare il costo (che
-# valuta sempre il modello completo), ma predisposti per il passo
-# successivo: una sensitivity analysis / ottimizzazione mirata che
-# su ciascuna funzione di costo di sistema vari solo i parametri
-# di sua competenza, invece di tutti i parametri del modello insieme.
-# ---------------------------------------------------------------------
-
-SYSTEM_PARAMETERS = {
-    "Battery-electric": [
-        "e_battery_Wh_per_kg", "eta_battery", "eta_motor",
-        "motor_specific_power_kW_per_kg", "battery_oew_fraction",
-        "delta_TMS_N_per_kW", "kappa_TMS_kg_per_kW", "electricity",
-    ],
-    "e-SAF combustion": [
-        "e_saf",
-    ],
-    "Hydrogen combustion": [
-        "gamma_tank", "hydrogen_empty_weight_multiplier", "hydrogen_ld_multiplier",
-        "liquid_hydrogen",
-    ],
-    "Hydrogen fuel cell": [
-        "eta_fuel_cell", "fuel_cell_specific_power_kW_per_kg", "gamma_tank",
-        "hydrogen_empty_weight_multiplier", "hydrogen_ld_multiplier",
-        "delta_TMS_N_per_kW", "kappa_TMS_kg_per_kW", "liquid_hydrogen",
-        "motor_specific_power_kW_per_kg", "eta_motor",
-    ],
 }
 
 # parametri condivisi da (quasi) tutti i sistemi: dimensionamento
@@ -195,7 +164,7 @@ def system_cost(system_name: str, propulsor: str, tech: TechAssumptions,
                  range_weights: Optional[list] = None,
                  intensity_norm_values: Optional[list] = None,
                  nonconvergence_penalty: float = DEFAULT_NONCONVERGENCE_PENALTY,
-                 range_term_weight: float = 1.0,
+                 range_term_weight: float = 10.0,
                  range_norm_value: Optional[float] = None) -> float:
     """WLS di un sistema in una configurazione (fan @450kt oppure
     propeller @250kt): somma sui 10 Range del paper degli scarti

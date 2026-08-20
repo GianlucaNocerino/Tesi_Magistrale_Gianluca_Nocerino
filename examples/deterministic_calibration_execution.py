@@ -60,6 +60,9 @@ N_DE_RUNS = 5    # differential_evolution ripetuta N_DE_RUNS volte (seed diversi
 DE_MAXITER = 60  # per la calibrazione "vera": alza a 40-60
 DE_POPSIZE = 15   # per la calibrazione "vera": alza a 10-15
 
+RANGE_WEIGHTS = [1, 5.0, 5.0, 5.0, 3.0, 3.0, 2.0, 2.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]  # per modificare 
+# i pesi della funzione di costo ai diversi valori del Range
+
 # Pesi globali fan/propeller dentro combined_cost: J = fan_weight*J_fan +
 # propeller_weight*J_propeller. Invece di pesi fissi, uso il reciproco
 # del costo nominale grezzo (non pesato) di ciascun ramo, così
@@ -72,7 +75,8 @@ DE_POPSIZE = 15   # per la calibrazione "vera": alza a 10-15
 # nella somma).
 tech_nominal, wtt_nominal = TechAssumptions(), WellToTankEfficiencies()
 _, nominal_detail_raw = combined_cost(tech_nominal, wtt_nominal,
-                                       fan_weight=1.0, propeller_weight=1.0)
+                                       fan_weight=1.0, propeller_weight=1.0,fan_kwargs={"range_weights": RANGE_WEIGHTS}, 
+                                       propeller_kwargs={"range_weights": RANGE_WEIGHTS})
 
 j_fan_nominal = nominal_detail_raw["fan"]["total"]
 j_propeller_nominal = nominal_detail_raw["propeller"]["total"]
@@ -139,7 +143,8 @@ for p in param_names:
 # J costruita qui, esplicitamente, a partire da combined_cost
 J = make_objective(
     combined_cost, param_names,
-    cost_kwargs=dict(fan_weight=FAN_WEIGHT, propeller_weight=PROPELLER_WEIGHT),
+    cost_kwargs=dict(fan_weight=FAN_WEIGHT, propeller_weight=PROPELLER_WEIGHT, fan_kwargs={"range_weights": RANGE_WEIGHTS}, 
+    propeller_kwargs={"range_weights": RANGE_WEIGHTS})
 )
 
 t0 = time.time()
@@ -179,7 +184,8 @@ for i, row in df_runs_sorted.iterrows():
     run_theta_star = [row[f"theta_{p}"] for p in param_names]
     tech_star, wtt_star = theta_to_tech_wtt(run_theta_star, param_names)
     _, star_detail = combined_cost(tech_star, wtt_star,
-                                    fan_weight=FAN_WEIGHT, propeller_weight=PROPELLER_WEIGHT)
+                                    fan_weight=FAN_WEIGHT, propeller_weight=PROPELLER_WEIGHT, fan_kwargs={"range_weights": RANGE_WEIGHTS},
+                                    propeller_kwargs={"range_weights": RANGE_WEIGHTS})
 
     header = f"RUN #{i + 1}  [{row['method']}]  costo J = {row['cost']:.6g}"
     if is_best:
