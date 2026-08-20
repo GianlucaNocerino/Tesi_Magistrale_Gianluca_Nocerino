@@ -75,6 +75,37 @@ PAPER_DATA = {
     },
 }
 
+# ---------------------------------------------------------------------
+# Parametri "di competenza" di ciascun sistema: quali campi di
+# TechAssumptions/WellToTankEfficiencies muovono principalmente
+# l'output di quel sistema. Non usati per calcolare il costo (che
+# valuta sempre il modello completo), ma predisposti per il passo
+# successivo: una sensitivity analysis / ottimizzazione mirata che
+# su ciascuna funzione di costo di sistema vari solo i parametri
+# di sua competenza, invece di tutti i parametri del modello insieme.
+# ---------------------------------------------------------------------
+
+SYSTEM_PARAMETERS = {
+    "Battery-electric": [
+        "e_battery_Wh_per_kg", "eta_battery", "eta_motor",
+        "motor_specific_power_kW_per_kg", "battery_oew_fraction",
+        "delta_TMS_N_per_kW", "kappa_TMS_kg_per_kW", "electricity",
+    ],
+    "e-SAF combustion": [
+        "e_saf",
+    ],
+    "Hydrogen combustion": [
+        "gamma_tank", "hydrogen_empty_weight_multiplier", "hydrogen_ld_multiplier",
+        "liquid_hydrogen",
+    ],
+    "Hydrogen fuel cell": [
+        "eta_fuel_cell", "fuel_cell_specific_power_kW_per_kg", "gamma_tank",
+        "hydrogen_empty_weight_multiplier", "hydrogen_ld_multiplier",
+        "delta_TMS_N_per_kW", "kappa_TMS_kg_per_kW", "liquid_hydrogen",
+        "motor_specific_power_kW_per_kg", "eta_motor",
+    ],
+}
+
 # parametri condivisi da (quasi) tutti i sistemi: dimensionamento
 # generale del velivolo, non specifici di un vettore energetico
 SHARED_PARAMETERS = [
