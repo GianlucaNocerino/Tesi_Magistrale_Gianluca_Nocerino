@@ -552,8 +552,12 @@ def average_relevant_elasticities(df_elasticities: pd.DataFrame, threshold: floa
       non solo isolato in un punto)
     """
     group_cols = list(group_cols)
-    total_counts = (df_elasticities.groupby(group_cols)["condition"]
-                     .nunique().rename("n_conditions_total").reset_index())
+    total_counts = (df_elasticities
+                     .drop_duplicates(subset=group_cols + ["condition", "system_name"])
+                     .groupby(group_cols)
+                     .size()
+                     .rename("n_conditions_total")
+                     .reset_index())
 
     relevant = df_elasticities[df_elasticities["elasticity"].abs() > threshold]
     if relevant.empty:
@@ -647,3 +651,65 @@ def plot_all_average_elasticities(df_avg: pd.DataFrame, top_n=None, min_n_releva
         plot_average_elasticity(df_avg, system_name=row["system_name"], propulsor=row["propulsor"],
                                  output=row["output"], top_n=top_n, min_n_relevant=min_n_relevant, 
                                  reference_line=reference_line)
+
+def average_relevant_elasticities_by_propulsor(df_elasticities: pd.DataFrame,
+                                                 threshold: float) -> pd.DataFrame:
+    """Wrapper di average_relevant_elasticities con group_cols=("propulsor",
+    "output"): aggrega su tutti i sistemi e tutte le condizioni, invece
+    che sistema per sistema."""
+    return average_relevant_elasticities(df_elasticities, threshold=threshold,
+                                          group_cols=("propulsor", "output"))
+
+
+def plot_average_elasticity_by_propulsor(df_avg_propulsor: pd.DataFrame, propulsor: str,
+                                          output: str = "intensity", top_n=None, min_n_relevant: int = 2,
+                                          title: str = None, reference_line: float = None):
+    """Tornado-style plot dell'elasticità media assoluta, aggregato su
+    TUTTI i sistemi propulsivi che condividono lo stesso propulsor
+    (fan o propeller), su tutte le condizioni operative."""
+    subset = df_avg_propulsor[
+        (df_avg_propulsor["propulsor"] == propulsor) &
+        (df_avg_propulsor["output"] == output)
+    ].copy()
+    subset = subset[subset["n_relevant"] >= min_n_relevant]
+    subset = subset.sort_values("mean_abs_elasticity")
+    if top_n is not None:
+        subset = subset.tail(top_n)
+
+    if subset.empty:
+        print(f"Nessun dato da plottare per propulsor={propulsor!r}, output={output!r}.")
+        return
+
+    labels = [f"{row.param_name}  (n={row.n_relevant}/{row.n_conditions_total})"
+              for row in subset.itertuples()]
+    values = subset["mean_abs_elasticity"].tolist()
+    errs = subset["std_abs_elasticity"].fillna(0.0).tolist()
+
+    if title is None:
+        out_label = "Range massimo fattibile" if output == "max_range_nmi" else "Electricity Intensity"
+        title = (f"Tornado Plot - Elasticità media assoluta (TUTTI i sistemi, parametri rilevanti)\n"
+                  f"Propulsore: {propulsor} — {out_label}")
+
+    plt.figure(figsize=(10, 6))
+    plt.barh(labels, values, xerr=errs, color='#dd8452', edgecolor='black', capsize=3)
+    if reference_line is not None:
+        plt.axvline(reference_line, color='black', linestyle='--', linewidth=1.2,
+                    label=f'riferimento = {reference_line}')
+        plt.legend(loc='lower right', fontsize=9)
+    plt.xlabel('Media di |Indice di Elasticità|', fontsize=12)
+    plt.title(title, fontsize=14)
+    plt.grid(axis='x', linestyle='--', alpha=0.7)
+    plt.tight_layout()
+    plt.show(block=False)
+
+
+def plot_all_average_elasticities_by_propulsor(df_avg_propulsor: pd.DataFrame, top_n=None,
+                                                min_n_relevant: int = 2, reference_line: float = None):
+    """Genera plot_average_elasticity_by_propulsor per ogni combinazione
+    (propulsor, output): tipicamente due figure, fan e propeller."""
+    combos = df_avg_propulsor[["propulsor", "output"]].drop_duplicates()
+    for _, row in combos.iterrows():
+        plot_average_elasticity_by_propulsor(df_avg_propulsor, propulsor=row["propulsor"],
+                                              output=row["output"], top_n=top_n,
+                                              min_n_relevant=min_n_relevant,
+                                              reference_line=reference_line)

@@ -7,6 +7,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from cnav.sensitivity.local_sensitivity import (
     run_local_sensitivity_report, plot_all_condition_tornados,
     average_relevant_elasticities, plot_all_average_elasticities,
+    average_relevant_elasticities_by_propulsor, plot_all_average_elasticities_by_propulsor,
 )
 
 """
@@ -71,8 +72,15 @@ df_avg = average_relevant_elasticities(df_elasticities, threshold=0.05)
 print("\n=== Elasticità media assoluta dei parametri rilevanti, per sistema/propulsore/output ===")
 print(df_avg.to_string(index=False))
 
-print("\n(genero un tornado plot dell'elasticità media assoluta per ogni sistema/propulsore/output)")
-plot_all_average_elasticities(df_avg, reference_line=0.5)
+#print("\n(genero un tornado plot dell'elasticità media assoluta per ogni sistema/propulsore/output)")
+#plot_all_average_elasticities(df_avg, reference_line=0.5)
+
+df_avg_propulsor = average_relevant_elasticities_by_propulsor(df_elasticities, threshold=0.05)
+print("\n=== Elasticità media assoluta dei parametri rilevanti, per propulsore (tutti i sistemi) ===")
+print(df_avg_propulsor.to_string(index=False))
+
+print("\n(genero un tornado plot aggregato per fan e uno per propeller, tutti i sistemi combinati)")
+plot_all_average_elasticities_by_propulsor(df_avg_propulsor, reference_line=0.5)
 
 plt.show()
 

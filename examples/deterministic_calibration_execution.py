@@ -60,7 +60,7 @@ N_DE_RUNS = 5    # differential_evolution ripetuta N_DE_RUNS volte (seed diversi
 DE_MAXITER = 60  # per la calibrazione "vera": alza a 40-60
 DE_POPSIZE = 15   # per la calibrazione "vera": alza a 10-15
 
-RANGE_WEIGHTS = [1, 5.0, 5.0, 5.0, 3.0, 3.0, 2.0, 2.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]  # per modificare 
+RANGE_WEIGHTS = [1, 5.0, 5.0, 5.0, 3.0, 3.0, 2.0, 2.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 2.0, 2.0, 3.0]  # per modificare 
 # i pesi della funzione di costo ai diversi valori del Range
 
 # Pesi globali fan/propeller dentro combined_cost: J = fan_weight*J_fan +

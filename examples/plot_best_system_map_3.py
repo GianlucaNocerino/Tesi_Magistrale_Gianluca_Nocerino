@@ -2,10 +2,10 @@
 Stampa un grafico che, per ogni combinazione di
 range e velocita' di crociera, mostra il sistema propulsivo più
 efficiente (minor elecricity intensity).
-Dopo aver effettuato la terza calibrazione...
+Dopo aver effettuato la quarta calibrazione...
 
 Uso:
-    python examples/plot_best_system_map_2.py
+    python examples/plot_best_system_map_3.py
 """
 import sys
 from pathlib import Path
@@ -20,8 +20,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from cnav import (Mission, TechAssumptions, WellToTankEfficiencies,
                    build_default_systems, build_energy_carriers, compute_intensity)
 
-tech2 = TechAssumptions()
-tech = tech2.with_changes(pax_weight_kg=75, fan_pressure_ratio=1.3, fan_scaling_mach_ref=0.78, propeller_curve_peak_mach=0.4899, propeller_curve_rise_rate=7.504, propeller_curve_decay_width=0.03354)
+tech3 = TechAssumptions()
+tech = tech3.with_changes(pax_weight_kg=75, fan_pressure_ratio=1.3, fan_scaling_mach_ref=0.78, propeller_curve_peak_mach=0.5461, propeller_curve_rise_rate=7.064, propeller_curve_decay_width=0.04011)
 wtt = WellToTankEfficiencies()
 
 ranges_nmi = np.geomspace(10, 10_000, 45)
@@ -88,6 +88,6 @@ legend_handles = [Patch(color=colors[i], label=used_labels[i]) for i in range(le
 ax.legend(handles=legend_handles, loc="upper left", fontsize=8, framealpha=0.92)
 
 fig.tight_layout()
-out_path = Path(__file__).resolve().parent / "best_system_map_2.png"
+out_path = Path(__file__).resolve().parent / "best_system_map_3.png"
 fig.savefig(out_path, dpi=150)
 print(f"Grafico salvato in: {out_path}")
