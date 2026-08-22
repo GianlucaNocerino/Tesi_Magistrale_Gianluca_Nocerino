@@ -3,7 +3,7 @@ Genera il grafico del fattore di scala dell'efficienza propulsiva
 (fan ed propeller) in funzione del numero di Mach
 
 Uso:
-    python examples/plot_scaling_factors.py
+    python examples/plot_scaling_factor.py
 """
 import sys
 from pathlib import Path
