@@ -23,6 +23,16 @@ from .deterministic_calibration import (
     run_deterministic_calibration, summarize_multiple_minima,
 )
 
+from .calibration_uncertainty import (
+    j_thr_from_margin,
+    evaluate_J_over_sample,
+    select_acceptable_region,
+    CalibrationUncertaintyResult,
+    run_calibration_uncertainty,
+    accepted_correlation_matrix,
+    sample_calibrated_theta,
+)
+
 __all__ = [
     "PAPER_DATA", "SYSTEM_PARAMETERS", "SHARED_PARAMETERS", "DEFAULT_NONCONVERGENCE_PENALTY",
     "fan_cost", "propeller_cost", "combined_cost", "global_cost", "system_cost", "max_feasible_range_nmi",

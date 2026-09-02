@@ -39,33 +39,44 @@ carbon_neutral_aviation/
 │   │   ├── aircraft_sizer.py          # ciclo iterativo di dimensionamento dell'aeroplano
 │   │   └── energy_intensity.py        # well-to-tank + tank-to-wake -> MJ/(pax*nmi)
 │   ├── calibration/                # calibrazione del modello rispetto al paper
-│   │   └── cost_functions.py          # funzioni di costo WLS (per sistema, globali fan/propeller), dati del paper
-│   └── sensitivity/                # analisi di sensibilità
-│       ├── sensitivity_analysis_tools.py  # motore generico: indici di elasticità, tornado plot, sweep, superfici 3D, slider
-│       └── local_sensitivity.py           # Fase 3 (consegna): condizioni operative standard, verifica di robustezza rispetto alla perturbazione, confini tra tecnologie
+│   │   ├── cost_functions.py          # funzioni di costo WLS (per sistema, globali fan/propeller), dati del paper
+│   │   ├── deterministic_calibration.py   # Fase 4: theta* = argmin J, da più punti iniziali
+│   │   └── calibration_uncertainty.py     # Fase 6: regione accettabile Theta_acc = {theta : J <= J_thr}
+│   ├── sensitivity/                # analisi di sensibilità
+│   │   ├── sensitivity_analysis_tools.py  # motore generico: indici di elasticità, tornado plot, sweep, superfici 3D, slider
+│   │   └── local_sensitivity.py           # Fase 3 (consegna): condizioni operative standard, verifica di robustezza rispetto alla perturbazione, confini tra tecnologie
+│   └── uncertainty/                # quantificazione e propagazione dell'incertezza
+│       ├── distributions.py           # Fase 5: tabella delle PDF, correlazioni fisiche, LHS, fusione con Theta_acc
+│       ├── propagation.py             # Fase 7: modello completo su ogni campione, su tutta la griglia (R, V)
+│       └── technology_map.py          # Fase 8: P_j(R,V), regioni robuste, dispersione dei confini, grafici
 ├── examples/
 │   ├── plot_intensity_vs_range.py   # riproduce la Fig. 4 dell'articolo
 │   ├── plot_best_system_map.py      # riproduce la Fig. 3 dell'articolo
 │   ├── cost_function_computation.py # esempio d'uso delle funzioni di costo (fan/propeller/combinata)
 │   ├── deterministic_calibration_execution.py  # esecuzione della calibrazione deterministica (theta*)
 │   ├── sensitivity_analysis.py      # demo strumenti "continui" (vs range, superficie 3D)
-│   └── local_sensitivity_report.py  # esempio d'uso della Fase 3 (sensibilità locale completa)
+│   ├── local_sensitivity_report.py  # esempio d'uso della Fase 3 (sensibilità locale completa)
+│   ├── calibration_uncertainty_execution.py     # Fase 6: regione accettabile Theta_acc
+│   ├── uncertainty_propagation_execution.py    # Fasi 7 e 8: dal campione theta alla mappa probabilistica
+│   └── plot_probabilistic_technology_map.py    # i grafici della Fase 8, dal risultato già calcolato
 └── tests/
-    └── test_basic.py               # test per il controllo del codice
+    ├── test_basic.py               # test per il controllo del codice
+    └── test_uncertainty.py         # test del sottopacchetto uncertainty (marginali, correlazioni, mappa)
 ```
 
-Il pacchetto è organizzato in tre sottopacchetti concettualmente distinti:
+Il pacchetto è organizzato in quattro sottopacchetti concettualmente distinti:
 `cnav.model` è il modello deterministico vero e proprio (a sua volta a
 "strati": `constants`/`units`/`atmosphere` sono i mattoncini di base;
 `T_to_W_definitions.py` contiene tutte le formule condivise fra i 4
 sistemi propulsivi; `propulsion_systems.py` definisce solo le differenze
 fra un sistema e l'altro; `aircraft_sizer.py` e' il ciclo iterativo
-generico; `energy_intensity.py` e' il livello piu' alto). `cnav.calibration`
-e `cnav.sensitivity` sono due strumenti indipendenti che lavorano
-*sopra* il modello, senza modificarlo: se in futuro si vuole aggiungere
-un quinto sistema propulsivo (es. una configurazione ibrida), basterà
-scrivere una nuova sottoclasse di `PropulsionSystem` in
-`cnav/model/propulsion_systems.py`.
+generico; `energy_intensity.py` e' il livello piu' alto). `cnav.calibration`,
+`cnav.sensitivity` e `cnav.uncertainty` sono tre strumenti indipendenti che
+lavorano *sopra* il modello, senza modificarlo: se in futuro si vuole
+aggiungere un quinto sistema propulsivo (es. una configurazione ibrida),
+basterà scrivere una nuova sottoclasse di `PropulsionSystem` in
+`cnav/model/propulsion_systems.py`, e comparirà automaticamente sia nella
+calibrazione sia nella mappa probabilistica.
 
 `from cnav import ...` continua a esporre direttamente i nomi più usati
 del modello e della calibrazione (es. `Mission`, `TechAssumptions`,
@@ -144,6 +155,69 @@ pytest tests/
 python examples/plot_intensity_vs_range.py
 python examples/plot_best_system_map.py
 ```
+
+## Quantificazione dell'incertezza (Fasi 5-8)
+
+Il flusso, dopo la calibrazione, è in tre passi, uno per modulo di
+`cnav.uncertainty`:
+
+```bash
+python examples/calibration_uncertainty_execution.py   # Fase 6 -> theta_acc.csv
+python examples/uncertainty_propagation_execution.py   # Fasi 5+7+8 -> propagation_result.npz
+python examples/plot_probabilistic_technology_map.py   # i grafici, dal .npz
+```
+
+**Due origini di incertezza, tenute separate.** La matrice `theta` che
+viene propagata ha due blocchi di colonne che non vanno confusi:
+
+- *letteratura* (`distributions.build_default_specs`): parametri con un
+  intervallo plausibile documentabile da fonti esterne, a cui è assegnata
+  una PDF dichiarata (Triangolare, Uniforme, Beta riscalata) e che si
+  campionano per trasformata inversa da un disegno LHS;
+- *calibrazione* (`theta_acc.csv`, Fase 6): parametri senza PDF di
+  letteratura, la cui incertezza è dedotta dalla regione accettabile
+  Θ_acc. Di questi non si ricostruiscono marginali: si pescano **righe
+  intere** di Θ_acc, per non distruggere la struttura di dipendenza fra
+  parametri emersa dalla calibrazione.
+
+`assemble_theta` verifica che i due blocchi siano disgiunti e solleva un
+errore se un parametro compare in entrambi.
+
+**Correlazioni fisiche imposte.** Due dipendenze sono forzate
+numericamente per non generare combinazioni impossibili:
+
+1. `gamma_tank` e `hydrogen_empty_weight_multiplier` sono governati da
+   un'unica variabile latente (colonna LHS condivisa e ribaltata):
+   descrivono la stessa scelta di integrazione dello stivaggio criogenico,
+   e campionarli indipendentemente produrrebbe serbatoi eccellenti con
+   penalità strutturale massima. Il segno della dipendenza è una scelta di
+   modellazione, dichiarata in `build_default_correlations`.
+2. `liquid_hydrogen` e `e_saf` condividono l'elettrolisi a monte, ma non
+   in modo deterministico: la dipendenza è imposta con una copula
+   gaussiana il cui ρ è **derivato**, non assegnato, da
+   `shared_factor_rho()` come quota di varianza spiegata dal fattore
+   comune (≈ 0.41 con gli intervalli attuali). Una colonna condivisa
+   darebbe ρ = 1, incoerente con le marginali dichiarate, perché
+   ignorerebbe le perdite proprie e indipendenti delle due catene a valle
+   dell'elettrolisi.
+
+**Prima di lanciare il run lungo.** `check_nominal_consistency()` riporta
+dove cade il valore nominale del modello deterministico dentro la propria
+PDF. Con gli intervalli attuali, `e_battery_Wh_per_kg` (300, su una
+Triangolare 135-225-300) e `fuel_cell_specific_power_kW_per_kg` (2.0, su
+una Triangolare 1.0-1.5-2.0) stanno esattamente sull'estremo ottimistico:
+il nominale è il 100° percentile della sua distribuzione. Non è un errore,
+ma ha una conseguenza da dichiarare in tesi: la mappa probabilistica non è
+centrata su quella deterministica, è spostata a sfavore di batteria e fuel
+cell, e la differenza fra le due mappe non è solo dispersione.
+
+**Costo.** Circa 2 s per campione sulla griglia di default (28 range x 16
+velocità). N = 1000 sono ~35 minuti in sequenziale, ~10 con
+`N_WORKERS = 4`. Il run scrive checkpoint a blocchi e si riprende da dove
+si era interrotto. Il risultato grezzo (`propagation_result.npz`) contiene
+il cubo completo delle intensity: cambiare la soglia di robustezza,
+aggregare fan ed elica o guardare un confine diverso non richiede di
+rilanciare il modello.
 
 ## Stato di validazione del modello
 
