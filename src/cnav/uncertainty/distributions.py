@@ -65,7 +65,6 @@ __all__ = [
     "scaled_beta",
     "build_default_specs",
     "specs_table",
-    "check_nominal_consistency",
     "DerivedParameter",
     "linear_from_endpoints", 
     "induced_spec",
@@ -103,6 +102,9 @@ class ParameterSpec:
     pdf_label: str              # es. "Triangolare(135, 225, 300)"
     source: str                 # da dove viene l'intervallo
     rationale: str              # perche' questa forma e non un'altra
+    mode: Optional[float] = None  # valore più probabile, dichiarato qui
+                                  # esplicitamente da chi scrive la spec.
+                                  # None quando non esiste (es. Uniforme)
 
     def ppf(self, u):
         """Trasformata inversa: da quantile uniforme a valore fisico"""
@@ -111,14 +113,6 @@ class ParameterSpec:
     @property
     def support(self) -> tuple:
         return float(self.dist.ppf(0.0)), float(self.dist.ppf(1.0))
-
-    @property
-    def nominal_percentile(self) -> float:
-        """Dove cade il valore nominale del modello deterministico
-        dentro la propria PDF, in percentuale. 50 = alla mediana, 100 =
-        sull'estremo superiore del supporto (vedi l'avvertenza nel
-        docstring del modulo)"""
-        return 100.0 * float(self.dist.cdf(self.nominal))
 
 
 def triangular(a: float, m: float, b: float):
@@ -162,6 +156,7 @@ def build_default_specs() -> dict:
             dist=triangular(135.0, 225.0, 300.0),
             nominal=nom.e_battery_Wh_per_kg,
             pdf_label="Triangolare(135, 225, 300)",
+            mode=225.0,
             source="Letteratura",
             rationale=(
                 "intervallo credibile con un valore più plausibile al centro, "
@@ -176,6 +171,7 @@ def build_default_specs() -> dict:
             dist=triangular(1.0, 1.5, 2.0),
             nominal=nom.fuel_cell_specific_power_kW_per_kg,
             pdf_label="Triangolare(1.0, 1.5, 2.0)",
+            mode=1.5,
             source="Letteratura",
             rationale=(
                 "come sopra: range noto, moda plausibile, nessun dato per una PDF "
@@ -187,6 +183,7 @@ def build_default_specs() -> dict:
             dist=triangular(0.45, 0.55, 0.65),
             nominal=nom.eta_fuel_cell,
             pdf_label="Triangolare(0.45, 0.55, 0.65)",
+            mode=0.55,
             source="Letteratura",
             rationale=(
                 "efficienza limitata in [0,1] ma lontana dai bordi: la triangolare "
@@ -200,6 +197,7 @@ def build_default_specs() -> dict:
             dist=triangular(0.47, 0.50, 0.58),
             nominal=nom.gamma_tank,
             pdf_label="Triangolare(0.47, 0.50, 0.58)",
+            mode=0.50,
             source="Letteratura",
             rationale=(
                 "asimmetrica verso l'alto: il margine di miglioramento tecnologico "
@@ -213,6 +211,7 @@ def build_default_specs() -> dict:
             dist=triangular(1.09, 1.10, 1.12),
             nominal=nom.hydrogen_empty_weight_multiplier,
             pdf_label="Triangolare(1.09, 1.10, 1.12)",
+            mode=1.11,
             source="Stime dalla letteratura e modelli semplificati di retrofitting",
             rationale=(
                 "Correlato a gamma_tank (vedi CorrelationModel)"
@@ -235,6 +234,7 @@ def build_default_specs() -> dict:
             dist=triangular(0.42, 0.46, 0.47),
             nominal=nom_wtt.liquid_hydrogen,
             pdf_label="Triangolare(0.42, 0.46, 0.47)",
+            mode=0.46,
             source="Letteratura",
             rationale=(
                 "Correlata a e_saf tramite l'elettrolisi condivisa"
@@ -245,6 +245,7 @@ def build_default_specs() -> dict:
             dist=triangular(0.21, 0.26, 0.30),
             nominal=nom_wtt.e_saf,
             pdf_label="Triangolare(0.21, 0.26, 0.30)",
+            mode=0.26,
             source="Letteratura",
             rationale=(
                 "Correlata a liquid_hydrogen tramite l'elettrolisi condivisa"
@@ -256,6 +257,7 @@ def build_default_specs() -> dict:
             dist=scaled_beta(3.6, 3.0, 0.85, 0.99),
             nominal=nom.eta_motor,
             pdf_label="0.85 + 0.14 * Beta(3.6, 3.0)",
+            mode=0.85,
             source="Letteratura",
             rationale=(
                 "efficienza limitata a un intervallo fisico [0.85, 0.99]: Beta "
@@ -269,6 +271,7 @@ def build_default_specs() -> dict:
             dist=scaled_beta(4.0, 4.0, 0.80, 0.90),
             nominal=nom.eta_p_propeller,
             pdf_label="0.80 + 0.10 * Beta(4, 4)",
+            mode=0.80,
             source="Letteratura",
             rationale=(
                 "Beta simmetrica: intervallo fisico noto, nessuna ragione per "
@@ -280,30 +283,12 @@ def build_default_specs() -> dict:
             dist=scaled_beta(4.0, 4.0, 0.70, 0.80),
             nominal=nom.eta_p_fan,
             pdf_label="0.70 + 0.10 * Beta(4, 4)",
+            mode=0.70,
             source="Letteratura",
             rationale="stessa motivazione di eta_p_propeller, su intervallo diverso",
         ),
     ]
     return {s.name: s for s in specs}
-
-
-def check_nominal_consistency(specs: Optional[dict] = None,
-                              flag_below: float = 5.0,
-                              flag_above: float = 95.0) -> pd.DataFrame:
-    """Verifica dove cade il nominale deterministico dentro la propria PDF
-    """
-    specs = specs or build_default_specs()
-    rows = []
-    for name, s in specs.items():
-        pct = s.nominal_percentile
-        rows.append({
-            "parametro": name,
-            "nominale": s.nominal,
-            "media_PDF": float(s.dist.mean()),
-            "percentile_nominale": pct,
-            "segnalato": pct <= flag_below or pct >= flag_above,
-        })
-    return pd.DataFrame(rows)
 
 
 # =====================================================================
@@ -447,7 +432,7 @@ def build_default_correlations(specs: Optional[dict] = None,
     name="hydrogen_empty_weight_multiplier",
     driver="gamma_tank",
     slope=-0.08535,        # <-- il tuo coefficiente angolare
-    intercept=1.139503,     # <-- la tua quota
+    intercept=1.15420,     # <-- la tua quota
     rationale=(
             "coefficienti stimati; gamma_tank più alto (serbatoio "
             "gravimetricamente migliore) <-> penalità strutturale minore"
@@ -491,7 +476,7 @@ def specs_table(specs: Optional[dict] = None,
                 "nominale": s.nominal,
                 "min": ind["min"],
                 "max": ind["max"],
-                "media": float("nan"),
+                "moda": s.mode,
                 "PDF": f"derivato: {dp.relation_label}",
                 "fonte": s.source,
                 "motivazione": dp.rationale,
@@ -503,7 +488,7 @@ def specs_table(specs: Optional[dict] = None,
             "nominale": s.nominal,
             "min": lo,
             "max": hi,
-            "media": float(s.dist.mean()),
+            "moda": s.mode,
             "PDF": s.pdf_label,
             "fonte": s.source,
             "motivazione": s.rationale,

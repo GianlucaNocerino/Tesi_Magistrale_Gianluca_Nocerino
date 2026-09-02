@@ -27,7 +27,6 @@ from .distributions import (
     scaled_beta,
     build_default_specs,
     specs_table,
-    check_nominal_consistency,
     CopulaPair,
     DerivedParameter,
     induced_spec,
@@ -65,8 +64,7 @@ from .technology_map import (
 
 __all__ = [
     "ParameterSpec", "triangular", "scaled_beta", "build_default_specs",
-    "specs_table", "check_nominal_consistency",
-    "CopulaPair", "CorrelationModel", "DerivedParameter",
+    "specs_table", "CopulaPair", "CorrelationModel", "DerivedParameter",
     "linear_from_endpoints", "induced_spec",
     "build_default_correlations", "shared_factor_rho",
     "sample_literature_parameters", "load_theta_acc", "assemble_theta",

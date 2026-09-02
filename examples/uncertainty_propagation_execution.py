@@ -25,7 +25,6 @@ from cnav.uncertainty import (
     assemble_theta,
     build_default_correlations,
     build_default_specs,
-    check_nominal_consistency,
     load_theta_acc,
     induced_spec,
     specs_table,
@@ -42,7 +41,7 @@ from cnav.uncertainty import (
 # Configurazione
 # ---------------------------------------------------------------------
 THETA_ACC_PATH = "theta_acc.csv"       # output della Fase 6
-N_SAMPLES = 200                        # <-- 200 per provare, 1000+ per la tesi
+N_SAMPLES = 1500                        # <-- 200 per provare, 1000+ per la tesi
 SEED = 0
 N_WORKERS = 1                          # >1 richiede il guard __main__ (vedi sotto)
 CHECKPOINT_DIR = "propagation_checkpoints"
@@ -64,20 +63,8 @@ def main():
     print("=" * 78)
     print("TABELLA DELLE DISTRIBUZIONI")
     print("=" * 78)
-    print(specs_table(specs, corr)[["parametro", "nominale", "min", "max", "media", "PDF"]]
+    print(specs_table(specs, corr)[["parametro", "nominale", "min", "max", "moda", "PDF"]]
           .round(4).to_string(index=False))
-
-    print("\n" + "=" * 78)
-    print("COERENZA FRA NOMINALE DETERMINISTICO E PDF ASSEGNATA")
-    print("=" * 78)
-    consistency = check_nominal_consistency(specs)
-    print(consistency.round(2).to_string(index=False))
-    flagged = consistency[consistency["segnalato"]]
-    if not flagged.empty:
-        print("\n  Per questi parametri il nominale sta su un estremo della propria PDF")
-        print("  La mappa probabilistica non sarà centrata su quella deterministica:")
-        print("  lo scostamento fra le due non è solo dispersione, è anche uno")
-        print("  spostamento della mediana")
 
     print("\n" + "=" * 78)
     print("CORRELAZIONI FISICHE IMPOSTE")
@@ -116,12 +103,12 @@ def main():
         print(f"  {cp.a} / {cp.b}: r = {r:+.3f}  (target {cp.rho:+.3f})")
 
     # -----------------------------------------------------------------
-    # Fase 7: propagazione
+    # Propagazione
     # -----------------------------------------------------------------
     print("\n" + "=" * 78)
     print("PROPAGAZIONE")
     print("=" * 78)
-    print(f"Griglia: {len(GRID.ranges_nmi)} range x {len(GRID.speeds_kt)} velocita' "
+    print(f"Griglia: {len(GRID.ranges_nmi)} range x {len(GRID.speeds_kt)} velocità "
           f"= {GRID.n_model_evaluations()} valutazioni per campione")
 
     t0 = time.time()
@@ -134,7 +121,7 @@ def main():
     print(f"Risultato grezzo salvato in {OUTPUT_PATH}")
 
     # -----------------------------------------------------------------
-    # Fase 8: mappa probabilistica
+    # Mappa probabilistica
     # -----------------------------------------------------------------
     print("\n" + "=" * 78)
     print("MAPPA PROBABILISTICA")
@@ -163,7 +150,7 @@ def main():
         print(f"  {label:32s} max P(fattibile) = {feasibility_probability(result, label).max():.2f}")
 
     # -----------------------------------------------------------------
-    # Fase 12 punto 7: dispersione di un confine
+    # Dispersione di un confine
     # -----------------------------------------------------------------
     print("\n" + "=" * 78)
     print("DISPERSIONE DEL CONFINE fuel cell (elica) / e-SAF (fan)")
