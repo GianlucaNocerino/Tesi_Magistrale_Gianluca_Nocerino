@@ -34,6 +34,7 @@ from cnav.uncertainty import (
     aggregate_to_technologies,
     robust_area_fraction,
     boundary_statistics,
+    adjacent_label_pairs,
     feasibility_probability,
 )
 
@@ -46,6 +47,8 @@ SEED = 0
 N_WORKERS = 1                          # >1 richiede il guard __main__ (vedi sotto)
 CHECKPOINT_DIR = "propagation_checkpoints"
 CHUNK_SIZE = 25
+MIN_CELLS = 3                          # celle di contatto minime per considerare
+                                       # due tecnologie adiacenti sulla mappa
 OUTPUT_PATH = "propagation_result.npz"
 
 GRID = FlightGrid.default(n_ranges=28, n_speeds=16)
@@ -145,21 +148,41 @@ def main():
         print(f"  {label:22s} {100 * share:5.1f}% della griglia   "
               f"P media dove domina: {p_mean:.2f}")
 
-    print("\nFattibilita' della batteria (probabilità massima sulla griglia):")
+    print("\nFattibilità della batteria (probabilità massima sulla griglia):")
     for label in ("Battery-electric (fan)", "Battery-electric (propeller)"):
         print(f"  {label:32s} max P(fattibile) = {feasibility_probability(result, label).max():.2f}")
 
     # -----------------------------------------------------------------
-    # Dispersione di un confine
+    # Dispersione dei confini
     # -----------------------------------------------------------------
+    # Le coppie non sono scelte a mano. boundary_statistics cerca
+    # l'incrocio fra due curve di intensity senza verificare che una
+    # delle due stia effettivamente vincendo: su una coppia che sulla
+    # mappa non si tocca mai produce un confine calcolabile e privo di
+    # significato, perche' sepolto sotto una terza tecnologia.
     print("\n" + "=" * 78)
-    print("DISPERSIONE DEL CONFINE fuel cell (elica) / e-SAF (fan)")
+    print("DISPERSIONE DEI CONFINI")
     print("=" * 78)
-    stats = boundary_statistics(result, "Hydrogen fuel cell (propeller)",
-                                "e-SAF combustion (fan)")
-    print(stats.round(1).to_string(index=False))
+
+    pairs = adjacent_label_pairs(pmap, min_cells=MIN_CELLS)
+    if not pairs:
+        print("Nessuna coppia adiacente: un'unica tecnologia domina tutta la griglia.")
+    for label_a, label_b, n_cells in pairs:
+        print(f"\n{label_a}  /  {label_b}")
+        print(f"  (domini a contatto su {n_cells} celle della griglia)")
+        bstats = boundary_statistics(result, label_a, label_b)
+        print(bstats.round(1).to_string(index=False))
+
     print("\n  Guarda sempre 'frazione_con_confine' prima delle altre colonne: dove è")
     print("  bassa, media e percentili sono calcolati su una minoranza di campioni")
+
+    # etichette che non vincono mai: se una tecnologia attesa finisce qui,
+    # e' un risultato da spiegare, non un dettaglio
+    mai = [l for l in pmap.labels if pmap.probability_of(l).max() < 0.01]
+    if mai:
+        print("\n  Mai la migliore in nessun campione e in nessun punto:")
+        for l in mai:
+            print(f"    - {l}")
 
 
 if __name__ == "__main__":

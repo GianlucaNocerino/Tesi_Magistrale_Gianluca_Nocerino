@@ -56,6 +56,7 @@ from .technology_map import (
     intensity_percentiles,
     feasibility_probability,
     boundary_statistics,
+    adjacent_label_pairs,
     plot_probability_map,
     plot_probability_field,
     plot_intensity_band,
@@ -73,7 +74,7 @@ __all__ = [
     "run_propagation",
     "ProbabilityMap", "probability_map", "aggregate_to_technologies",
     "classify_regions", "robust_area_fraction", "intensity_percentiles",
-    "feasibility_probability", "boundary_statistics",
+    "feasibility_probability", "boundary_statistics", "adjacent_label_pairs",
     "plot_probability_map", "plot_probability_field",
     "plot_intensity_band", "plot_boundary_dispersion",
 ]

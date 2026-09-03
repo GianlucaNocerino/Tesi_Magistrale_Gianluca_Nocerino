@@ -55,6 +55,7 @@ __all__ = [
     "intensity_percentiles",
     "feasibility_probability",
     "boundary_statistics",
+    "adjacent_label_pairs",
     "BASE_COLORS",
     "plot_probability_map",
     "plot_probability_field",
@@ -277,6 +278,41 @@ def boundary_statistics(result: PropagationResult, label_a: str, label_b: str,
     return pd.DataFrame(rows)
 
 
+def adjacent_label_pairs(pmap: "ProbabilityMap", min_cells: int = 3) -> list:
+    """Le coppie di etichette i cui domini si toccano sulla mappa.
+
+    Va usata per scegliere su quali coppie ha senso chiamare
+    boundary_statistics. Quest'ultima infatti cerca l'incrocio fra due
+    curve di intensity senza verificare che una delle due sia
+    effettivamente il minimo su tutte le etichette: per una coppia che
+    sulla mappa non si tocca mai, l'incrocio esiste ed è calcolabile,
+    ma è sepolto sotto una terza tecnologia e non è un confine.
+    Con 8 etichette le coppie possibili sono 28 e quelle vere sono
+    tipicamente 3-5.
+
+    Scorre la mappa del vincitore (argmax_j P_j) e conta, per ogni
+    coppia, quante volte le due etichette compaiono in celle contigue
+    lungo il range o lungo la velocità. min_cells scarta i contatti di
+    una o due celle, che di norma sono l'effetto della risoluzione
+    finita della griglia attorno a un punto triplo e non un confine
+    esteso.
+
+    Ritorna [(label_a, label_b, n_celle_di_contatto), ...] ordinata per
+    lunghezza di contatto decrescente.
+    """
+    dom = pmap.dominant_index
+    counts = {}
+    for left, right in ((dom[:, :-1], dom[:, 1:]), (dom[:-1, :], dom[1:, :])):
+        differing = left != right
+        for a, b in zip(left[differing], right[differing]):
+            key = tuple(sorted((int(a), int(b))))
+            counts[key] = counts.get(key, 0) + 1
+
+    out = [(pmap.labels[a], pmap.labels[b], n)
+           for (a, b), n in counts.items() if n >= min_cells and a >= 0 and b >= 0]
+    return sorted(out, key=lambda t: -t[2])
+
+
 # =====================================================================
 # Grafici
 # =====================================================================
@@ -336,8 +372,8 @@ def plot_probability_map(pmap: ProbabilityMap, threshold: float = 0.90,
 
     ax.set_xscale("log")
     ax.set_xlabel("Range [nmi]")
-    ax.set_ylabel("Velocita' di crociera [kt]")
-    ax.set_title(title or f"Tecnologia piu' probabile (N = {pmap.n_samples})")
+    ax.set_ylabel("Velocità di crociera [kt]")
+    ax.set_title(title or f"Tecnologia più probabile (N = {pmap.n_samples})")
 
     present = sorted(set(dominant.flatten()))
     handles = [Patch(color=_label_color(pmap.labels[j]), label=pmap.labels[j])
@@ -369,9 +405,9 @@ def plot_probability_field(pmap: ProbabilityMap, label: str, ax=None,
     ax.clabel(contours, inline=True, fontsize=7, fmt="%.2f")
     ax.set_xscale("log")
     ax.set_xlabel("Range [nmi]")
-    ax.set_ylabel("Velocita' di crociera [kt]")
-    ax.set_title(f"P[{label} e' la migliore]")
-    plt.colorbar(mesh, ax=ax, label="probabilita'")
+    ax.set_ylabel("Velocità di crociera [kt]")
+    ax.set_title(f"P[{label} è la migliore]")
+    plt.colorbar(mesh, ax=ax, label="probabilità")
     return ax
 
 
