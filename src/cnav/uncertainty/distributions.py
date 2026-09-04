@@ -45,7 +45,7 @@ esattamente sull'estremo ottimistico dell'intervallo.
 Quindi, la mappa probabilistica non sarà centrata sulla
 mappa deterministica, sarà sistematicamente spostata a sfavore di
 batteria e fuel cell. check_nominal_consistency() stampa il percentile del
-nominale per ogni parametro, ed e' pensata per essere eseguita e
+nominale per ogni parametro, ed è pensata per essere eseguita e
 riportata prima della propagazione, non dopo aver visto i risultati.
 """
 import math
@@ -57,21 +57,25 @@ import pandas as pd
 from scipy import stats
 from scipy.stats import qmc
 
-from ..model.constants import TechAssumptions, WellToTankEfficiencies
+from ..model.constants import (TechAssumptions, WellToTankEfficiencies,
+                               OEW_FAN_MTOW_PIVOT, OEW_PROP_MTOW_PIVOT)
 
 __all__ = [
     "ParameterSpec",
     "triangular",
     "scaled_beta",
+    "reflected_lognormal",
     "build_default_specs",
     "specs_table",
     "DerivedParameter",
+    "DerivedFromMany",
     "linear_from_endpoints", 
     "induced_spec",
     "CopulaPair",
     "CorrelationModel",
     "build_default_correlations",
     "shared_factor_rho",
+    "independent_parameter_names",
     "sample_literature_parameters",
     "load_theta_acc",
     "assemble_theta",
@@ -133,6 +137,63 @@ def scaled_beta(alpha: float, beta: float, a: float, b: float):
     Gaussiana
     """
     return stats.beta(alpha, beta, loc=a, scale=b - a)
+
+
+class ReflectedLognormal:
+    """Lognormale RIFLESSA: X ~ LogN(log_mu, log_sd), theta = x_max - X.
+
+    Serve per parametri con una coda lunga verso il BASSO e un tetto
+    naturale in alto, che ne' la triangolare ne' la Beta riscalata
+    riproducono (la Beta ha code che si spengono come una potenza, qui
+    la coda e' esponenziale sul logaritmo).
+
+    La normale sottostante e' troncata a +/- n_sigma cosi' che il
+    supporto resti FINITO: ParameterSpec.support usa ppf(0) e ppf(1), e
+    con una lognormale non troncata verrebbe -inf. Con n_sigma=4 la
+    massa scartata e' 6e-5, ininfluente sulle marginali.
+
+    Espone l'interfaccia minima delle frozen di scipy usata dal modulo:
+    ppf, cdf, pdf, rvs, mean, std.
+    """
+
+    def __init__(self, x_max: float, log_mu: float, log_sd: float,
+                 n_sigma: float = 4.0):
+        self.x_max = float(x_max)
+        self.log_mu = float(log_mu)
+        self.log_sd = float(log_sd)
+        self._n = stats.truncnorm(-n_sigma, n_sigma, loc=log_mu, scale=log_sd)
+
+    # -- interfaccia scipy ------------------------------------------------
+    def ppf(self, q):
+        q = np.clip(np.asarray(q, dtype=float), 0.0, 1.0)
+        return self.x_max - np.exp(self._n.ppf(1.0 - q))
+
+    def cdf(self, x):
+        u = np.clip(self.x_max - np.asarray(x, dtype=float), 1e-300, None)
+        return 1.0 - self._n.cdf(np.log(u))
+
+    def pdf(self, x):
+        u = np.clip(self.x_max - np.asarray(x, dtype=float), 1e-300, None)
+        return self._n.pdf(np.log(u)) / u
+
+    def rvs(self, size=None, random_state=None):
+        return self.x_max - np.exp(self._n.rvs(size=size, random_state=random_state))
+
+    def _grid(self):
+        return self.ppf(np.linspace(1e-6, 1 - 1e-6, 20001))
+
+    def mean(self):
+        return float(self._grid().mean())
+
+    def std(self):
+        return float(self._grid().std())
+
+
+def reflected_lognormal(x_max: float, log_mu: float, log_sd: float,
+                        n_sigma: float = 4.0) -> ReflectedLognormal:
+    """theta = x_max - exp(X),  X ~ N(log_mu, log_sd) troncata a +/- n_sigma."""
+    return ReflectedLognormal(x_max, log_mu, log_sd, n_sigma)
+
 
 
 def build_default_specs() -> dict:
@@ -285,7 +346,101 @@ def build_default_specs() -> dict:
             pdf_label="0.70 + 0.10 * Beta(4, 4)",
             mode=0.70,
             source="Letteratura",
-            rationale="stessa motivazione di eta_p_propeller, su intervallo diverso",
+            rationale=(
+                "stessa motivazione di eta_p_propeller, su intervallo diverso"
+            ),
+        ),
+        # --- frazione OEW/MTOW: regressione bayesiana su velivoli storici ---
+        # OEW/MTOW = a*MTOW**b + c, con 'a' fissato. Si campionano b e
+        # r_pivot (indipendenti); oew_*_c è un DerivedFromMany.
+        ParameterSpec(
+            name="oew_fan_b",
+            dist=reflected_lognormal(0.5203, -2.7000, 0.3832),
+            nominal=nom.oew_fan_b,
+            pdf_label="0.5203 - exp(N(-2.7000, 0.3832))",
+            mode=0.4623,
+            source="Regressione bayesiana su 25 turbofan storici",
+            rationale=(
+                "esponente di taglia. La posterior è asimmetrica a sinistra: "
+                "la coda verso b piccolo è l'ipotesi 'nessuna dipendenza dal "
+                "MTOW', che 25 punti dispersi non escludono del tutto. "
+                "Triangolare e Beta non riproducono quella coda, da cui la "
+                "lognormale riflessa. Indipendente da oew_fan_r_pivot"
+            ),
+        ),
+        ParameterSpec(
+            name="oew_fan_r_pivot",
+            dist=stats.truncnorm(-4.0, 4.0, loc=0.56036, scale=0.00870),
+            nominal=nom.oew_fan_r_pivot,
+            pdf_label="N(0.56036, 0.00870) troncata a +/-4 sigma",
+            mode=0.56036,
+            source="Regressione bayesiana su 25 turbofan storici",
+            rationale=(
+                f"rapporto OEW/MTOW a MTOW_pivot = {OEW_FAN_MTOW_PIVOT:,.0f} kg, "
+                "scelto risolvendo corr(b, r_pivot) = 0. Parametrizzando con c "
+                "(il rapporto estrapolato a MTOW = 0) la correlazione con b "
+                "sarebbe +0.82 e nonlineare, non riproducibile da una copula a "
+                "un parametro. Validita': MTOW 18 990-352 800 kg"
+            ),
+        ),
+        ParameterSpec(
+            name="oew_prop_b",
+            dist=reflected_lognormal(0.8199, -3.2579, 0.3575),
+            nominal=nom.oew_prop_b,
+            pdf_label="0.8199 - exp(N(-3.2579, 0.3575))",
+            mode=0.7861,
+            source="Regressione bayesiana su 12 turboprop storici",
+            rationale=(
+                "come oew_fan_b. Asimmetria più contenuta perchè i due "
+                "L100/LM-100J ad alto MTOW ancorano la pendenza. ATTENZIONE: "
+                "il nominale del modello deterministico (0.8564) cade FUORI dal "
+                "supporto di questa PDF, il cui massimo è 0.8199"
+            ),
+        ),
+        ParameterSpec(
+            name="oew_prop_r_pivot",
+            dist=stats.truncnorm(-4.0, 4.0, loc=0.59712, scale=0.00638),
+            nominal=nom.oew_prop_r_pivot,
+            pdf_label="N(0.59712, 0.00638) troncata a +/-4 sigma",
+            mode=0.59712,
+            source="Regressione bayesiana su 12 turboprop storici",
+            rationale=(
+                f"rapporto OEW/MTOW a MTOW_pivot = {OEW_PROP_MTOW_PIVOT:,.0f} kg. "
+                "Validità: MTOW 5 670-74 389 kg, oltre i quali la curva decresce "
+                "senza asintoto e attraversa lo zero attorno a 400 t"
+            ),
+        ),
+        # c: DERIVATO (vedi build_default_correlations). Sta in questa tabella
+        # perche' il sizer legge oew_*_c e quindi la colonna deve esistere in
+        # theta, ma NON consuma una colonna LHS: la sua marginale effettiva e'
+        # quella INDOTTA da (b, r_pivot), non la dist dichiarata qui, che serve
+        # solo come riferimento leggibile in tabella.
+        ParameterSpec(
+            name="oew_fan_c",
+            dist=stats.truncnorm(-4.0, 4.0, loc=0.6491, scale=0.0257),
+            nominal=nom.oew_fan_c,
+            pdf_label="derivata da (oew_fan_b, oew_fan_r_pivot)",
+            mode=None,
+            source="Regressione bayesiana su 25 turbofan storici",
+            rationale=(
+                "rapporto OEW/MTOW estrapolato a MTOW = 0. Non campionato: "
+                "vedi DerivedFromMany in build_default_correlations"
+            ),
+        ),
+        ParameterSpec(
+            name="oew_prop_c",
+            dist=stats.truncnorm(-4.0, 4.0, loc=0.6687, scale=0.0114),
+            nominal=nom.oew_prop_c,
+            pdf_label="derivata da (oew_prop_b, oew_prop_r_pivot)",
+            mode=None,
+            source="Regressione bayesiana su 12 turboprop storici",
+            rationale=(
+                "come oew_fan_c, sul ramo elica. ATTENZIONE: il nominale "
+                "deterministico (0.7493) è molto lontano dalla mediana indotta "
+                "(0.669), ma i due modelli concordano allo 0.4% su r_pivot: "
+                "b e c si compensano, ed è proprio la ragione del cambio di "
+                "coordinate"
+            ),
         ),
     ]
     return {s.name: s for s in specs}
@@ -354,14 +509,56 @@ def induced_spec(derived: DerivedParameter, driver_spec: ParameterSpec) -> dict:
 
 
 @dataclass(frozen=True)
+class DerivedFromMany:
+    """Parametro NON campionato, funzione deterministica di più driver.
+
+    Generalizza DerivedParameter, che copre il solo caso lineare a un
+    driver. Serve quando la relazione è nonlineare o coinvolge due
+    parametri, come
+
+        oew_fan_c = oew_fan_r_pivot - a * MTOW_pivot ** oew_fan_b
+
+    che è semplicemente il cambio di coordinate con cui la coppia
+    (b, c) - fortemente correlata - viene riscritta come (b, r_pivot),
+    che invece sono indipendenti.
+
+    A differenza di DerivedParameter non esiste una marginale indotta in
+    forma chiusa: induced_spec_many() la ricava numericamente dai
+    campioni delle marginali dei driver.
+    """
+    name: str
+    drivers: tuple
+    func: object                 # callable(**{driver: valori}) -> valori
+    relation_label: str = ""
+    rationale: str = ""
+
+    def value(self, **driver_values):
+        return self.func(**driver_values)
+
+
+def induced_spec_many(derived: DerivedFromMany, specs: dict,
+                      n: int = 200_000, seed: int = 0) -> dict:
+    """Marginale EFFETTIVA di un DerivedFromMany, stimata per campionamento
+    dalle marginali dei driver (che devono essere indipendenti)."""
+    rng = np.random.default_rng(seed)
+    valori = {nm: specs[nm].ppf(rng.random(n)) for nm in derived.drivers}
+    v = np.asarray(derived.value(**valori), dtype=float)
+    return {"min": float(v.min()), "max": float(v.max()),
+            "moda": None, "media": float(v.mean()), "sd": float(v.std(ddof=1))}
+
+
+
+@dataclass(frozen=True)
 class CorrelationModel:
     copulas: tuple = ()
     derived: tuple = ()
+    derived_many: tuple = ()
 
     def follower_names(self) -> set:
         """Parametri che NON consumano una colonna LHS propria perche'
-        ricavati da un altro parametro con una relazione lineare."""
-        return {dp.name for dp in self.derived}
+        ricavati da altri parametri con una relazione deterministica."""
+        return ({dp.name for dp in self.derived}
+                | {dp.name for dp in self.derived_many})
 
 
 def shared_factor_rho(spec_a: ParameterSpec, spec_b: ParameterSpec,
@@ -439,8 +636,41 @@ def build_default_correlations(specs: Optional[dict] = None,
         ),
     )
 
+    def _oew_c(a: float, pivot: float, b_name: str, r_name: str):
+        def f(**kw):
+            b = np.asarray(kw[b_name], dtype=float)
+            return kw[r_name] - a * pivot ** b
+        return f
+
+    oew_fan_c = DerivedFromMany(
+        name="oew_fan_c",
+        drivers=("oew_fan_b", "oew_fan_r_pivot"),
+        func=_oew_c(TechAssumptions().oew_fan_a, OEW_FAN_MTOW_PIVOT,
+                    "oew_fan_b", "oew_fan_r_pivot"),
+        relation_label=(f"oew_fan_r_pivot - ({TechAssumptions().oew_fan_a:.6g})"
+                        f" * {OEW_FAN_MTOW_PIVOT:,.0f}**oew_fan_b"),
+        rationale=(
+            "c non è un grado di libertà in più: è il rapporto OEW/MTOW "
+            "estrapolato a MTOW = 0, cioè la stessa informazione di "
+            "oew_fan_r_pivot letta a un altro MTOW. Campionarlo a parte "
+            "conterebbe due volte la stessa incertezza e genererebbe "
+            "combinazioni (b, c) che i dati escludono"
+        ),
+    )
+
+    oew_prop_c = DerivedFromMany(
+        name="oew_prop_c",
+        drivers=("oew_prop_b", "oew_prop_r_pivot"),
+        func=_oew_c(TechAssumptions().oew_prop_a, OEW_PROP_MTOW_PIVOT,
+                    "oew_prop_b", "oew_prop_r_pivot"),
+        relation_label=(f"oew_prop_r_pivot - ({TechAssumptions().oew_prop_a:.6g})"
+                        f" * {OEW_PROP_MTOW_PIVOT:,.0f}**oew_prop_b"),
+        rationale="come oew_fan_c, sul ramo elica",
+    )
+
     return CorrelationModel(
         derived=(tank_multiplier,),
+        derived_many=(oew_fan_c, oew_prop_c),
         copulas=(
             CopulaPair(
                 a="liquid_hydrogen", b="e_saf", rho=rho,
@@ -466,8 +696,23 @@ def specs_table(specs: Optional[dict] = None,
     quel caso non e' piu' quella effettivamente usata."""
     specs = specs or build_default_specs()
     derived_by_name = {dp.name: dp for dp in (correlations.derived if correlations else ())}
+    many_by_name = {dp.name: dp for dp in (correlations.derived_many if correlations else ())}
     rows = []
     for name, s in specs.items():
+        if name in many_by_name:
+            dp = many_by_name[name]
+            ind = induced_spec_many(dp, specs)
+            rows.append({
+                "parametro": name,
+                "nominale": s.nominal,
+                "min": ind["min"],
+                "max": ind["max"],
+                "moda": s.mode,
+                "PDF": f"derivato: {dp.relation_label}",
+                "fonte": s.source,
+                "motivazione": dp.rationale,
+            })
+            continue
         if name in derived_by_name:
             dp = derived_by_name[name]
             ind = induced_spec(dp, specs[dp.driver])
@@ -500,10 +745,26 @@ def specs_table(specs: Optional[dict] = None,
 # 3. Campionamento LHS + fusione con Theta_acc
 # =====================================================================
 
+def independent_parameter_names(specs: Optional[dict] = None,
+                                correlations: Optional[CorrelationModel] = None) -> list:
+    """I parametri di letteratura che consumano davvero una colonna di
+    campionamento, cioe' tutti tranne i follower (derivati).
+
+    Sarebbe la lista di riferimento per chi deve costruire una matrice di
+    quantili dall'esterno (Morris, Sobol): l'ordine delle colonne di
+    u_matrix deve essere questo.
+    """
+    specs = specs or build_default_specs()
+    correlations = correlations if correlations is not None else build_default_correlations(specs)
+    followers = correlations.follower_names()
+    return [nm for nm in specs.keys() if nm not in followers]
+
+
 def sample_literature_parameters(n_samples: int,
                                  specs: Optional[dict] = None,
                                  correlations: Optional[CorrelationModel] = None,
-                                 seed: int = 0) -> pd.DataFrame:
+                                 seed: int = 0,
+                                 u_matrix: Optional[np.ndarray] = None) -> pd.DataFrame:
     """Campiona i parametri di letteratura via LHS + trasformata inversa.
 
     Procedura:
@@ -528,8 +789,16 @@ def sample_literature_parameters(n_samples: int,
         raise ValueError(f"Follower non presenti fra i parametri: {sorted(unknown)}")
 
     independent = [nm for nm in names if nm not in followers]
-    sampler = qmc.LatinHypercube(d=len(independent), seed=seed)
-    u_matrix = sampler.random(n=n_samples)
+    if u_matrix is None:
+        sampler = qmc.LatinHypercube(d=len(independent), seed=seed)
+        u_matrix = sampler.random(n=n_samples)
+    else:
+        u_matrix = np.atleast_2d(np.asarray(u_matrix, dtype=float))
+        if u_matrix.shape != (n_samples, len(independent)):
+            raise ValueError(
+                f"u_matrix ha forma {u_matrix.shape}, attesa "
+                f"({n_samples}, {len(independent)}): una colonna per ogni parametro "
+                f"indipendente, nell'ordine di independent_parameter_names()")
     u = {nm: u_matrix[:, j] for j, nm in enumerate(independent)}
 
     # (b) copule gaussiane, sulla scala normale
@@ -554,6 +823,14 @@ def sample_literature_parameters(n_samples: int,
             raise ValueError(f"DerivedParameter {dp.name!r}: driver {dp.driver!r} "
                              "non campionato (non puo' essere a sua volta derivato)")
         data[dp.name] = dp.value(data[dp.driver])
+
+    # (e) parametri derivati da PIU' driver, stessa logica
+    for dp in correlations.derived_many:
+        mancanti = [nm for nm in dp.drivers if nm not in data]
+        if mancanti:
+            raise ValueError(f"DerivedFromMany {dp.name!r}: driver non campionati "
+                             f"{mancanti} (non possono essere a loro volta derivati)")
+        data[dp.name] = dp.value(**{nm: data[nm] for nm in dp.drivers})
 
     return pd.DataFrame(data, columns=names)
 

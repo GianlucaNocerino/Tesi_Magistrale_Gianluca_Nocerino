@@ -76,7 +76,7 @@ class ProbabilityMap:
     """P_j(R, V) per ogni etichetta j.
 
     probabilities: (n_labels, n_speeds, n_ranges), somma su asse 0 <= 1
-    (puo' essere < 1 nei punti in cui, per qualche campione, nessuna
+    (può essere < 1 nei punti in cui, per qualche campione, nessuna
     configurazione e' fattibile).
     """
     probabilities: np.ndarray

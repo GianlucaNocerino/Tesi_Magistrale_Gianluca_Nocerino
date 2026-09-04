@@ -25,14 +25,18 @@ from .distributions import (
     ParameterSpec,
     triangular,
     scaled_beta,
+    reflected_lognormal,
     build_default_specs,
     specs_table,
     CopulaPair,
     DerivedParameter,
+    DerivedFromMany,
     induced_spec,
+    induced_spec_many,
     CorrelationModel,
     build_default_correlations,
     shared_factor_rho,
+    independent_parameter_names,
     sample_literature_parameters,
     load_theta_acc,
     assemble_theta,
@@ -62,13 +66,16 @@ from .technology_map import (
     plot_intensity_band,
     plot_boundary_dispersion,
 )
-
+ 
 __all__ = [
-    "ParameterSpec", "triangular", "scaled_beta", "build_default_specs",
-    "specs_table", "CopulaPair", "CorrelationModel", "DerivedParameter",
-    "linear_from_endpoints", "induced_spec",
+    "ParameterSpec", "triangular", "scaled_beta", "reflected_lognormal",
+    "build_default_specs",
+    "specs_table", "CopulaPair", "CorrelationModel",
+    "DerivedParameter", "DerivedFromMany",
+    "induced_spec", "induced_spec_many",
     "build_default_correlations", "shared_factor_rho",
-    "sample_literature_parameters", "load_theta_acc", "assemble_theta",
+    "sample_literature_parameters", "independent_parameter_names", 
+    "load_theta_acc", "assemble_theta",
     "TECHNOLOGIES", "PROPULSORS", "FlightGrid", "technology_labels",
     "theta_row_to_tech_wtt", "evaluate_sample", "PropagationResult",
     "run_propagation",
@@ -78,3 +85,4 @@ __all__ = [
     "plot_probability_map", "plot_probability_field",
     "plot_intensity_band", "plot_boundary_dispersion",
 ]
+ 

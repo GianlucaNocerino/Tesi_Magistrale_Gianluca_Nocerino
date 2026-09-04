@@ -24,6 +24,12 @@ propulsive_efficiency.py.
 """
 from dataclasses import dataclass, replace
 
+# MTOW ai quali l'esponente b e il rapporto OEW/MTOW risultano scorrelati
+# nella posteriori della regressione bayesiana (oew_mtow_bayes.py).
+# Sono costanti della parametrizzazione, non parametri incerti
+OEW_FAN_MTOW_PIVOT: float = 111_996.7
+OEW_PROP_MTOW_PIVOT: float = 24_659.5
+
 
 @dataclass(frozen=True)
 class TechAssumptions:
@@ -87,6 +93,14 @@ class TechAssumptions:
     oew_prop_a: float = -2.678e-5
     oew_prop_b: float = 0.8564
     oew_prop_c: float = 0.7493
+
+    # Coordinate di campionamento per l'incertezza su OEW/MTOW.
+    # NON usate dal ciclo di dimensionamento, che legge b e c: servono
+    # percè la propagazione campiona (b, r_pivot), che sono indipendenti,
+    # e ricava c = r_pivot - a*MTOW_pivot**b. Vedi distributions.py.
+    # Il nominale è il valore implicato dai b e c deterministici qui sopra
+    oew_fan_r_pivot: float = 0.55277
+    oew_prop_r_pivot: float = 0.59474
 
     # peso payload, forma (a*R_km^b + c) * (d*R_km + e)
     payload_a: float = 0.01245

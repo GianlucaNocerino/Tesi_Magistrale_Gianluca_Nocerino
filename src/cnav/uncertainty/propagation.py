@@ -99,7 +99,7 @@ class FlightGrid:
     speeds_kt: np.ndarray
 
     @classmethod
-    def default(cls, n_ranges: int = 28, n_speeds: int = 16,
+    def default(cls, n_ranges: int = 45, n_speeds: int = 40,
                 range_bounds: tuple = (10.0, 10_000.0),
                 speed_bounds: tuple = (180.0, 500.0)) -> "FlightGrid":
         """Stessi estremi di examples/plot_best_system_map*.py (10-10000
@@ -326,7 +326,7 @@ def run_propagation(theta: pd.DataFrame,
     if checkpoint_dir_path is not None and resume:
         intensities, done = _load_checkpoints(checkpoint_dir_path, n_samples, grid)
         if verbose and done.any():
-            print(f"  Checkpoint trovati: {int(done.sum())}/{n_samples} campioni gia' valutati")
+            print(f"  Checkpoint trovati: {int(done.sum())}/{n_samples} campioni già valutati")
     else:
         n_speeds, n_ranges = grid.shape
         intensities = np.full((n_samples, len(labels), n_speeds, n_ranges),

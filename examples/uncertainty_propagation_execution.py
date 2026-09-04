@@ -27,6 +27,7 @@ from cnav.uncertainty import (
     build_default_specs,
     load_theta_acc,
     induced_spec,
+    induced_spec_many,
     specs_table,
     FlightGrid,
     run_propagation,
@@ -51,7 +52,7 @@ MIN_CELLS = 3                          # celle di contatto minime per considerar
                                        # due tecnologie adiacenti sulla mappa
 OUTPUT_PATH = "propagation_result.npz"
 
-GRID = FlightGrid.default(n_ranges=28, n_speeds=16)
+GRID = FlightGrid.default(n_ranges=45, n_speeds=40)
 
 
 def main():
@@ -78,6 +79,12 @@ def main():
         print(f"      {dp.rationale}")
         print(f"      marginale indotta: min={ind['min']:.4f}, moda={ind.get('moda', float('nan')):.4f}, "
               f"max={ind['max']:.4f}  (non quella ipotizzata: è questa che va in tabella)")
+    for dp in corr.derived_many:
+        ind = induced_spec_many(dp, specs)
+        print(f"  [derivato da più]   {dp.name} = {dp.relation_label}")
+        print(f"      {dp.rationale}")
+        print(f"      marginale indotta: min={ind['min']:.4f}, media={ind['media']:.4f}, "
+              f"max={ind['max']:.4f}, sd={ind['sd']:.4f}  (stimata per campionamento)")
     for cp in corr.copulas:
         print(f"  [copula gaussiana]  {cp.a} <-> {cp.b}  (rho = {cp.rho:.3f})")
         print(f"      {cp.rationale}")
@@ -101,6 +108,15 @@ def main():
     for dp in corr.derived:
         r = theta[dp.driver].corr(theta[dp.name])
         print(f"  {dp.driver} / {dp.name}: r = {r:+.3f}  (atteso esattamente -1 o +1)")
+    for dp in corr.derived_many:
+        for drv in dp.drivers:
+            r = theta[drv].corr(theta[dp.name])
+            print(f"  {drv} / {dp.name}: r = {r:+.3f}  (relazione deterministica, "
+                  f"non lineare: |r| < 1 è atteso)")
+        if len(dp.drivers) == 2:
+            r_dd = theta[dp.drivers[0]].corr(theta[dp.drivers[1]])
+            print(f"  {dp.drivers[0]} / {dp.drivers[1]}: r = {r_dd:+.3f}  "
+                  f"(atteso ~0: è il presupposto del cambio di coordinate)")
     for cp in corr.copulas:
         r = theta[cp.a].corr(theta[cp.b])
         print(f"  {cp.a} / {cp.b}: r = {r:+.3f}  (target {cp.rho:+.3f})")
