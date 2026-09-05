@@ -8,7 +8,7 @@ La sequenza è quella della guideline: screening locale -> calibrazione
      r*(k+1) valutazioni. Ordina i fattori per influenza e segnala
      quali sono coinvolti in interazioni. Non quantifica.
 
-  2. SOBOL: indici di varianza sul sottoinsieme scelto A MANO dopo
+  2. SOBOL (sobol.py): indici di varianza sul sottoinsieme scelto a mano dopo
      aver letto il Morris, con tutti gli altri fattori tenuti
      campionati e raggruppati in un unico fattore "resto", così la
      varianza totale resta quella vera e si può verificare che lo
@@ -39,6 +39,22 @@ from .morris import (
     ranking_table,
     select_factors,
 )
+from .sobol import (
+    RESIDUAL_GROUP,
+    SobolDesign,
+    compare_with_morris,
+    plot_all_sobol_bars,
+    plot_sobol_aggregate,
+    plot_sobol_bars,
+    plot_sobol_convergence,
+    screening_check,
+    sobol_convergence,
+    sobol_design,
+    sobol_indices,
+    sobol_summary,
+    sobol_table,
+    tail_report,
+)
 from .outputs import (
     MISSION_LIBRARY,
     REPRESENTATIVE_MISSIONS,
@@ -60,4 +76,9 @@ __all__ = [
     "morris_cloud_table", "aggregate_morris_cloud", "select_factors",
     "plot_morris_cloud", "plot_all_morris_clouds",
     "plot_aggregate_morris_cloud", "plot_morris_cloud_interactive",
+    "RESIDUAL_GROUP", "SobolDesign", "sobol_design", "sobol_indices",
+    "sobol_summary", "screening_check", "sobol_table", "sobol_convergence",
+    "compare_with_morris", "tail_report",
+    "plot_sobol_bars", "plot_all_sobol_bars", "plot_sobol_aggregate",
+    "plot_sobol_convergence",
 ]

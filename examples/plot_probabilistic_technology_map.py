@@ -190,7 +190,7 @@ def main():
         n_ok = int((stats["frazione_con_confine"] >= MIN_FRACTION).sum())
         print(f"  {label_a} / {label_b}")
         print(f"      contatto su {n_cells} celle, frazione_con_confine max = "
-              f"{f_max:.2f}, velocita' utilizzabili = {n_ok}/{len(stats)}")
+              f"{f_max:.2f}, velocità utilizzabili = {n_ok}/{len(stats)}")
 
         color = next(colors)
         try:
