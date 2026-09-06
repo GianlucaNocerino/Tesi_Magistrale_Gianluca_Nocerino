@@ -52,6 +52,7 @@ from ..model.constants import TechAssumptions, WellToTankEfficiencies
 from ..model.aircraft_sizer import AircraftSizer
 from ..model.energy_intensity import compute_intensity
 from ..model.mission import Mission
+from ..model.model_form import ModelForm
 from ..model.propulsion_systems import build_default_systems
 from ..model.well_to_tank import build_energy_carriers
 
@@ -121,7 +122,7 @@ class FlightGrid:
         return len(self.speeds_kt) * len(self.ranges_nmi) * len(PROPULSORS) * len(TECHNOLOGIES)
 
 
-def theta_row_to_tech_wtt(row) -> tuple:
+def theta_row_to_tech_wtt(row, form: Optional[ModelForm] = None) -> tuple:
     """Da una riga della matrice theta a (TechAssumptions, WellToTankEfficiencies).
 
     Ogni nome di colonna deve corrispondere a un campo dell'una o
@@ -130,8 +131,13 @@ def theta_row_to_tech_wtt(row) -> tuple:
     cnav.calibration.deterministic_calibration.theta_to_tech_wtt, qui
     riscritta per accettare un dict/Series invece di un vettore piatto
     più la lista dei nomi
+
+    form: la variante concettuale del modello (vedi model_form.py). Non
+    può arrivare da theta, che contiene solo colonne numeriche, quindi
+    va passata a parte. None = modello base
     """
-    base_tech, base_wtt = TechAssumptions(), WellToTankEfficiencies()
+    base_tech = TechAssumptions() if form is None else TechAssumptions(model_form=form)
+    base_wtt = WellToTankEfficiencies()
     tech_kwargs, wtt_kwargs = {}, {}
     for name, value in dict(row).items():
         if hasattr(base_tech, name):
@@ -145,7 +151,8 @@ def theta_row_to_tech_wtt(row) -> tuple:
     return base_tech.with_changes(**tech_kwargs), base_wtt.with_changes(**wtt_kwargs)
 
 
-def evaluate_sample(row, grid: FlightGrid) -> np.ndarray:
+def evaluate_sample(row, grid: FlightGrid,
+                    form: Optional[ModelForm] = None) -> np.ndarray:
     """Valuta un singolo campione theta su tutta la griglia.
 
     Ritorna un array (8, n_speeds, n_ranges) float32 con l'electricity
@@ -158,7 +165,7 @@ def evaluate_sample(row, grid: FlightGrid) -> np.ndarray:
     l'informazione che serve per ricostruire il limite di fattibilita'
     probabilistico, e argmin li ignora comunque
     """
-    tech, wtt = theta_row_to_tech_wtt(row)
+    tech, wtt = theta_row_to_tech_wtt(row, form)
     sizer = AircraftSizer(tech)
     systems = build_default_systems(build_energy_carriers(wtt))
 
@@ -199,16 +206,18 @@ def _best_index(intensities: np.ndarray) -> np.ndarray:
 
 # --- worker per la parallelizzazione ---------------------------------
 _WORKER_GRID: Optional[FlightGrid] = None
+_WORKER_FORM: Optional[ModelForm] = None
 
 
-def _worker_init(grid: FlightGrid):
-    global _WORKER_GRID
+def _worker_init(grid: FlightGrid, form: Optional[ModelForm] = None):
+    global _WORKER_GRID, _WORKER_FORM
     _WORKER_GRID = grid
+    _WORKER_FORM = form
 
 
 def _worker_eval(args):
     sample_idx, row = args
-    intensities = evaluate_sample(row, _WORKER_GRID)
+    intensities = evaluate_sample(row, _WORKER_GRID, _WORKER_FORM)
     return sample_idx, intensities
 
 
@@ -266,6 +275,41 @@ class PropagationResult:
         )
 
 
+def _form_marker(checkpoint_dir: Path, form: Optional[ModelForm]) -> None:
+    """Marchia la cartella dei checkpoint con la forma del modello che
+    l'ha prodotta, e rifiuta di riusarla per una forma diversa.
+
+    Serve a chiudere un buco silenzioso. I blocchi salvati sono
+    identificati dal solo INDICE di riga: nulla, nel file, dice quale
+    modello li ha calcolati. Riusando la stessa cartella per due
+    varianti, resume=True ricaricherebbe i campioni dell'una
+    spacciandoli per quelli dell'altra, e il confronto fra le mappe
+    finirebbe per misurare un miscuglio dei due modelli senza che nulla
+    segnali il problema.
+
+    Con questo marker il caso diventa un errore esplicito invece che un
+    risultato sbagliato. form=None e ModelForm() condividono
+    l'etichetta "base" perche' sono lo stesso modello.
+
+    Resta scoperto il caso di theta diversa a parita' di forma: per
+    quello vale l'avvertenza gia' nel docstring di run_propagation,
+    cartella nuova quando cambiano seed, N o specs
+    """
+    marker = checkpoint_dir / "model_form.txt"
+    etichetta = ModelForm().label if form is None else form.label
+
+    if marker.exists():
+        precedente = marker.read_text(encoding="utf-8").strip()
+        if precedente != etichetta:
+            raise ValueError(
+                f"La cartella dei checkpoint {checkpoint_dir} contiene un run "
+                f"della forma {precedente!r}, ma questo run usa {etichetta!r}. "
+                "Ogni forma del modello vuole la sua cartella: usarne una sola "
+                "mescolerebbe risultati di modelli diversi")
+    else:
+        marker.write_text(etichetta, encoding="utf-8")
+
+
 def _chunk_path(checkpoint_dir: Path, start: int) -> Path:
     return checkpoint_dir / f"chunk_{start:07d}.npz"
 
@@ -292,7 +336,8 @@ def run_propagation(theta: pd.DataFrame,
                     chunk_size: int = 25,
                     n_workers: int = 1,
                     resume: bool = True,
-                    verbose: bool = True) -> PropagationResult:
+                    verbose: bool = True,
+                    form: Optional[ModelForm] = None) -> PropagationResult:
     """Esegue la propagazione su tutti i campioni di theta.
 
     theta: DataFrame (N, n_theta) da assemble_theta. Una riga = un
@@ -314,6 +359,12 @@ def run_propagation(theta: pd.DataFrame,
     interrompere e da profilare). Con n_workers > 1 lo script chiamante
     DEVE proteggere il codice con `if __name__ == "__main__":`,
     altrimenti i processi figli rieseguono lo script
+
+    form: la variante concettuale del modello (model_form.py). None =
+    modello base. Ogni forma vuole la SUA cartella di checkpoint: la
+    cartella viene marchiata con la forma che l'ha prodotta e riusarla
+    per una forma diversa solleva un errore invece di mescolare
+    risultati di modelli diversi (vedi _form_marker)
     """
     grid = grid or FlightGrid.default()
     labels = technology_labels()
@@ -322,6 +373,7 @@ def run_propagation(theta: pd.DataFrame,
     checkpoint_dir_path = Path(checkpoint_dir) if checkpoint_dir else None
     if checkpoint_dir_path is not None:
         checkpoint_dir_path.mkdir(parents=True, exist_ok=True)
+        _form_marker(checkpoint_dir_path, form)
 
     if checkpoint_dir_path is not None and resume:
         intensities, done = _load_checkpoints(checkpoint_dir_path, n_samples, grid)
@@ -349,10 +401,10 @@ def run_propagation(theta: pd.DataFrame,
         if n_workers > 1:
             with ProcessPoolExecutor(max_workers=n_workers,
                                      initializer=_worker_init,
-                                     initargs=(grid,)) as pool:
+                                     initargs=(grid, form)) as pool:
                 results = list(pool.map(_worker_eval, payload))
         else:
-            results = [(idx, evaluate_sample(row, grid)) for idx, row in payload]
+            results = [(idx, evaluate_sample(row, grid, form)) for idx, row in payload]
 
         chunk_indices = np.array([r[0] for r in results], dtype=int)
         chunk_values = np.stack([r[1] for r in results])

@@ -6,6 +6,8 @@ from .constants import TechAssumptions
 from .mission import Mission
 from .units import FT_TO_M, G, KT_TO_MS
 
+LB_TO_KG = 0.45359237
+
 """
 Di seguito tutte le definizioni necessarie per l'analisi Tank-to-Wake, divise in due cateegorie:
 1) Funzioni fisiche condivise da tutti i sistemi propulsivi
@@ -14,7 +16,7 @@ Sono il punto di partenza a cui ogni sistema propulsivo applica le proprie "corr
 """
 
 """
-Convenzione di unita' di misura usata in questo modulo, per evitare errori:
+Convenzione di unità di misura usata in questo modulo, per evitare errori:
 - masse in kg
 - potenze in kW (coerente con Table 1: kW/kg, N/kW, kg/kW)
 - lunghezze/quote in m, velocita' in m/s
@@ -93,6 +95,49 @@ def tms_drag_N(heat_kW: float, tech: TechAssumptions) -> float:
     return tech.delta_TMS_N_per_kW * heat_kW
 
 
+def ld_altitude_factor(mission: Mission, tech: TechAssumptions) -> float:
+    """Fattore moltiplicativo su L/D per la quota effettivamente raggiunta.
+ 
+    Ramo "fixed" (default): 1.0 sempre, cioè L/D nominale a prescindere
+    dalla missione. Ramo "polar_decay": il decadimento vero.
+ 
+    Con polare parabolica l'efficienza in funzione del C_L è
+ 
+        E/E_max = 2 / (C_L/C_L_opt + C_L_opt/C_L)
+ 
+    In crociera la portanza equilibra il peso, quindi a peso, superficie
+    e velocità dati il C_L è inversamente proporzionale alla densità:
+    volando più in basso del previsto si vola in aria più densa e il C_L
+    di crociera scende sotto quello di massima efficienza. Posto
+ 
+        xi = C_L/C_L_opt = rho_opt/rho_real <= 1
+ 
+    si ottiene la forma chiusa dell'enunciato:
+ 
+        E/E_max = 2*xi / (1 + xi^2)
+ 
+    Il fattore è sempre <= 1 e vale 1 solo quando la quota di progetto
+    viene raggiunta, cioè per tutte le missioni abbastanza lunghe. È
+    quindi una penalità che si accende solo ai raggi corti, ed è
+    esattamente la regione in cui vive la batteria: ci si aspetta che
+    questa variante colpisca soprattutto lei.
+
+    Semplificazione da dichiarare: si assume che il velivolo sia
+    dimensionato per volare a E_max alla quota di progetto, cioè che
+    C_L_opt corrisponda proprio alla condizione nominale"""
+
+    if tech.model_form.aero_model != "polar_decay":
+        return 1.0
+ 
+    rho_opt = atmosphere.density_kg_per_m3(cruise_altitude_m(mission.propulsor))
+    rho_real = atmosphere.density_kg_per_m3(_actual_altitude_m(mission, tech))
+    if rho_real <= 0.0:
+        return 1.0
+ 
+    xi = rho_opt / rho_real
+    return 2.0 * xi / (1.0 + xi ** 2)
+
+
 def ld_with_extra_drag(ld_baseline: float, mtow_kg: float, extra_drag_N: float) -> float:
     """L/D risultante aggiungendo una resistenza extra costante
     (ad esempio nel caso del contributo aggiuntivo dovuto al TMS)"""
@@ -106,12 +151,17 @@ def hydrogen_tank_weight_kg(fuel_weight_kg: float, gamma_tank: float) -> float:
     return fuel_weight_kg * (1.0 - gamma_tank) / gamma_tank
 
 
-def reserve_range_m(mission: Mission, tech: TechAssumptions) -> float:
-    """Range della riserva (rotta verso l'aeroporto alternativo + loiter).
-
+def _reserve_range_paper_m(mission: Mission, tech: TechAssumptions) -> float:
+    """Riserva del modello base: rotta verso l'alternativo + loiter.
+ 
     La velocità di loiter usa tech.reserve_loiter_speed_kt se specificata
     (valore numerico); di default (NaN) usa la velocità di crociera della
-    missione, come assunto nell'articolo di riferimento."""
+    missione, come assunto nell'articolo di riferimento.
+ 
+    È l'ipotesi accademica: attendere alla velocità di crociera è la cosa
+    più dispendiosa che si possa fare, e nessun operatore lo fa. Il ramo
+    "easa" corregge proprio questo"""
+
     alternate_m = min(mission.range_m, tech.reserve_alternate_range_nmi * 1852.0)
     if math.isnan(tech.reserve_loiter_speed_kt):
         loiter_speed_ms = mission.cruise_speed_ms
@@ -119,6 +169,54 @@ def reserve_range_m(mission: Mission, tech: TechAssumptions) -> float:
         loiter_speed_ms = tech.reserve_loiter_speed_kt * KT_TO_MS
     loiter_m = tech.reserve_loiter_time_s * loiter_speed_ms
     return alternate_m + loiter_m
+ 
+ 
+def _reserve_range_easa_m(mission: Mission, tech: TechAssumptions) -> float:
+    """Riserva secondo i vincoli operativi reali (EASA CAT.OP.MPA.150).
+ 
+    Tre differenze rispetto al ramo base:
+ 
+      contingenza   il 5% del combustibile di tratta. Qui è applicato
+                    come 5% di rotta in più, che per Breguet è la stessa
+                    cosa a meno di termini del secondo ordine, e ha il
+                    vantaggio di restare dentro la sola grandezza che il
+                    sizer maneggia (una distanza)
+      riserva finale  30 minuti per i fan, 45 per gli elica. Il modello
+                    base ne usa 45 per tutti
+      velocità      la riserva finale si vola alla velocità di massima
+                    autonomia oraria, presa come frazione di quella di
+                    crociera, non alla velocità di crociera
+ 
+    L'alternativo resta quello del modello base (200 nmi), perché è già
+    una regola operativa e non un'assunzione accademica.
+ 
+    ATTENZIONE al segno dell'effetto: il termine di contingenza fa
+    crescere la riserva, il loiter più lento e (per i fan) più corto la
+    fa calare. Quale dei due vince dipende dal range, quindi questa
+    variante non sposta la mappa tutta nella stessa direzione: sui
+    raggi corti domina il loiter (la riserva è quasi tutto), sui lunghi
+    domina la contingenza (il 5% di una rotta lunga). È il motivo per
+    cui vale la pena guardarla sulla mappa e non su un punto solo"""
+
+    contingency_m = tech.reserve_contingency_fraction * mission.range_m
+    alternate_m = min(mission.range_m, tech.reserve_alternate_range_nmi * 1852.0)
+ 
+    final_time_s = (tech.reserve_final_time_fan_s if mission.propulsor == "fan"
+                    else tech.reserve_final_time_propeller_s)
+    loiter_speed_ms = tech.reserve_loiter_speed_fraction * mission.cruise_speed_ms
+    final_m = final_time_s * loiter_speed_ms
+ 
+    return contingency_m + alternate_m + final_m
+ 
+ 
+def reserve_range_m(mission: Mission, tech: TechAssumptions) -> float:
+    """Range equivalente della missione di riserva.
+ 
+    Bivio su tech.model_form.reserve_model: "paper" (default) oppure
+    "easa". Vedi model_form.py"""
+    if tech.model_form.reserve_model == "easa":
+        return _reserve_range_easa_m(mission, tech)
+    return _reserve_range_paper_m(mission, tech)
 
 
 def breguet_fuel_weight_kg(mtow_kg: float, ld: float, eta_overall: float,
@@ -210,14 +308,57 @@ def oew_fraction_propeller(mtow_kg: float, tech: TechAssumptions) -> float:
     f_prop = _oew_fraction_propeller_raw(mtow_kg, tech)
     return (1.0 / 40.0) * math.log(math.exp(40 * f_fan) + math.exp(40 * f_prop))
 
-
+ 
+def oew_fraction_raymer(mtow_kg: float, propulsor: str, tech: TechAssumptions) -> float:
+    """Frazione di peso a vuoto secondo Raymer: We/W0 = A * W0^C.
+ 
+    ATTENZIONE ALLE UNITÀ: la correlazione di Raymer è tarata con W0 in
+    libbre, e l'esponente non è adimensionale, quindi darle dei kg
+    produce un numero sbagliato ma perfettamente plausibile (con
+    C = -0.06 l'errore è un fattore 2.2^-0.06, circa il 5%: abbastanza
+    piccolo da non saltare all'occhio e abbastanza grande da sporcare i
+    confronti). La conversione avviene qui dentro, una volta sola.
+ 
+    Differenze concettuali rispetto al ramo "paper", che sono poi la
+    ragione per cui questa variante è interessante:
+ 
+      forma      potenza pura, senza il termine costante c. La curva del
+                 paper ha un asintoto (tende a c per MTOW grandi),
+                 questa no: decresce indefinitamente, molto lentamente
+      fonte      coefficienti da tabella di manuale per classe di
+                 velivolo, non da una regressione fatta sui dati. Sono
+                 quindi tarati su velivoli convenzionali a jet fuel,
+                 esattamente come quelli del paper, ma da un campione
+                 diverso e con un fit diverso
+      parametri  spariscono b, c e r_pivot per entrambi i propulsori.
+                 Sei parametri incerti in meno, due nuovi (A_fan,
+                 A_prop). È il caso che rende necessario dividere i
+                 parametri in comuni e specifici del modello: vedi
+                 model_form_uncertainty.py
+ 
+    Non c'è raccordo fra i due propulsori come in oew_fraction_propeller:
+    le classi di Raymer sono separate per costruzione e la correlazione
+    dell'elica non ha il problema di estrapolazione ad alto MTOW che ha
+    quella del paper (l'esponente è negativo, la funzione resta
+    positiva e monotona ovunque)"""
+    mtow_lb = mtow_kg / LB_TO_KG
+    if propulsor == "fan":
+        return tech.raymer_A_fan * mtow_lb ** tech.raymer_C_fan
+    return tech.raymer_A_prop * mtow_lb ** tech.raymer_C_prop
+ 
+ 
 def oew_fraction(mtow_kg: float, propulsor: str, tech: TechAssumptions) -> float:
-    """Sceglie la stima giusta in base al tipo di propulsore"""
+    """Sceglie la stima giusta in base al tipo di propulsore e al ramo
+    attivo in tech.model_form.oew_model ("paper" di default, "raymer")"""
+    if propulsor not in ("fan", "propeller"):
+        raise ValueError(f"propulsore sconosciuto: {propulsor!r} (atteso 'fan' o 'propeller')")
+ 
+    if tech.model_form.oew_model == "raymer":
+        return oew_fraction_raymer(mtow_kg, propulsor, tech)
+ 
     if propulsor == "fan":
         return oew_fraction_fan(mtow_kg, tech)
-    if propulsor == "propeller":
-        return oew_fraction_propeller(mtow_kg, tech)
-    raise ValueError(f"propulsore sconosciuto: {propulsor!r} (atteso 'fan' o 'propeller')")
+    return oew_fraction_propeller(mtow_kg, tech)
 
 
 def payload_weight_kg(range_km: float, tech: TechAssumptions) -> float:

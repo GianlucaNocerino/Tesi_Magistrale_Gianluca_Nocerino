@@ -9,6 +9,7 @@ from .aircraft_sizer import AircraftSizer, SizingResult
 from .constants import TechAssumptions, WellToTankEfficiencies
 from .energy_intensity import IntensityResult, compute_intensity, most_efficient_system
 from .mission import Mission
+from .model_form import MODEL_FORM_PRESETS, ModelForm, preset
 from .propulsion_systems import (
     BatteryElectric,
     ESAFCombustion,
@@ -30,7 +31,7 @@ __all__ = [
     "AircraftSizer", "SizingResult",
     "TechAssumptions", "WellToTankEfficiencies",
     "IntensityResult", "compute_intensity", "most_efficient_system",
-    "Mission",
+    "Mission",  "ModelForm", "MODEL_FORM_PRESETS", "preset",
     "BatteryElectric", "ESAFCombustion", "HydrogenCombustion", "HydrogenFuelCell",
     "PropulsionSystem", "build_default_systems",
     "EnergyCarrier", "build_energy_carriers",

@@ -64,9 +64,19 @@ class PropulsionSystem(ABC):
 
     def lift_to_drag(self, ld_baseline: float, ld_prev: float, mtow_kg: float,
                       mission: Mission, tech: TechAssumptions) -> float:
-        """L/D corretto per la resistenza del TMS (se presente)
-        e per il multiplier legato allo stivaggio dell'idrogeno"""
-        effective_baseline = ld_baseline * self.ld_baseline_multiplier
+        """L/D corretto per la resistenza del TMS (se presente), per il
+        multiplier legato allo stivaggio dell'idrogeno e, se il ramo
+        aero_model="polar_decay" è attivo, per il decadimento dovuto
+        alla quota non raggiunta.
+ 
+        I due fattori sono indipendenti e si moltiplicano: il primo è
+        una penalità di configurazione (i serbatoi criogenici
+        peggiorano la polare a prescindere dalla missione), il secondo
+        una penalità di missione (la stessa cellula vola peggio se non
+        sale in quota). Con la forma di default il secondo vale 1.0"""
+        
+        effective_baseline = (ld_baseline * self.ld_baseline_multiplier
+                              * TWdef.ld_altitude_factor(mission, tech))
         if not self.has_tms:
             return effective_baseline
         _, extra_drag_N = self.tms_weight_and_drag(mtow_kg, ld_prev, mission, tech)

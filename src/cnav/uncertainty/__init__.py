@@ -41,6 +41,14 @@ from .distributions import (
     load_theta_acc,
     assemble_theta,
 )
+from .model_form_uncertainty import (
+    FORM_SPECIFIC_PARAMETERS,
+    assemble_theta_for_form,
+    common_parameter_names,
+    correlations_for_specs,
+    parameter_membership_table,
+    specs_for_form,
+)
 from .propagation import (
     TECHNOLOGIES,
     PROPULSORS,
@@ -84,5 +92,7 @@ __all__ = [
     "feasibility_probability", "boundary_statistics", "adjacent_label_pairs",
     "plot_probability_map", "plot_probability_field",
     "plot_intensity_band", "plot_boundary_dispersion",
+    "FORM_SPECIFIC_PARAMETERS", "common_parameter_names",
+    "specs_for_form", "correlations_for_specs", "assemble_theta_for_form",
+    "parameter_membership_table",
 ]
- 

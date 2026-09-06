@@ -18,11 +18,13 @@ Nota su fan_pressure_ratio: Adler & Martins NON specificano quale valore
 di rapporto di compressione del fan abbiano usato per costruire la curva
 Fig. 9 (dicono solo "adottata da Michel [55]", che nel suo articolo usa
 1.5 come valore di esempio in quasi tutte le figure). Il default qui
-riprende quel valore, ma e' una scelta di questo modello, non
+riprende quel valore, ma è una scelta di questo modello, non
 un'informazione dell'articolo di riferimento della tesi. Vedi anche
 propulsive_efficiency.py.
 """
-from dataclasses import dataclass, replace
+from dataclasses import dataclass, field, replace
+
+from .model_form import ModelForm
 
 # MTOW ai quali l'esponente b e il rapporto OEW/MTOW risultano scorrelati
 # nella posteriori della regressione bayesiana (oew_mtow_bayes.py).
@@ -108,6 +110,49 @@ class TechAssumptions:
     payload_c: float = 20.0
     payload_d: float = 0.001094
     payload_e: float = 107.0
+
+    # =================================================================
+    # VARIANTI CONCETTUALI (model-form uncertainty)
+    # =================================================================
+    # I coefficienti qui sotto sono usati solo quando il ramo
+    # corrispondente è attivo in model_form. Con la forma di default
+    # (ModelForm(), il modello base) restano inerti: nessuna funzione li
+    # legge, e i risultati sono identici a quelli di prima.
+    #
+    # Stanno in TechAssumptions e non dentro ModelForm apposta: sono
+    # numeri, quindi devono restare perturbabili dalla sensibilità e
+    # campionabili dalla propagazione come tutti gli altri parametri.
+    # ModelForm contiene solo gli interruttori
+ 
+    # --- ramo oew_model = "raymer" ---
+    # We/W0 = A * W0^C con W0 in LIBBRE (Raymer, Aircraft Design: A
+    # Conceptual Approach, Tab. 3.1). Le due classi usate qui sono
+    # "jet transport" per il fan e "twin turboprop" per l'elica
+    raymer_A_fan: float = 1.02
+    raymer_C_fan: float = -0.06
+    raymer_A_prop: float = 0.92
+    raymer_C_prop: float = -0.05
+ 
+    # --- ramo reserve_model = "easa" ---
+    # EASA CAT.OP.MPA.150: contingenza pari al 5% del combustibile di
+    # tratta (qui applicata come 5% di rotta in piu'), e riserva finale
+    # di 30 min per i jet / 45 min per gli elica, volata alla velocità
+    # di massima autonomia oraria e non a quella di crociera
+    reserve_contingency_fraction: float = 0.05
+    reserve_final_time_fan_s: float = 30 * 60.0
+    reserve_final_time_propeller_s: float = 45 * 60.0
+    # velocità di loiter come frazione di quella di crociera. Per una
+    # polare parabolica la massima autonomia oraria sta a (1/3)^0.25 =
+    # 0.76 della velocità di massima efficienza: 0.75 è quel valore
+    # arrotondato, non un numero scelto a caso
+    reserve_loiter_speed_fraction: float = 0.75
+ 
+    # --- la forma del modello ---
+    # Non è un parametro: è la scelta di quali equazioni usare. Non
+    # può essere impostata da theta (che contiene solo numeri), va
+    # passata al costruttore: TechAssumptions(model_form=ModelForm(...))
+    model_form: ModelForm = field(default_factory=ModelForm)
+ 
 
     # Parametri per l'andamento dello scaling factor del propeller 
     # (curva APPROSSIMATA - vedi propulsive_efficiency.py):
