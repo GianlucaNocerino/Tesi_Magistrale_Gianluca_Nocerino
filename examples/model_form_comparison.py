@@ -13,12 +13,14 @@ propagazioni complete: partire con N piccolo e griglia rada per vedere
 il flusso, e solo dopo lanciare il run da tesi.
 
 Cosa produce:
-  model_form_membership.csv     quale parametro esiste sotto quale forma
   model_form_<slug>.npz         il cubo grezzo di ciascuna forma
-  model_form_shift.csv          quanto si sposta ogni mappa rispetto al base
   model_form_deterministic.png  le mappe deterministiche affiancate
   model_form_maps.png           le mappe probabilistiche affiancate
   model_form_disagreement.png   dove le mappe non sono d'accordo
+
+La tabella dei parametri per forma e quella degli spostamenti vengono
+stampate a schermo e basta: sono da leggere mentre gira, non da
+archiviare, e il dato definitivo sta nei .npz
 
 Come si legge il risultato
 --------------------------
@@ -61,11 +63,16 @@ from cnav.uncertainty.model_form_uncertainty import (
     parameter_membership_table,
     specs_for_form,
 )
-from cnav.uncertainty.propagation import FlightGrid, run_propagation
+from cnav.uncertainty.propagation import (
+    PROPULSORS,
+    FlightGrid,
+    run_propagation,
+    technology_labels,
+)
 from cnav.uncertainty.technology_map import (
-    BASE_COLORS,
     TECHNOLOGIES,
     aggregate_to_technologies,
+    label_color,
     plot_probability_map,
     probability_map,
 )
@@ -85,6 +92,28 @@ N_RANGES = 20             # griglia rada per la prova, 45 x 40 per la tesi
 N_SPEEDS = 16
 SEED = 0
 N_WORKERS = 1             # > 1 richiede il blocco if __name__ (c'è già)
+
+# --- checkpoint -------------------------------------------------------
+# USA_CHECKPOINT = False: niente cartelle _ckpt_*, niente ripresa
+# RESUME = False: le cartelle vengono scritte ma non rilette
+# In ogni caso, cambiando N_SAMPLES o la griglia serve una cartella
+# nuova: i campioni LHS non sono gli stessi (vedi _run_marker)
+USA_CHECKPOINT = True
+RESUME = True
+
+# SALVA_CUBI: i .npz per forma. Sono l'unico artefatto autosufficiente
+# (contengono anche theta e la griglia, che i checkpoint non hanno) e
+# servono per rifare percentili e statistiche dei confini senza
+# rilanciare la propagazione
+SALVA_CUBI = True
+
+# Risoluzione delle sole FIGURE:
+#   False -> fan ed elica distinti, 8 etichette
+#   True  -> aggregate alle 4 tecnologie
+# Gli indici di confronto restano comunque a 8 etichette
+MAPPE_AGGREGATE = False
+
+LABELS = technology_labels()
 
 OUT_DIR = Path(__file__).resolve().parent
 
@@ -112,6 +141,19 @@ def confronta_mappe(pmap_base, pmap_var) -> dict:
     }
 
 
+def aggrega_indici(mappa: np.ndarray) -> np.ndarray:
+    """Da indici sulle 8 etichette a indici sulle 4 tecnologie.
+
+    L'equivalente di technology_map.aggregate_to_technologies per una
+    mappa di soli vincitori invece che di probabilita'. Il -1 (nessun
+    sistema fattibile) resta -1
+    """
+    out = np.full_like(mappa, -1)
+    for k, label in enumerate(LABELS):
+        out[mappa == k] = TECHNOLOGIES.index(label.rsplit(" (", 1)[0])
+    return out
+
+
 def mappa_deterministica(grid: FlightGrid, form) -> np.ndarray:
     """La mappa del sistema migliore con i parametri al valore nominale.
 
@@ -129,11 +171,14 @@ def mappa_deterministica(grid: FlightGrid, form) -> np.ndarray:
     qui, dall'effetto dell'incertezza dei parametri, che è la differenza
     fra questa figura e quella probabilistica.
 
-    Ritorna un array (n_speeds, n_ranges) di indici in TECHNOLOGIES,
-    con -1 dove nessun sistema è fattibile. Aggrega a 4 tecnologie
-    invece di 8 etichette, per essere confrontabile con la mappa
-    probabilistica prodotta più sotto, che è a sua volta aggregata
+    Ritorna un array (n_speeds, n_ranges) di indici in LABELS, con -1
+    dove nessun sistema è fattibile. La distinzione fan/elica è
+    mantenuta: un passaggio da fan a elica a parità di vettore
+    energetico è un cambiamento vero, e aggregarlo prima di contare le
+    celle lo cancella dagli indici. L'aggregazione alle 4 tecnologie
+    resta disponibile a valle con aggrega_indici(), per le sole figure
     """
+
     tech = TechAssumptions(model_form=form)
     carriers = build_energy_carriers(WellToTankEfficiencies())
     systems = build_default_systems(carriers)
@@ -144,11 +189,11 @@ def mappa_deterministica(grid: FlightGrid, form) -> np.ndarray:
     for i, speed_kt in enumerate(grid.speeds_kt):
         for j, range_nmi in enumerate(grid.ranges_nmi):
             migliore, valore_migliore = -1, np.inf
-            for propulsor in ("fan", "propeller"):
+            for p_idx, propulsor in enumerate(PROPULSORS):
                 mission = Mission(range_nmi=float(range_nmi),
                                   cruise_speed_kt=float(speed_kt),
                                   propulsor=propulsor)
-                for system in systems:
+                for s_idx, system in enumerate(systems):
                     try:
                         v = compute_intensity(mission, system, tech).intensity_MJ_per_pax_nmi
                     except Exception:
@@ -157,15 +202,17 @@ def mappa_deterministica(grid: FlightGrid, form) -> np.ndarray:
                     # bisogno di isnan: NaN < x è sempre falso
                     if v == v and v < valore_migliore:
                         valore_migliore = v
-                        migliore = TECHNOLOGIES.index(system.name)
+                        # stessa convenzione di propagation.evaluate_sample,
+                        # cioe' l'ordine di technology_labels()
+                        migliore = s_idx * len(PROPULSORS) + p_idx
             best[i, j] = migliore
     return best
 
 
-def plot_mappe_deterministiche(mappe: dict, grid: FlightGrid):
+def plot_mappe_deterministiche(mappe: dict, grid: FlightGrid, etichette: list):
     """Le mappe nominali di tutte le forme, affiancate.
 
-    Colori uguali a quelli della mappa probabilistica (BASE_COLORS), così
+    Colori uguali a quelli della mappa probabilistica (label_color), così
     le due figure si leggono una sotto l'altra senza dover reimparare la
     legenda. Il grigio è "nessun sistema fattibile"
     """
@@ -173,7 +220,7 @@ def plot_mappe_deterministiche(mappe: dict, grid: FlightGrid):
     from matplotlib.patches import Patch
 
     nomi = list(mappe)
-    colori = ["#BBBBBB"] + [BASE_COLORS[t] for t in TECHNOLOGIES]
+    colori = ["#BBBBBB"] + [label_color(e) for e in etichette]
     cmap = ListedColormap(colori)
 
     fig, axes = plt.subplots(1, len(nomi), figsize=(4.8 * len(nomi), 4.3),
@@ -192,13 +239,13 @@ def plot_mappe_deterministiche(mappe: dict, grid: FlightGrid):
 
     presenti = sorted({int(v) for m in mappe.values() for v in np.unique(m)})
     handles = [Patch(color=colori[k + 1],
-                     label=TECHNOLOGIES[k] if k >= 0 else "nessuno fattibile")
+                     label=etichette[k] if k >= 0 else "nessuno fattibile")
                for k in presenti]
     fig.legend(handles=handles, loc="lower center",
-               ncol=min(len(handles), 5), fontsize=9)
+               ncol=min(len(handles), 4), fontsize=9)
     fig.suptitle("Sistema più efficiente con i parametri al valore nominale "
                  "(mappa deterministica)", fontsize=12)
-    fig.tight_layout(rect=(0, 0.08, 1, 0.93))
+    fig.tight_layout(rect=(0, 0.12, 1, 0.93))
     return fig
 
 
@@ -238,7 +285,6 @@ def main():
     # -----------------------------------------------------------------
     membership = parameter_membership_table(
         {nm: MODEL_FORM_PRESETS[nm] for nm in FORMS})
-    membership.to_csv(OUT_DIR / "model_form_membership.csv", index=False)
 
     print("=" * 78)
     print("PARAMETRI INCERTI PER FORMA DEL MODELLO")
@@ -259,7 +305,10 @@ def main():
     det_shift = confronta_mappe_deterministiche(mappe_det)
     print(det_shift.round(4).to_string(index=False))
 
-    fig = plot_mappe_deterministiche(mappe_det, grid)
+    etichette_fig = list(TECHNOLOGIES) if MAPPE_AGGREGATE else LABELS
+    mappe_fig = ({n: aggrega_indici(m) for n, m in mappe_det.items()}
+                 if MAPPE_AGGREGATE else mappe_det)
+    fig = plot_mappe_deterministiche(mappe_fig, grid, etichette_fig)
     det_path = OUT_DIR / "model_form_deterministic.png"
     fig.savefig(det_path, dpi=140)
     plt.close(fig)
@@ -282,17 +331,21 @@ def main():
         print(f"  {len(specs_for_form(form))} parametri di letteratura, "
               f"theta {theta.shape}")
 
-        # ogni forma vuole la sua cartella di checkpoint: la cartella non
-        # registra quale modello l'ha scritta, e riusarne una mescolerebbe
-        # risultati di modelli diversi senza dare errore
+        # ogni forma vuole la sua cartella di checkpoint: la firma scritta
+        # da _run_marker fa fallire il tentativo di riusarne una per una
+        # forma, una N o una griglia diverse
+        ckpt = (str(OUT_DIR / f"_ckpt_model_form_{form.slug}")
+                if USA_CHECKPOINT else None)
         result = run_propagation(
-            theta, grid=grid, n_workers=N_WORKERS, verbose=False,
-            checkpoint_dir=str(OUT_DIR / f"_ckpt_model_form_{form.slug}"),
-            form=form,
+            theta, grid=grid, n_workers=N_WORKERS, verbose=True,
+            checkpoint_dir=ckpt, resume=RESUME, form=form,
         )
-        result.save(str(OUT_DIR / f"model_form_{form.slug}.npz"))
+        if SALVA_CUBI:
+            result.save(str(OUT_DIR / f"model_form_{form.slug}.npz"))
 
-        pmaps[nome] = aggregate_to_technologies(probability_map(result))
+        # gli indici si calcolano sempre sulle 8 etichette; l'aggregazione
+        # e' solo una scelta di leggibilita' delle figure
+        pmaps[nome] = probability_map(result)
         print(f"  celle senza alcuna tecnologia fattibile: "
               f"{result.infeasible_fraction:.1%}")
 
@@ -308,7 +361,6 @@ def main():
         righe.append(riga)
     shift = pd.DataFrame(righe).merge(
         det_shift.drop(columns="etichetta"), on="forma", how="left")
-    shift.to_csv(OUT_DIR / "model_form_shift.csv", index=False)
 
     print("\n" + "=" * 78)
     print("SPOSTAMENTO DELLA MAPPA RISPETTO AL MODELLO BASE")
@@ -328,7 +380,8 @@ def main():
     fig, axes = plt.subplots(1, len(FORMS),
                              figsize=(5.2 * len(FORMS), 4.4), squeeze=False)
     for ax, nome in zip(axes[0], FORMS):
-        plot_probability_map(pmaps[nome], ax=ax)
+        pm = aggregate_to_technologies(pmaps[nome]) if MAPPE_AGGREGATE else pmaps[nome]
+        plot_probability_map(pm, ax=ax)
         forma = MODEL_FORM_PRESETS[nome]
         ax.set_title(nome if forma.is_baseline else f"{nome}: {forma.label}",
                      fontsize=10)

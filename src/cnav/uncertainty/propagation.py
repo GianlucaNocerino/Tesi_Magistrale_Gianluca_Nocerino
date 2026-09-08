@@ -39,6 +39,7 @@ Consiglio: prima un giro con N piccolo (50-100) per verificare il flusso
 e misurare il tempo per campione, poi il run "vero" da tesi lanciato offline.
 
 """
+import hashlib
 import time
 from concurrent.futures import ProcessPoolExecutor
 from dataclasses import dataclass
@@ -275,39 +276,63 @@ class PropagationResult:
         )
 
 
-def _form_marker(checkpoint_dir: Path, form: Optional[ModelForm]) -> None:
-    """Marchia la cartella dei checkpoint con la forma del modello che
-    l'ha prodotta, e rifiuta di riusarla per una forma diversa.
+def _run_signature(form: Optional[ModelForm], theta: pd.DataFrame,
+                   grid: FlightGrid) -> dict:
+    """La firma del run: forma del modello, dimensioni, e un hash dei
+    valori di theta"""
+    valori = np.ascontiguousarray(theta.to_numpy(dtype=float)).tobytes()
+    return {
+        "forma": ModelForm().label if form is None else form.label,
+        "n_samples": str(len(theta)),
+        "griglia": f"{len(grid.speeds_kt)}x{len(grid.ranges_nmi)}",
+        "colonne": ",".join(map(str, theta.columns)),
+        "theta_sha1": hashlib.sha1(valori).hexdigest()[:16],
+    }
+
+
+def _run_marker(checkpoint_dir: Path, form: Optional[ModelForm],
+                theta: pd.DataFrame, grid: FlightGrid) -> None:
+    """Marchia la cartella dei checkpoint con il run che l'ha prodotta, e
+    rifiuta di riusarla per un run diverso.
 
     Serve a chiudere un buco silenzioso. I blocchi salvati sono
     identificati dal solo INDICE di riga: nulla, nel file, dice quale
-    modello li ha calcolati. Riusando la stessa cartella per due
-    varianti, resume=True ricaricherebbe i campioni dell'una
-    spacciandoli per quelli dell'altra, e il confronto fra le mappe
-    finirebbe per misurare un miscuglio dei due modelli senza che nulla
-    segnali il problema.
+    modello o quale theta li ha calcolati. Riusando la stessa cartella,
+    resume=True ricaricherebbe i campioni di un run spacciandoli per
+    quelli di un altro, e il risultato finale misurerebbe un miscuglio
+    senza che nulla segnali il problema.
 
-    Con questo marker il caso diventa un errore esplicito invece che un
-    risultato sbagliato. form=None e ModelForm() condividono
-    l'etichetta "base" perche' sono lo stesso modello.
+    Il caso piu' facile da innescare non è la forma del modello, che si
+    vede, ma N: theta e' campionata via Latin Hypercube, che stratifica
+    lo spazio in N intervalli, quindi passare da N = 60 a N = 500 cambia
+    TUTTE le righe, non solo quelle in più. L'hash dei valori copre
+    anche questo, e insieme il cambio di seed, di specs e di Theta_acc.
 
-    Resta scoperto il caso di theta diversa a parita' di forma: per
-    quello vale l'avvertenza gia' nel docstring di run_propagation,
-    cartella nuova quando cambiano seed, N o specs
+    form=None e ModelForm() condividono l'etichetta "base" perchè sono
+    lo stesso modello
     """
-    marker = checkpoint_dir / "model_form.txt"
-    etichetta = ModelForm().label if form is None else form.label
+    marker = checkpoint_dir / "run_signature.txt"
+    firma = _run_signature(form, theta, grid)
 
-    if marker.exists():
-        precedente = marker.read_text(encoding="utf-8").strip()
-        if precedente != etichetta:
-            raise ValueError(
-                f"La cartella dei checkpoint {checkpoint_dir} contiene un run "
-                f"della forma {precedente!r}, ma questo run usa {etichetta!r}. "
-                "Ogni forma del modello vuole la sua cartella: usarne una sola "
-                "mescolerebbe risultati di modelli diversi")
-    else:
-        marker.write_text(etichetta, encoding="utf-8")
+    if not marker.exists():
+        marker.write_text("\n".join(f"{k}={v}" for k, v in firma.items()),
+                          encoding="utf-8")
+        return
+
+    precedente = dict(
+        riga.split("=", 1)
+        for riga in marker.read_text(encoding="utf-8").splitlines() if "=" in riga)
+    diverse = [k for k, v in firma.items() if precedente.get(k) != v]
+    if diverse:
+        righe = "\n".join(
+            f"    {k}: nei checkpoint {precedente.get(k, '(assente)')!r}, "
+            f"in questo run {firma[k]!r}" for k in diverse)
+        raise ValueError(
+            f"La cartella dei checkpoint {checkpoint_dir} contiene un run "
+            f"diverso da quello che stai lanciando:\n{righe}\n"
+            "I blocchi salvati sono identificati dal solo indice di riga, "
+            "quindi riusarli qui mescolerebbe risultati di run diversi. "
+            "Usa una cartella nuova, oppure cancella questa per ricalcolare")
 
 
 def _chunk_path(checkpoint_dir: Path, start: int) -> Path:
@@ -362,9 +387,10 @@ def run_propagation(theta: pd.DataFrame,
 
     form: la variante concettuale del modello (model_form.py). None =
     modello base. Ogni forma vuole la SUA cartella di checkpoint: la
-    cartella viene marchiata con la forma che l'ha prodotta e riusarla
-    per una forma diversa solleva un errore invece di mescolare
-    risultati di modelli diversi (vedi _form_marker)
+    cartella viene marchiata con la firma del run che l'ha prodotta
+    (forma, N, griglia, hash dei valori di theta) e riusarla per un run
+    diverso solleva un errore invece di mescolare risultati (vedi
+    _run_marker)
     """
     grid = grid or FlightGrid.default()
     labels = technology_labels()
@@ -373,12 +399,15 @@ def run_propagation(theta: pd.DataFrame,
     checkpoint_dir_path = Path(checkpoint_dir) if checkpoint_dir else None
     if checkpoint_dir_path is not None:
         checkpoint_dir_path.mkdir(parents=True, exist_ok=True)
-        _form_marker(checkpoint_dir_path, form)
+        _run_marker(checkpoint_dir_path, form, theta, grid)
 
     if checkpoint_dir_path is not None and resume:
         intensities, done = _load_checkpoints(checkpoint_dir_path, n_samples, grid)
-        if verbose and done.any():
-            print(f"  Checkpoint trovati: {int(done.sum())}/{n_samples} campioni già valutati")
+        if done.any():
+            # fuori da verbose di proposito: saltare del calcolo e' la cosa
+            # che non deve mai passare inosservata
+            print(f"  Checkpoint: {int(done.sum())}/{n_samples} campioni ripresi "
+                  f"da {checkpoint_dir_path.name}, NON ricalcolati")
     else:
         n_speeds, n_ranges = grid.shape
         intensities = np.full((n_samples, len(labels), n_speeds, n_ranges),

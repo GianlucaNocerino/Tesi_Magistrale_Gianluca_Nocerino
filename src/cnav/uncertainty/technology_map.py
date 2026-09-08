@@ -57,6 +57,7 @@ __all__ = [
     "boundary_statistics",
     "adjacent_label_pairs",
     "BASE_COLORS",
+    "label_color",
     "plot_probability_map",
     "plot_probability_field",
     "plot_intensity_band",
@@ -329,6 +330,11 @@ def _label_color(label: str) -> str:
     h = base.lstrip("#")
     r, g, b = (min(255, int(int(h[i:i + 2], 16) * 1.35)) for i in (0, 2, 4))
     return f"#{r:02x}{g:02x}{b:02x}"
+
+
+# alias pubblico: serve agli script che disegnano mappe a 8 etichette con
+# la stessa convenzione di colore della mappa probabilistica
+label_color = _label_color
 
 
 def plot_probability_map(pmap: ProbabilityMap, threshold: float = 0.90,
