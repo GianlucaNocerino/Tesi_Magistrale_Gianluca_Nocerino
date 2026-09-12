@@ -8,7 +8,7 @@ Costruisce due funzioni di costo globali (una per il fan, una per
 l'elica), ciascuna somma pesata delle funzioni di costo dei singoli
 sistemi propulsivi disponibili in quella configurazione. Ogni funzione di
 costo di sistema è una Weighted Least Squares sugli scarti normalizzati
-tra intensity del modello e del paper (10 valori di Range, velocità
+tra intensity del modello e del paper (i valori di Range del paper, velocità
 fissata), con una penalità se il modello non converge dove il paper
 riporta un valore. Solo per Battery-electric si aggiunge un terzo
 termine: lo scarto, normalizzato e pesato, tra il range massimo fattibile
@@ -198,13 +198,13 @@ def system_cost(system_name: str, propulsor: str, tech: TechAssumptions,
                  range_term_weight: float = 10.0,
                  range_norm_value: Optional[float] = None) -> float:
     """WLS di un sistema in una configurazione (fan @450kt oppure
-    propeller @250kt): somma sui 10 Range del paper degli scarti
+    propeller @250kt): somma sui Range del paper degli scarti
     quadratici normalizzati e pesati sull'intensity, con penalità di
     non convergenza; per Battery-electric aggiunge il terzo termine sul
     range massimo fattibile.
 
     Normalizzazione (come i pesi/penalità, sovrascrivibile):
-    - intensity_norm_values: lista di 10 valori (uno per Range) usati
+    - intensity_norm_values: lista di valori (uno per Range) usati
       per normalizzare lo scarto sull'intensity in quel punto. Se None
       (default), si usa il valore del paper in quel punto — cioè
       l'errore relativo al quadrato.
@@ -221,11 +221,11 @@ def system_cost(system_name: str, propulsor: str, tech: TechAssumptions,
     if range_weights is None:
         range_weights = [1.0] * len(ranges)
     if len(range_weights) != len(ranges):
-        raise ValueError("range_weights deve avere un peso per ciascuno dei 10 Range del paper")
+        raise ValueError(f"range_weights deve avere un peso per ciascuno dei {len(ranges)} Range del paper")
     if intensity_norm_values is None:
         intensity_norm_values = [None] * len(ranges)
     if len(intensity_norm_values) != len(ranges):
-        raise ValueError("intensity_norm_values deve avere un valore per ciascuno dei 10 Range del paper")
+        raise ValueError(f"intensity_norm_values deve avere un valore per ciascuno dei {len(ranges)} Range del paper")
 
     carriers = build_energy_carriers(wtt)
     systems = build_default_systems(carriers)

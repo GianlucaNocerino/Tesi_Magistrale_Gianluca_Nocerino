@@ -104,7 +104,7 @@ class FlightGrid:
     def default(cls, n_ranges: int = 45, n_speeds: int = 40,
                 range_bounds: tuple = (10.0, 10_000.0),
                 speed_bounds: tuple = (180.0, 500.0)) -> "FlightGrid":
-        """Stessi estremi di examples/plot_best_system_map*.py (10-10000
+        """Stessi estremi di execution/01_riproduzione/plot_best_system_map*.py (10-10000
         nmi, 180-500 kt), con meno punti: la mappa probabilistica costa N
         volte quella deterministica. Estremi identici servono a poter
         sovrapporre le due mappe senza reinterpolare"""

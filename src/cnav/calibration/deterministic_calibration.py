@@ -9,7 +9,7 @@ cost_functions.py. Chi chiama sceglie quale funzione di costo calibrare
 (fan_cost, propeller_cost, cost_functions.combined_cost, o qualunque altra
 funzione con la stessa forma cost_fn(tech, wtt, **kwargs) -> (totale,
 dettaglio)), la trasforma in J con make_objective, e passa J a
-run_deterministic_calibration. Vedi examples/deterministic_calibration_execution.py
+run_deterministic_calibration. Vedi execution/04_calibrazione/deterministic_calibration_execution.py
 per un esempio completo (calibrazione congiunta fan+propeller con
 combined_cost).
 

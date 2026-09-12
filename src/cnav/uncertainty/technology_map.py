@@ -320,7 +320,7 @@ def adjacent_label_pairs(pmap: "ProbabilityMap", min_cells: int = 3) -> list:
 
 def _label_color(label: str) -> str:
     """Colore della tecnologia, schiarito per l'elica: stessa convenzione
-    dei grafici deterministici (examples/plot_best_system_map*.py), così
+    dei grafici deterministici (execution/01_riproduzione/plot_best_system_map*.py), così
     la mappa probabilistica è confrontabile a colpo d'occhio con quella
     deterministica"""
     name = label.rsplit(" (", 1)[0] if " (" in label else label

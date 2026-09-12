@@ -1,4 +1,5 @@
 """Modello atmosferico: velocità del suono e densità"""
+import math
 
 
 def speed_of_sound_ms(altitude_m: float) -> float:

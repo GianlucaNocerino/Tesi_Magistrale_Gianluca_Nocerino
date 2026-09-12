@@ -45,6 +45,9 @@ KEY_TO_CATEGORY = {key: cat for cat, keys in CATEGORIES.items() for key in keys}
 PARAMETER_REGISTRY = {}
 for source_dataclass in [TechAssumptions(), WellToTankEfficiencies()]:
     for key, nominal_value in dataclasses.asdict(source_dataclass).items():
+        if not isinstance(nominal_value, (int, float)) or isinstance(nominal_value, bool):
+            continue   # solo parametri numerici perturbabili: salta i campi
+                       # non numerici che asdict() appiattisce (es. model_form)
         category = KEY_TO_CATEGORY.get(key, "Uncategorized")
         PARAMETER_REGISTRY[key] = {
             "category": category,

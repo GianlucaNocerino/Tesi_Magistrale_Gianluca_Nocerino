@@ -1,0 +1,1255 @@
+output,fattore,S1,S1_lo,S1_hi,ST,ST_lo,ST_hi,interazione,n_valid,frazione_valida,N,trasformazione
+E[Battery-electric]@10nmi_200kt_propeller,oew_fan_b,0.0,,,0.0,,,0.0,63,0.984375,64,log
+E[Battery-electric]@10nmi_200kt_propeller,oew_fan_r_pivot,0.0,,,0.0,,,0.0,63,0.984375,64,log
+E[Battery-electric]@10nmi_200kt_propeller,eta_motor,0.07990752861395484,,,0.051362439262666496,,,-0.02854508935128834,63,0.984375,64,log
+E[Battery-electric]@10nmi_200kt_propeller,calibration_block,0.072770770403964,,,0.14404892031812763,,,0.07127814991416363,63,0.984375,64,log
+E[Battery-electric]@10nmi_200kt_propeller,e_battery_Wh_per_kg,0.9556332006937881,,,0.9757913198972268,,,0.020158119203438685,63,0.984375,64,log
+E[Battery-electric]@10nmi_200kt_propeller,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,63,0.984375,64,log
+E[Battery-electric]@10nmi_200kt_propeller,eta_fuel_cell,0.0,,,0.0,,,0.0,63,0.984375,64,log
+E[Battery-electric]@10nmi_200kt_propeller,liquid_hydrogen,0.0,,,0.0,,,0.0,63,0.984375,64,log
+E[Battery-electric]@10nmi_200kt_propeller,e_saf,0.0,,,0.0,,,0.0,63,0.984375,64,log
+E[Battery-electric]@10nmi_200kt_propeller,gamma_tank,0.0,,,0.0,,,0.0,63,0.984375,64,log
+E[Battery-electric]@10nmi_200kt_propeller,resto,0.027687889156355207,,,0.028362564147224906,,,0.0006746749908696989,63,0.984375,64,log
+E[Battery-electric]@10nmi_250kt_propeller,oew_fan_b,0.0,,,0.0,,,0.0,55,0.859375,64,log
+E[Battery-electric]@10nmi_250kt_propeller,oew_fan_r_pivot,0.0,,,0.0,,,0.0,55,0.859375,64,log
+E[Battery-electric]@10nmi_250kt_propeller,eta_motor,0.027799791624670903,,,0.2155659701469526,,,0.18776617852228172,55,0.859375,64,log
+E[Battery-electric]@10nmi_250kt_propeller,calibration_block,0.0516549694150251,,,0.07022170097676908,,,0.01856673156174398,54,0.84375,64,log
+E[Battery-electric]@10nmi_250kt_propeller,e_battery_Wh_per_kg,1.3269893851769305,,,1.7447258961237182,,,0.41773651094678765,55,0.859375,64,log
+E[Battery-electric]@10nmi_250kt_propeller,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,55,0.859375,64,log
+E[Battery-electric]@10nmi_250kt_propeller,eta_fuel_cell,0.0,,,0.0,,,0.0,55,0.859375,64,log
+E[Battery-electric]@10nmi_250kt_propeller,liquid_hydrogen,0.0,,,0.0,,,0.0,55,0.859375,64,log
+E[Battery-electric]@10nmi_250kt_propeller,e_saf,0.0,,,0.0,,,0.0,55,0.859375,64,log
+E[Battery-electric]@10nmi_250kt_propeller,gamma_tank,0.0,,,0.0,,,0.0,55,0.859375,64,log
+E[Battery-electric]@10nmi_250kt_propeller,resto,0.02733413024925495,,,0.03242360169577224,,,0.00508947144651729,55,0.859375,64,log
+E[Battery-electric]@20nmi_250kt_propeller,oew_fan_b,0.0,,,0.0,,,0.0,43,0.671875,64,log
+E[Battery-electric]@20nmi_250kt_propeller,oew_fan_r_pivot,0.0,,,0.0,,,0.0,43,0.671875,64,log
+E[Battery-electric]@20nmi_250kt_propeller,eta_motor,0.16171534759621817,,,0.1405012932758006,,,-0.021214054320417564,41,0.640625,64,log
+E[Battery-electric]@20nmi_250kt_propeller,calibration_block,-0.028966502246527248,,,0.07319567223241942,,,0.10216217447894667,41,0.640625,64,log
+E[Battery-electric]@20nmi_250kt_propeller,e_battery_Wh_per_kg,0.46121988104707534,,,1.1319111577996996,,,0.6706912767526243,42,0.65625,64,log
+E[Battery-electric]@20nmi_250kt_propeller,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,43,0.671875,64,log
+E[Battery-electric]@20nmi_250kt_propeller,eta_fuel_cell,0.0,,,0.0,,,0.0,43,0.671875,64,log
+E[Battery-electric]@20nmi_250kt_propeller,liquid_hydrogen,0.0,,,0.0,,,0.0,43,0.671875,64,log
+E[Battery-electric]@20nmi_250kt_propeller,e_saf,0.0,,,0.0,,,0.0,43,0.671875,64,log
+E[Battery-electric]@20nmi_250kt_propeller,gamma_tank,0.0,,,0.0,,,0.0,43,0.671875,64,log
+E[Battery-electric]@20nmi_250kt_propeller,resto,0.00859696963614348,,,0.04773253068734947,,,0.03913556105120599,42,0.65625,64,log
+E[Battery-electric]@5nmi_300kt_fan,oew_fan_b,0.0,,,0.0,,,0.0,40,0.625,64,log
+E[Battery-electric]@5nmi_300kt_fan,oew_fan_r_pivot,0.0,,,0.0,,,0.0,40,0.625,64,log
+E[Battery-electric]@5nmi_300kt_fan,eta_motor,0.10839047922801467,,,0.12620642077631172,,,0.01781594154829705,37,0.578125,64,log
+E[Battery-electric]@5nmi_300kt_fan,calibration_block,0.04215252816084998,,,0.06750119194636052,,,0.02534866378551054,37,0.578125,64,log
+E[Battery-electric]@5nmi_300kt_fan,e_battery_Wh_per_kg,0.7087076326761625,,,1.1529753793915478,,,0.44426774671538527,39,0.609375,64,log
+E[Battery-electric]@5nmi_300kt_fan,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,40,0.625,64,log
+E[Battery-electric]@5nmi_300kt_fan,eta_fuel_cell,0.0,,,0.0,,,0.0,40,0.625,64,log
+E[Battery-electric]@5nmi_300kt_fan,liquid_hydrogen,0.0,,,0.0,,,0.0,40,0.625,64,log
+E[Battery-electric]@5nmi_300kt_fan,e_saf,0.0,,,0.0,,,0.0,40,0.625,64,log
+E[Battery-electric]@5nmi_300kt_fan,gamma_tank,0.0,,,0.0,,,0.0,40,0.625,64,log
+E[Battery-electric]@5nmi_300kt_fan,resto,0.023558197684592504,,,0.14448218733188017,,,0.12092398964728768,38,0.59375,64,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,oew_fan_b,0.03007658941663807,,,0.057974677601013776,,,0.027898088184375707,64,1.0,64,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,oew_fan_r_pivot,0.027892558795064526,,,0.015718066850058873,,,-0.012174491945005653,64,1.0,64,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,eta_motor,0.1389435757021159,,,0.10198488381947922,,,-0.03695869188263669,64,1.0,64,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,calibration_block,0.08865913603439536,,,0.0622034977661815,,,-0.026455638268213864,64,1.0,64,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,fuel_cell_specific_power_kW_per_kg,0.24387001001553238,,,0.2250377886993447,,,-0.01883222131618767,64,1.0,64,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,eta_fuel_cell,0.34062003737669183,,,0.35775155616595106,,,0.017131518789259226,64,1.0,64,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,liquid_hydrogen,0.05391941267667717,,,0.02890216414530369,,,-0.025017248531373482,64,1.0,64,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,e_saf,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,gamma_tank,0.011590351489079288,,,0.004583471364359189,,,-0.007006880124720099,64,1.0,64,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,resto,0.03461285540541048,,,0.04716508524110906,,,0.012552229835698578,64,1.0,64,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,oew_fan_b,0.027207862971345764,,,0.020621611007958007,,,-0.006586251963387756,62,0.96875,64,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,oew_fan_r_pivot,0.014137996613652544,,,0.007104683337805998,,,-0.0070333132758465455,62,0.96875,64,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,eta_motor,0.10223841208991997,,,0.04686204617847611,,,-0.05537636591144386,62,0.96875,64,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,calibration_block,0.3087423058686135,,,0.4846924692027182,,,0.17595016333410468,62,0.96875,64,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,62,0.96875,64,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,fuel_cell_specific_power_kW_per_kg,0.20933631640134948,,,0.20156870892585857,,,-0.007767607475490906,62,0.96875,64,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,eta_fuel_cell,0.10119118916453197,,,0.11889898643713043,,,0.017707797272598455,62,0.96875,64,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,liquid_hydrogen,0.002774974447855799,,,0.00551779628213308,,,0.0027428218342772813,62,0.96875,64,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,e_saf,0.0,,,0.0,,,0.0,62,0.96875,64,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,gamma_tank,0.0014307863576244254,,,0.002171599845388189,,,0.0007408134877637635,62,0.96875,64,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,resto,0.008658086890844024,,,0.010740972428290464,,,0.0020828855374464394,62,0.96875,64,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,oew_fan_b,-0.004671715519034597,,,0.01103384954345547,,,0.015705565062490066,64,1.0,64,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,oew_fan_r_pivot,0.05535954865344546,,,0.0557224481337721,,,0.00036289948032663943,64,1.0,64,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,eta_motor,0.1382279109798375,,,0.10913119678433468,,,-0.029096714195502818,64,1.0,64,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,calibration_block,0.05078800494676437,,,0.022716822333395115,,,-0.028071182613369258,64,1.0,64,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,fuel_cell_specific_power_kW_per_kg,0.24237010591443803,,,0.2648853784719148,,,0.022515272557476762,64,1.0,64,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,eta_fuel_cell,0.34377684779771106,,,0.3776593433617331,,,0.033882495564022064,64,1.0,64,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,liquid_hydrogen,0.036766699081927944,,,0.015230061844904153,,,-0.02153663723702379,64,1.0,64,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,e_saf,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,gamma_tank,0.02635160183784328,,,0.01971206002279682,,,-0.00663954181504646,64,1.0,64,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,resto,-0.0059099545446356745,,,0.02213691691185241,,,0.028046871456488084,64,1.0,64,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,oew_fan_b,0.4695815448557166,,,0.5015095713491249,,,0.03192802649340826,63,0.984375,64,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,oew_fan_r_pivot,0.03350104674320209,,,0.018772914381085217,,,-0.014728132362116873,64,1.0,64,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,eta_motor,0.060959203266708534,,,0.04261325856956566,,,-0.018345944697142874,64,1.0,64,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,calibration_block,0.04695369902887272,,,0.010939297352249997,,,-0.03601440167662272,64,1.0,64,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,fuel_cell_specific_power_kW_per_kg,0.015834515226202963,,,0.0692086300821302,,,0.05337411485592723,64,1.0,64,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,eta_fuel_cell,0.10084108653592849,,,0.22786052458969347,,,0.12701943805376498,64,1.0,64,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,liquid_hydrogen,0.017976997567138837,,,0.002859699615880133,,,-0.015117297951258704,64,1.0,64,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,e_saf,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,gamma_tank,-0.007579537263332497,,,0.03182437298178897,,,0.03940391024512147,64,1.0,64,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,resto,-0.010970003306001784,,,0.012291414097927993,,,0.023261417403929778,64,1.0,64,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,oew_fan_b,0.20153508900176573,,,0.12384789040136655,,,-0.07768719860039917,64,1.0,64,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,oew_fan_r_pivot,0.05854226818950405,,,0.036038056811561484,,,-0.02250421137794257,64,1.0,64,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,eta_motor,0.07838760699678976,,,0.05405562032190474,,,-0.024331986674885023,64,1.0,64,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,calibration_block,0.005684786494987189,,,0.00048783248156251946,,,-0.0051969540134246695,64,1.0,64,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,fuel_cell_specific_power_kW_per_kg,0.5480731531403477,,,0.600055555152989,,,0.05198240201264137,64,1.0,64,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,eta_fuel_cell,0.025935760463724592,,,0.0655075453758552,,,0.039571784912130606,64,1.0,64,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,liquid_hydrogen,0.006487111898165099,,,0.0012227666291935802,,,-0.005264345268971519,64,1.0,64,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,e_saf,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,gamma_tank,-0.0009506040288750668,,,0.0015258704719634281,,,0.002476474500838495,64,1.0,64,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,resto,-0.003890287021203763,,,0.0032280152709521334,,,0.007118302292155897,64,1.0,64,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,oew_fan_b,0.19692198112504014,,,0.3168617999426361,,,0.11993981881759594,62,0.96875,64,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,oew_fan_r_pivot,0.009746590753144118,,,0.025863818410596047,,,0.01611722765745193,62,0.96875,64,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,eta_motor,0.04112827439159107,,,0.05287297345914355,,,0.011744699067552482,62,0.96875,64,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,calibration_block,0.003988870292070424,,,0.0005461453900176902,,,-0.0034427249020527336,62,0.96875,64,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,62,0.96875,64,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,fuel_cell_specific_power_kW_per_kg,0.39009652982733684,,,0.6133679953029401,,,0.22327146547560323,62,0.96875,64,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,eta_fuel_cell,0.10632911058293576,,,0.08198436195983333,,,-0.02434474862310243,62,0.96875,64,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,liquid_hydrogen,0.004007294393361351,,,0.0012349219811107978,,,-0.0027723724122505535,62,0.96875,64,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,e_saf,0.0,,,0.0,,,0.0,62,0.96875,64,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,gamma_tank,0.0017426128144373161,,,0.0009766093169000123,,,-0.0007660034975373038,62,0.96875,64,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,resto,-0.007514249705799543,,,0.002814805035625562,,,0.010329054741425104,62,0.96875,64,log
+E[Hydrogen combustion]@100nmi_350kt_fan,oew_fan_b,0.6224974839069426,,,0.6351601740239076,,,0.01266269011696497,64,1.0,64,log
+E[Hydrogen combustion]@100nmi_350kt_fan,oew_fan_r_pivot,0.14939872043377364,,,0.1400749749804351,,,-0.009323745453338528,64,1.0,64,log
+E[Hydrogen combustion]@100nmi_350kt_fan,eta_motor,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[Hydrogen combustion]@100nmi_350kt_fan,calibration_block,0.06437117773201184,,,0.06197694340021914,,,-0.0023942343317926995,64,1.0,64,log
+E[Hydrogen combustion]@100nmi_350kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[Hydrogen combustion]@100nmi_350kt_fan,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[Hydrogen combustion]@100nmi_350kt_fan,eta_fuel_cell,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[Hydrogen combustion]@100nmi_350kt_fan,liquid_hydrogen,0.1681549121406692,,,0.16122201462444896,,,-0.006932897516220227,64,1.0,64,log
+E[Hydrogen combustion]@100nmi_350kt_fan,e_saf,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[Hydrogen combustion]@100nmi_350kt_fan,gamma_tank,0.03880666210065706,,,0.0136104054145603,,,-0.025196256686096756,64,1.0,64,log
+E[Hydrogen combustion]@100nmi_350kt_fan,resto,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[Hydrogen combustion]@100nmi_450kt_fan,oew_fan_b,0.6197207618751035,,,0.6240233608447229,,,0.004302598969619376,64,1.0,64,log
+E[Hydrogen combustion]@100nmi_450kt_fan,oew_fan_r_pivot,0.15142583365236995,,,0.1377344672159972,,,-0.013691366436372754,64,1.0,64,log
+E[Hydrogen combustion]@100nmi_450kt_fan,eta_motor,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[Hydrogen combustion]@100nmi_450kt_fan,calibration_block,0.09947471675454747,,,0.06869852444215553,,,-0.03077619231239194,64,1.0,64,log
+E[Hydrogen combustion]@100nmi_450kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[Hydrogen combustion]@100nmi_450kt_fan,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[Hydrogen combustion]@100nmi_450kt_fan,eta_fuel_cell,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[Hydrogen combustion]@100nmi_450kt_fan,liquid_hydrogen,0.16693533421493956,,,0.15457183112051734,,,-0.012363503094422218,64,1.0,64,log
+E[Hydrogen combustion]@100nmi_450kt_fan,e_saf,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[Hydrogen combustion]@100nmi_450kt_fan,gamma_tank,0.03737744475867652,,,0.01358369331418666,,,-0.02379375144448986,64,1.0,64,log
+E[Hydrogen combustion]@100nmi_450kt_fan,resto,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,oew_fan_b,0.2984212080330529,,,0.3138514322800793,,,0.015430224247026392,64,1.0,64,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,oew_fan_r_pivot,0.27711935835459267,,,0.2504318571427199,,,-0.026687501211872744,64,1.0,64,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,eta_motor,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,calibration_block,0.16813547402193657,,,0.1079626753598827,,,-0.06017279866205387,64,1.0,64,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,eta_fuel_cell,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,liquid_hydrogen,0.2699910508904909,,,0.22514434546169682,,,-0.0448467054287941,64,1.0,64,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,e_saf,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,gamma_tank,0.14172243042095875,,,0.09298812052750077,,,-0.04873430989345798,64,1.0,64,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,resto,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,oew_fan_b,0.45092191691450917,,,0.3979864185530348,,,-0.052935498361474376,64,1.0,64,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,oew_fan_r_pivot,0.21513619608975718,,,0.16683650207127337,,,-0.0482996940184838,64,1.0,64,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,eta_motor,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,calibration_block,0.07434683273069631,,,0.05084765960365189,,,-0.023499173127044422,64,1.0,64,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,eta_fuel_cell,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,liquid_hydrogen,0.16485833492152613,,,0.10529617338315708,,,-0.059562161538369046,64,1.0,64,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,e_saf,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,gamma_tank,0.16667873857648227,,,0.2397664051692335,,,0.07308766659275123,64,1.0,64,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,resto,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,oew_fan_b,0.09905743745921101,,,0.15214783904081902,,,0.05309040158160801,64,1.0,64,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,oew_fan_r_pivot,0.1475194824297112,,,0.1609336555383176,,,0.013414173108606403,64,1.0,64,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,eta_motor,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,calibration_block,0.19807114395854616,,,0.1989243666371052,,,0.0008532226785590291,64,1.0,64,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,eta_fuel_cell,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,liquid_hydrogen,0.2066033161039873,,,0.1808547207879135,,,-0.02574859531607379,64,1.0,64,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,e_saf,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,gamma_tank,0.1835863953438577,,,0.12670647472066274,,,-0.05687992062319497,64,1.0,64,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,resto,0.19004497010465304,,,0.18021299799378704,,,-0.009831972110866005,64,1.0,64,log
+E[e-SAF combustion]@100nmi_350kt_fan,oew_fan_b,0.18660625156101707,,,0.2518010204162808,,,0.06519476885526371,64,1.0,64,log
+E[e-SAF combustion]@100nmi_350kt_fan,oew_fan_r_pivot,0.05884975864340161,,,0.0518943805467339,,,-0.006955378096667714,64,1.0,64,log
+E[e-SAF combustion]@100nmi_350kt_fan,eta_motor,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[e-SAF combustion]@100nmi_350kt_fan,calibration_block,0.015124896351155357,,,0.03963434138581295,,,0.02450944503465759,64,1.0,64,log
+E[e-SAF combustion]@100nmi_350kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[e-SAF combustion]@100nmi_350kt_fan,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[e-SAF combustion]@100nmi_350kt_fan,eta_fuel_cell,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[e-SAF combustion]@100nmi_350kt_fan,liquid_hydrogen,0.16837608159551076,,,0.16438031747662793,,,-0.003995764118882833,64,1.0,64,log
+E[e-SAF combustion]@100nmi_350kt_fan,e_saf,0.5597713894698538,,,0.5601066118645444,,,0.0003352223946905264,64,1.0,64,log
+E[e-SAF combustion]@100nmi_350kt_fan,gamma_tank,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[e-SAF combustion]@100nmi_350kt_fan,resto,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[e-SAF combustion]@1500nmi_450kt_fan,oew_fan_b,0.07883177206859115,,,0.1242295609208047,,,0.045397788852213544,64,1.0,64,log
+E[e-SAF combustion]@1500nmi_450kt_fan,oew_fan_r_pivot,0.09582286312079985,,,0.08362920325997115,,,-0.012193659860828696,64,1.0,64,log
+E[e-SAF combustion]@1500nmi_450kt_fan,eta_motor,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[e-SAF combustion]@1500nmi_450kt_fan,calibration_block,0.06446445538535565,,,0.05354875018018015,,,-0.010915705205175506,64,1.0,64,log
+E[e-SAF combustion]@1500nmi_450kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[e-SAF combustion]@1500nmi_450kt_fan,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[e-SAF combustion]@1500nmi_450kt_fan,eta_fuel_cell,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[e-SAF combustion]@1500nmi_450kt_fan,liquid_hydrogen,0.19650743920005553,,,0.17778245643278284,,,-0.01872498276727269,64,1.0,64,log
+E[e-SAF combustion]@1500nmi_450kt_fan,e_saf,0.6106238250990508,,,0.6057728251782954,,,-0.004850999920755328,64,1.0,64,log
+E[e-SAF combustion]@1500nmi_450kt_fan,gamma_tank,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[e-SAF combustion]@1500nmi_450kt_fan,resto,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[e-SAF combustion]@6000nmi_450kt_fan,oew_fan_b,0.343200079327778,,,0.26812099404538814,,,-0.07507908528238988,64,1.0,64,log
+E[e-SAF combustion]@6000nmi_450kt_fan,oew_fan_r_pivot,0.13653940267612602,,,0.10814461989409366,,,-0.028394782782032363,64,1.0,64,log
+E[e-SAF combustion]@6000nmi_450kt_fan,eta_motor,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[e-SAF combustion]@6000nmi_450kt_fan,calibration_block,0.05035172870421741,,,0.03917182085022382,,,-0.011179907853993594,64,1.0,64,log
+E[e-SAF combustion]@6000nmi_450kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[e-SAF combustion]@6000nmi_450kt_fan,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[e-SAF combustion]@6000nmi_450kt_fan,eta_fuel_cell,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[e-SAF combustion]@6000nmi_450kt_fan,liquid_hydrogen,0.17660659316436442,,,0.12904535372747875,,,-0.04756123943688567,64,1.0,64,log
+E[e-SAF combustion]@6000nmi_450kt_fan,e_saf,0.475074927211501,,,0.4397068758760405,,,-0.035368051335460504,64,1.0,64,log
+E[e-SAF combustion]@6000nmi_450kt_fan,gamma_tank,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[e-SAF combustion]@6000nmi_450kt_fan,resto,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,oew_fan_b,0.01077177868293697,,,0.06645619692927007,,,0.055684418246333106,64,1.0,64,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,oew_fan_r_pivot,0.052680021145370994,,,0.05798747117038964,,,0.005307450025018645,64,1.0,64,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,eta_motor,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,calibration_block,0.04409781913590006,,,0.11480992459315519,,,0.07071210545725512,64,1.0,64,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,eta_fuel_cell,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,liquid_hydrogen,0.18578680882346602,,,0.1616596233693328,,,-0.024127185454133226,64,1.0,64,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,e_saf,0.4920184713164849,,,0.5508361664623834,,,0.05881769514589852,64,1.0,64,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,gamma_tank,0.0,,,0.0,,,0.0,64,1.0,64,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,resto,0.17275862986136084,,,0.104019025463421,,,-0.06873960439793984,64,1.0,64,log
+E[Battery-electric]@10nmi_200kt_propeller,oew_fan_b,0.0,,,0.0,,,0.0,127,0.9921875,128,log
+E[Battery-electric]@10nmi_200kt_propeller,oew_fan_r_pivot,0.0,,,0.0,,,0.0,127,0.9921875,128,log
+E[Battery-electric]@10nmi_200kt_propeller,eta_motor,0.06306861858913487,,,0.04377473413560651,,,-0.019293884453528365,127,0.9921875,128,log
+E[Battery-electric]@10nmi_200kt_propeller,calibration_block,0.11841312731997412,,,0.12490540801017422,,,0.006492280690200095,126,0.984375,128,log
+E[Battery-electric]@10nmi_200kt_propeller,e_battery_Wh_per_kg,0.713018085356835,,,0.7336382014350755,,,0.020620116078240547,127,0.9921875,128,log
+E[Battery-electric]@10nmi_200kt_propeller,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,127,0.9921875,128,log
+E[Battery-electric]@10nmi_200kt_propeller,eta_fuel_cell,0.0,,,0.0,,,0.0,127,0.9921875,128,log
+E[Battery-electric]@10nmi_200kt_propeller,liquid_hydrogen,0.0,,,0.0,,,0.0,127,0.9921875,128,log
+E[Battery-electric]@10nmi_200kt_propeller,e_saf,0.0,,,0.0,,,0.0,127,0.9921875,128,log
+E[Battery-electric]@10nmi_200kt_propeller,gamma_tank,0.0,,,0.0,,,0.0,127,0.9921875,128,log
+E[Battery-electric]@10nmi_200kt_propeller,resto,0.01722999325895328,,,0.02745249905633072,,,0.010222505797377438,127,0.9921875,128,log
+E[Battery-electric]@10nmi_250kt_propeller,oew_fan_b,0.0,,,0.0,,,0.0,113,0.8828125,128,log
+E[Battery-electric]@10nmi_250kt_propeller,oew_fan_r_pivot,0.0,,,0.0,,,0.0,113,0.8828125,128,log
+E[Battery-electric]@10nmi_250kt_propeller,eta_motor,0.06170708957776005,,,0.12102696024637706,,,0.05931987066861701,112,0.875,128,log
+E[Battery-electric]@10nmi_250kt_propeller,calibration_block,0.020369646873254325,,,0.07191746281448672,,,0.051547815941232394,112,0.875,128,log
+E[Battery-electric]@10nmi_250kt_propeller,e_battery_Wh_per_kg,0.9340391885311748,,,1.0444369884214906,,,0.11039779989031573,112,0.875,128,log
+E[Battery-electric]@10nmi_250kt_propeller,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,113,0.8828125,128,log
+E[Battery-electric]@10nmi_250kt_propeller,eta_fuel_cell,0.0,,,0.0,,,0.0,113,0.8828125,128,log
+E[Battery-electric]@10nmi_250kt_propeller,liquid_hydrogen,0.0,,,0.0,,,0.0,113,0.8828125,128,log
+E[Battery-electric]@10nmi_250kt_propeller,e_saf,0.0,,,0.0,,,0.0,113,0.8828125,128,log
+E[Battery-electric]@10nmi_250kt_propeller,gamma_tank,0.0,,,0.0,,,0.0,113,0.8828125,128,log
+E[Battery-electric]@10nmi_250kt_propeller,resto,0.04067411413676981,,,0.0403019057101169,,,-0.0003722084266529063,113,0.8828125,128,log
+E[Battery-electric]@20nmi_250kt_propeller,oew_fan_b,0.0,,,0.0,,,0.0,87,0.6796875,128,log
+E[Battery-electric]@20nmi_250kt_propeller,oew_fan_r_pivot,0.0,,,0.0,,,0.0,87,0.6796875,128,log
+E[Battery-electric]@20nmi_250kt_propeller,eta_motor,0.13293137774580843,,,0.13804386728724793,,,0.005112489541439502,85,0.6640625,128,log
+E[Battery-electric]@20nmi_250kt_propeller,calibration_block,0.03642766167274847,,,0.06373332741972385,,,0.027305665746975377,85,0.6640625,128,log
+E[Battery-electric]@20nmi_250kt_propeller,e_battery_Wh_per_kg,0.524872065042174,,,0.9710574388959148,,,0.4461853738537408,86,0.671875,128,log
+E[Battery-electric]@20nmi_250kt_propeller,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,87,0.6796875,128,log
+E[Battery-electric]@20nmi_250kt_propeller,eta_fuel_cell,0.0,,,0.0,,,0.0,87,0.6796875,128,log
+E[Battery-electric]@20nmi_250kt_propeller,liquid_hydrogen,0.0,,,0.0,,,0.0,87,0.6796875,128,log
+E[Battery-electric]@20nmi_250kt_propeller,e_saf,0.0,,,0.0,,,0.0,87,0.6796875,128,log
+E[Battery-electric]@20nmi_250kt_propeller,gamma_tank,0.0,,,0.0,,,0.0,87,0.6796875,128,log
+E[Battery-electric]@20nmi_250kt_propeller,resto,-0.015748750790522813,,,0.09205673091745242,,,0.10780548170797524,86,0.671875,128,log
+E[Battery-electric]@5nmi_300kt_fan,oew_fan_b,0.0,,,0.0,,,0.0,81,0.6328125,128,log
+E[Battery-electric]@5nmi_300kt_fan,oew_fan_r_pivot,0.0,,,0.0,,,0.0,81,0.6328125,128,log
+E[Battery-electric]@5nmi_300kt_fan,eta_motor,0.10798367804540054,,,0.11512028054994801,,,0.007136602504547465,78,0.609375,128,log
+E[Battery-electric]@5nmi_300kt_fan,calibration_block,0.010828411590926353,,,0.03695216467616333,,,0.026123753085236977,78,0.609375,128,log
+E[Battery-electric]@5nmi_300kt_fan,e_battery_Wh_per_kg,0.8133163436615366,,,1.0764408014695308,,,0.2631244578079942,80,0.625,128,log
+E[Battery-electric]@5nmi_300kt_fan,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,81,0.6328125,128,log
+E[Battery-electric]@5nmi_300kt_fan,eta_fuel_cell,0.0,,,0.0,,,0.0,81,0.6328125,128,log
+E[Battery-electric]@5nmi_300kt_fan,liquid_hydrogen,0.0,,,0.0,,,0.0,81,0.6328125,128,log
+E[Battery-electric]@5nmi_300kt_fan,e_saf,0.0,,,0.0,,,0.0,81,0.6328125,128,log
+E[Battery-electric]@5nmi_300kt_fan,gamma_tank,0.0,,,0.0,,,0.0,81,0.6328125,128,log
+E[Battery-electric]@5nmi_300kt_fan,resto,0.019467081303987995,,,0.09244456370291616,,,0.07297748239892816,78,0.609375,128,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,oew_fan_b,0.05607759739689521,,,0.06748115590386002,,,0.011403558506964805,128,1.0,128,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,oew_fan_r_pivot,0.01410738010377698,,,0.01778161165453183,,,0.0036742315507548515,128,1.0,128,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,eta_motor,0.11460669972283626,,,0.11332187592496522,,,-0.0012848237978710375,128,1.0,128,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,calibration_block,0.09281815618286593,,,0.0765546036160347,,,-0.016263552566831235,128,1.0,128,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,fuel_cell_specific_power_kW_per_kg,0.29597919718801274,,,0.2565225501091615,,,-0.03945664707885127,128,1.0,128,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,eta_fuel_cell,0.39844898897772923,,,0.4119219541489552,,,0.013472965171225981,128,1.0,128,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,liquid_hydrogen,0.0220457483862595,,,0.024103592227487643,,,0.002057843841228143,128,1.0,128,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,e_saf,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,gamma_tank,0.002528277709774726,,,0.005140535406899288,,,0.0026122576971245614,128,1.0,128,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,resto,0.014033302816827884,,,0.04358395701866579,,,0.029550654201837907,128,1.0,128,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,oew_fan_b,0.0382206206423796,,,0.021825442074753204,,,-0.016395178567626394,126,0.984375,128,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,oew_fan_r_pivot,0.0081361337628624,,,0.007841078153449756,,,-0.0002950556094126443,126,0.984375,128,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,eta_motor,0.0664022687111262,,,0.045940397673452815,,,-0.020461871037673385,126,0.984375,128,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,calibration_block,0.48749881487728897,,,0.46257944415636426,,,-0.024919370720924705,126,0.984375,128,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,126,0.984375,128,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,fuel_cell_specific_power_kW_per_kg,0.2905505403588868,,,0.19431782384278332,,,-0.09623271651610346,126,0.984375,128,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,eta_fuel_cell,0.09806338608793749,,,0.11880208262622916,,,0.020738696538291662,126,0.984375,128,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,liquid_hydrogen,-0.0009872554065807624,,,0.0041446137599930825,,,0.005131869166573845,126,0.984375,128,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,e_saf,0.0,,,0.0,,,0.0,126,0.984375,128,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,gamma_tank,-0.003951527837617997,,,0.001992328787978548,,,0.005943856625596546,126,0.984375,128,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,resto,0.0030827392262427794,,,0.009237664497139532,,,0.006154925270896753,126,0.984375,128,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,oew_fan_b,0.0049077769393435396,,,0.012972751204056263,,,0.008064974264712723,128,1.0,128,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,oew_fan_r_pivot,0.0679056528754176,,,0.06232909068589133,,,-0.00557656218952627,128,1.0,128,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,eta_motor,0.11760290117560972,,,0.12417314711089657,,,0.00657024593528685,128,1.0,128,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,calibration_block,0.04688698470158511,,,0.026088447207342994,,,-0.020798537494242115,128,1.0,128,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,fuel_cell_specific_power_kW_per_kg,0.29443607877490946,,,0.2856212779642146,,,-0.008814800810694856,128,1.0,128,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,eta_fuel_cell,0.410074468478492,,,0.4298413613650698,,,0.01976689288657779,128,1.0,128,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,liquid_hydrogen,0.01241127722057108,,,0.012427265745282549,,,1.5988524711468485e-05,128,1.0,128,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,e_saf,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,gamma_tank,0.022815581965521737,,,0.021599112927054832,,,-0.0012164690384669045,128,1.0,128,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,resto,-0.004643158878883432,,,0.026493928669011835,,,0.031137087547895268,128,1.0,128,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,oew_fan_b,0.4218647634021217,,,0.5605755646598698,,,0.1387108012577481,126,0.984375,128,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,oew_fan_r_pivot,0.025713855696301597,,,0.023432713746275226,,,-0.0022811419500263705,127,0.9921875,128,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,eta_motor,0.05018925020220055,,,0.05805494020734683,,,0.007865690005146274,127,0.9921875,128,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,calibration_block,0.022294669813526825,,,0.014503099039813073,,,-0.007791570773713752,127,0.9921875,128,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,127,0.9921875,128,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,fuel_cell_specific_power_kW_per_kg,0.015012853885528388,,,0.0755288823877673,,,0.06051602850223891,127,0.9921875,128,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,eta_fuel_cell,0.18708177779848037,,,0.25971048928571683,,,0.07262871148723646,127,0.9921875,128,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,liquid_hydrogen,0.007907804259936225,,,0.002412699404290157,,,-0.005495104855646068,127,0.9921875,128,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,e_saf,0.0,,,0.0,,,0.0,127,0.9921875,128,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,gamma_tank,0.013549656019757092,,,0.046246643116974066,,,0.032696987097216974,127,0.9921875,128,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,resto,-0.006369187828785483,,,0.014962658448421557,,,0.02133184627720704,127,0.9921875,128,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,oew_fan_b,0.10228142658614872,,,0.11171053887051717,,,0.009429112284368449,128,1.0,128,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,oew_fan_r_pivot,0.05742447828641285,,,0.04115844325612252,,,-0.01626603503029033,128,1.0,128,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,eta_motor,0.07577851966280702,,,0.07442801822555478,,,-0.0013505014372522384,128,1.0,128,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,calibration_block,0.004751229910790793,,,0.0005813329732912588,,,-0.004169896937499534,128,1.0,128,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,fuel_cell_specific_power_kW_per_kg,0.6324748655668481,,,0.6921332788614726,,,0.05965841329462451,128,1.0,128,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,eta_fuel_cell,0.05605692790183737,,,0.07931438418543493,,,0.023257456283597565,128,1.0,128,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,liquid_hydrogen,0.0021608039501893068,,,0.0010491285215990238,,,-0.001111675428590283,128,1.0,128,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,e_saf,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,gamma_tank,0.002478428882064673,,,0.00199452970353255,,,-0.000483899178532123,128,1.0,128,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,resto,0.0013572616543422358,,,0.003876421171622918,,,0.002519159517280682,128,1.0,128,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,oew_fan_b,0.31646878721275445,,,0.38408367643036456,,,0.06761488921761011,125,0.9765625,128,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,oew_fan_r_pivot,0.0190934137643946,,,0.028825466314919383,,,0.009732052550524783,125,0.9765625,128,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,eta_motor,0.05329004525306376,,,0.06347843311978112,,,0.010188387866717358,125,0.9765625,128,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,calibration_block,0.00355847230231304,,,0.0005286118026331566,,,-0.0030298604996798835,125,0.9765625,128,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,125,0.9765625,128,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,fuel_cell_specific_power_kW_per_kg,0.40427919941359264,,,0.6225575310121991,,,0.2182783315986065,125,0.9765625,128,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,eta_fuel_cell,0.10335568259937508,,,0.0813778655447357,,,-0.021977817054639387,125,0.9765625,128,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,liquid_hydrogen,-0.00034482369224698626,,,0.0009369695840665505,,,0.0012817932763135368,125,0.9765625,128,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,e_saf,0.0,,,0.0,,,0.0,125,0.9765625,128,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,gamma_tank,0.003929314116139787,,,0.0011603853363664008,,,-0.002768928779773386,125,0.9765625,128,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,resto,0.008899500890836158,,,0.003363982566833154,,,-0.005535518324003004,125,0.9765625,128,log
+E[Hydrogen combustion]@100nmi_350kt_fan,oew_fan_b,0.6572890092118947,,,0.662746408687374,,,0.0054573994754792965,128,1.0,128,log
+E[Hydrogen combustion]@100nmi_350kt_fan,oew_fan_r_pivot,0.16117144726347093,,,0.14113181347346204,,,-0.020039633790008893,128,1.0,128,log
+E[Hydrogen combustion]@100nmi_350kt_fan,eta_motor,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[Hydrogen combustion]@100nmi_350kt_fan,calibration_block,0.0330160921333601,,,0.06423847502332834,,,0.031222382889968245,128,1.0,128,log
+E[Hydrogen combustion]@100nmi_350kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[Hydrogen combustion]@100nmi_350kt_fan,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[Hydrogen combustion]@100nmi_350kt_fan,eta_fuel_cell,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[Hydrogen combustion]@100nmi_350kt_fan,liquid_hydrogen,0.13974332258025687,,,0.1218118991172099,,,-0.017931423463046978,128,1.0,128,log
+E[Hydrogen combustion]@100nmi_350kt_fan,e_saf,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[Hydrogen combustion]@100nmi_350kt_fan,gamma_tank,0.013196914205461766,,,0.014002191091264847,,,0.0008052768858030808,128,1.0,128,log
+E[Hydrogen combustion]@100nmi_350kt_fan,resto,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[Hydrogen combustion]@100nmi_450kt_fan,oew_fan_b,0.6616184286288075,,,0.6595971675258849,,,-0.002021261102922556,128,1.0,128,log
+E[Hydrogen combustion]@100nmi_450kt_fan,oew_fan_r_pivot,0.15750809753755535,,,0.14058042706328305,,,-0.016927670474272294,128,1.0,128,log
+E[Hydrogen combustion]@100nmi_450kt_fan,eta_motor,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[Hydrogen combustion]@100nmi_450kt_fan,calibration_block,0.05942784966960591,,,0.06808154290776128,,,0.008653693238155367,128,1.0,128,log
+E[Hydrogen combustion]@100nmi_450kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[Hydrogen combustion]@100nmi_450kt_fan,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[Hydrogen combustion]@100nmi_450kt_fan,eta_fuel_cell,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[Hydrogen combustion]@100nmi_450kt_fan,liquid_hydrogen,0.13776545533965417,,,0.11828653056481561,,,-0.019478924774838563,128,1.0,128,log
+E[Hydrogen combustion]@100nmi_450kt_fan,e_saf,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[Hydrogen combustion]@100nmi_450kt_fan,gamma_tank,0.013509629031037614,,,0.014155633596311883,,,0.0006460045652742687,128,1.0,128,log
+E[Hydrogen combustion]@100nmi_450kt_fan,resto,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,oew_fan_b,0.3383504896891051,,,0.34071933768970525,,,0.0023688480006001655,128,1.0,128,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,oew_fan_r_pivot,0.28972346554474226,,,0.2632863264009666,,,-0.026437139143775656,128,1.0,128,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,eta_motor,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,calibration_block,0.1173888644956568,,,0.10815961994996035,,,-0.009229244545696458,128,1.0,128,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,eta_fuel_cell,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,liquid_hydrogen,0.21441521719396156,,,0.1771494208849686,,,-0.03726579630899296,128,1.0,128,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,e_saf,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,gamma_tank,0.10520434393386881,,,0.09984869853149661,,,-0.005355645402372197,128,1.0,128,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,resto,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,oew_fan_b,0.43956852655728285,,,0.41757767034172166,,,-0.021990856215561183,128,1.0,128,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,oew_fan_r_pivot,0.19341266591544454,,,0.1790838822265031,,,-0.014328783688941443,128,1.0,128,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,eta_motor,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,calibration_block,0.06801859798015834,,,0.050562542260354754,,,-0.01745605571980359,128,1.0,128,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,eta_fuel_cell,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,liquid_hydrogen,0.10972522776695275,,,0.08249050312024196,,,-0.027234724646710784,128,1.0,128,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,e_saf,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,gamma_tank,0.2602425968119661,,,0.2621349939546143,,,0.0018923971426482167,128,1.0,128,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,resto,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,oew_fan_b,0.1533004930213195,,,0.1609960522439478,,,0.007695559222628295,128,1.0,128,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,oew_fan_r_pivot,0.1525231527226615,,,0.16081329459613694,,,0.008290141873475432,128,1.0,128,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,eta_motor,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,calibration_block,0.22752021660460853,,,0.2077266967894033,,,-0.01979351981520522,128,1.0,128,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,eta_fuel_cell,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,liquid_hydrogen,0.1503934405679131,,,0.13796851942932034,,,-0.012424921138592754,128,1.0,128,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,e_saf,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,gamma_tank,0.11670532853143381,,,0.13094437713422863,,,0.014239048602794818,128,1.0,128,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,resto,0.17087234320087208,,,0.19162268110636405,,,0.020750337905491967,128,1.0,128,log
+E[e-SAF combustion]@100nmi_350kt_fan,oew_fan_b,0.1981073301308752,,,0.24979021023453482,,,0.05168288010365962,128,1.0,128,log
+E[e-SAF combustion]@100nmi_350kt_fan,oew_fan_r_pivot,0.05895627421705232,,,0.04983635664648127,,,-0.009119917570571047,128,1.0,128,log
+E[e-SAF combustion]@100nmi_350kt_fan,eta_motor,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[e-SAF combustion]@100nmi_350kt_fan,calibration_block,0.025174425377496507,,,0.03904584759127944,,,0.01387142221378293,128,1.0,128,log
+E[e-SAF combustion]@100nmi_350kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[e-SAF combustion]@100nmi_350kt_fan,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[e-SAF combustion]@100nmi_350kt_fan,eta_fuel_cell,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[e-SAF combustion]@100nmi_350kt_fan,liquid_hydrogen,0.108566343386047,,,0.11536799913689035,,,0.0068016557508433495,128,1.0,128,log
+E[e-SAF combustion]@100nmi_350kt_fan,e_saf,0.5536459698531854,,,0.5545728821168376,,,0.0009269122636522686,128,1.0,128,log
+E[e-SAF combustion]@100nmi_350kt_fan,gamma_tank,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[e-SAF combustion]@100nmi_350kt_fan,resto,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[e-SAF combustion]@1500nmi_450kt_fan,oew_fan_b,0.09230923498703757,,,0.12631255193560975,,,0.034003316948572185,128,1.0,128,log
+E[e-SAF combustion]@1500nmi_450kt_fan,oew_fan_r_pivot,0.0904943149899229,,,0.08256701528679075,,,-0.007927299703132148,128,1.0,128,log
+E[e-SAF combustion]@1500nmi_450kt_fan,eta_motor,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[e-SAF combustion]@1500nmi_450kt_fan,calibration_block,0.058461914668113374,,,0.05017695767370969,,,-0.00828495699440368,128,1.0,128,log
+E[e-SAF combustion]@1500nmi_450kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[e-SAF combustion]@1500nmi_450kt_fan,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[e-SAF combustion]@1500nmi_450kt_fan,eta_fuel_cell,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[e-SAF combustion]@1500nmi_450kt_fan,liquid_hydrogen,0.12586515694640787,,,0.1279674461467369,,,0.0021022892003290383,128,1.0,128,log
+E[e-SAF combustion]@1500nmi_450kt_fan,e_saf,0.617477975661362,,,0.6151383048822808,,,-0.002339670779081149,128,1.0,128,log
+E[e-SAF combustion]@1500nmi_450kt_fan,gamma_tank,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[e-SAF combustion]@1500nmi_450kt_fan,resto,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[e-SAF combustion]@6000nmi_450kt_fan,oew_fan_b,0.32611397636832606,,,0.28333561963221987,,,-0.04277835673610619,128,1.0,128,log
+E[e-SAF combustion]@6000nmi_450kt_fan,oew_fan_r_pivot,0.11914614457864629,,,0.1140578037550831,,,-0.005088340823563187,128,1.0,128,log
+E[e-SAF combustion]@6000nmi_450kt_fan,eta_motor,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[e-SAF combustion]@6000nmi_450kt_fan,calibration_block,0.054277922500436615,,,0.03811352605270024,,,-0.016164396447736373,128,1.0,128,log
+E[e-SAF combustion]@6000nmi_450kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[e-SAF combustion]@6000nmi_450kt_fan,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[e-SAF combustion]@6000nmi_450kt_fan,eta_fuel_cell,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[e-SAF combustion]@6000nmi_450kt_fan,liquid_hydrogen,0.10855482875212627,,,0.09681194442251079,,,-0.011742884329615483,128,1.0,128,log
+E[e-SAF combustion]@6000nmi_450kt_fan,e_saf,0.4772385736264035,,,0.4653741023801729,,,-0.011864471246230579,128,1.0,128,log
+E[e-SAF combustion]@6000nmi_450kt_fan,gamma_tank,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[e-SAF combustion]@6000nmi_450kt_fan,resto,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,oew_fan_b,0.03771006792676032,,,0.06879923041049316,,,0.031089162483732835,128,1.0,128,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,oew_fan_r_pivot,0.04621885581663038,,,0.05672681888341278,,,0.010507963066782401,128,1.0,128,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,eta_motor,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,calibration_block,0.09011227980881029,,,0.11664057992901067,,,0.026528300120200382,128,1.0,128,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,eta_fuel_cell,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,liquid_hydrogen,0.11471273166347812,,,0.11765260453556602,,,0.002939872872087898,128,1.0,128,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,e_saf,0.5188310261339599,,,0.5655549586885212,,,0.04672393255456131,128,1.0,128,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,gamma_tank,0.0,,,0.0,,,0.0,128,1.0,128,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,resto,0.13032472177432852,,,0.1070936036281682,,,-0.02323111814616033,128,1.0,128,log
+E[Battery-electric]@10nmi_200kt_propeller,oew_fan_b,0.0,,,0.0,,,0.0,255,0.99609375,256,log
+E[Battery-electric]@10nmi_200kt_propeller,oew_fan_r_pivot,0.0,,,0.0,,,0.0,255,0.99609375,256,log
+E[Battery-electric]@10nmi_200kt_propeller,eta_motor,0.06020413179133929,,,0.061153956961992405,,,0.000949825170653118,255,0.99609375,256,log
+E[Battery-electric]@10nmi_200kt_propeller,calibration_block,0.13855936237151076,,,0.1426990899325089,,,0.0041397275609981465,253,0.98828125,256,log
+E[Battery-electric]@10nmi_200kt_propeller,e_battery_Wh_per_kg,0.7055283551298195,,,0.7660003191976107,,,0.060471964067791206,255,0.99609375,256,log
+E[Battery-electric]@10nmi_200kt_propeller,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,255,0.99609375,256,log
+E[Battery-electric]@10nmi_200kt_propeller,eta_fuel_cell,0.0,,,0.0,,,0.0,255,0.99609375,256,log
+E[Battery-electric]@10nmi_200kt_propeller,liquid_hydrogen,0.0,,,0.0,,,0.0,255,0.99609375,256,log
+E[Battery-electric]@10nmi_200kt_propeller,e_saf,0.0,,,0.0,,,0.0,255,0.99609375,256,log
+E[Battery-electric]@10nmi_200kt_propeller,gamma_tank,0.0,,,0.0,,,0.0,255,0.99609375,256,log
+E[Battery-electric]@10nmi_200kt_propeller,resto,0.03785019892084334,,,0.07875025207505125,,,0.04090005315420791,255,0.99609375,256,log
+E[Battery-electric]@10nmi_250kt_propeller,oew_fan_b,0.0,,,0.0,,,0.0,229,0.89453125,256,log
+E[Battery-electric]@10nmi_250kt_propeller,oew_fan_r_pivot,0.0,,,0.0,,,0.0,229,0.89453125,256,log
+E[Battery-electric]@10nmi_250kt_propeller,eta_motor,0.0840425780992152,,,0.09308974067312868,,,0.009047162573913484,228,0.890625,256,log
+E[Battery-electric]@10nmi_250kt_propeller,calibration_block,0.03729069922170665,,,0.07049305326993442,,,0.03320235404822777,226,0.8828125,256,log
+E[Battery-electric]@10nmi_250kt_propeller,e_battery_Wh_per_kg,0.9076306206365087,,,0.960052053152697,,,0.05242143251618836,227,0.88671875,256,log
+E[Battery-electric]@10nmi_250kt_propeller,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,229,0.89453125,256,log
+E[Battery-electric]@10nmi_250kt_propeller,eta_fuel_cell,0.0,,,0.0,,,0.0,229,0.89453125,256,log
+E[Battery-electric]@10nmi_250kt_propeller,liquid_hydrogen,0.0,,,0.0,,,0.0,229,0.89453125,256,log
+E[Battery-electric]@10nmi_250kt_propeller,e_saf,0.0,,,0.0,,,0.0,229,0.89453125,256,log
+E[Battery-electric]@10nmi_250kt_propeller,gamma_tank,0.0,,,0.0,,,0.0,229,0.89453125,256,log
+E[Battery-electric]@10nmi_250kt_propeller,resto,0.03825716386511826,,,0.04653934581054262,,,0.008282181945424363,229,0.89453125,256,log
+E[Battery-electric]@20nmi_250kt_propeller,oew_fan_b,0.0,,,0.0,,,0.0,181,0.70703125,256,log
+E[Battery-electric]@20nmi_250kt_propeller,oew_fan_r_pivot,0.0,,,0.0,,,0.0,181,0.70703125,256,log
+E[Battery-electric]@20nmi_250kt_propeller,eta_motor,0.11834081186286008,,,0.1481256764232048,,,0.02978486456034471,175,0.68359375,256,log
+E[Battery-electric]@20nmi_250kt_propeller,calibration_block,0.00845023311685131,,,0.10655776393740554,,,0.09810753082055423,175,0.68359375,256,log
+E[Battery-electric]@20nmi_250kt_propeller,e_battery_Wh_per_kg,0.4602751038147835,,,0.9902143060008066,,,0.5299392021860232,178,0.6953125,256,log
+E[Battery-electric]@20nmi_250kt_propeller,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,181,0.70703125,256,log
+E[Battery-electric]@20nmi_250kt_propeller,eta_fuel_cell,0.0,,,0.0,,,0.0,181,0.70703125,256,log
+E[Battery-electric]@20nmi_250kt_propeller,liquid_hydrogen,0.0,,,0.0,,,0.0,181,0.70703125,256,log
+E[Battery-electric]@20nmi_250kt_propeller,e_saf,0.0,,,0.0,,,0.0,181,0.70703125,256,log
+E[Battery-electric]@20nmi_250kt_propeller,gamma_tank,0.0,,,0.0,,,0.0,181,0.70703125,256,log
+E[Battery-electric]@20nmi_250kt_propeller,resto,0.021123511982589497,,,0.09104148849476303,,,0.06991797651217353,177,0.69140625,256,log
+E[Battery-electric]@5nmi_300kt_fan,oew_fan_b,0.0,,,0.0,,,0.0,163,0.63671875,256,log
+E[Battery-electric]@5nmi_300kt_fan,oew_fan_r_pivot,0.0,,,0.0,,,0.0,163,0.63671875,256,log
+E[Battery-electric]@5nmi_300kt_fan,eta_motor,0.08840706041770081,,,0.11569382891766301,,,0.0272867684999622,158,0.6171875,256,log
+E[Battery-electric]@5nmi_300kt_fan,calibration_block,0.005671660928393165,,,0.03201554834679372,,,0.026343887418400554,160,0.625,256,log
+E[Battery-electric]@5nmi_300kt_fan,e_battery_Wh_per_kg,0.8065376675768079,,,1.0909924560701643,,,0.28445478849335637,158,0.6171875,256,log
+E[Battery-electric]@5nmi_300kt_fan,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,163,0.63671875,256,log
+E[Battery-electric]@5nmi_300kt_fan,eta_fuel_cell,0.0,,,0.0,,,0.0,163,0.63671875,256,log
+E[Battery-electric]@5nmi_300kt_fan,liquid_hydrogen,0.0,,,0.0,,,0.0,163,0.63671875,256,log
+E[Battery-electric]@5nmi_300kt_fan,e_saf,0.0,,,0.0,,,0.0,163,0.63671875,256,log
+E[Battery-electric]@5nmi_300kt_fan,gamma_tank,0.0,,,0.0,,,0.0,163,0.63671875,256,log
+E[Battery-electric]@5nmi_300kt_fan,resto,0.013847114035821357,,,0.09155103117797478,,,0.07770391714215343,158,0.6171875,256,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,oew_fan_b,0.06164888252711404,,,0.0706843434688642,,,0.009035460941750152,256,1.0,256,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,oew_fan_r_pivot,0.023227459148676605,,,0.022453950875811514,,,-0.0007735082728650908,256,1.0,256,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,eta_motor,0.10135075432688599,,,0.10771664126156312,,,0.0063658869346771285,256,1.0,256,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,calibration_block,0.08875279405745887,,,0.07460799520428191,,,-0.01414479885317696,256,1.0,256,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,fuel_cell_specific_power_kW_per_kg,0.24119465057142248,,,0.2484518835403565,,,0.007257232968934019,256,1.0,256,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,eta_fuel_cell,0.41352018635659765,,,0.39959803933254945,,,-0.013922147024048204,256,1.0,256,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,liquid_hydrogen,0.019823428682295634,,,0.02270008632668581,,,0.002876657644390178,256,1.0,256,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,e_saf,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,gamma_tank,0.002850302777393186,,,0.004881785774478467,,,0.002031482997085281,256,1.0,256,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,resto,0.040294882811189786,,,0.043127200313945756,,,0.0028323175027559697,256,1.0,256,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,oew_fan_b,0.03309316472045426,,,0.026055997726509652,,,-0.007037166993944608,254,0.9921875,256,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,oew_fan_r_pivot,0.019653943502086723,,,0.011520324241022334,,,-0.008133619261064389,254,0.9921875,256,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,eta_motor,0.05101473996499008,,,0.049784369165231865,,,-0.0012303707997582125,254,0.9921875,256,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,calibration_block,0.6187523231776586,,,0.5657521693764533,,,-0.05300015380120526,254,0.9921875,256,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,254,0.9921875,256,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,fuel_cell_specific_power_kW_per_kg,0.22390566576723187,,,0.20750955767878723,,,-0.016396108088444633,254,0.9921875,256,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,eta_fuel_cell,0.1122368054872715,,,0.1316987492104864,,,0.019461943723214914,254,0.9921875,256,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,liquid_hydrogen,0.00011983514365023065,,,0.0045529776390411635,,,0.004433142495390932,254,0.9921875,256,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,e_saf,0.0,,,0.0,,,0.0,254,0.9921875,256,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,gamma_tank,0.002704442764494712,,,0.002095706764891383,,,-0.0006087359996033289,254,0.9921875,256,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,resto,0.00688943398320645,,,0.010900527926603188,,,0.004011093943396739,254,0.9921875,256,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,oew_fan_b,0.006489214030455506,,,0.012239804778867014,,,0.005750590748411508,256,1.0,256,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,oew_fan_r_pivot,0.06489524607767012,,,0.05910593506554917,,,-0.005789311012120955,256,1.0,256,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,eta_motor,0.10884186971007928,,,0.11723901802438325,,,0.008397148314303965,256,1.0,256,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,calibration_block,0.039703911794622314,,,0.026215612840983258,,,-0.013488298953639056,256,1.0,256,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,fuel_cell_specific_power_kW_per_kg,0.270133122863478,,,0.2768388501171676,,,0.006705727253689564,256,1.0,256,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,eta_fuel_cell,0.4318317380382082,,,0.42810928248686975,,,-0.0037224555513384328,256,1.0,256,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,liquid_hydrogen,0.008427497800811238,,,0.011810668131475606,,,0.0033831703306643687,256,1.0,256,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,e_saf,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,gamma_tank,0.01920277026608983,,,0.020730409960595737,,,0.001527639694505905,256,1.0,256,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,resto,0.026166538025890647,,,0.02628984508640538,,,0.0001233070605147317,256,1.0,256,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,oew_fan_b,0.4283205765352995,,,0.5472145267969031,,,0.1188939502616036,253,0.98828125,256,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,oew_fan_r_pivot,0.02014383788346181,,,0.020037724189644838,,,-0.00010611369381697058,254,0.9921875,256,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,eta_motor,0.03864903716375804,,,0.0615803386224749,,,0.022931301458716864,254,0.9921875,256,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,calibration_block,0.011977664763224984,,,0.016894830410516322,,,0.004917165647291338,254,0.9921875,256,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,254,0.9921875,256,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,fuel_cell_specific_power_kW_per_kg,0.06938243940511664,,,0.07733368408308645,,,0.007951244677969815,253,0.98828125,256,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,eta_fuel_cell,0.24963037415762937,,,0.2781729491111323,,,0.028542574953502903,254,0.9921875,256,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,liquid_hydrogen,0.005173814247874741,,,0.002450587972843263,,,-0.002723226275031478,254,0.9921875,256,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,e_saf,0.0,,,0.0,,,0.0,254,0.9921875,256,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,gamma_tank,0.0001167420334562536,,,0.05396870413158595,,,0.053851962098129695,254,0.9921875,256,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,resto,0.009321646223696958,,,0.016342000397884544,,,0.007020354174187586,254,0.9921875,256,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,oew_fan_b,0.04990618506389819,,,0.08765005944432966,,,0.03774387438043147,256,1.0,256,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,oew_fan_r_pivot,0.04483474398270025,,,0.03600750122301976,,,-0.008827242759680491,256,1.0,256,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,eta_motor,0.06816364375481332,,,0.0737830839827608,,,0.005619440227947484,256,1.0,256,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,calibration_block,0.004922153611906767,,,0.0007556427835758408,,,-0.004166510828330926,256,1.0,256,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,fuel_cell_specific_power_kW_per_kg,0.6562693475391431,,,0.7112577086084328,,,0.054988361069289726,256,1.0,256,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,eta_fuel_cell,0.07392465821269757,,,0.08092998558263587,,,0.007005327369938294,256,1.0,256,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,liquid_hydrogen,0.0012398220710601218,,,0.0010238681979779373,,,-0.00021595387308218452,256,1.0,256,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,e_saf,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,gamma_tank,0.0012662041688761723,,,0.0019352252309800292,,,0.0006690210621038569,256,1.0,256,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,resto,0.0013152204515484293,,,0.0038850405735494325,,,0.0025698201220010035,256,1.0,256,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,oew_fan_b,0.29405576849375775,,,0.33838636305982384,,,0.044330594566066084,251,0.98046875,256,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,oew_fan_r_pivot,0.01635110401190523,,,0.023774376168183405,,,0.007423272156278176,251,0.98046875,256,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,eta_motor,0.050062079792301206,,,0.06758595034747365,,,0.017523870555172447,251,0.98046875,256,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,calibration_block,0.0030768354541898016,,,0.0005666211181342851,,,-0.0025102143360555165,251,0.98046875,256,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,251,0.98046875,256,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,fuel_cell_specific_power_kW_per_kg,0.517056192585292,,,0.571030618369728,,,0.05397442578443601,250,0.9765625,256,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,eta_fuel_cell,0.10149391568137846,,,0.08028167082519629,,,-0.021212244856182172,251,0.98046875,256,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,liquid_hydrogen,0.0008587433604268335,,,0.0009020209720931689,,,4.3277611666335406e-05,251,0.98046875,256,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,e_saf,0.0,,,0.0,,,0.0,251,0.98046875,256,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,gamma_tank,3.954081295467358e-05,,,0.0014920297925054384,,,0.0014524889795507648,251,0.98046875,256,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,resto,0.00296187566670447,,,0.003379964478662405,,,0.00041808881195793497,251,0.98046875,256,log
+E[Hydrogen combustion]@100nmi_350kt_fan,oew_fan_b,0.6475287719619928,,,0.6491354969417851,,,0.0016067249797923067,256,1.0,256,log
+E[Hydrogen combustion]@100nmi_350kt_fan,oew_fan_r_pivot,0.15967842118991596,,,0.1441960946950925,,,-0.01548232649482345,256,1.0,256,log
+E[Hydrogen combustion]@100nmi_350kt_fan,eta_motor,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[Hydrogen combustion]@100nmi_350kt_fan,calibration_block,0.09409929172353222,,,0.07574418265866961,,,-0.01835510906486261,256,1.0,256,log
+E[Hydrogen combustion]@100nmi_350kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[Hydrogen combustion]@100nmi_350kt_fan,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[Hydrogen combustion]@100nmi_350kt_fan,eta_fuel_cell,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[Hydrogen combustion]@100nmi_350kt_fan,liquid_hydrogen,0.11267931271048814,,,0.1170002221932233,,,0.004320909482735155,256,1.0,256,log
+E[Hydrogen combustion]@100nmi_350kt_fan,e_saf,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[Hydrogen combustion]@100nmi_350kt_fan,gamma_tank,0.010145856716852893,,,0.013690828276259955,,,0.0035449715594070615,256,1.0,256,log
+E[Hydrogen combustion]@100nmi_350kt_fan,resto,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[Hydrogen combustion]@100nmi_450kt_fan,oew_fan_b,0.649988257389843,,,0.6483177459657422,,,-0.0016705114241007957,256,1.0,256,log
+E[Hydrogen combustion]@100nmi_450kt_fan,oew_fan_r_pivot,0.1574189362853773,,,0.14409723154493242,,,-0.013321704740444862,256,1.0,256,log
+E[Hydrogen combustion]@100nmi_450kt_fan,eta_motor,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[Hydrogen combustion]@100nmi_450kt_fan,calibration_block,0.10138950704726499,,,0.07391399679571674,,,-0.02747551025154825,256,1.0,256,log
+E[Hydrogen combustion]@100nmi_450kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[Hydrogen combustion]@100nmi_450kt_fan,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[Hydrogen combustion]@100nmi_450kt_fan,eta_fuel_cell,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[Hydrogen combustion]@100nmi_450kt_fan,liquid_hydrogen,0.10942167584623322,,,0.11401953645009208,,,0.004597860603858861,256,1.0,256,log
+E[Hydrogen combustion]@100nmi_450kt_fan,e_saf,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[Hydrogen combustion]@100nmi_450kt_fan,gamma_tank,0.010848033021152418,,,0.013875169792757953,,,0.0030271367716055344,256,1.0,256,log
+E[Hydrogen combustion]@100nmi_450kt_fan,resto,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,oew_fan_b,0.34118951926497676,,,0.3379069558409338,,,-0.0032825634240429835,256,1.0,256,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,oew_fan_r_pivot,0.28112415343887526,,,0.263438547967393,,,-0.017685605471482235,256,1.0,256,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,eta_motor,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,calibration_block,0.15211100225095597,,,0.11582136070595055,,,-0.03628964154500543,256,1.0,256,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,eta_fuel_cell,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,liquid_hydrogen,0.16698435611259066,,,0.17389458320389983,,,0.0069102270913091735,256,1.0,256,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,e_saf,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,gamma_tank,0.09360157141027928,,,0.09971709848405248,,,0.006115527073773205,256,1.0,256,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,resto,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,oew_fan_b,0.42479169950483786,,,0.42635556954028586,,,0.0015638700354480006,256,1.0,256,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,oew_fan_r_pivot,0.16556540146993087,,,0.1646111171758653,,,-0.0009542842940655771,256,1.0,256,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,eta_motor,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,calibration_block,0.04900181785491153,,,0.05393428388651133,,,0.004932466031599803,256,1.0,256,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,eta_fuel_cell,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,liquid_hydrogen,0.08385332271377632,,,0.08155703873666664,,,-0.002296283977109681,256,1.0,256,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,e_saf,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,gamma_tank,0.24111032301050747,,,0.26555179422534636,,,0.02444147121483889,256,1.0,256,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,resto,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,oew_fan_b,0.1492113844967237,,,0.1599181173994836,,,0.010706732902759919,256,1.0,256,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,oew_fan_r_pivot,0.16659311908288235,,,0.16213167275690654,,,-0.00446144632597581,256,1.0,256,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,eta_motor,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,calibration_block,0.21023728001168668,,,0.20597067822912132,,,-0.004266601782565355,256,1.0,256,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,eta_fuel_cell,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,liquid_hydrogen,0.12330946881490379,,,0.13135428328130164,,,0.008044814466397848,256,1.0,256,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,e_saf,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,gamma_tank,0.10785826063014467,,,0.1267187910997215,,,0.018860530469576836,256,1.0,256,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,resto,0.20278328747950808,,,0.18906389663177706,,,-0.013719390847731022,256,1.0,256,log
+E[e-SAF combustion]@100nmi_350kt_fan,oew_fan_b,0.24148046756353966,,,0.251881298518645,,,0.010400830955105328,256,1.0,256,log
+E[e-SAF combustion]@100nmi_350kt_fan,oew_fan_r_pivot,0.05810985548997191,,,0.05233158785875104,,,-0.005778267631220871,256,1.0,256,log
+E[e-SAF combustion]@100nmi_350kt_fan,eta_motor,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[e-SAF combustion]@100nmi_350kt_fan,calibration_block,0.044007005609084174,,,0.04752140565316307,,,0.003514400044078894,256,1.0,256,log
+E[e-SAF combustion]@100nmi_350kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[e-SAF combustion]@100nmi_350kt_fan,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[e-SAF combustion]@100nmi_350kt_fan,eta_fuel_cell,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[e-SAF combustion]@100nmi_350kt_fan,liquid_hydrogen,0.10722524094248187,,,0.10928868886271383,,,0.002063447920231956,256,1.0,256,log
+E[e-SAF combustion]@100nmi_350kt_fan,e_saf,0.5116642907847125,,,0.5483224663048767,,,0.03665817552016415,256,1.0,256,log
+E[e-SAF combustion]@100nmi_350kt_fan,gamma_tank,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[e-SAF combustion]@100nmi_350kt_fan,resto,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[e-SAF combustion]@1500nmi_450kt_fan,oew_fan_b,0.12136872836960977,,,0.1275883123156583,,,0.006219583946048518,256,1.0,256,log
+E[e-SAF combustion]@1500nmi_450kt_fan,oew_fan_r_pivot,0.08963001502826849,,,0.08482197097690217,,,-0.004808044051366325,256,1.0,256,log
+E[e-SAF combustion]@1500nmi_450kt_fan,eta_motor,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[e-SAF combustion]@1500nmi_450kt_fan,calibration_block,0.05656818136016742,,,0.05462639454954416,,,-0.001941786810623257,256,1.0,256,log
+E[e-SAF combustion]@1500nmi_450kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[e-SAF combustion]@1500nmi_450kt_fan,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[e-SAF combustion]@1500nmi_450kt_fan,eta_fuel_cell,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[e-SAF combustion]@1500nmi_450kt_fan,liquid_hydrogen,0.12215503346663883,,,0.12231356552434135,,,0.00015853205770251233,256,1.0,256,log
+E[e-SAF combustion]@1500nmi_450kt_fan,e_saf,0.5740448447404339,,,0.6136707888873892,,,0.039625944146955305,256,1.0,256,log
+E[e-SAF combustion]@1500nmi_450kt_fan,gamma_tank,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[e-SAF combustion]@1500nmi_450kt_fan,resto,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[e-SAF combustion]@6000nmi_450kt_fan,oew_fan_b,0.3006236345282213,,,0.2967029962545987,,,-0.003920638273622545,256,1.0,256,log
+E[e-SAF combustion]@6000nmi_450kt_fan,oew_fan_r_pivot,0.10782832637213612,,,0.10785582276574816,,,2.7496393612047587e-05,256,1.0,256,log
+E[e-SAF combustion]@6000nmi_450kt_fan,eta_motor,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[e-SAF combustion]@6000nmi_450kt_fan,calibration_block,0.030542735564771103,,,0.04126515291063156,,,0.01072241734586046,256,1.0,256,log
+E[e-SAF combustion]@6000nmi_450kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[e-SAF combustion]@6000nmi_450kt_fan,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[e-SAF combustion]@6000nmi_450kt_fan,eta_fuel_cell,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[e-SAF combustion]@6000nmi_450kt_fan,liquid_hydrogen,0.1048020539686265,,,0.09308093504740984,,,-0.011721118921216661,256,1.0,256,log
+E[e-SAF combustion]@6000nmi_450kt_fan,e_saf,0.44892562936925173,,,0.46700503411906735,,,0.01807940474981562,256,1.0,256,log
+E[e-SAF combustion]@6000nmi_450kt_fan,gamma_tank,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[e-SAF combustion]@6000nmi_450kt_fan,resto,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,oew_fan_b,0.060788933663089566,,,0.07075687814725821,,,0.009967944484168649,256,1.0,256,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,oew_fan_r_pivot,0.05983481289294817,,,0.060504179409551176,,,0.000669366516603008,256,1.0,256,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,eta_motor,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,calibration_block,0.10475937976613485,,,0.1195137388403504,,,0.014754359074215545,256,1.0,256,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,eta_fuel_cell,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,liquid_hydrogen,0.11046840431616214,,,0.11068889165348833,,,0.0002204873373261862,256,1.0,256,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,e_saf,0.49968889545930306,,,0.5553475542216044,,,0.05565865876230136,256,1.0,256,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,gamma_tank,0.0,,,0.0,,,0.0,256,1.0,256,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,resto,0.13864985051203912,,,0.10925107630265367,,,-0.029398774209385456,256,1.0,256,log
+E[Battery-electric]@10nmi_200kt_propeller,oew_fan_b,0.0,,,0.0,,,0.0,509,0.994140625,512,log
+E[Battery-electric]@10nmi_200kt_propeller,oew_fan_r_pivot,0.0,,,0.0,,,0.0,509,0.994140625,512,log
+E[Battery-electric]@10nmi_200kt_propeller,eta_motor,0.03840582832299811,,,0.07904738419883174,,,0.04064155587583363,509,0.994140625,512,log
+E[Battery-electric]@10nmi_200kt_propeller,calibration_block,0.1224428941059402,,,0.14392304078584015,,,0.021480146679899947,507,0.990234375,512,log
+E[Battery-electric]@10nmi_200kt_propeller,e_battery_Wh_per_kg,0.7735139298208608,,,0.8418238190450618,,,0.068309889224201,508,0.9921875,512,log
+E[Battery-electric]@10nmi_200kt_propeller,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,509,0.994140625,512,log
+E[Battery-electric]@10nmi_200kt_propeller,eta_fuel_cell,0.0,,,0.0,,,0.0,509,0.994140625,512,log
+E[Battery-electric]@10nmi_200kt_propeller,liquid_hydrogen,0.0,,,0.0,,,0.0,509,0.994140625,512,log
+E[Battery-electric]@10nmi_200kt_propeller,e_saf,0.0,,,0.0,,,0.0,509,0.994140625,512,log
+E[Battery-electric]@10nmi_200kt_propeller,gamma_tank,0.0,,,0.0,,,0.0,509,0.994140625,512,log
+E[Battery-electric]@10nmi_200kt_propeller,resto,0.03298882282077349,,,0.05858036183624965,,,0.02559153901547616,509,0.994140625,512,log
+E[Battery-electric]@10nmi_250kt_propeller,oew_fan_b,0.0,,,0.0,,,0.0,460,0.8984375,512,log
+E[Battery-electric]@10nmi_250kt_propeller,oew_fan_r_pivot,0.0,,,0.0,,,0.0,460,0.8984375,512,log
+E[Battery-electric]@10nmi_250kt_propeller,eta_motor,0.043269819421389286,,,0.10904276425466042,,,0.06577294483327113,457,0.892578125,512,log
+E[Battery-electric]@10nmi_250kt_propeller,calibration_block,0.042066199824431584,,,0.07920622985882263,,,0.03714003003439104,453,0.884765625,512,log
+E[Battery-electric]@10nmi_250kt_propeller,e_battery_Wh_per_kg,0.7983906395127236,,,0.9655892340068318,,,0.16719859449410823,453,0.884765625,512,log
+E[Battery-electric]@10nmi_250kt_propeller,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,460,0.8984375,512,log
+E[Battery-electric]@10nmi_250kt_propeller,eta_fuel_cell,0.0,,,0.0,,,0.0,460,0.8984375,512,log
+E[Battery-electric]@10nmi_250kt_propeller,liquid_hydrogen,0.0,,,0.0,,,0.0,460,0.8984375,512,log
+E[Battery-electric]@10nmi_250kt_propeller,e_saf,0.0,,,0.0,,,0.0,460,0.8984375,512,log
+E[Battery-electric]@10nmi_250kt_propeller,gamma_tank,0.0,,,0.0,,,0.0,460,0.8984375,512,log
+E[Battery-electric]@10nmi_250kt_propeller,resto,0.038202773512240745,,,0.05017520479868441,,,0.011972431286443666,459,0.896484375,512,log
+E[Battery-electric]@20nmi_250kt_propeller,oew_fan_b,0.0,,,0.0,,,0.0,363,0.708984375,512,log
+E[Battery-electric]@20nmi_250kt_propeller,oew_fan_r_pivot,0.0,,,0.0,,,0.0,363,0.708984375,512,log
+E[Battery-electric]@20nmi_250kt_propeller,eta_motor,0.0626916403981464,,,0.15403188479514424,,,0.09134024439699784,355,0.693359375,512,log
+E[Battery-electric]@20nmi_250kt_propeller,calibration_block,0.025962481656578034,,,0.1055239766137552,,,0.07956149495717717,353,0.689453125,512,log
+E[Battery-electric]@20nmi_250kt_propeller,e_battery_Wh_per_kg,0.5430270566342941,,,0.8782363275800041,,,0.33520927094571007,356,0.6953125,512,log
+E[Battery-electric]@20nmi_250kt_propeller,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,363,0.708984375,512,log
+E[Battery-electric]@20nmi_250kt_propeller,eta_fuel_cell,0.0,,,0.0,,,0.0,363,0.708984375,512,log
+E[Battery-electric]@20nmi_250kt_propeller,liquid_hydrogen,0.0,,,0.0,,,0.0,363,0.708984375,512,log
+E[Battery-electric]@20nmi_250kt_propeller,e_saf,0.0,,,0.0,,,0.0,363,0.708984375,512,log
+E[Battery-electric]@20nmi_250kt_propeller,gamma_tank,0.0,,,0.0,,,0.0,363,0.708984375,512,log
+E[Battery-electric]@20nmi_250kt_propeller,resto,0.023570155231643925,,,0.08430040196849863,,,0.060730246736854704,356,0.6953125,512,log
+E[Battery-electric]@5nmi_300kt_fan,oew_fan_b,0.0,,,0.0,,,0.0,326,0.63671875,512,log
+E[Battery-electric]@5nmi_300kt_fan,oew_fan_r_pivot,0.0,,,0.0,,,0.0,326,0.63671875,512,log
+E[Battery-electric]@5nmi_300kt_fan,eta_motor,0.04022293879608075,,,0.1168207429098257,,,0.07659780411374495,319,0.623046875,512,log
+E[Battery-electric]@5nmi_300kt_fan,calibration_block,0.010722471294343198,,,0.0330112950809365,,,0.022288823786593297,322,0.62890625,512,log
+E[Battery-electric]@5nmi_300kt_fan,e_battery_Wh_per_kg,0.7493462336387006,,,0.9688844078196784,,,0.21953817418097787,314,0.61328125,512,log
+E[Battery-electric]@5nmi_300kt_fan,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,326,0.63671875,512,log
+E[Battery-electric]@5nmi_300kt_fan,eta_fuel_cell,0.0,,,0.0,,,0.0,326,0.63671875,512,log
+E[Battery-electric]@5nmi_300kt_fan,liquid_hydrogen,0.0,,,0.0,,,0.0,326,0.63671875,512,log
+E[Battery-electric]@5nmi_300kt_fan,e_saf,0.0,,,0.0,,,0.0,326,0.63671875,512,log
+E[Battery-electric]@5nmi_300kt_fan,gamma_tank,0.0,,,0.0,,,0.0,326,0.63671875,512,log
+E[Battery-electric]@5nmi_300kt_fan,resto,0.014125116208141124,,,0.08133298790128023,,,0.0672078716931391,316,0.6171875,512,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,oew_fan_b,0.05806282284114119,,,0.0725573665026512,,,0.014494543661510005,512,1.0,512,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,oew_fan_r_pivot,0.019714061187619307,,,0.022747206218929686,,,0.003033145031310379,512,1.0,512,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,eta_motor,0.1028490136073114,,,0.10887496812534815,,,0.006025954518036752,512,1.0,512,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,calibration_block,0.08026915294063762,,,0.07910036223173206,,,-0.0011687907089055621,512,1.0,512,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,fuel_cell_specific_power_kW_per_kg,0.26002589658537434,,,0.25153152603813766,,,-0.008494370547236674,512,1.0,512,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,eta_fuel_cell,0.4104945783190748,,,0.40445533848456,,,-0.00603923983451482,512,1.0,512,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,liquid_hydrogen,0.02559552456396482,,,0.023140894912610944,,,-0.002454629651353877,512,1.0,512,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,e_saf,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,gamma_tank,0.005698826488802047,,,0.004910680690339483,,,-0.0007881457984625639,512,1.0,512,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,resto,0.05008344276234553,,,0.04427219218851787,,,-0.005811250573827663,512,1.0,512,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,oew_fan_b,0.03630662399379401,,,0.028956438892624215,,,-0.007350185101169793,508,0.9921875,512,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,oew_fan_r_pivot,0.015388077584841274,,,0.012374411891560752,,,-0.003013665693280522,508,0.9921875,512,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,eta_motor,0.05653142182340111,,,0.05195967773094065,,,-0.0045717440924604585,508,0.9921875,512,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,calibration_block,0.6148353559927437,,,0.5135913586615066,,,-0.10124399733123712,508,0.9921875,512,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,508,0.9921875,512,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,fuel_cell_specific_power_kW_per_kg,0.25121623917718716,,,0.22183196925557852,,,-0.02938426992160864,508,0.9921875,512,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,eta_fuel_cell,0.1353196346894077,,,0.14154771091103413,,,0.0062280762216264385,508,0.9921875,512,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,liquid_hydrogen,0.006421528124335454,,,0.005047744853259618,,,-0.0013737832710758362,508,0.9921875,512,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,e_saf,0.0,,,0.0,,,0.0,508,0.9921875,512,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,gamma_tank,0.0040857529803279774,,,0.002174438073737381,,,-0.0019113149065905963,508,0.9921875,512,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,resto,0.009572031705658028,,,0.011932349702051029,,,0.002360317996393,508,0.9921875,512,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,oew_fan_b,0.008093022415854986,,,0.012054433697855778,,,0.003961411282000792,512,1.0,512,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,oew_fan_r_pivot,0.06574221400804584,,,0.05934446818716734,,,-0.0063977458208784935,512,1.0,512,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,eta_motor,0.11339613887255513,,,0.11827653325057351,,,0.004880394378018377,512,1.0,512,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,calibration_block,0.031377687567379214,,,0.028126121674022005,,,-0.003251565893357209,512,1.0,512,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,fuel_cell_specific_power_kW_per_kg,0.28667656097965755,,,0.27729806160930454,,,-0.00937849937035301,512,1.0,512,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,eta_fuel_cell,0.42665872221751117,,,0.42677486910367907,,,0.00011614688616790048,512,1.0,512,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,liquid_hydrogen,0.012692404044562199,,,0.011951326906622853,,,-0.0007410771379393454,512,1.0,512,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,e_saf,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,gamma_tank,0.022825980849493586,,,0.02062672161847935,,,-0.002199259231014234,512,1.0,512,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,resto,0.026780470647174932,,,0.026599450291291283,,,-0.00018102035588364943,512,1.0,512,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,oew_fan_b,0.4723836986001676,,,0.5588853483304133,,,0.08650164973024566,506,0.98828125,512,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,oew_fan_r_pivot,0.017344861628473204,,,0.020127164054493316,,,0.002782302426020112,507,0.990234375,512,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,eta_motor,0.053109931604030304,,,0.061672363476064,,,0.008562431872033698,507,0.990234375,512,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,calibration_block,0.01470214984560078,,,0.0196877392251093,,,0.004985589379508519,507,0.990234375,512,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,507,0.990234375,512,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,fuel_cell_specific_power_kW_per_kg,0.08253401015828252,,,0.07706902653291853,,,-0.005464983625363989,506,0.98828125,512,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,eta_fuel_cell,0.2699009397940279,,,0.2828040395374012,,,0.01290309974337328,507,0.990234375,512,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,liquid_hydrogen,0.003688304310236826,,,0.002537685540100446,,,-0.00115061877013638,507,0.990234375,512,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,e_saf,0.0,,,0.0,,,0.0,507,0.990234375,512,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,gamma_tank,0.025502667695185804,,,0.05080635926545781,,,0.025303691570272006,507,0.990234375,512,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,resto,0.016122902681827762,,,0.01621633319994964,,,9.343051812187725e-05,507,0.990234375,512,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,oew_fan_b,0.03340317460206271,,,0.08774041151208299,,,0.05433723691002028,511,0.998046875,512,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,oew_fan_r_pivot,0.044229507656931656,,,0.038822188853450235,,,-0.0054073188034814215,511,0.998046875,512,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,eta_motor,0.07335471258200674,,,0.07703138970484427,,,0.003676677122837535,511,0.998046875,512,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,calibration_block,0.001257039140058079,,,0.0007759456659721549,,,-0.0004810934740859241,511,0.998046875,512,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,511,0.998046875,512,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,fuel_cell_specific_power_kW_per_kg,0.6959897754255022,,,0.7323337975409612,,,0.03634402211545895,511,0.998046875,512,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,eta_fuel_cell,0.07943027984562843,,,0.0853014485724842,,,0.005871168726855766,511,0.998046875,512,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,liquid_hydrogen,0.0013045606258613016,,,0.0010781549998598447,,,-0.0002264056260014569,511,0.998046875,512,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,e_saf,0.0,,,0.0,,,0.0,511,0.998046875,512,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,gamma_tank,0.0018281868290878297,,,0.0020242857026341013,,,0.00019609887354627158,511,0.998046875,512,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,resto,0.002698930005161515,,,0.004113293179953741,,,0.001414363174792226,511,0.998046875,512,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,oew_fan_b,0.2932729485852413,,,0.34824992015608086,,,0.05497697157083958,501,0.978515625,512,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,oew_fan_r_pivot,0.020030395840142663,,,0.022096786433924098,,,0.002066390593781435,503,0.982421875,512,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,eta_motor,0.05366587635099875,,,0.06602085248702654,,,0.012354976136027783,503,0.982421875,512,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,calibration_block,0.001447139617530547,,,0.000566992187580728,,,-0.000880147429949819,503,0.982421875,512,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,503,0.982421875,512,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,fuel_cell_specific_power_kW_per_kg,0.5120917154478243,,,0.5660487189685662,,,0.05395700352074195,501,0.978515625,512,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,eta_fuel_cell,0.08207133198151319,,,0.07883857919202897,,,-0.0032327527894842195,503,0.982421875,512,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,liquid_hydrogen,0.0003980456285282503,,,0.0009255102370246564,,,0.0005274646084964061,503,0.982421875,512,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,e_saf,0.0,,,0.0,,,0.0,503,0.982421875,512,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,gamma_tank,0.002312992972957399,,,0.0013830783052503543,,,-0.0009299146677070446,503,0.982421875,512,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,resto,0.0008701564181246141,,,0.0035621675631865722,,,0.0026920111450619583,503,0.982421875,512,log
+E[Hydrogen combustion]@100nmi_350kt_fan,oew_fan_b,0.6416097918403674,,,0.6592185197860351,,,0.0176087279456677,512,1.0,512,log
+E[Hydrogen combustion]@100nmi_350kt_fan,oew_fan_r_pivot,0.14496539209244905,,,0.14592035099916548,,,0.0009549589067164299,512,1.0,512,log
+E[Hydrogen combustion]@100nmi_350kt_fan,eta_motor,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[Hydrogen combustion]@100nmi_350kt_fan,calibration_block,0.06042550756079683,,,0.07665787199109741,,,0.016232364430300586,512,1.0,512,log
+E[Hydrogen combustion]@100nmi_350kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[Hydrogen combustion]@100nmi_350kt_fan,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[Hydrogen combustion]@100nmi_350kt_fan,eta_fuel_cell,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[Hydrogen combustion]@100nmi_350kt_fan,liquid_hydrogen,0.1233742092345175,,,0.11944292773282832,,,-0.003931281501689185,512,1.0,512,log
+E[Hydrogen combustion]@100nmi_350kt_fan,e_saf,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[Hydrogen combustion]@100nmi_350kt_fan,gamma_tank,0.012495718318516485,,,0.013891005488154792,,,0.0013952871696383071,512,1.0,512,log
+E[Hydrogen combustion]@100nmi_350kt_fan,resto,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[Hydrogen combustion]@100nmi_450kt_fan,oew_fan_b,0.643442405585908,,,0.6577525674437945,,,0.014310161857886472,512,1.0,512,log
+E[Hydrogen combustion]@100nmi_450kt_fan,oew_fan_r_pivot,0.1450598153828928,,,0.1456836954637892,,,0.000623880080896394,512,1.0,512,log
+E[Hydrogen combustion]@100nmi_450kt_fan,eta_motor,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[Hydrogen combustion]@100nmi_450kt_fan,calibration_block,0.06454431653888605,,,0.07550413478930193,,,0.010959818250415879,512,1.0,512,log
+E[Hydrogen combustion]@100nmi_450kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[Hydrogen combustion]@100nmi_450kt_fan,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[Hydrogen combustion]@100nmi_450kt_fan,eta_fuel_cell,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[Hydrogen combustion]@100nmi_450kt_fan,liquid_hydrogen,0.11976119307224863,,,0.11629129724547152,,,-0.0034698958267771057,512,1.0,512,log
+E[Hydrogen combustion]@100nmi_450kt_fan,e_saf,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[Hydrogen combustion]@100nmi_450kt_fan,gamma_tank,0.013044330597927905,,,0.01405896437552273,,,0.0010146337775948245,512,1.0,512,log
+E[Hydrogen combustion]@100nmi_450kt_fan,resto,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,oew_fan_b,0.33010190649113885,,,0.3401320034227089,,,0.010030096931570032,512,1.0,512,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,oew_fan_r_pivot,0.2645208269507336,,,0.26474809954893386,,,0.00022727259820026768,512,1.0,512,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,eta_motor,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,calibration_block,0.11499944814658289,,,0.11812563767928264,,,0.003126189532699747,512,1.0,512,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,eta_fuel_cell,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,liquid_hydrogen,0.17929918255595248,,,0.1765615845762467,,,-0.0027375979797057692,512,1.0,512,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,e_saf,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,gamma_tank,0.09837095762103483,,,0.10044842533290892,,,0.002077467711874087,512,1.0,512,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,resto,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,oew_fan_b,0.44147215841421533,,,0.4381527815436266,,,-0.0033193768705887527,512,1.0,512,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,oew_fan_r_pivot,0.15635494540358957,,,0.1601122870836763,,,0.0037573416800867343,512,1.0,512,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,eta_motor,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,calibration_block,0.06532160629867645,,,0.053134328137735616,,,-0.012187278160940833,512,1.0,512,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,eta_fuel_cell,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,liquid_hydrogen,0.0789638685370102,,,0.08061134881747772,,,0.001647480280467517,512,1.0,512,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,e_saf,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,gamma_tank,0.2506207761518883,,,0.26091524761273305,,,0.010294471460844723,512,1.0,512,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,resto,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,oew_fan_b,0.14624584799832782,,,0.1646581710208638,,,0.01841232302253598,512,1.0,512,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,oew_fan_r_pivot,0.15494457410535156,,,0.16546066011173963,,,0.010516086006388065,512,1.0,512,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,eta_motor,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,calibration_block,0.23133433792613733,,,0.2216581517537157,,,-0.009676186172421636,512,1.0,512,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,eta_fuel_cell,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,liquid_hydrogen,0.14643614141341482,,,0.13561029881332645,,,-0.01082584260008837,512,1.0,512,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,e_saf,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,gamma_tank,0.13123085811241003,,,0.12925168211199925,,,-0.0019791760004107817,512,1.0,512,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,resto,0.21107743677434554,,,0.19516738272490877,,,-0.015910054049436767,512,1.0,512,log
+E[e-SAF combustion]@100nmi_350kt_fan,oew_fan_b,0.23426156489823902,,,0.25002970341908176,,,0.015768138520842745,512,1.0,512,log
+E[e-SAF combustion]@100nmi_350kt_fan,oew_fan_r_pivot,0.05185243274998372,,,0.05191005614947956,,,5.762339949583889e-05,512,1.0,512,log
+E[e-SAF combustion]@100nmi_350kt_fan,eta_motor,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[e-SAF combustion]@100nmi_350kt_fan,calibration_block,0.037869340612340284,,,0.04715260057601252,,,0.009283259963672234,512,1.0,512,log
+E[e-SAF combustion]@100nmi_350kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[e-SAF combustion]@100nmi_350kt_fan,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[e-SAF combustion]@100nmi_350kt_fan,eta_fuel_cell,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[e-SAF combustion]@100nmi_350kt_fan,liquid_hydrogen,0.11641084265405335,,,0.11197896266943272,,,-0.004431879984620635,512,1.0,512,log
+E[e-SAF combustion]@100nmi_350kt_fan,e_saf,0.5408407875676109,,,0.5459496540584922,,,0.00510886649088127,512,1.0,512,log
+E[e-SAF combustion]@100nmi_350kt_fan,gamma_tank,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[e-SAF combustion]@100nmi_350kt_fan,resto,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[e-SAF combustion]@1500nmi_450kt_fan,oew_fan_b,0.11511716086928539,,,0.1254939957430821,,,0.010376834873796703,512,1.0,512,log
+E[e-SAF combustion]@1500nmi_450kt_fan,oew_fan_r_pivot,0.08399898217762018,,,0.08328527166192572,,,-0.0007137105156944656,512,1.0,512,log
+E[e-SAF combustion]@1500nmi_450kt_fan,eta_motor,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[e-SAF combustion]@1500nmi_450kt_fan,calibration_block,0.05246039126609381,,,0.05440606234581763,,,0.0019456710797238208,512,1.0,512,log
+E[e-SAF combustion]@1500nmi_450kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[e-SAF combustion]@1500nmi_450kt_fan,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[e-SAF combustion]@1500nmi_450kt_fan,eta_fuel_cell,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[e-SAF combustion]@1500nmi_450kt_fan,liquid_hydrogen,0.1278616838241049,,,0.1241316471099926,,,-0.003730036714112303,512,1.0,512,log
+E[e-SAF combustion]@1500nmi_450kt_fan,e_saf,0.6100074599835097,,,0.6051996569879874,,,-0.004807802995522303,512,1.0,512,log
+E[e-SAF combustion]@1500nmi_450kt_fan,gamma_tank,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[e-SAF combustion]@1500nmi_450kt_fan,resto,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[e-SAF combustion]@6000nmi_450kt_fan,oew_fan_b,0.30117626805601505,,,0.28776990941289743,,,-0.013406358643117622,512,1.0,512,log
+E[e-SAF combustion]@6000nmi_450kt_fan,oew_fan_r_pivot,0.10514478366163987,,,0.10399760895314777,,,-0.0011471747084920991,512,1.0,512,log
+E[e-SAF combustion]@6000nmi_450kt_fan,eta_motor,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[e-SAF combustion]@6000nmi_450kt_fan,calibration_block,0.048277517608376376,,,0.04015613072843373,,,-0.008121386879942648,512,1.0,512,log
+E[e-SAF combustion]@6000nmi_450kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[e-SAF combustion]@6000nmi_450kt_fan,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[e-SAF combustion]@6000nmi_450kt_fan,eta_fuel_cell,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[e-SAF combustion]@6000nmi_450kt_fan,liquid_hydrogen,0.09255568638700475,,,0.09300033743205362,,,0.00044465104504887165,512,1.0,512,log
+E[e-SAF combustion]@6000nmi_450kt_fan,e_saf,0.46857925878791984,,,0.45342000709757024,,,-0.015159251690349596,512,1.0,512,log
+E[e-SAF combustion]@6000nmi_450kt_fan,gamma_tank,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[e-SAF combustion]@6000nmi_450kt_fan,resto,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,oew_fan_b,0.05600695945276633,,,0.07000364488923051,,,0.013996685436464179,512,1.0,512,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,oew_fan_r_pivot,0.05412009152022682,,,0.05948612412604554,,,0.005366032605818721,512,1.0,512,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,eta_motor,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,calibration_block,0.10984546076400663,,,0.12409267823246058,,,0.014247217468453949,512,1.0,512,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,eta_fuel_cell,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,liquid_hydrogen,0.12131680821517728,,,0.1125614561089251,,,-0.008755352106252182,512,1.0,512,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,e_saf,0.5372702211937894,,,0.5487895811680248,,,0.011519359974235366,512,1.0,512,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,gamma_tank,0.0,,,0.0,,,0.0,512,1.0,512,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,resto,0.11605285307382011,,,0.10819075804678813,,,-0.007862095027031987,512,1.0,512,log
+E[Battery-electric]@10nmi_200kt_propeller,oew_fan_b,0.0,,,0.0,,,0.0,1019,0.9951171875,1024,log
+E[Battery-electric]@10nmi_200kt_propeller,oew_fan_r_pivot,0.0,,,0.0,,,0.0,1019,0.9951171875,1024,log
+E[Battery-electric]@10nmi_200kt_propeller,eta_motor,0.04485822340630159,,,0.0950817515597791,,,0.05022352815347751,1019,0.9951171875,1024,log
+E[Battery-electric]@10nmi_200kt_propeller,calibration_block,0.1120144133431533,,,0.17687419200375096,,,0.06485977866059765,1017,0.9931640625,1024,log
+E[Battery-electric]@10nmi_200kt_propeller,e_battery_Wh_per_kg,0.7407254078664118,,,0.83433339379715,,,0.09360798593073816,1015,0.9912109375,1024,log
+E[Battery-electric]@10nmi_200kt_propeller,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,1019,0.9951171875,1024,log
+E[Battery-electric]@10nmi_200kt_propeller,eta_fuel_cell,0.0,,,0.0,,,0.0,1019,0.9951171875,1024,log
+E[Battery-electric]@10nmi_200kt_propeller,liquid_hydrogen,0.0,,,0.0,,,0.0,1019,0.9951171875,1024,log
+E[Battery-electric]@10nmi_200kt_propeller,e_saf,0.0,,,0.0,,,0.0,1019,0.9951171875,1024,log
+E[Battery-electric]@10nmi_200kt_propeller,gamma_tank,0.0,,,0.0,,,0.0,1019,0.9951171875,1024,log
+E[Battery-electric]@10nmi_200kt_propeller,resto,0.030101249757386032,,,0.04855614858330792,,,0.01845489882592189,1018,0.994140625,1024,log
+E[Battery-electric]@10nmi_250kt_propeller,oew_fan_b,0.0,,,0.0,,,0.0,918,0.896484375,1024,log
+E[Battery-electric]@10nmi_250kt_propeller,oew_fan_r_pivot,0.0,,,0.0,,,0.0,918,0.896484375,1024,log
+E[Battery-electric]@10nmi_250kt_propeller,eta_motor,0.04442736176208415,,,0.09345395948649508,,,0.04902659772441093,913,0.8916015625,1024,log
+E[Battery-electric]@10nmi_250kt_propeller,calibration_block,0.037392305600492275,,,0.07611243039442743,,,0.038720124793935155,905,0.8837890625,1024,log
+E[Battery-electric]@10nmi_250kt_propeller,e_battery_Wh_per_kg,0.7649149475421058,,,0.9443230520726651,,,0.17940810453055933,905,0.8837890625,1024,log
+E[Battery-electric]@10nmi_250kt_propeller,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,918,0.896484375,1024,log
+E[Battery-electric]@10nmi_250kt_propeller,eta_fuel_cell,0.0,,,0.0,,,0.0,918,0.896484375,1024,log
+E[Battery-electric]@10nmi_250kt_propeller,liquid_hydrogen,0.0,,,0.0,,,0.0,918,0.896484375,1024,log
+E[Battery-electric]@10nmi_250kt_propeller,e_saf,0.0,,,0.0,,,0.0,918,0.896484375,1024,log
+E[Battery-electric]@10nmi_250kt_propeller,gamma_tank,0.0,,,0.0,,,0.0,918,0.896484375,1024,log
+E[Battery-electric]@10nmi_250kt_propeller,resto,0.028924283986681336,,,0.05161013862362347,,,0.022685854636942136,916,0.89453125,1024,log
+E[Battery-electric]@20nmi_250kt_propeller,oew_fan_b,0.0,,,0.0,,,0.0,733,0.7158203125,1024,log
+E[Battery-electric]@20nmi_250kt_propeller,oew_fan_r_pivot,0.0,,,0.0,,,0.0,733,0.7158203125,1024,log
+E[Battery-electric]@20nmi_250kt_propeller,eta_motor,0.050395732814134606,,,0.15502864443583939,,,0.10463291162170478,720,0.703125,1024,log
+E[Battery-electric]@20nmi_250kt_propeller,calibration_block,0.029219314277818383,,,0.09632010173826219,,,0.06710078746044382,718,0.701171875,1024,log
+E[Battery-electric]@20nmi_250kt_propeller,e_battery_Wh_per_kg,0.5723080243717921,,,0.8606769977612548,,,0.28836897338946277,706,0.689453125,1024,log
+E[Battery-electric]@20nmi_250kt_propeller,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,733,0.7158203125,1024,log
+E[Battery-electric]@20nmi_250kt_propeller,eta_fuel_cell,0.0,,,0.0,,,0.0,733,0.7158203125,1024,log
+E[Battery-electric]@20nmi_250kt_propeller,liquid_hydrogen,0.0,,,0.0,,,0.0,733,0.7158203125,1024,log
+E[Battery-electric]@20nmi_250kt_propeller,e_saf,0.0,,,0.0,,,0.0,733,0.7158203125,1024,log
+E[Battery-electric]@20nmi_250kt_propeller,gamma_tank,0.0,,,0.0,,,0.0,733,0.7158203125,1024,log
+E[Battery-electric]@20nmi_250kt_propeller,resto,0.018458197279943904,,,0.07809850559019853,,,0.059640308310254624,722,0.705078125,1024,log
+E[Battery-electric]@5nmi_300kt_fan,oew_fan_b,0.0,,,0.0,,,0.0,653,0.6376953125,1024,log
+E[Battery-electric]@5nmi_300kt_fan,oew_fan_r_pivot,0.0,,,0.0,,,0.0,653,0.6376953125,1024,log
+E[Battery-electric]@5nmi_300kt_fan,eta_motor,0.06113216071655373,,,0.13173845414122695,,,0.07060629342467323,637,0.6220703125,1024,log
+E[Battery-electric]@5nmi_300kt_fan,calibration_block,0.0006371759633000742,,,0.03547943067157417,,,0.034842254708274095,647,0.6318359375,1024,log
+E[Battery-electric]@5nmi_300kt_fan,e_battery_Wh_per_kg,0.7341021735833916,,,1.0042545735316544,,,0.2701523999482628,632,0.6171875,1024,log
+E[Battery-electric]@5nmi_300kt_fan,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,653,0.6376953125,1024,log
+E[Battery-electric]@5nmi_300kt_fan,eta_fuel_cell,0.0,,,0.0,,,0.0,653,0.6376953125,1024,log
+E[Battery-electric]@5nmi_300kt_fan,liquid_hydrogen,0.0,,,0.0,,,0.0,653,0.6376953125,1024,log
+E[Battery-electric]@5nmi_300kt_fan,e_saf,0.0,,,0.0,,,0.0,653,0.6376953125,1024,log
+E[Battery-electric]@5nmi_300kt_fan,gamma_tank,0.0,,,0.0,,,0.0,653,0.6376953125,1024,log
+E[Battery-electric]@5nmi_300kt_fan,resto,0.0432519892132866,,,0.09224262059105116,,,0.04899063137776456,638,0.623046875,1024,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,oew_fan_b,0.061484688237827025,,,0.07267980358417094,,,0.01119511534634391,1024,1.0,1024,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,oew_fan_r_pivot,0.01969642546944166,,,0.022444905148834227,,,0.002748479679392568,1024,1.0,1024,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,eta_motor,0.10006697485272026,,,0.10654906577136633,,,0.006482090918646072,1024,1.0,1024,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,calibration_block,0.07917425811166469,,,0.07803737373288482,,,-0.0011368843787798733,1024,1.0,1024,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,fuel_cell_specific_power_kW_per_kg,0.2576409725963836,,,0.24902449573592148,,,-0.008616476860462102,1024,1.0,1024,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,eta_fuel_cell,0.4087065020708166,,,0.40018067509534333,,,-0.008525826975473272,1024,1.0,1024,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,liquid_hydrogen,0.024108778849156937,,,0.022930709101746865,,,-0.0011780697474100717,1024,1.0,1024,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,e_saf,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,gamma_tank,0.005556408411158862,,,0.004869617439807555,,,-0.0006867909713513072,1024,1.0,1024,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,resto,0.04439419924429261,,,0.044446084917902154,,,5.188567360954466e-05,1024,1.0,1024,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,oew_fan_b,0.03439347317842793,,,0.029154269426309987,,,-0.005239203752117946,1015,0.9912109375,1024,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,oew_fan_r_pivot,0.016546380761165866,,,0.01242940196642207,,,-0.004116978794743795,1015,0.9912109375,1024,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,eta_motor,0.057469148938138995,,,0.050933378427452165,,,-0.006535770510686829,1015,0.9912109375,1024,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,calibration_block,0.5991460639145668,,,0.5302144770097863,,,-0.06893158690478052,1015,0.9912109375,1024,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,1015,0.9912109375,1024,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,fuel_cell_specific_power_kW_per_kg,0.24258615828228053,,,0.2260508814859355,,,-0.016535276796345033,1015,0.9912109375,1024,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,eta_fuel_cell,0.1409030330211944,,,0.1396361849614401,,,-0.0012668480597542997,1015,0.9912109375,1024,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,liquid_hydrogen,0.006662543396363227,,,0.005062902314837411,,,-0.0015996410815258162,1015,0.9912109375,1024,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,e_saf,0.0,,,0.0,,,0.0,1015,0.9912109375,1024,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,gamma_tank,0.0029302042865063365,,,0.0022056636503540892,,,-0.0007245406361522473,1015,0.9912109375,1024,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,resto,0.011801458996597397,,,0.012066259787263849,,,0.0002648007906664515,1015,0.9912109375,1024,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,oew_fan_b,0.008101873732557986,,,0.012653647543240013,,,0.004551773810682027,1024,1.0,1024,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,oew_fan_r_pivot,0.06463045007716423,,,0.06007428491394698,,,-0.004556165163217246,1024,1.0,1024,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,eta_motor,0.1112451545855636,,,0.11820760567981944,,,0.006962451094255848,1024,1.0,1024,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,calibration_block,0.03229628486228206,,,0.028002127582893013,,,-0.0042941572793890465,1024,1.0,1024,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,fuel_cell_specific_power_kW_per_kg,0.28758236969470097,,,0.28054049988693586,,,-0.007041869807765111,1024,1.0,1024,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,eta_fuel_cell,0.43792364340284606,,,0.43571974477728176,,,-0.0022038986255643045,1024,1.0,1024,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,liquid_hydrogen,0.012463887278457339,,,0.012118041857642346,,,-0.0003458454208149931,1024,1.0,1024,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,e_saf,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,gamma_tank,0.02183312241002746,,,0.020987099062328842,,,-0.0008460233476986177,1024,1.0,1024,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,resto,0.02417492489644579,,,0.026368790197484948,,,0.0021938653010391586,1024,1.0,1024,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,oew_fan_b,0.4753493340085691,,,0.547354780410064,,,0.07200544640149492,1013,0.9892578125,1024,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,oew_fan_r_pivot,0.01860793677331251,,,0.020714958120519135,,,0.002107021347206625,1015,0.9912109375,1024,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,eta_motor,0.05210467805140637,,,0.06256623812921948,,,0.010461560077813112,1015,0.9912109375,1024,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,calibration_block,0.022543067537417135,,,0.01907928221017837,,,-0.0034637853272387643,1015,0.9912109375,1024,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,1015,0.9912109375,1024,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,fuel_cell_specific_power_kW_per_kg,0.07399288716144266,,,0.0774419537900274,,,0.0034490666285847404,1014,0.990234375,1024,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,eta_fuel_cell,0.2532196333373982,,,0.2802682573976506,,,0.02704862406025238,1014,0.990234375,1024,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,liquid_hydrogen,0.0031772598111363052,,,0.0025427346648527254,,,-0.0006345251462835798,1015,0.9912109375,1024,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,e_saf,0.0,,,0.0,,,0.0,1015,0.9912109375,1024,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,gamma_tank,0.031014788231528707,,,0.04784744267212635,,,0.016832654440597644,1015,0.9912109375,1024,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,resto,0.015272553385039937,,,0.016703553976707555,,,0.0014310005916676177,1015,0.9912109375,1024,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,oew_fan_b,0.02134674277761941,,,0.08633680687508268,,,0.06499006409746326,1022,0.998046875,1024,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,oew_fan_r_pivot,0.0434990277310197,,,0.040282559293885835,,,-0.003216468437133864,1022,0.998046875,1024,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,eta_motor,0.07196820224825501,,,0.07826236291132992,,,0.0062941606630749075,1022,0.998046875,1024,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,calibration_block,0.0023082248218382995,,,0.0007765978526173177,,,-0.0015316269692209816,1022,0.998046875,1024,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,1022,0.998046875,1024,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,fuel_cell_specific_power_kW_per_kg,0.7029317834890034,,,0.7358405383777961,,,0.032908754888792635,1022,0.998046875,1024,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,eta_fuel_cell,0.08258565692032126,,,0.08993038937428406,,,0.0073447324539628045,1022,0.998046875,1024,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,liquid_hydrogen,0.0013632509556894866,,,0.0010965118659039012,,,-0.00026673908978558543,1022,0.998046875,1024,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,e_saf,0.0,,,0.0,,,0.0,1022,0.998046875,1024,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,gamma_tank,0.0017847737018844895,,,0.0021068306239871676,,,0.0003220569221026781,1022,0.998046875,1024,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,resto,0.0036544877080856974,,,0.004311580925722128,,,0.0006570932176364307,1022,0.998046875,1024,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,oew_fan_b,0.2835511333459234,,,0.34377997506067215,,,0.06022884171474874,1001,0.9775390625,1024,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,oew_fan_r_pivot,0.019744727406222455,,,0.02217785499374522,,,0.0024331275875227633,1007,0.9833984375,1024,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,eta_motor,0.051556449686973246,,,0.06405529542508177,,,0.012498845738108527,1007,0.9833984375,1024,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,calibration_block,0.0022844026064848134,,,0.0005422221763710851,,,-0.0017421804301137283,1007,0.9833984375,1024,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,1007,0.9833984375,1024,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,fuel_cell_specific_power_kW_per_kg,0.5111923119223967,,,0.5618731880951253,,,0.05068087617272865,1002,0.978515625,1024,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,eta_fuel_cell,0.0745085538594723,,,0.0744333487266143,,,-7.520513285799724e-05,1007,0.9833984375,1024,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,liquid_hydrogen,0.0007395182545638363,,,0.0009099498081505181,,,0.0001704315535866819,1007,0.9833984375,1024,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,e_saf,0.0,,,0.0,,,0.0,1007,0.9833984375,1024,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,gamma_tank,0.0015829715148470852,,,0.001234924092861773,,,-0.00034804742198531213,1007,0.9833984375,1024,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,resto,0.001292706319605336,,,0.003506002632190691,,,0.002213296312585355,1007,0.9833984375,1024,log
+E[Hydrogen combustion]@100nmi_350kt_fan,oew_fan_b,0.6359094219038918,,,0.6526392135776509,,,0.016729791673759098,1024,1.0,1024,log
+E[Hydrogen combustion]@100nmi_350kt_fan,oew_fan_r_pivot,0.14406742290464108,,,0.14506725443632656,,,0.00099983153168548,1024,1.0,1024,log
+E[Hydrogen combustion]@100nmi_350kt_fan,eta_motor,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[Hydrogen combustion]@100nmi_350kt_fan,calibration_block,0.0626761265524926,,,0.07325605009262992,,,0.010579923540137315,1024,1.0,1024,log
+E[Hydrogen combustion]@100nmi_350kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[Hydrogen combustion]@100nmi_350kt_fan,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[Hydrogen combustion]@100nmi_350kt_fan,eta_fuel_cell,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[Hydrogen combustion]@100nmi_350kt_fan,liquid_hydrogen,0.11616385669383206,,,0.11833148273210074,,,0.0021676260382686857,1024,1.0,1024,log
+E[Hydrogen combustion]@100nmi_350kt_fan,e_saf,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[Hydrogen combustion]@100nmi_350kt_fan,gamma_tank,0.013411325543395532,,,0.013737009844889295,,,0.0003256843014937637,1024,1.0,1024,log
+E[Hydrogen combustion]@100nmi_350kt_fan,resto,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[Hydrogen combustion]@100nmi_450kt_fan,oew_fan_b,0.6384524345595655,,,0.6527230166393555,,,0.01427058207979004,1024,1.0,1024,log
+E[Hydrogen combustion]@100nmi_450kt_fan,oew_fan_r_pivot,0.1440403591443143,,,0.145169660670914,,,0.0011293015265997075,1024,1.0,1024,log
+E[Hydrogen combustion]@100nmi_450kt_fan,eta_motor,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[Hydrogen combustion]@100nmi_450kt_fan,calibration_block,0.06753192528952039,,,0.07300281404062404,,,0.005470888751103659,1024,1.0,1024,log
+E[Hydrogen combustion]@100nmi_450kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[Hydrogen combustion]@100nmi_450kt_fan,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[Hydrogen combustion]@100nmi_450kt_fan,eta_fuel_cell,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[Hydrogen combustion]@100nmi_450kt_fan,liquid_hydrogen,0.1135228382984998,,,0.11547738797691252,,,0.0019545496784127286,1024,1.0,1024,log
+E[Hydrogen combustion]@100nmi_450kt_fan,e_saf,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[Hydrogen combustion]@100nmi_450kt_fan,gamma_tank,0.013868987225126177,,,0.013931238853640164,,,6.225162851398666e-05,1024,1.0,1024,log
+E[Hydrogen combustion]@100nmi_450kt_fan,resto,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,oew_fan_b,0.3274072227486449,,,0.3395782263389811,,,0.012171003590336182,1024,1.0,1024,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,oew_fan_r_pivot,0.26492465103456847,,,0.2659221417255872,,,0.000997490691018732,1024,1.0,1024,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,eta_motor,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,calibration_block,0.11658105763667898,,,0.11571228343464195,,,-0.0008687742020370287,1024,1.0,1024,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,eta_fuel_cell,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,liquid_hydrogen,0.173698960507992,,,0.17657763051770725,,,0.0028786700097152562,1024,1.0,1024,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,e_saf,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,gamma_tank,0.10046661663332293,,,0.10030634316966504,,,-0.0001602734636578923,1024,1.0,1024,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,resto,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,oew_fan_b,0.44825416746998253,,,0.4442033213098377,,,-0.004050846160144839,1024,1.0,1024,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,oew_fan_r_pivot,0.15948934215271116,,,0.16343166776898685,,,0.003942325616275694,1024,1.0,1024,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,eta_motor,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,calibration_block,0.06334479873586746,,,0.052869393672399116,,,-0.010475405063468342,1024,1.0,1024,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,eta_fuel_cell,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,liquid_hydrogen,0.08014918458434996,,,0.08171530524769172,,,0.0015661206633417607,1024,1.0,1024,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,e_saf,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,gamma_tank,0.2579129259795277,,,0.2642040914671182,,,0.006291165487590511,1024,1.0,1024,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,resto,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,oew_fan_b,0.14771699870563393,,,0.16432212688097905,,,0.016605128175345124,1024,1.0,1024,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,oew_fan_r_pivot,0.15544343996798787,,,0.16565124612826623,,,0.01020780616027836,1024,1.0,1024,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,eta_motor,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,calibration_block,0.2210575725296781,,,0.21902907858748163,,,-0.002028493942196452,1024,1.0,1024,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,eta_fuel_cell,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,liquid_hydrogen,0.1382628847358539,,,0.13536104330378612,,,-0.0029018414320677866,1024,1.0,1024,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,e_saf,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,gamma_tank,0.13460874722064653,,,0.12881297088073454,,,-0.00579577633991199,1024,1.0,1024,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,resto,0.19043598417765958,,,0.19195922162125806,,,0.0015232374435984741,1024,1.0,1024,log
+E[e-SAF combustion]@100nmi_350kt_fan,oew_fan_b,0.2377674091764385,,,0.2482595134883242,,,0.010492104311885714,1024,1.0,1024,log
+E[e-SAF combustion]@100nmi_350kt_fan,oew_fan_r_pivot,0.051270241163402105,,,0.051750985299429945,,,0.00048074413602784,1024,1.0,1024,log
+E[e-SAF combustion]@100nmi_350kt_fan,eta_motor,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[e-SAF combustion]@100nmi_350kt_fan,calibration_block,0.03865294642077005,,,0.04519969713595646,,,0.006546750715186407,1024,1.0,1024,log
+E[e-SAF combustion]@100nmi_350kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[e-SAF combustion]@100nmi_350kt_fan,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[e-SAF combustion]@100nmi_350kt_fan,eta_fuel_cell,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[e-SAF combustion]@100nmi_350kt_fan,liquid_hydrogen,0.10785651567147252,,,0.11259026877795941,,,0.004733753106486896,1024,1.0,1024,log
+E[e-SAF combustion]@100nmi_350kt_fan,e_saf,0.5413122018352653,,,0.5474808404112166,,,0.006168638575951291,1024,1.0,1024,log
+E[e-SAF combustion]@100nmi_350kt_fan,gamma_tank,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[e-SAF combustion]@100nmi_350kt_fan,resto,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[e-SAF combustion]@1500nmi_450kt_fan,oew_fan_b,0.11912541604952924,,,0.1259009008602031,,,0.0067754848106738735,1024,1.0,1024,log
+E[e-SAF combustion]@1500nmi_450kt_fan,oew_fan_r_pivot,0.0832021831959782,,,0.08399016099526188,,,0.0007879777992836762,1024,1.0,1024,log
+E[e-SAF combustion]@1500nmi_450kt_fan,eta_motor,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[e-SAF combustion]@1500nmi_450kt_fan,calibration_block,0.05245173049095228,,,0.05356532648264891,,,0.0011135959916966295,1024,1.0,1024,log
+E[e-SAF combustion]@1500nmi_450kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[e-SAF combustion]@1500nmi_450kt_fan,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[e-SAF combustion]@1500nmi_450kt_fan,eta_fuel_cell,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[e-SAF combustion]@1500nmi_450kt_fan,liquid_hydrogen,0.12128279504545997,,,0.12618941438254297,,,0.004906619337083001,1024,1.0,1024,log
+E[e-SAF combustion]@1500nmi_450kt_fan,e_saf,0.6142521923579644,,,0.6136079732911888,,,-0.0006442190667755865,1024,1.0,1024,log
+E[e-SAF combustion]@1500nmi_450kt_fan,gamma_tank,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[e-SAF combustion]@1500nmi_450kt_fan,resto,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[e-SAF combustion]@6000nmi_450kt_fan,oew_fan_b,0.2994514556512079,,,0.2926655413749134,,,-0.006785914276294491,1024,1.0,1024,log
+E[e-SAF combustion]@6000nmi_450kt_fan,oew_fan_r_pivot,0.10335100448845831,,,0.10630918518556054,,,0.002958180697102228,1024,1.0,1024,log
+E[e-SAF combustion]@6000nmi_450kt_fan,eta_motor,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[e-SAF combustion]@6000nmi_450kt_fan,calibration_block,0.047280057810474466,,,0.040106670144903434,,,-0.007173387665571032,1024,1.0,1024,log
+E[e-SAF combustion]@6000nmi_450kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[e-SAF combustion]@6000nmi_450kt_fan,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[e-SAF combustion]@6000nmi_450kt_fan,eta_fuel_cell,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[e-SAF combustion]@6000nmi_450kt_fan,liquid_hydrogen,0.09353621750840763,,,0.0956635405336749,,,0.002127323025267275,1024,1.0,1024,log
+E[e-SAF combustion]@6000nmi_450kt_fan,e_saf,0.47046948626059326,,,0.4651730219365237,,,-0.00529646432406955,1024,1.0,1024,log
+E[e-SAF combustion]@6000nmi_450kt_fan,gamma_tank,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[e-SAF combustion]@6000nmi_450kt_fan,resto,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,oew_fan_b,0.05961976127603889,,,0.06872563514266597,,,0.009105873866627076,1024,1.0,1024,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,oew_fan_r_pivot,0.05357770062594045,,,0.05853302102872296,,,0.004955320402782508,1024,1.0,1024,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,eta_motor,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,calibration_block,0.11747164610348988,,,0.12107524003772553,,,0.0036035939342356493,1024,1.0,1024,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,eta_fuel_cell,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,liquid_hydrogen,0.11096677967848284,,,0.11185530927038886,,,0.0008885295919060232,1024,1.0,1024,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,e_saf,0.536994654530242,,,0.5439070302299259,,,0.006912375699683948,1024,1.0,1024,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,gamma_tank,0.0,,,0.0,,,0.0,1024,1.0,1024,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,resto,0.1027025431460738,,,0.10496457123549814,,,0.002262028089424342,1024,1.0,1024,log
+E[Battery-electric]@10nmi_200kt_propeller,oew_fan_b,0.0,,,0.0,,,0.0,2033,0.99267578125,2048,log
+E[Battery-electric]@10nmi_200kt_propeller,oew_fan_r_pivot,0.0,,,0.0,,,0.0,2033,0.99267578125,2048,log
+E[Battery-electric]@10nmi_200kt_propeller,eta_motor,0.046371924904467794,,,0.08450259648486845,,,0.038130671580400656,2032,0.9921875,2048,log
+E[Battery-electric]@10nmi_200kt_propeller,calibration_block,0.11462136276868105,,,0.1557710408882786,,,0.041149678119597535,2029,0.99072265625,2048,log
+E[Battery-electric]@10nmi_200kt_propeller,e_battery_Wh_per_kg,0.7506186766183089,,,0.7964791218740745,,,0.0458604452557656,2026,0.9892578125,2048,log
+E[Battery-electric]@10nmi_200kt_propeller,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,2033,0.99267578125,2048,log
+E[Battery-electric]@10nmi_200kt_propeller,eta_fuel_cell,0.0,,,0.0,,,0.0,2033,0.99267578125,2048,log
+E[Battery-electric]@10nmi_200kt_propeller,liquid_hydrogen,0.0,,,0.0,,,0.0,2033,0.99267578125,2048,log
+E[Battery-electric]@10nmi_200kt_propeller,e_saf,0.0,,,0.0,,,0.0,2033,0.99267578125,2048,log
+E[Battery-electric]@10nmi_200kt_propeller,gamma_tank,0.0,,,0.0,,,0.0,2033,0.99267578125,2048,log
+E[Battery-electric]@10nmi_200kt_propeller,resto,0.026113560258523016,,,0.04210968775771813,,,0.015996127499195115,2032,0.9921875,2048,log
+E[Battery-electric]@10nmi_250kt_propeller,oew_fan_b,0.0,,,0.0,,,0.0,1836,0.896484375,2048,log
+E[Battery-electric]@10nmi_250kt_propeller,oew_fan_r_pivot,0.0,,,0.0,,,0.0,1836,0.896484375,2048,log
+E[Battery-electric]@10nmi_250kt_propeller,eta_motor,0.0385586880707512,,,0.09791550419690814,,,0.059356816126156946,1820,0.888671875,2048,log
+E[Battery-electric]@10nmi_250kt_propeller,calibration_block,0.03264439163926169,,,0.08196831063541073,,,0.04932391899614904,1815,0.88623046875,2048,log
+E[Battery-electric]@10nmi_250kt_propeller,e_battery_Wh_per_kg,0.7477635654838968,,,0.9471493346143631,,,0.19938576913046635,1814,0.8857421875,2048,log
+E[Battery-electric]@10nmi_250kt_propeller,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,1836,0.896484375,2048,log
+E[Battery-electric]@10nmi_250kt_propeller,eta_fuel_cell,0.0,,,0.0,,,0.0,1836,0.896484375,2048,log
+E[Battery-electric]@10nmi_250kt_propeller,liquid_hydrogen,0.0,,,0.0,,,0.0,1836,0.896484375,2048,log
+E[Battery-electric]@10nmi_250kt_propeller,e_saf,0.0,,,0.0,,,0.0,1836,0.896484375,2048,log
+E[Battery-electric]@10nmi_250kt_propeller,gamma_tank,0.0,,,0.0,,,0.0,1836,0.896484375,2048,log
+E[Battery-electric]@10nmi_250kt_propeller,resto,0.025989715244928574,,,0.054198868419154195,,,0.02820915317422562,1827,0.89208984375,2048,log
+E[Battery-electric]@20nmi_250kt_propeller,oew_fan_b,0.0,,,0.0,,,0.0,1485,0.72509765625,2048,log
+E[Battery-electric]@20nmi_250kt_propeller,oew_fan_r_pivot,0.0,,,0.0,,,0.0,1485,0.72509765625,2048,log
+E[Battery-electric]@20nmi_250kt_propeller,eta_motor,0.04535042188016905,,,0.14689409927182007,,,0.10154367739165102,1454,0.7099609375,2048,log
+E[Battery-electric]@20nmi_250kt_propeller,calibration_block,0.030886525101449607,,,0.09376130730563255,,,0.06287478220418294,1454,0.7099609375,2048,log
+E[Battery-electric]@20nmi_250kt_propeller,e_battery_Wh_per_kg,0.6664050980113693,,,0.9411604825760186,,,0.2747553845646493,1437,0.70166015625,2048,log
+E[Battery-electric]@20nmi_250kt_propeller,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,1485,0.72509765625,2048,log
+E[Battery-electric]@20nmi_250kt_propeller,eta_fuel_cell,0.0,,,0.0,,,0.0,1485,0.72509765625,2048,log
+E[Battery-electric]@20nmi_250kt_propeller,liquid_hydrogen,0.0,,,0.0,,,0.0,1485,0.72509765625,2048,log
+E[Battery-electric]@20nmi_250kt_propeller,e_saf,0.0,,,0.0,,,0.0,1485,0.72509765625,2048,log
+E[Battery-electric]@20nmi_250kt_propeller,gamma_tank,0.0,,,0.0,,,0.0,1485,0.72509765625,2048,log
+E[Battery-electric]@20nmi_250kt_propeller,resto,0.011776030179513706,,,0.08188381873508503,,,0.07010778855557133,1464,0.71484375,2048,log
+E[Battery-electric]@5nmi_300kt_fan,oew_fan_b,0.0,,,0.0,,,0.0,1316,0.642578125,2048,log
+E[Battery-electric]@5nmi_300kt_fan,oew_fan_r_pivot,0.0,,,0.0,,,0.0,1316,0.642578125,2048,log
+E[Battery-electric]@5nmi_300kt_fan,eta_motor,0.0515795532997683,,,0.1338865916606673,,,0.082307038360899,1287,0.62841796875,2048,log
+E[Battery-electric]@5nmi_300kt_fan,calibration_block,0.004810388163894244,,,0.03216210952464951,,,0.02735172136075527,1303,0.63623046875,2048,log
+E[Battery-electric]@5nmi_300kt_fan,e_battery_Wh_per_kg,0.7335688390358021,,,0.9481283138951213,,,0.21455947485931925,1269,0.61962890625,2048,log
+E[Battery-electric]@5nmi_300kt_fan,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,1316,0.642578125,2048,log
+E[Battery-electric]@5nmi_300kt_fan,eta_fuel_cell,0.0,,,0.0,,,0.0,1316,0.642578125,2048,log
+E[Battery-electric]@5nmi_300kt_fan,liquid_hydrogen,0.0,,,0.0,,,0.0,1316,0.642578125,2048,log
+E[Battery-electric]@5nmi_300kt_fan,e_saf,0.0,,,0.0,,,0.0,1316,0.642578125,2048,log
+E[Battery-electric]@5nmi_300kt_fan,gamma_tank,0.0,,,0.0,,,0.0,1316,0.642578125,2048,log
+E[Battery-electric]@5nmi_300kt_fan,resto,0.04150494996393144,,,0.0905456071540075,,,0.04904065719007606,1285,0.62744140625,2048,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,oew_fan_b,0.06531009984032353,,,0.07336850241820399,,,0.008058402577880458,2048,1.0,2048,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,oew_fan_r_pivot,0.019736248119366043,,,0.022647988701009324,,,0.0029117405816432816,2048,1.0,2048,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,eta_motor,0.10937861350584242,,,0.1075397739592088,,,-0.0018388395466336221,2048,1.0,2048,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,calibration_block,0.07752845821163507,,,0.07657615863205265,,,-0.0009522995795824135,2048,1.0,2048,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,fuel_cell_specific_power_kW_per_kg,0.25314399893837264,,,0.24842228758175486,,,-0.00472171135661778,2048,1.0,2048,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,eta_fuel_cell,0.40836836753407446,,,0.40126097202668676,,,-0.007107395507387704,2048,1.0,2048,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,liquid_hydrogen,0.023574232968792897,,,0.022937684833955342,,,-0.000636548134837555,2048,1.0,2048,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,e_saf,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,gamma_tank,0.005570577167875701,,,0.004866043815032172,,,-0.0007045333528435289,2048,1.0,2048,log
+E[Hydrogen fuel cell]@100nmi_200kt_propeller,resto,0.04235319147441822,,,0.044114744191072405,,,0.001761552716654187,2048,1.0,2048,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,oew_fan_b,0.034171851382868636,,,0.029740218952081916,,,-0.00443163243078672,2031,0.99169921875,2048,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,oew_fan_r_pivot,0.014842320009090375,,,0.0124897022388765,,,-0.002352617770213875,2031,0.99169921875,2048,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,eta_motor,0.059243855291543926,,,0.05317719493246851,,,-0.006066660359075417,2031,0.99169921875,2048,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,calibration_block,0.568733068585291,,,0.5573863074130161,,,-0.011346761172274955,2031,0.99169921875,2048,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,2031,0.99169921875,2048,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,fuel_cell_specific_power_kW_per_kg,0.22892440969246666,,,0.22475817332707296,,,-0.004166236365393705,2031,0.99169921875,2048,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,eta_fuel_cell,0.1425542479657849,,,0.14648200911726644,,,0.003927761151481551,2031,0.99169921875,2048,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,liquid_hydrogen,0.004724263812451946,,,0.005082012545217522,,,0.0003577487327655754,2031,0.99169921875,2048,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,e_saf,0.0,,,0.0,,,0.0,2031,0.99169921875,2048,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,gamma_tank,0.0032383577819246976,,,0.0022286308385898396,,,-0.001009726943334858,2031,0.99169921875,2048,log
+E[Hydrogen fuel cell]@100nmi_300kt_propeller,resto,0.011052738332929989,,,0.011794440633301016,,,0.000741702300371027,2031,0.99169921875,2048,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,oew_fan_b,0.008812705641472835,,,0.01286623379682911,,,0.004053528155356275,2048,1.0,2048,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,oew_fan_r_pivot,0.061618702708654036,,,0.06079111210205664,,,-0.0008275906065973934,2048,1.0,2048,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,eta_motor,0.11780229775823971,,,0.11940489688634161,,,0.0016025991281019003,2048,1.0,2048,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,calibration_block,0.028807040535437457,,,0.027850405442319988,,,-0.0009566350931174694,2048,1.0,2048,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,fuel_cell_specific_power_kW_per_kg,0.28335259584957245,,,0.28292462652935585,,,-0.0004279693202166035,2048,1.0,2048,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,eta_fuel_cell,0.4407573466252764,,,0.43839135127000844,,,-0.002365995355267936,2048,1.0,2048,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,liquid_hydrogen,0.012161307228862646,,,0.012185945055423399,,,2.4637826560753098e-05,2048,1.0,2048,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,e_saf,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,gamma_tank,0.021734226216095703,,,0.021090255558772704,,,-0.0006439706573229988,2048,1.0,2048,log
+E[Hydrogen fuel cell]@1500nmi_250kt_propeller,resto,0.025500240330533188,,,0.025786354592111916,,,0.00028611426157872794,2048,1.0,2048,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,oew_fan_b,0.48811021159020734,,,0.5413515129148512,,,0.05324130132464383,2028,0.990234375,2048,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,oew_fan_r_pivot,0.01855622475488247,,,0.021338181346134265,,,0.002781956591251796,2031,0.99169921875,2048,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,eta_motor,0.056821916170166,,,0.062485526296863124,,,0.0056636101266971245,2030,0.9912109375,2048,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,calibration_block,0.018326300113081877,,,0.018303751460107417,,,-2.2548652974459932e-05,2031,0.99169921875,2048,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,2031,0.99169921875,2048,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,fuel_cell_specific_power_kW_per_kg,0.07064586199245977,,,0.0788727000788083,,,0.008226838086348526,2030,0.9912109375,2048,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,eta_fuel_cell,0.2581799009848795,,,0.27469117564360773,,,0.01651127465872826,2030,0.9912109375,2048,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,liquid_hydrogen,0.002798927632816374,,,0.002508293905812921,,,-0.0002906337270034529,2031,0.99169921875,2048,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,e_saf,0.0,,,0.0,,,0.0,2031,0.99169921875,2048,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,gamma_tank,0.036001265275374915,,,0.04691993424445049,,,0.010918668969075576,2031,0.99169921875,2048,log
+E[Hydrogen fuel cell]@6000nmi_250kt_propeller,resto,0.014181981903785357,,,0.016144622952563945,,,0.001962641048778588,2031,0.99169921875,2048,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,oew_fan_b,0.018315083312141534,,,0.08559680679030203,,,0.0672817234781605,2044,0.998046875,2048,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,oew_fan_r_pivot,0.03589545349672545,,,0.041598327023491255,,,0.005702873526765802,2045,0.99853515625,2048,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,eta_motor,0.07240111133778375,,,0.0780414612358017,,,0.0056403498980179545,2045,0.99853515625,2048,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,calibration_block,0.0017154851487644232,,,0.000768034607662343,,,-0.0009474505411020802,2045,0.99853515625,2048,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,2045,0.99853515625,2048,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,fuel_cell_specific_power_kW_per_kg,0.7074668030947703,,,0.7513149487285815,,,0.04384814563381123,2045,0.99853515625,2048,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,eta_fuel_cell,0.08357505030352089,,,0.09151618732478917,,,0.00794113702126828,2045,0.99853515625,2048,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,liquid_hydrogen,0.0010279717703741587,,,0.0011003190254391738,,,7.234725506501507e-05,2045,0.99853515625,2048,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,e_saf,0.0,,,0.0,,,0.0,2045,0.99853515625,2048,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,gamma_tank,0.0022042185170110264,,,0.00212410896198674,,,-8.01095550242866e-05,2045,0.99853515625,2048,log
+E[Hydrogen fuel cell]@100nmi_350kt_fan,resto,0.003981947457418759,,,0.004302015149043389,,,0.00032006769162463023,2045,0.99853515625,2048,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,oew_fan_b,0.28365886473925217,,,0.3450480402371391,,,0.061389175497886916,2002,0.9775390625,2048,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,oew_fan_r_pivot,0.017238496388476066,,,0.02239343903869077,,,0.005154942650214704,2012,0.982421875,2048,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,eta_motor,0.05263739154471157,,,0.06309410987268149,,,0.010456718327969919,2009,0.98095703125,2048,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,calibration_block,0.0016419468646133922,,,0.0005339768936444069,,,-0.0011079699709689852,2013,0.98291015625,2048,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,2013,0.98291015625,2048,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,fuel_cell_specific_power_kW_per_kg,0.5127532942974727,,,0.5676216189684072,,,0.0548683246709345,2003,0.97802734375,2048,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,eta_fuel_cell,0.07207488911212837,,,0.07490089017010919,,,0.002826001057980823,2010,0.9814453125,2048,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,liquid_hydrogen,0.0010575192934983407,,,0.000908765859839597,,,-0.00014875343365874374,2013,0.98291015625,2048,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,e_saf,0.0,,,0.0,,,0.0,2013,0.98291015625,2048,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,gamma_tank,0.0012935560670398554,,,0.0011867155271056214,,,-0.00010684053993423401,2013,0.98291015625,2048,log
+E[Hydrogen fuel cell]@100nmi_450kt_fan,resto,0.0023997365754998366,,,0.0034878975689033053,,,0.0010881609934034688,2013,0.98291015625,2048,log
+E[Hydrogen combustion]@100nmi_350kt_fan,oew_fan_b,0.6448904106504032,,,0.6534882719720599,,,0.008597861321656741,2048,1.0,2048,log
+E[Hydrogen combustion]@100nmi_350kt_fan,oew_fan_r_pivot,0.14697373913378167,,,0.1451909872805563,,,-0.0017827518532253783,2048,1.0,2048,log
+E[Hydrogen combustion]@100nmi_350kt_fan,eta_motor,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[Hydrogen combustion]@100nmi_350kt_fan,calibration_block,0.06700698208761935,,,0.07197686758943711,,,0.004969885501817761,2048,1.0,2048,log
+E[Hydrogen combustion]@100nmi_350kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[Hydrogen combustion]@100nmi_350kt_fan,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[Hydrogen combustion]@100nmi_350kt_fan,eta_fuel_cell,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[Hydrogen combustion]@100nmi_350kt_fan,liquid_hydrogen,0.1159453883716913,,,0.11802151696878298,,,0.002076128597091678,2048,1.0,2048,log
+E[Hydrogen combustion]@100nmi_350kt_fan,e_saf,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[Hydrogen combustion]@100nmi_350kt_fan,gamma_tank,0.013484735820604924,,,0.013715516221796157,,,0.0002307804011912329,2048,1.0,2048,log
+E[Hydrogen combustion]@100nmi_350kt_fan,resto,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[Hydrogen combustion]@100nmi_450kt_fan,oew_fan_b,0.6472671053709375,,,0.655389667788203,,,0.0081225624172655,2048,1.0,2048,log
+E[Hydrogen combustion]@100nmi_450kt_fan,oew_fan_r_pivot,0.14749170728250346,,,0.14569489011366266,,,-0.0017968171688408086,2048,1.0,2048,log
+E[Hydrogen combustion]@100nmi_450kt_fan,eta_motor,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[Hydrogen combustion]@100nmi_450kt_fan,calibration_block,0.06602153927443498,,,0.07210045673179397,,,0.006078917457358987,2048,1.0,2048,log
+E[Hydrogen combustion]@100nmi_450kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[Hydrogen combustion]@100nmi_450kt_fan,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[Hydrogen combustion]@100nmi_450kt_fan,eta_fuel_cell,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[Hydrogen combustion]@100nmi_450kt_fan,liquid_hydrogen,0.11339454662052169,,,0.11549643766557348,,,0.0021018910450517903,2048,1.0,2048,log
+E[Hydrogen combustion]@100nmi_450kt_fan,e_saf,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[Hydrogen combustion]@100nmi_450kt_fan,gamma_tank,0.014087881741084655,,,0.013949901845033887,,,-0.00013797989605076819,2048,1.0,2048,log
+E[Hydrogen combustion]@100nmi_450kt_fan,resto,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,oew_fan_b,0.3340159854302045,,,0.3413976429853616,,,0.007381657555157128,2048,1.0,2048,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,oew_fan_r_pivot,0.2696835881852942,,,0.26778484713876655,,,-0.0018987410465276522,2048,1.0,2048,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,eta_motor,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,calibration_block,0.10993886747476722,,,0.11480060466752787,,,0.004861737192760646,2048,1.0,2048,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,eta_fuel_cell,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,liquid_hydrogen,0.1738469766908251,,,0.17702556107925085,,,0.003178584388425748,2048,1.0,2048,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,e_saf,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,gamma_tank,0.10192448265884482,,,0.10064955940039033,,,-0.0012749232584544912,2048,1.0,2048,log
+E[Hydrogen combustion]@1500nmi_450kt_fan,resto,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,oew_fan_b,0.4444057335097672,,,0.44401530781439186,,,-0.00039042569537534044,2048,1.0,2048,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,oew_fan_r_pivot,0.15934166341967665,,,0.16367282725410778,,,0.004331163834431134,2048,1.0,2048,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,eta_motor,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,calibration_block,0.05892785801693352,,,0.052047731044289454,,,-0.006880126972644063,2048,1.0,2048,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,eta_fuel_cell,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,liquid_hydrogen,0.07997492030374477,,,0.08125216541502067,,,0.0012772451112759015,2048,1.0,2048,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,e_saf,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,gamma_tank,0.259415509005887,,,0.2626391597142437,,,0.0032236507083566734,2048,1.0,2048,log
+E[Hydrogen combustion]@6000nmi_450kt_fan,resto,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,oew_fan_b,0.15491022726701062,,,0.16539240105109704,,,0.010482173784086418,2048,1.0,2048,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,oew_fan_r_pivot,0.16502843286348554,,,0.1668816188845488,,,0.001853186021063269,2048,1.0,2048,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,eta_motor,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,calibration_block,0.21891543454446782,,,0.21790155482617818,,,-0.0010138797182896453,2048,1.0,2048,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,eta_fuel_cell,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,liquid_hydrogen,0.1345318386747979,,,0.13575542765226978,,,0.0012235889774718789,2048,1.0,2048,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,e_saf,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,gamma_tank,0.1361358745389217,,,0.12911613033658387,,,-0.007019744202337835,2048,1.0,2048,log
+E[Hydrogen combustion]@1500nmi_250kt_propeller,resto,0.189583850486383,,,0.19170293569357602,,,0.0021190852071930333,2048,1.0,2048,log
+E[e-SAF combustion]@100nmi_350kt_fan,oew_fan_b,0.24358166086245198,,,0.24880819547538763,,,0.005226534612935652,2048,1.0,2048,log
+E[e-SAF combustion]@100nmi_350kt_fan,oew_fan_r_pivot,0.0524980529215028,,,0.051873091359767795,,,-0.000624961561735006,2048,1.0,2048,log
+E[e-SAF combustion]@100nmi_350kt_fan,eta_motor,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[e-SAF combustion]@100nmi_350kt_fan,calibration_block,0.040722658955303366,,,0.04446687628483091,,,0.003744217329527545,2048,1.0,2048,log
+E[e-SAF combustion]@100nmi_350kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[e-SAF combustion]@100nmi_350kt_fan,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[e-SAF combustion]@100nmi_350kt_fan,eta_fuel_cell,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[e-SAF combustion]@100nmi_350kt_fan,liquid_hydrogen,0.10810376430724981,,,0.1126240039901804,,,0.004520239682930582,2048,1.0,2048,log
+E[e-SAF combustion]@100nmi_350kt_fan,e_saf,0.5423573182155411,,,0.544952781889649,,,0.0025954636741079007,2048,1.0,2048,log
+E[e-SAF combustion]@100nmi_350kt_fan,gamma_tank,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[e-SAF combustion]@100nmi_350kt_fan,resto,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[e-SAF combustion]@1500nmi_450kt_fan,oew_fan_b,0.12262573616671915,,,0.12641159121148451,,,0.0037858550447653627,2048,1.0,2048,log
+E[e-SAF combustion]@1500nmi_450kt_fan,oew_fan_r_pivot,0.08466985884468144,,,0.0844844752676346,,,-0.00018538357704683817,2048,1.0,2048,log
+E[e-SAF combustion]@1500nmi_450kt_fan,eta_motor,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[e-SAF combustion]@1500nmi_450kt_fan,calibration_block,0.04944810676109074,,,0.05307263151781646,,,0.0036245247567257208,2048,1.0,2048,log
+E[e-SAF combustion]@1500nmi_450kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[e-SAF combustion]@1500nmi_450kt_fan,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[e-SAF combustion]@1500nmi_450kt_fan,eta_fuel_cell,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[e-SAF combustion]@1500nmi_450kt_fan,liquid_hydrogen,0.12160821787463003,,,0.12655419858133857,,,0.0049459807067085415,2048,1.0,2048,log
+E[e-SAF combustion]@1500nmi_450kt_fan,e_saf,0.6112138457279062,,,0.6123566924749776,,,0.0011428467470714354,2048,1.0,2048,log
+E[e-SAF combustion]@1500nmi_450kt_fan,gamma_tank,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[e-SAF combustion]@1500nmi_450kt_fan,resto,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[e-SAF combustion]@6000nmi_450kt_fan,oew_fan_b,0.29657986018186017,,,0.29356619809192175,,,-0.003013662089938418,2048,1.0,2048,log
+E[e-SAF combustion]@6000nmi_450kt_fan,oew_fan_r_pivot,0.10277987814285093,,,0.10700352489269697,,,0.004223646749846044,2048,1.0,2048,log
+E[e-SAF combustion]@6000nmi_450kt_fan,eta_motor,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[e-SAF combustion]@6000nmi_450kt_fan,calibration_block,0.0440184092041411,,,0.03967939239487918,,,-0.0043390168092619225,2048,1.0,2048,log
+E[e-SAF combustion]@6000nmi_450kt_fan,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[e-SAF combustion]@6000nmi_450kt_fan,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[e-SAF combustion]@6000nmi_450kt_fan,eta_fuel_cell,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[e-SAF combustion]@6000nmi_450kt_fan,liquid_hydrogen,0.0937264288124488,,,0.09574555913165589,,,0.0020191303192070853,2048,1.0,2048,log
+E[e-SAF combustion]@6000nmi_450kt_fan,e_saf,0.4649960011494139,,,0.46328319855263744,,,-0.0017128025967764748,2048,1.0,2048,log
+E[e-SAF combustion]@6000nmi_450kt_fan,gamma_tank,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[e-SAF combustion]@6000nmi_450kt_fan,resto,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,oew_fan_b,0.06356657999786608,,,0.06887939601318278,,,0.005312816015316704,2048,1.0,2048,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,oew_fan_r_pivot,0.057382722248413634,,,0.058763865743632175,,,0.0013811434952185411,2048,1.0,2048,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,eta_motor,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,calibration_block,0.11855616529270156,,,0.11994591679759956,,,0.001389751504897993,2048,1.0,2048,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,e_battery_Wh_per_kg,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,fuel_cell_specific_power_kW_per_kg,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,eta_fuel_cell,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,liquid_hydrogen,0.10875766610538028,,,0.11187206950665397,,,0.0031144034012736965,2048,1.0,2048,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,e_saf,0.5426432773825419,,,0.5413144030886947,,,-0.0013288742938472042,2048,1.0,2048,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,gamma_tank,0.0,,,0.0,,,0.0,2048,1.0,2048,log
+E[e-SAF combustion]@1500nmi_250kt_propeller,resto,0.10288617518932633,,,0.10440608176079125,,,0.0015199065714649185,2048,1.0,2048,log

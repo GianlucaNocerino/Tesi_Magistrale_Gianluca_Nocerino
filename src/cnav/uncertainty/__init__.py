@@ -18,7 +18,7 @@ Il taglio è lo stesso degli altri sottopacchetti: cnav.uncertainty
 lavora SOPRA cnav.model senza modificarlo, e non contiene nessuna
 formula del modello deterministico.
 
-Vedi examples/uncertainty_propagation_execution.py per il flusso
+Vedi execution/07_propagazione/uncertainty_propagation_execution.py per il flusso
 completo.
 """
 from .distributions import (

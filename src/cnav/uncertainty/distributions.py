@@ -69,7 +69,7 @@ __all__ = [
     "specs_table",
     "DerivedParameter",
     "DerivedFromMany",
-    "linear_from_endpoints", 
+    "induced_spec_many",
     "induced_spec",
     "CopulaPair",
     "CorrelationModel",

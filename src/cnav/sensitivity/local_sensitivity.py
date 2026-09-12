@@ -529,7 +529,7 @@ def average_relevant_elasticities(df_elasticities: pd.DataFrame, threshold: floa
 
     threshold non ha un default apposta: deve coincidere con quello
     usato per generare i tornado plot che si vogliono riassumere (es.
-    examples/local_sensitivity_report.py chiama
+    execution/03_sensibilita_locale/local_sensitivity_report.py chiama
     plot_all_condition_tornados(df_elasticities, threshold=0.05), se
     qui si passasse un valore diverso, "parametro rilevante" avrebbe un
     significato diverso da quello dei tornado plot effettivamente
