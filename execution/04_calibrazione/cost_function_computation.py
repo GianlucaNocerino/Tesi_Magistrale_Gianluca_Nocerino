@@ -50,7 +50,7 @@ print(f"  {'TOTALE':25s} {total_prop:8.4f}")
 # di nuovo di più i Range lunghi
 print("\n=== Esempio con pesi personalizzati (fan) ===")
 custom_weights = {"Battery-electric": 3.0, "e-SAF combustion": 1.0, "Hydrogen combustion": 1.0}
-custom_range_weights = [2.0, 2.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+custom_range_weights = [1, 5.0, 5.0, 5.0, 3.0, 3.0, 2.0, 2.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 2.0, 2.0, 3.0]
 total_custom, per_system_custom = fan_cost(
     tech, wtt, system_weights=custom_weights, range_weights=custom_range_weights,
 )
