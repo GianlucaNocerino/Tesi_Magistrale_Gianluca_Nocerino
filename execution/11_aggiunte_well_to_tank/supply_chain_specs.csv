@@ -1,0 +1,7 @@
+parametro,nominale,PDF,fonte,motivazione
+eta_grid,0.487,"Uniforme(0.46265, 0.51135)",GREET,"Rendimento di catena well-to-tank: Elettricità di rete, mix europeo (batteria)"
+gco2_grid,92.4,"Uniforme(87.78, 97.02000000000001)",GREET,"Indice di emissione per MJ di vettore prodotto: Elettricità di rete, mix europeo (batteria)"
+eta_lh2,0.48,"Uniforme(0.45599999999999996, 0.504)",GREET,Rendimento di catena well-to-tank: Idrogeno liquido da gas naturale (SMR + liquefazione)
+gco2_lh2,112.55,"Uniforme(106.9225, 118.1775)",GREET,Indice di emissione per MJ di vettore prodotto: Idrogeno liquido da gas naturale (SMR + liquefazione)
+eta_saf,0.45712008,"Uniforme(0.434264076, 0.47997608399999997)",GREET,Rendimento di catena well-to-tank: SAF da biomasse via HEFA
+gco2_saf,31.832,"Uniforme(30.2404, 33.4236)",GREET,Indice di emissione per MJ di vettore prodotto: SAF da biomasse via HEFA
