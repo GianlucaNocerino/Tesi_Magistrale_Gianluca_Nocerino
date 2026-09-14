@@ -111,14 +111,14 @@ KEROSENE_GCO2_PER_MJ_UPSTREAM = 7.402
 # corretta (cambierà solo la diversificazione).
 # ---------------------------------------------------------------------
 MISSIONI = [
-    ("Regionale cortissimo",  Mission(range_nmi=10.0,    cruise_speed_kt=200.0, propulsor="propeller")),
-    ("Feeder elica",          Mission(range_nmi=50.0,    cruise_speed_kt=250.0, propulsor="propeller")),
-    ("Regionale elica",       Mission(range_nmi=300.0,   cruise_speed_kt=250.0, propulsor="propeller")),
-    ("Medio raggio elica",    Mission(range_nmi=1500.0,  cruise_speed_kt=250.0, propulsor="propeller")),
-    ("Corto raggio fan",      Mission(range_nmi=100.0,   cruise_speed_kt=450.0, propulsor="fan")),
-    ("Medio raggio fan",      Mission(range_nmi=1500.0,  cruise_speed_kt=450.0, propulsor="fan")),
-    ("Lungo raggio fan",      Mission(range_nmi=6000.0,  cruise_speed_kt=450.0, propulsor="fan")),
-    ("Ultra-lungo fan",       Mission(range_nmi=10000.0, cruise_speed_kt=450.0, propulsor="fan")),
+    ("10 nmi, 200 kt (propeller)",  Mission(range_nmi=10.0,    cruise_speed_kt=200.0, propulsor="propeller")),
+    ("50 nmi, 250 kt (propeller)",          Mission(range_nmi=50.0,    cruise_speed_kt=250.0, propulsor="propeller")),
+    ("300 nmi, 250 kt (propeller)",       Mission(range_nmi=300.0,   cruise_speed_kt=250.0, propulsor="propeller")),
+    ("1500 nmi, 250 kt (propeller)",    Mission(range_nmi=1500.0,  cruise_speed_kt=250.0, propulsor="propeller")),
+    ("100 nmi, 450 kt (fan)",      Mission(range_nmi=100.0,   cruise_speed_kt=450.0, propulsor="fan")),
+    ("1500 nmi, 450 kt (fan)",      Mission(range_nmi=1500.0,  cruise_speed_kt=450.0, propulsor="fan")),
+    ("6000 nmi, 450 kt (fan)",      Mission(range_nmi=6000.0,  cruise_speed_kt=450.0, propulsor="fan")),
+    ("10000 nmi, 450 kt (fan)",       Mission(range_nmi=10000.0, cruise_speed_kt=450.0, propulsor="fan")),
 ]
 
 
@@ -328,25 +328,60 @@ def print_table(df: pd.DataFrame) -> None:
                   f"del cherosene")
 
 
+# ---------------------------------------------------------------------
+# Nome breve del sistema, per l'etichetta sopra la barra: i nomi interi
+# non ci stanno e allargherebbero la figura senza aggiungere nulla
+# ---------------------------------------------------------------------
+NOME_BREVE = {
+    "Battery-electric": "batteria",
+    "Hydrogen fuel cell": "fuel cell H2",
+    "Hydrogen combustion": "combustione H2",
+    "e-SAF combustion": "e-SAF",
+    "Kerosene combustion": "cherosene",
+}
+
+
 def plot_comparison(df: pd.DataFrame, column: str, ylabel: str, title: str,
                      filename: str) -> Path:
-    """Barre affiancate: migliore sostenibile, e-SAF, cherosene"""
+    """Barre affiancate: migliore sostenibile e cherosene.
+
+    Il drop-in non viene disegnato: resta nel CSV e nella tabella a
+    schermo, ma nel confronto visivo aggiunge una terza barra che non e'
+    ne' il migliore ne' il riferimento. Sopra ogni barra "best" e'
+    scritto QUALE sistema ha vinto quella missione, che altrimenti la
+    figura da sola non direbbe.
+    """
     labels = list(dict.fromkeys(df.mission_label))
-    ruoli = ["best", "drop-in", "convenzionale"]
-    colori = {"best": "#4C72B0", "drop-in": "#C44E52", "convenzionale": "#8C8C8C"}
+    ruoli = ["best", "convenzionale"]
+    etichette = {"best": "migliore sostenibile", "convenzionale": "cherosene"}
+    colori = {"best": "#4C72B0", "convenzionale": "#8C8C8C"}
 
     x = np.arange(len(labels))
-    larghezza = 0.26
+    larghezza = 0.38
 
     fig, ax = plt.subplots(figsize=(11, 6))
+    altezza_max = 0.0
     for k, ruolo in enumerate(ruoli):
-        valori = []
+        valori, nomi = [], []
         for label in labels:
             sel = df[(df.mission_label == label) & (df.role == ruolo)]
             valori.append(float(sel[column].iloc[0]) if len(sel) else np.nan)
-        ax.bar(x + (k - 1) * larghezza, valori, larghezza,
-               label=ruolo, color=colori[ruolo])
+            nomi.append(sel.system_name.iloc[0] if len(sel) else "")
+        posizioni = x + (k - 0.5) * larghezza
+        ax.bar(posizioni, valori, larghezza, label=etichette[ruolo], color=colori[ruolo])
+        altezza_max = max(altezza_max, np.nanmax(valori))
 
+        if ruolo == "best":
+            for xi, valore, nome in zip(posizioni, valori, nomi):
+                if not np.isfinite(valore):
+                    continue
+                ax.annotate(NOME_BREVE.get(nome, nome), (xi, valore),
+                            textcoords="offset points", xytext=(0, 4),
+                            ha="center", va="bottom", rotation=90,
+                            fontsize=8, color=colori["best"])
+
+    # spazio in alto per le etichette verticali, che altrimenti escono
+    ax.set_ylim(0, altezza_max * 1.35)
     ax.set_xticks(x)
     ax.set_xticklabels(labels, rotation=25, ha="right", fontsize=9)
     ax.set_ylabel(ylabel)
