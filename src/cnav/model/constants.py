@@ -57,8 +57,8 @@ class TechAssumptions:
     ld_baseline_fan: float = 20.0
     eta_p_propeller: float = 0.85                  # efficienza propulsiva di riferimento (propeller)
     eta_p_fan: float = 0.75                        # efficienza propulsiva di riferimento (fan/getto)
-    fan_pressure_ratio: float = 1.5                # rapporto di compressione fan
-    fan_scaling_mach_ref: float = 0.8              # Mach di normalizzazione per il fan scaling factor
+    fan_pressure_ratio: float = 1.3                # rapporto di compressione fan
+    fan_scaling_mach_ref: float = 0.78              # Mach di normalizzazione per il fan scaling factor
 
     # --- motori convenzionali (per il "sottraggo il motore a combustione" nella fuel cell) ---
     turbofan_core_specific_power_kW_per_kg: float = 15.0
@@ -78,7 +78,7 @@ class TechAssumptions:
     reserve_loiter_speed_kt: float = float("nan")
 
     # --- per la normalizzazione per passeggero ---
-    pax_weight_kg: float = 100.0                   # non specificato dall'articolo
+    pax_weight_kg: float = 75.0                   # non specificato dall'articolo
 
     # frazione di peso a vuoto costante per la batteria (esclude motori e batteria)
     battery_oew_fraction: float = 0.37
@@ -159,9 +159,9 @@ class TechAssumptions:
     # sale come 1-exp(-rise_rate*mach) fino al picco a peak_mach, poi cala
     # come una gaussiana di larghezza decay_width. Questi dati sono ottenuti
     # dall'osservazione della figura corrispondente dell'articolo
-    propeller_curve_peak_mach: float = 0.628
-    propeller_curve_rise_rate: float = 11.65
-    propeller_curve_decay_width: float = 0.038
+    propeller_curve_peak_mach: float = 0.5461
+    propeller_curve_rise_rate: float = 7.064
+    propeller_curve_decay_width: float = 0.04011
 
     def with_changes(self, **kwargs) -> "TechAssumptions":
         """restituisce una copia con solo alcuni parametri modificati, es.:

@@ -41,6 +41,9 @@ from .distributions import (
     sample_literature_parameters,
     load_theta_acc,
     assemble_theta,
+    parameter_sample_check, 
+    plot_parameter_distributions,
+    plot_parameter_correlations,
 )
 from .model_form_uncertainty import (
     FORM_SPECIFIC_PARAMETERS,
@@ -59,6 +62,17 @@ from .propagation import (
     evaluate_sample,
     PropagationResult,
     run_propagation,
+)
+from .output_distributions import (
+    OperatingPoint,
+    PointSample,
+    labels_for_propulsor,
+    samples_from_result,
+    samples_by_rerun,
+    nominal_intensities,
+    plot_intensity_pdf,
+    plot_difference_pdf,
+    plot_points_comparison,
 )
 from .technology_map import (
     ProbabilityMap,
@@ -85,6 +99,8 @@ __all__ = [
     "build_default_correlations", "shared_factor_rho",
     "sample_literature_parameters", "independent_parameter_names", 
     "load_theta_acc", "assemble_theta",
+    "parameter_sample_check", "plot_parameter_distributions",
+    "plot_parameter_correlations",
     "TECHNOLOGIES", "PROPULSORS", "FlightGrid", "technology_labels",
     "theta_row_to_tech_wtt", "evaluate_sample", "PropagationResult",
     "run_propagation",
@@ -93,6 +109,9 @@ __all__ = [
     "feasibility_probability", "boundary_statistics", "adjacent_label_pairs",
     "plot_probability_map", "plot_probability_field",
     "plot_intensity_band", "plot_boundary_dispersion",
+    "OperatingPoint", "PointSample", "labels_for_propulsor",
+    "samples_from_result", "samples_by_rerun", "nominal_intensities",
+    "plot_intensity_pdf", "plot_difference_pdf", "plot_points_comparison",
     "FORM_SPECIFIC_PARAMETERS", "common_parameter_names",
     "specs_for_form", "correlations_for_specs", "assemble_theta_for_form",
     "parameter_membership_table",

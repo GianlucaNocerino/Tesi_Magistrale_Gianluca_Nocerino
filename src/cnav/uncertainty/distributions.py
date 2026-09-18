@@ -78,6 +78,10 @@ __all__ = [
     "shared_factor_rho",
     "independent_parameter_names",
     "sample_literature_parameters",
+    "parameter_sample_check",
+    "plot_parameter_distributions",
+    "plot_parameter_correlations",
+    "load_theta_acc",
     "load_theta_acc",
     "assemble_theta",
 ]
@@ -163,6 +167,12 @@ class TriangularWithFloor:
 
     def pdf(self, x):
         return (1 - self.floor) * self._tri.pdf(x) + self.floor * self._uni.pdf(x)
+
+    def mean(self):
+        """Media analitica della miscela Triangolare + Uniforme"""
+        media_tri = (self.a + self.m + self.b) / 3.0
+        media_uni = (self.a + self.b) / 2.0
+        return float((1 - self.floor) * media_tri + self.floor * media_uni)
 
 
 def scaled_beta(alpha: float, beta: float, a: float, b: float):
@@ -781,6 +791,195 @@ def specs_table(specs: Optional[dict] = None,
 # =====================================================================
 # 3. Campionamento LHS + fusione con Theta_acc
 # =====================================================================
+
+def _categoria(nome: str, specs: dict, follower: set) -> str:
+    """Da dove viene la distribuzione di questo parametro.
+ 
+    dichiarata  ParameterSpec campionata via LHS: la curva teorica
+                esiste ed e' quella usata.
+    derivata    follower di una relazione deterministica: NON e'
+                campionato, la sua marginale e' quella indotta dai
+                driver. La curva dichiarata a mano, se c'e', non e'
+                quella in uso e disegnarla sarebbe fuorviante.
+    empirica    colonna senza spec (tipicamente Theta_acc): esiste solo
+                il campione.
+    """
+    if nome in follower:
+        return "derivata"
+    return "dichiarata" if nome in specs else "empirica"
+ 
+ 
+COLORI_CATEGORIA = {"dichiarata": "#4C72B0", "derivata": "#DD8452",
+                    "empirica": "#55A868"}
+ 
+ 
+def parameter_sample_check(theta: "pd.DataFrame", specs: Optional[dict] = None,
+                           correlations: Optional["CorrelationModel"] = None) -> "pd.DataFrame":
+    """Confronto numerico fra distribuzione dichiarata e campione.
+ 
+    Una riga per colonna di theta: categoria, nominale, estremi e media
+    dichiarati (indotti, per i derivati) contro quelli realizzati.
+ 
+    Due colonne di controllo, e servono entrambe:
+ 
+      fuori_supporto  il campione esce dagli estremi dichiarati. Tutte le
+                      PDF usate hanno supporto finito, quindi non e' una
+                      coda, e' un errore.
+      ks_p            p-value di Kolmogorov-Smirnov del campione contro
+                      la marginale dichiarata. Intercetta il caso opposto
+                      e piu' insidioso: un campione che sta DENTRO il
+                      supporto ma non lo copre, o lo copre con la forma
+                      sbagliata. E' il sintomo tipico di un campione
+                      prodotto con una versione precedente delle specs,
+                      che 'fuori_supporto' da solo non vede.
+ 
+    Un ks_p basso su un parametro accoppiato da copula va interpretato
+    con prudenza: l'accoppiamento ridisegna i quantili e fa perdere la
+    stratificazione LHS, quindi li' il p-value e' rumoroso per
+    costruzione. Sui parametri campionati liberamente, invece, l'LHS
+    rende il test molto conservativo: un p-value basso e' un segnale
+    forte.
+    """
+    specs = specs if specs is not None else build_default_specs()
+    follower = correlations.follower_names() if correlations else set()
+    indotte = {}
+    if correlations is not None:
+        indotte = ({dp.name: induced_spec(dp, specs[dp.driver]) for dp in correlations.derived}
+                   | {dp.name: induced_spec_many(dp, specs) for dp in correlations.derived_many})
+ 
+    righe = []
+    for nome in theta.columns:
+        v = theta[nome].to_numpy(dtype=float)
+        cat = _categoria(nome, specs, follower)
+        riga = {"parametro": nome, "categoria": cat,
+                "min_campione": float(v.min()), "media_campione": float(v.mean()),
+                "max_campione": float(v.max())}
+        if cat == "dichiarata":
+            lo, hi = specs[nome].support
+            riga |= {"nominale": specs[nome].nominal, "min_dichiarato": lo,
+                     "max_dichiarato": hi, "media_dichiarata": float(specs[nome].dist.mean()),
+                     "ks_p": float(stats.kstest(v, specs[nome].dist.cdf).pvalue)}
+        elif cat == "derivata" and nome in indotte:
+            ind = indotte[nome]
+            riga |= {"nominale": specs[nome].nominal if nome in specs else np.nan,
+                     "min_dichiarato": ind["min"], "max_dichiarato": ind["max"],
+                     "media_dichiarata": ind.get("media", np.nan)}
+        righe.append(riga)
+ 
+    df = pd.DataFrame(righe)
+    if "min_dichiarato" in df:
+        df["fuori_supporto"] = ((df["min_campione"] < df["min_dichiarato"] - 1e-9) |
+                                (df["max_campione"] > df["max_dichiarato"] + 1e-9))
+    return df
+ 
+ 
+def plot_parameter_distributions(theta: "pd.DataFrame", specs: Optional[dict] = None,
+                                 correlations: Optional["CorrelationModel"] = None,
+                                 bins: int = 35, n_cols: int = 4,
+                                 nominals: Optional[dict] = None,
+                                 title: Optional[str] = None):
+    """PDF dichiarata contro campione realizzato, un pannello per parametro.
+ 
+    Non è una figura solo descrittiva: sovrapporre la curva teorica
+    all'istogramma del campione EFFETTIVAMENTE propagato verifica che il
+    campionamento abbia fatto quello che si voleva. Un istogramma che non
+    segue la curva è un errore che altrimenti resta invisibile fino a
+    quando non produce un risultato strano tre fasi più avanti.
+ 
+    theta può essere la matrice della Fase 7 (result.theta) o quella di
+    qualunque altro campionamento costruito sulle stesse ParameterSpec,
+    per esempio i parametri di filiera della Fase 11: cambiano specs e
+    theta, il grafico è lo stesso.
+ 
+    nominals: valori nominali da segnare, per le colonne il cui nominale
+    non sta nella spec (i parametri di calibrazione, il cui nominale è
+    un campo di TechAssumptions). {nome: valore}.
+ 
+    Ritorna (figure, axes).
+    """
+    import matplotlib.pyplot as plt
+ 
+    specs = specs if specs is not None else build_default_specs()
+    follower = correlations.follower_names() if correlations else set()
+    nominals = nominals or {}
+ 
+    nomi = list(theta.columns)
+    n_rig = int(np.ceil(len(nomi) / n_cols))
+    fig, axes = plt.subplots(n_rig, n_cols, figsize=(4.2 * n_cols, 2.9 * n_rig),
+                             squeeze=False)
+ 
+    for ax, nome in zip(axes.flat, nomi):
+        v = theta[nome].to_numpy(dtype=float)
+        cat = _categoria(nome, specs, follower)
+        colore = COLORI_CATEGORIA[cat]
+ 
+        ax.hist(v, bins=bins, density=True, color=colore, alpha=0.35, edgecolor="none")
+ 
+        # la curva teorica SOLO dove è davvero quella usata
+        if cat == "dichiarata":
+            lo, hi = specs[nome].support
+            x = np.linspace(lo, hi, 400)
+            ax.plot(x, specs[nome].dist.pdf(x), color=colore, lw=1.8)
+ 
+        nom = nominals.get(nome, specs[nome].nominal if nome in specs else None)
+        if nom is not None:
+            ax.axvline(float(nom), color="k", ls="--", lw=1.1)
+ 
+        ax.set_title(nome, fontsize=8.5)
+        ax.text(0.03, 0.94, cat, transform=ax.transAxes, va="top", fontsize=7,
+                style="italic", color=colore)
+        ax.tick_params(labelsize=7)
+        ax.set_yticks([])
+ 
+    for ax in axes.flat[len(nomi):]:
+        ax.axis("off")
+ 
+    fig.suptitle(title or f"Distribuzioni dei parametri incerti - {len(theta)} "
+                          f"campioni.  Tratteggiata: valore del riferimento", fontsize=11)
+    fig.tight_layout(rect=(0, 0, 1, 0.97))
+    return fig, axes
+ 
+ 
+def plot_parameter_correlations(theta: "pd.DataFrame",
+                                correlations: "CorrelationModel", n_cols: int = 3):
+    """Le coppie con dipendenza imposta, come nuvole di punti.
+ 
+    Il controllo che la correlazione dichiarata sia finita davvero nel
+    campione: ogni pannello riporta il coefficiente realizzato. Per le
+    relazioni deterministiche ci si aspetta |r| = 1 se lineari, minore se
+    non lineari; per le copule il valore di rho, a meno del rumore di
+    campionamento.
+ 
+    Ritorna (figure, axes), oppure (None, None) se non c'e' nessuna
+    dipendenza imposta - il caso della Fase 11, dove le filiere sono
+    assunte indipendenti.
+    """
+    import matplotlib.pyplot as plt
+ 
+    coppie = ([(cp.a, cp.b, f"copula rho = {cp.rho:+.2f}") for cp in correlations.copulas] +
+              [(dp.driver, dp.name, "derivata (lineare)") for dp in correlations.derived] +
+              [(drv, dp.name, "derivata (non lineare)")
+               for dp in correlations.derived_many for drv in dp.drivers])
+    if not coppie:
+        return None, None
+ 
+    n_cols = min(n_cols, len(coppie))
+    n_rig = int(np.ceil(len(coppie) / n_cols))
+    fig, axes = plt.subplots(n_rig, n_cols, figsize=(4.2 * n_cols, 3.6 * n_rig),
+                             squeeze=False)
+    for ax, (a, b, etichetta) in zip(axes.flat, coppie):
+        ax.plot(theta[a], theta[b], ".", ms=2.5, alpha=0.35, color="#4C72B0")
+        ax.set_xlabel(a, fontsize=8)
+        ax.set_ylabel(b, fontsize=8)
+        ax.set_title(f"{etichetta}\nr realizzato = {float(theta[a].corr(theta[b])):+.3f}",
+                     fontsize=8.5)
+        ax.tick_params(labelsize=7)
+        ax.grid(alpha=0.3)
+    for ax in axes.flat[len(coppie):]:
+        ax.axis("off")
+    fig.tight_layout()
+    return fig, axes
+
 
 def independent_parameter_names(specs: Optional[dict] = None,
                                 correlations: Optional[CorrelationModel] = None) -> list:

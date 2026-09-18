@@ -88,7 +88,8 @@ from cnav.uncertainty import (CopulaPair, CorrelationModel, ParameterSpec,
                               PropagationResult, TriangularWithFloor,
                               classify_regions, plot_probability_map,
                               probability_map, robust_area_fraction,
-                              sample_literature_parameters)
+                              sample_literature_parameters, 
+                              parameter_sample_check, plot_parameter_distributions)
 
 OUT_DIR = Path(__file__).resolve().parent
 RESULT_PATH = OUT_DIR.parent / "07_propagazione" / "propagation_result.npz"
@@ -681,6 +682,21 @@ def esegui_scenario(chiave: str, scenario: dict, result: PropagationResult,
           f"rho dentro la filiera {RHO_ETA_G[chiave]:+.2f}")
     stampa_correlazioni(theta_sc, correlazioni)
     tabella.to_csv(OUT_DIR / f"supply_chain_specs_{chiave}.csv", index=False)
+
+    # PDF dichiarata contro campione realizzato, lo stesso controllo della
+    # Fase 5: qui non ci sono derivati ne' colonne empiriche, quindi ogni
+    # pannello ha la sua curva teorica e l'istogramma deve seguirla
+    fig, _ = plot_parameter_distributions(
+        theta_sc, specs, n_cols=3,
+        title=f"Parametri di filiera - {titolo} - {len(theta_sc)} campioni")
+    fig.savefig(OUT_DIR / f"supply_chain_distributions_{chiave}.png", dpi=150)
+    plt.close(fig)
+    check = parameter_sample_check(theta_sc, specs)
+    check.to_csv(OUT_DIR / f"supply_chain_sample_check_{chiave}.csv", index=False)
+    sospetti = check[check["ks_p"] < 0.01]
+    if not sospetti.empty:
+        print("  ATTENZIONE, campione incompatibile con la PDF dichiarata: "
+              + ", ".join(sospetti["parametro"]))
 
     primaria, co2 = cubi_primaria_e_co2(base, result.labels, theta_sc)
 
