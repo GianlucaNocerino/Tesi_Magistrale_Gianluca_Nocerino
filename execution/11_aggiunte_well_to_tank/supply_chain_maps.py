@@ -158,24 +158,24 @@ def intorno(moda: float, frazione: float = 0.05) -> tuple:
 
 SCENARI = {
     "attuale": {
-        "titolo": "scenario attuale",
+        "titolo": "2024",
         "filiere": {
             "grid": {
-                "descrizione": "Elettricità di rete, mix globale (batteria)",
+                "descrizione": "World Electric Mix (Battery)",
                 "eta": intorno(0.457875458),
                 "g":   intorno(140.26),          # g/MJ elettrico
                 "fonte_eta": "GREET",
                 "fonte_g": "GREET",
             },
             "lh2": {
-                "descrizione": "Idrogeno liquido da gas naturale (SMR + liquefazione)",
+                "descrizione": "Liquid Hydrogen, 100% from Natural Gas",
                 "eta": intorno(0.463073),
                 "g":   intorno(126.7482),        # g/MJ di LH2 al serbatoio
                 "fonte_eta": "GREET",
                 "fonte_g": "GREET",
             },
             "saf": {
-                "descrizione": "SAF da biomasse via HEFA",
+                "descrizione": "SAF, 100% through HEFA",
                 "eta": intorno(0.455974),
                 "g":   intorno(32.0),        # g/MJ di SAF al serbatoio
                 "fonte_eta": "GREET",
@@ -185,24 +185,24 @@ SCENARI = {
     },
 
     "2035": {
-        "titolo": "scenario 2035",
+        "titolo": "2035",
         "filiere": {
             "grid": {
-                "descrizione": "Elettricità di rete, mix 2035 (batteria)",
+                "descrizione": "World Electric Mix (Battery)",
                 "eta": (0.5773672055, 0.6199628022, 0.8865248227),
                 "g":   (29.1, 85.1, 97.8),                  # g/MJ elettrico
                 "fonte_eta": "",
                 "fonte_g": "",
             },
             "lh2": {
-                "descrizione": "Idrogeno liquido, filiera 2035",
+                "descrizione": "Liquid Hydorgen, 50% from Natural Gas and 50% through Electrolysis",
                 "eta": (0.40799025, 0.4378, 0.538794),
                 "g":   (67.20345, 129.02795, 145.5304),     # g/MJ di LH2 al serbatoio
                 "fonte_eta": "",
                 "fonte_g": "",
             },
             "saf": {
-                "descrizione": "SAF, filiera 2035",
+                "descrizione": "SAF, 75% through HEFA and 25% PtL",
                 "eta": (0.367158, 0.3690775, 0.388303625),
                 "g":   (66.294175, 147.291225, 165.616075),  # g/MJ di SAF al serbatoio
                 "fonte_eta": "",
@@ -212,24 +212,24 @@ SCENARI = {
     },
 
     "2050": {
-        "titolo": "scenario 2050",
+        "titolo": "2050",
         "filiere": {
             "grid": {
-                "descrizione": "Elettricità di rete, mix 2050 (batteria)",
+                "descrizione": "World Electric Mix (Battery)",
                 "eta": (0.69881202, 0.8417508418, 1.2121212),
                 "g":   (5.9, 45.4, 68.9),
                 "fonte_eta": "",
                 "fonte_g": "",
             },
             "lh2": {
-                "descrizione": "Idrogeno liquido, filiera 2050",
+                "descrizione": "Liquid Hydorgen, 100% through Electrolysis",
                 "eta": (0.379472, 0.45692, 0.6565),
                 "g":   (11.5094, 83.8563, 127.0911),
                 "fonte_eta": "",
                 "fonte_g": "",
             },
             "saf": {
-                "descrizione": "SAF, filiera 2050",
+                "descrizione": "SAF, 25% through HEFA and 75% PtL",
                 "eta": (0.2044695, 0.222913351, 0.27032025),
                 "g":   (35.3564, 206.0585, 308.071),
                 "fonte_eta": "",
@@ -347,10 +347,6 @@ TECNOLOGIA_WTT = {
     "Hydrogen combustion": "liquid_hydrogen",
     "e-SAF combustion":    "e_saf",
 }
-
-
-def nota_figure(scenario: dict) -> str:
-    return f"e-SAF combustion = {scenario['filiere']['saf']['descrizione']}"
 
 
 # =====================================================================
@@ -545,7 +541,7 @@ def cubi_primaria_e_co2(base: np.ndarray, labels: list, theta_sc: pd.DataFrame) 
     """Applica le filiere all'energia al serbatoio e restituisce
     (cubo_primaria, cubo_co2).
 
-    base e' l'output di energia_al_serbatoio: non dipende dallo scenario,
+    base è l'output di energia_al_serbatoio: non dipende dallo scenario,
     quindi si calcola una volta sola e si riusa.
     """
     primaria = np.empty_like(base)
@@ -596,17 +592,17 @@ def risultato_con_metrica(result: PropagationResult, cubo: np.ndarray) -> Propag
 # 4. MAPPE E STAMPA
 # =====================================================================
 
-def disegna_mappe(res: PropagationResult, titolo: str, slug: str, nota: str) -> dict:
+def disegna_mappe(res: PropagationResult, titolo: str, slug: str) -> dict:
     """Salva mappa e CSV in OUT_DIR, stampa il riassunto e lo restituisce.
 
-    slug contiene gia' lo scenario (es. "co2_2035"), cosi' i file dei
+    slug contiene già lo scenario (es. "co2_2035"), così i file dei
     diversi scenari convivono nella stessa cartella senza sovrascriversi.
     """
     pmap = probability_map(res)
 
     fig, ax = plt.subplots(figsize=(9.5, 6.5))
     plot_probability_map(pmap, threshold=THRESHOLD, ax=ax,
-                         title=f"{titolo} (N = {pmap.n_samples})\n{nota}")
+                         title=f"{titolo}")
     fig.tight_layout()
     fig.savefig(OUT_DIR / f"map_{slug}.png", dpi=150)
     plt.close(fig)
@@ -661,7 +657,6 @@ def esegui_scenario(chiave: str, scenario: dict, result: PropagationResult,
     Restituisce le righe del riepilogo (una per metrica).
     """
     titolo = scenario["titolo"]
-    nota = nota_figure(scenario)
 
     specs = build_supply_chain_specs(scenario["filiere"], chiave)
     correlazioni = build_supply_chain_correlations(chiave)
@@ -688,7 +683,7 @@ def esegui_scenario(chiave: str, scenario: dict, result: PropagationResult,
     # pannello ha la sua curva teorica e l'istogramma deve seguirla
     fig, _ = plot_parameter_distributions(
         theta_sc, specs, n_cols=3,
-        title=f"Parametri di filiera - {titolo} - {len(theta_sc)} campioni")
+        title=f"Supply Chain Parameters - {titolo}")
     fig.savefig(OUT_DIR / f"supply_chain_distributions_{chiave}.png", dpi=150)
     plt.close(fig)
     check = parameter_sample_check(theta_sc, specs)
@@ -703,13 +698,13 @@ def esegui_scenario(chiave: str, scenario: dict, result: PropagationResult,
     res_co2 = risultato_con_metrica(result, co2)
     res_pri = risultato_con_metrica(result, primaria)
 
-    riep_co2 = disegna_mappe(res_co2, f"Sistema con la minima CO2 - {titolo}",
-                             f"co2_{chiave}", nota)
-    riep_pri = disegna_mappe(res_pri, f"Sistema con la minima energia 'alle fonti' - {titolo}",
-                             f"primary_{chiave}", nota)
+    riep_co2 = disegna_mappe(res_co2, f"Carbon-Neutral System Most Likely to minimize C02 - {titolo}",
+                             f"co2_{chiave}")
+    riep_pri = disegna_mappe(res_pri, f"Carbon-Neutral System Most Likely to\nminimize Primary Energy (at sources) - {titolo}",
+                             f"primary_{chiave}")
 
     # quanto le due metriche sono d'accordo fra loro: dove non lo sono,
-    # c'e' un compromesso fra emissioni e domanda di energia primaria
+    # c'è un compromesso fra emissioni e domanda di energia primaria
     valide = (res_co2.best_index >= 0) & (res_pri.best_index >= 0)
     accordo = 100 * float(np.mean(res_co2.best_index[valide] == res_pri.best_index[valide]))
     print(f"\n[{chiave}] Le due metriche indicano lo stesso vincitore nel "

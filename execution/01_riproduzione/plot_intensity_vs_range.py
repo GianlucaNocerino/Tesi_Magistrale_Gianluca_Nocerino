@@ -26,8 +26,8 @@ ranges_nmi = np.geomspace(10, 10_000, 60)
 fig, axes = plt.subplots(2, 1, figsize=(7, 9), sharex=True)
 
 panels = [
-    ("fan", 450, axes[0], "Jet/fan a 450 kt"),
-    ("propeller", 250, axes[1], "Elica a 250 kt"),
+    ("fan", 450, axes[0], "Jet/Fan at 450 kt"),
+    ("propeller", 250, axes[1], "Propeller at 250 kt"),
 ]
 
 for propulsor, speed_kt, ax, title in panels:
@@ -37,16 +37,16 @@ for propulsor, speed_kt, ax, title in panels:
             mission = Mission(range_nmi=float(r_nmi), cruise_speed_kt=speed_kt, propulsor=propulsor)
             result = compute_intensity(mission, system, tech)
             intensities.append(result.intensity_MJ_per_pax_nmi)
-        ax.plot(ranges_nmi, intensities, label=system.name)
+        ax.plot(ranges_nmi, intensities, label=system.name, linewidth=3.0)
 
     ax.set_xscale("log")
     ax.set_ylim(0, 15)
-    ax.set_ylabel("Electricity Intensity\n[MJ/(pax*nmi)]")
-    ax.set_title(title)
+    ax.set_ylabel("Electricity Intensity\n[MJ/(pax*nmi)]", fontsize=17)
+    ax.set_title(title, fontsize=18, fontweight='bold')
     ax.grid(True, which="both", alpha=0.3)
 
-axes[0].legend(loc="upper right", fontsize=8)
-axes[-1].set_xlabel("Range [nmi]")
+axes[0].legend(loc="best", fontsize=16)
+axes[-1].set_xlabel("Range [nmi]", fontsize=17)
 fig.tight_layout()
 
 out_path = Path(__file__).resolve().parent / "intensity_vs_range.png"

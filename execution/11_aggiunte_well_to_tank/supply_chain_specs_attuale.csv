@@ -1,7 +1,7 @@
 scenario,parametro,nominale,PDF,fonte,motivazione
-attuale,eta_grid,0.457875458,"Triangolare(0.434982, 0.457875, 0.480769) + fondo 0.18",GREET,"Rendimento di catena well-to-tank [attuale]: Elettricità di rete, mix globale (batteria)"
-attuale,gco2_grid,140.26,"Triangolare(133.247, 140.26, 147.273) + fondo 0.18",GREET,"Indice di emissione per MJ di vettore prodotto [attuale]: Elettricità di rete, mix globale (batteria)"
-attuale,eta_lh2,0.463073,"Triangolare(0.439919, 0.463073, 0.486227) + fondo 0.18",GREET,Rendimento di catena well-to-tank [attuale]: Idrogeno liquido da gas naturale (SMR + liquefazione)
-attuale,gco2_lh2,126.7482,"Triangolare(120.411, 126.748, 133.086) + fondo 0.18",GREET,Indice di emissione per MJ di vettore prodotto [attuale]: Idrogeno liquido da gas naturale (SMR + liquefazione)
-attuale,eta_saf,0.455974,"Triangolare(0.433175, 0.455974, 0.478773) + fondo 0.18",GREET,Rendimento di catena well-to-tank [attuale]: SAF da biomasse via HEFA
-attuale,gco2_saf,32.0,"Triangolare(30.4, 32, 33.6) + fondo 0.18",GREET,Indice di emissione per MJ di vettore prodotto [attuale]: SAF da biomasse via HEFA
+attuale,eta_grid,0.457875458,"Triangolare(0.434982, 0.457875, 0.480769) + fondo 0.18",GREET,Rendimento di catena well-to-tank [attuale]: World Electric Mix (Battery)
+attuale,gco2_grid,140.26,"Triangolare(133.247, 140.26, 147.273) + fondo 0.18",GREET,Indice di emissione per MJ di vettore prodotto [attuale]: World Electric Mix (Battery)
+attuale,eta_lh2,0.463073,"Triangolare(0.439919, 0.463073, 0.486227) + fondo 0.18",GREET,"Rendimento di catena well-to-tank [attuale]: Liquid Hydrogen, 100% from Natural Gas"
+attuale,gco2_lh2,126.7482,"Triangolare(120.411, 126.748, 133.086) + fondo 0.18",GREET,"Indice di emissione per MJ di vettore prodotto [attuale]: Liquid Hydrogen, 100% from Natural Gas"
+attuale,eta_saf,0.455974,"Triangolare(0.433175, 0.455974, 0.478773) + fondo 0.18",GREET,"Rendimento di catena well-to-tank [attuale]: SAF, 100% through HEFA"
+attuale,gco2_saf,32.0,"Triangolare(30.4, 32, 33.6) + fondo 0.18",GREET,"Indice di emissione per MJ di vettore prodotto [attuale]: SAF, 100% through HEFA"

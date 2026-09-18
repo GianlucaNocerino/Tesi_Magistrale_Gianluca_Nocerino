@@ -443,8 +443,8 @@ def plot_morris_cloud(df_morris: pd.DataFrame, output: str, threshold: float = 0
     _draw_cloud(ax, sub["mu_star_n"], sub["sigma_n"], sub["fattore"],
                 sub["selezionato"], float(sub["soglia"].iloc[0]),
                 title=output,
-                xlabel=r"$\mu^*$" + (" (normalizzato)" if normalize else unit),
-                ylabel=r"$\sigma$" + (" (normalizzato)" if normalize else unit),
+                xlabel=r"$\mu^*$" + (" (normalized)" if normalize else unit),
+                ylabel=r"$\sigma$" + (" (normalized)" if normalize else unit),
                 annotate_all=annotate_all, fontsize=fontsize)
     if created:
         ax.legend(fontsize=8, loc="upper left")
@@ -489,15 +489,15 @@ def plot_all_morris_clouds(df_morris: pd.DataFrame, threshold: float = 0.1,
     # legenda unica: quella dei singoli assi riporterebbe i conteggi del
     # primo riquadro, che non valgono per gli altri
     handles = [
-        Line2D([], [], marker="o", ls="none", mfc="none", mec="0.6", label="sotto soglia"),
-        Line2D([], [], marker="o", ls="none", color="tab:red", label="selezionati"),
+        Line2D([], [], marker="o", ls="none", mfc="none", mec="0.6", label="Below Threshold"),
+        Line2D([], [], marker="o", ls="none", color="tab:red", label="Selected"),
         Line2D([], [], ls="--", color="tab:red",
-               label=f"soglia: d > {threshold:.0%} della distanza massima del riquadro"),
+               label=f"Threshold: d > {threshold:.0%} of the maximum bounding box distance"),
         Line2D([], [], ls=":", color="0.4", label=r"$\sigma = \mu^*$"),
     ]
-    fig.legend(handles=handles, loc="lower center", ncol=4, fontsize=9)
-    fig.suptitle(f"Screening di Morris: nubi per punto operativo "
-                 f"(soglia = {threshold:.0%} della distanza massima)", fontsize=11)
+    fig.legend(handles=handles, loc="lower right", ncol=2, fontsize=15)
+    fig.suptitle(f"Morris Screening: clouds per operating point"
+                 f"(Threshold = {threshold:.0%})", fontsize=18, fontweight='bold')
     fig.tight_layout(rect=(0, 0.04, 1, 0.97))
     return fig
 
@@ -526,13 +526,19 @@ def plot_aggregate_morris_cloud(df_morris: pd.DataFrame, threshold: float = 0.1,
 
     _draw_cloud(ax, agg["mu_star_medio"], agg["sigma_medio"], labels,
                 agg["selezionato"], float(agg["soglia"].iloc[0]),
-                title="Nube cumulativa: media sui punti operativi "
-                      f"(soglia = {threshold:.0%})",
-                xlabel=r"$\overline{\mu^*}$ (normalizzato per output)",
-                ylabel=r"$\overline{\sigma}$ (normalizzato per output)",
+                title="Aggregate Cloud: mean over operating points"
+                      f"(Threshold = {threshold:.0%})",
+                xlabel=r"$\overline{\mu^*}$ (normalized per output)",
+                ylabel=r"$\overline{\sigma}$ (normalized per output)",
                 annotate_all=annotate_all)
+
+    ax.title.set_fontsize(18)              
+    ax.title.set_fontweight('bold')         
+    ax.xaxis.label.set_fontsize(16)         
+    ax.yaxis.label.set_fontsize(16)
+    
     if created:
-        ax.legend(fontsize=8, loc="upper left")
+        ax.legend(fontsize=15, loc="upper left")
         plt.tight_layout()
     return ax
 

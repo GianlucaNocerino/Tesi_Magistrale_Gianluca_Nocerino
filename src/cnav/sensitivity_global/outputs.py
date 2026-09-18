@@ -1,7 +1,7 @@
 """
 Gli output scalari Y su cui si fa lo screening.
 
-La grandezza èuna sola: la renewable electricity intensity
+La grandezza è una sola: la renewable electricity intensity
 [MJ/(pax*nmi)], la stessa del modello deterministico
 
 Perchè comunque più di una colonna

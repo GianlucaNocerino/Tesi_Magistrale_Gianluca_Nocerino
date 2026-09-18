@@ -669,17 +669,17 @@ def _bars(ax, sub: pd.DataFrame, title: str, show_ci: bool = True,
     ax.barh(y - h / 2, sub["S1"], height=h, color=colori, alpha=0.95,
             xerr=err1, error_kw=dict(lw=0.8, ecolor="0.4"), label=r"$S_i$")
 
-    ax.axvline(0.0, color="0.3", lw=0.8)
+    ax.axvline(0.0, color="0.3", lw=1)
     ax.set_yticks(y)
-    ax.set_yticklabels(sub["fattore"], fontsize=fontsize)
-    ax.set_xlabel("frazione di varianza")
-    ax.set_title(title, fontsize=9)
+    ax.set_yticklabels(sub["Factor"], fontsize=fontsize)
+    ax.set_xlabel("Fraction of Variance", fontsize=16)
+    ax.set_title(title, fontsize=18, fontweight='bold')
     ax.grid(axis="x", alpha=0.25)
     return ax
 
 
 def plot_sobol_bars(df_sobol: pd.DataFrame, output: str, ax=None,
-                    show_ci: bool = True, fontsize: float = 8.0):
+                    show_ci: bool = True, fontsize: float = 12.0):
     """Gli indici di un punto operativo.
 
     output è il nome della colonna di Y, per esempio
@@ -696,7 +696,7 @@ def plot_sobol_bars(df_sobol: pd.DataFrame, output: str, ax=None,
 
     _bars(ax, sub, output, show_ci=show_ci, fontsize=fontsize)
     if created:
-        ax.legend(fontsize=8, loc="lower right")
+        ax.legend(fontsize=15, loc="lower right")
         plt.tight_layout()
     return ax
 
@@ -722,10 +722,10 @@ def plot_all_sobol_bars(df_sobol: pd.DataFrame, ncols: int = 3,
         ax.axis("off")
 
     handles, labels = axes[0].get_legend_handles_labels()
-    fig.legend(handles, labels, loc="lower center", ncol=2, fontsize=9)
-    fig.suptitle("Indici di Sobol per punto operativo "
-                 r"(barra piena $S_i$, barra chiara $S_{T_i}$; "
-                 "in rosso il gruppo dei fattori scartati)", fontsize=11)
+    fig.legend(handles, labels, loc="lower right", ncol=1, fontsize=15)
+    fig.suptitle("Sobol Indices per operating point"
+                 "(Dark Bar $S_i$, Light Bar $S_{T_i}$; "
+                 "Excluded parameters in red)", fontsize=18, fontweight='bold')
     fig.tight_layout(rect=(0, 0.03, 1, 0.97))
     return fig
 
@@ -750,11 +750,11 @@ def plot_sobol_aggregate(df_sobol: pd.DataFrame, ax=None):
         _, ax = plt.subplots(figsize=(7.5, 0.45 * len(agg) + 2.0))
 
     # qui le "barre di errore" non sono un bootstrap ma l'escursione
-    # fra punti operativi: e' l'informazione piu' utile da vedere
-    _bars(ax, agg, "Media sui punti operativi "
-                   "(le barrette sono min-max fra punti, non intervalli di confidenza)")
+    # fra punti operativi: è l'informazione più utile da vedere
+    _bars(ax, agg, "Aggregated Sobol Indices: " 
+                   "Error bars show the spread across operating conditions")
     if created:
-        ax.legend(fontsize=8, loc="lower right")
+        ax.legend(fontsize=15, loc="lower right")
         plt.tight_layout()
     return ax
 
@@ -785,13 +785,13 @@ def plot_sobol_convergence(df_conv: pd.DataFrame, output: Optional[str] = None,
         ax.plot(piv.index, piv[nm], marker="o", ms=3.5, label=nm, **stile)
 
     ax.set_xscale("log", base=2)
-    ax.set_xlabel("N (campione base)")
-    ax.set_ylabel(r"$S_{T_i}$" if index == "ST" else r"$S_i$")
-    ax.set_title("Convergenza degli indici" +
-                 (f": {output}" if output else " (media sui punti operativi)"),
-                 fontsize=9)
+    ax.set_xlabel("N", fontsize=16)
+    ax.set_ylabel(r"$S_{T_i}$" if index == "ST" else r"$S_i$", fontsize=16)
+    ax.set_title("Convergence of Indices" +
+                 (f": {output}" if output else " (Mean over operating points)"),
+                 fontsize=16, fontweight='bold')
     ax.grid(alpha=0.25)
     if created:
-        ax.legend(fontsize=7.5, ncol=2, loc="best")
+        ax.legend(fontsize=15, ncol=2, loc="best", alpha=0.1)
         plt.tight_layout()
     return ax

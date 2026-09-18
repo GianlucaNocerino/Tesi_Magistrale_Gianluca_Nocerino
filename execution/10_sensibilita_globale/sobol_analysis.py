@@ -240,7 +240,7 @@ def main():
     fig.savefig(bars_path, dpi=140)
 
     ax = plot_sobol_aggregate(df)
-    ax.legend(fontsize=8, loc="lower right")
+    ax.legend(fontsize=15, loc="lower right")
     agg_path = FIGURE_DIR / "sobol_aggregate.png"
     ax.figure.savefig(agg_path, dpi=140)
 

@@ -686,19 +686,20 @@ def plot_average_elasticity_by_propulsor(df_avg_propulsor: pd.DataFrame, propuls
     errs = subset["std_abs_elasticity"].fillna(0.0).tolist()
 
     if title is None:
-        out_label = "Range massimo fattibile" if output == "max_range_nmi" else "Electricity Intensity"
-        title = (f"Tornado Plot - Elasticità media assoluta (TUTTI i sistemi, parametri rilevanti)\n"
-                  f"Propulsore: {propulsor} — {out_label}")
+        out_label = "Maximum Feasible Range" if output == "max_range_nmi" else "Electricity Intensity"
+        title = (f"{out_label}'s Mean Absolute Elasticity (all systems, only relevant parameters)\n"
+                  f"Propulsor: {propulsor}")
 
     plt.figure(figsize=(10, 6))
-    plt.barh(labels, values, xerr=errs, color='#dd8452', edgecolor='black', capsize=3)
+    plt.barh(labels, values, xerr=errs, color='red', edgecolor='black', capsize=3)
     if reference_line is not None:
         plt.axvline(reference_line, color='black', linestyle='--', linewidth=1.2,
-                    label=f'riferimento = {reference_line}')
+                    label=f'Threshold at {reference_line}')
         plt.legend(loc='lower right', fontsize=9)
-    plt.xlabel('Media di |Indice di Elasticità|', fontsize=12)
-    plt.title(title, fontsize=14)
-    plt.grid(axis='x', linestyle='--', alpha=0.7)
+    plt.xlabel('Mean value of |Elasticity Index|', fontsize=16)
+    plt.title(title, fontsize=18, fontweight='bold')
+    plt.grid(axis='x', linestyle='--', alpha=0.3)
+    plt.yticks(fontsize=12)
     plt.tight_layout()
     plt.show(block=False)
 

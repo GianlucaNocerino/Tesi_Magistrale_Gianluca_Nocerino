@@ -80,9 +80,9 @@ def main():
     print(f"theta: {theta.shape[0]} campioni x {theta.shape[1]} parametri (da {origine})")
 
     fig, _ = plot_parameter_distributions(
-        theta, specs, corr, nominals=nominali_di_calibrazione(theta, specs),
-        title=f"Distribuzioni dei parametri incerti - {len(theta)} campioni "
-              f"({origine}).  Tratteggiata: valore nominale")
+        theta, specs, corr, nominals=nominali_di_calibrazione(theta, specs))
+    fig.suptitle(f"PDF of Uncertain Parameters; Dashed line: reference value", 
+             fontsize=20, fontweight='bold')
     path = OUT_DIR / "parameter_distributions.png"
     fig.savefig(path, dpi=150)
     print(f"  {path.name}")

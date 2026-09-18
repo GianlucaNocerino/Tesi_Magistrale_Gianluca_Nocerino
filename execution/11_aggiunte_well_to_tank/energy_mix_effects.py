@@ -635,7 +635,7 @@ def disegna_mappa(res: PropagationResult, titolo: str, slug: str) -> None:
 
     fig, ax = plt.subplots(figsize=(9.5, 6.5))
     plot_probability_map(pmap, threshold=THRESHOLD, ax=ax,
-                         title=f"{titolo} (N = {pmap.n_samples})")
+                         title=f"{titolo}")
     fig.tight_layout()
     fig.savefig(OUT_DIR / f"map_{slug}.png", dpi=150)
     plt.close(fig)
@@ -669,9 +669,9 @@ def disegna_vantaggio(prob: np.ndarray, grid, titolo: str, slug: str) -> None:
                           levels=livelli, colors="k", linewidths=0.9)
     ax.clabel(contorni, inline=True, fontsize=7, fmt="%.1f")
     ax.set_xscale("log")
-    ax.set_xlabel("Range [nmi]")
-    ax.set_ylabel("Velocità di crociera [kt]")
-    ax.set_title(titolo)
+    ax.set_xlabel("Range [nmi]", fontsize=18)
+    ax.set_ylabel("Speed Cruise [kt]", fontsize=18)
+    ax.set_title(titolo, fontsize=18, fontweight='bold')
     fig.colorbar(mesh, ax=ax, label="probabilità")
     fig.tight_layout()
     fig.savefig(OUT_DIR / f"advantage_{slug}.png", dpi=150)
@@ -842,11 +842,11 @@ def plot_missioni(df: pd.DataFrame, metrica: str, ylabel: str, titolo: str,
     q_lo, q_hi = (int(100 * q) for q in QUANTILI)
     ax.set_ylim(0, altezza_max * 1.35)   # spazio per le etichette verticali
     ax.set_xticks(x)
-    ax.set_xticklabels(etichette, rotation=25, ha="right", fontsize=9)
-    ax.set_ylabel(ylabel)
-    ax.set_title(f"{titolo}\nmediana e intervallo {q_lo}-{q_hi}%")
-    ax.legend()
-    ax.grid(axis="y", alpha=0.3)
+    ax.set_xticklabels(etichette, rotation=25, ha="right", fontsize=12)
+    ax.set_ylabel(ylabel, fontsize=18)
+    ax.set_title(f"{titolo}\nMedian and range {q_lo}-{q_hi}%", fontsize=18, fontweight='bold')
+    ax.legend(loc='best', fontsize=15)
+    ax.grid(axis="y", alpha=0.2)
 
     fig.tight_layout()
     path = OUT_DIR / filename
@@ -862,18 +862,18 @@ def plot_missioni(df: pd.DataFrame, metrica: str, ylabel: str, titolo: str,
 METRICHE = {
     "co2": {
         "slug": "co2",
-        "titolo_mappa": "Sistema con la minima CO2",
-        "titolo_vantaggio": "P(il migliore sostenibile emette meno CO2 del cherosene)",
+        "titolo_mappa": "System Most Likely to minimize C02",
+        "titolo_vantaggio": "Probability that the best Carbon-Neutral system\nemits less CO2 than Conventional Kerosene",
         "ylabel": "CO2 [g/(pax*nmi)]",
-        "titolo_barre": "Emissioni di CO2: sostenibile vs convenzionale",
+        "titolo_barre": "CO2 Emissions:\nCarbon-Neutral vs Conventional Kerosene",
         "file_barre": "energy_mix_co2.png",
     },
     "primaria": {
         "slug": "primary",
-        "titolo_mappa": "Sistema con la minima energia primaria",
-        "titolo_vantaggio": "P(il migliore sostenibile richiede meno energia primaria del cherosene)",
-        "ylabel": "Energia primaria [MJ/(pax*nmi)]",
-        "titolo_barre": "Energia primaria richiesta: sostenibile vs convenzionale",
+        "titolo_mappa": "System Most Likely to minimize Primary Energy (at sources)",
+        "titolo_vantaggio": "Probability that the best Carbon-Neutral system\ndemands less Primary Energy than Conventional Kerosene",
+        "ylabel": "Primary Energy [MJ/(pax*nmi)]",
+        "titolo_barre": "Primary Energy Demand:\nCarbon-Neutral vs Conventional Kerosene",
         "file_barre": "energy_mix_primary.png",
     },
 }

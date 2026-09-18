@@ -78,12 +78,12 @@ ax.pcolormesh(ranges_nmi, speeds_kt, best_index_remapped, cmap=cmap,
               vmin=-0.5, vmax=len(used_labels) - 0.5, shading="auto")
 
 ax.set_xscale("log")
-ax.set_xlabel("Range [nmi]")
-ax.set_ylabel("Velocità di crociera [kt]")
-ax.set_title("Sistema propulsivo carbon-neutral più efficiente")
+ax.set_xlabel("Range [nmi]", fontsize=18)
+ax.set_ylabel("Cruise Speed [kt]", fontsize=18)
+ax.set_title("Best Carbon-Neutral Propulsion System", fontsize=18, fontweight='bold')
 
 legend_handles = [Patch(color=colors[i], label=used_labels[i]) for i in range(len(used_labels))]
-ax.legend(handles=legend_handles, loc="upper left", fontsize=8, framealpha=0.92)
+ax.legend(handles=legend_handles, loc="upper right", fontsize=15, framealpha=0.2)
 
 fig.tight_layout()
 out_path = Path(__file__).resolve().parent / "best_system_map.png"

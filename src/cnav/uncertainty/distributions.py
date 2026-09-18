@@ -925,17 +925,15 @@ def plot_parameter_distributions(theta: "pd.DataFrame", specs: Optional[dict] = 
         if nom is not None:
             ax.axvline(float(nom), color="k", ls="--", lw=1.1)
  
-        ax.set_title(nome, fontsize=8.5)
-        ax.text(0.03, 0.94, cat, transform=ax.transAxes, va="top", fontsize=7,
-                style="italic", color=colore)
-        ax.tick_params(labelsize=7)
+        ax.set_title(nome, fontsize=12)
+        ax.tick_params(labelsize=8)
         ax.set_yticks([])
  
     for ax in axes.flat[len(nomi):]:
         ax.axis("off")
  
     fig.suptitle(title or f"Distribuzioni dei parametri incerti - {len(theta)} "
-                          f"campioni.  Tratteggiata: valore del riferimento", fontsize=11)
+                          f"campioni.  Tratteggiata: valore del riferimento", fontsize=18, fontweight='bold')
     fig.tight_layout(rect=(0, 0, 1, 0.97))
     return fig, axes
  

@@ -124,7 +124,7 @@ def main():
     # --- 1. la mappa --------------------------------------------------
     fig, ax = plt.subplots(figsize=(9.5, 6.5))
     plot_probability_map(pmap, threshold=THRESHOLD, ax=ax,
-                         title=f"Tecnologia x propulsore (N = {pmap.n_samples})")
+                         title=f"Most Likely Best Carbon-Neutral Propulsion System")
     fig.tight_layout()
     path = OUT_DIR / "probabilistic_technology_map.png"
     fig.savefig(path, dpi=150)
@@ -196,7 +196,7 @@ def main():
         try:
             fig, ax = plt.subplots(figsize=(8, 5.5))
             plot_boundary_dispersion(stats, ax=ax, min_fraction=MIN_FRACTION,
-                                     title=f"Confine {label_a} / {label_b}")
+                                     title=f"{label_a} / {label_b} Boundary")
             fig.tight_layout()
             path = OUT_DIR / f"boundary_dispersion_{_slug(label_a)}__{_slug(label_b)}.png"
             fig.savefig(path, dpi=150)
@@ -216,12 +216,11 @@ def main():
 
     if n_plotted:
         ax_all.set_xscale("log")
-        ax_all.set_xlabel("Range del confine [nmi]")
-        ax_all.set_ylabel("Velocità di crociera [kt]")
-        ax_all.set_title(f"Confini fra tecnologie: mediana e banda p5-p95 "
-                         f"(N = {result.n_samples})")
-        ax_all.legend(fontsize=7, loc="best")
-        ax_all.grid(alpha=0.3)
+        ax_all.set_xlabel("Boundary's Range [nmi]", fontsize=18,)
+        ax_all.set_ylabel("Cruise Speed [kt]", fontsize=18,)
+        ax_all.set_title(f"System's Boundaries: Median and Confindence Band", fontsize=18, fontweight='bold')
+        ax_all.legend(fontsize=15, loc="best")
+        ax_all.grid(alpha=0.15)
         fig_all.tight_layout()
         path = OUT_DIR / "boundary_dispersion_all.png"
         fig_all.savefig(path, dpi=150)

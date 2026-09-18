@@ -377,16 +377,16 @@ def plot_probability_map(pmap: ProbabilityMap, threshold: float = 0.90,
                levels=[threshold], colors="k", linewidths=1.2, linestyles="--")
 
     ax.set_xscale("log")
-    ax.set_xlabel("Range [nmi]")
-    ax.set_ylabel("Velocità di crociera [kt]")
-    ax.set_title(title or f"Tecnologia più probabile (N = {pmap.n_samples})")
+    ax.set_xlabel("Range [nmi]", fontsize=18)
+    ax.set_ylabel("Cruise Speed [kt]", fontsize=18)
+    ax.set_title(title or f"Tecnologia più probabile (N = {pmap.n_samples})", fontsize=18, fontweight='bold')
 
     present = sorted(set(dominant.flatten()))
     handles = [Patch(color=_label_color(pmap.labels[j]), label=pmap.labels[j])
                for j in present]
     handles.append(Patch(facecolor="white", edgecolor="k", linestyle="--",
-                         label=f"confine P = {threshold:.2f}"))
-    ax.legend(handles=handles, loc="upper left", fontsize=8, framealpha=0.92)
+                         label=f"Boundary, P = {threshold:.2f}"))
+    ax.legend(handles=handles, loc="upper right", fontsize=15, framealpha=0.2)
     return ax
 
 
@@ -407,13 +407,14 @@ def plot_probability_field(pmap: ProbabilityMap, label: str, ax=None,
     mesh = ax.pcolormesh(pmap.ranges_nmi, pmap.speeds_kt, p,
                          cmap="viridis", vmin=0, vmax=1, shading="auto")
     contours = ax.contour(pmap.ranges_nmi, pmap.speeds_kt, p, levels=list(levels),
-                          colors="w", linewidths=0.8)
-    ax.clabel(contours, inline=True, fontsize=7, fmt="%.2f")
+                          colors="w", linewidths=1)
+    ax.clabel(contours, inline=True, fontsize=9, fmt="%.2f")
     ax.set_xscale("log")
-    ax.set_xlabel("Range [nmi]")
-    ax.set_ylabel("Velocità di crociera [kt]")
-    ax.set_title(f"P[{label} è la migliore]")
-    plt.colorbar(mesh, ax=ax, label="probabilità")
+    ax.set_xlabel("Range [nmi]", fontsize=18)
+    ax.set_ylabel("Cruise Speed [kt]", fontsize=18)
+    ax.set_title(f"Probability of {label} being the Best System]", fontsize=18, fontweight='bold')
+    cbar = plt.colorbar(mesh, ax=ax)
+    cbar.set_label("Probability", fontsize=18)
     return ax
 
 
@@ -445,12 +446,12 @@ def plot_intensity_band(result: PropagationResult, speed_kt: float,
                         color=color, alpha=0.18, lw=0)
 
     ax.set_xscale("log")
-    ax.set_xlabel("Range [nmi]")
-    ax.set_ylabel("Electricity intensity [MJ/(pax*nmi)]")
-    ax.set_title(f"Intensity a {actual_speed:.0f} kt - mediana e banda "
-                 f"p{int(lo)}-p{int(hi)} su {result.n_samples} campioni")
-    ax.legend(fontsize=8)
-    ax.grid(alpha=0.3)
+    ax.set_xlabel("Range [nmi]", fontsize=18)
+    ax.set_ylabel("Electricity intensity [MJ/(pax*nmi)]", fontsize=18)
+    ax.set_title(f"Electricity Intensity at {actual_speed:.0f} kt, Median and "
+                 f"p{int(lo)}-p{int(hi)} Band", fontsize=18, fontweight='bold')
+    ax.legend( loc="upper center", fontsize=15, framealpha=0.2)
+    ax.grid(alpha=0.15)
     return ax
 
 
@@ -476,12 +477,12 @@ def plot_boundary_dispersion(stats_df: pd.DataFrame, ax=None,
 
     ax.fill_betweenx(df["speed_kt"], df["p5_nmi"], df["p95_nmi"],
                      alpha=0.25, color="#4C72B0", lw=0, label="p5-p95")
-    ax.plot(df["p50_nmi"], df["speed_kt"], color="#4C72B0", lw=2, label="mediana")
+    ax.plot(df["p50_nmi"], df["speed_kt"], color="#4C72B0", lw=2, label="Median")
 
     ax.set_xscale("log")
-    ax.set_xlabel("Range del confine [nmi]")
-    ax.set_ylabel("Velocità di crociera [kt]")
-    ax.set_title(title or "Posizione del confine fra tecnologie")
-    ax.legend(fontsize=8)
-    ax.grid(alpha=0.3)
+    ax.set_xlabel("Boundary's Range [nmi]", fontsize=18)
+    ax.set_ylabel("Cruise Speed [kt]", fontsize=18)
+    ax.set_title(title or "Position of System's Boundaries", fontsize=18, fontweight='bold')
+    ax.legend(fontsize=15)
+    ax.grid(alpha=0.15)
     return ax

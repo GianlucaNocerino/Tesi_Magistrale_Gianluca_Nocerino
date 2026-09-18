@@ -1,7 +1,7 @@
 scenario,parametro,nominale,PDF,fonte,motivazione
-2035,eta_grid,0.6199628022,"Triangolare(0.577367, 0.619963, 0.886525) + fondo 0.18",,"Rendimento di catena well-to-tank [2035]: Elettricità di rete, mix 2035 (batteria)"
-2035,gco2_grid,85.1,"Triangolare(29.1, 85.1, 97.8) + fondo 0.18",,"Indice di emissione per MJ di vettore prodotto [2035]: Elettricità di rete, mix 2035 (batteria)"
-2035,eta_lh2,0.4378,"Triangolare(0.40799, 0.4378, 0.538794) + fondo 0.18",,"Rendimento di catena well-to-tank [2035]: Idrogeno liquido, filiera 2035"
-2035,gco2_lh2,129.02795,"Triangolare(67.2035, 129.028, 145.53) + fondo 0.18",,"Indice di emissione per MJ di vettore prodotto [2035]: Idrogeno liquido, filiera 2035"
-2035,eta_saf,0.3690775,"Triangolare(0.367158, 0.369078, 0.388304) + fondo 0.18",,"Rendimento di catena well-to-tank [2035]: SAF, filiera 2035"
-2035,gco2_saf,147.291225,"Triangolare(66.2942, 147.291, 165.616) + fondo 0.18",,"Indice di emissione per MJ di vettore prodotto [2035]: SAF, filiera 2035"
+2035,eta_grid,0.6199628022,"Triangolare(0.577367, 0.619963, 0.886525) + fondo 0.18",,Rendimento di catena well-to-tank [2035]: World Electric Mix (Battery)
+2035,gco2_grid,85.1,"Triangolare(29.1, 85.1, 97.8) + fondo 0.18",,Indice di emissione per MJ di vettore prodotto [2035]: World Electric Mix (Battery)
+2035,eta_lh2,0.4378,"Triangolare(0.40799, 0.4378, 0.538794) + fondo 0.18",,"Rendimento di catena well-to-tank [2035]: Liquid Hydorgen, 50% from Natural Gas and 50% through Electrolysis"
+2035,gco2_lh2,129.02795,"Triangolare(67.2035, 129.028, 145.53) + fondo 0.18",,"Indice di emissione per MJ di vettore prodotto [2035]: Liquid Hydorgen, 50% from Natural Gas and 50% through Electrolysis"
+2035,eta_saf,0.3690775,"Triangolare(0.367158, 0.369078, 0.388304) + fondo 0.18",,"Rendimento di catena well-to-tank [2035]: SAF, 75% through HEFA and 25% PtL"
+2035,gco2_saf,147.291225,"Triangolare(66.2942, 147.291, 165.616) + fondo 0.18",,"Indice di emissione per MJ di vettore prodotto [2035]: SAF, 75% through HEFA and 25% PtL"

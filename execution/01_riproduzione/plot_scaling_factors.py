@@ -25,17 +25,17 @@ prop_vals = [pe.propeller_efficiency_scaling(
     tech.propeller_curve_decay_width) for m in machs]
 
 fig, ax = plt.subplots(figsize=(7.5, 5.5))
-ax.plot(machs, fan_vals, color="crimson", lw=2.5,
-        label=f"Fan (Michel [55], pi_fan={tech.fan_pressure_ratio})")
-ax.plot(machs, prop_vals, color="steelblue", lw=2.5, linestyle="--",
+ax.plot(machs, fan_vals, color="crimson", lw=3,
+        label=f"Fan")
+ax.plot(machs, prop_vals, color="steelblue", lw=3, linestyle="--",
         label="Propeller")
 
-ax.set_xlabel("Numero di Mach di volo")
-ax.set_ylabel("Fattore di scala dell'efficienza propulsiva")
-ax.set_title("Fattore di scala: fan vs propeller")
+ax.set_xlabel("Flight Mach", fontsize=16)
+ax.set_ylabel("Propulsive Efficiency's Scaling Factor", fontsize=16)
+ax.set_title("Scaling Factor: fan vs propeller", fontsize=18, fontweight='bold')
 ax.set_xlim(0, 1.0)
 ax.set_ylim(0, 1.05)
-ax.legend(loc="upper left", fontsize=9, framealpha=0.9)
+ax.legend(loc="best", fontsize=14, framealpha=0.5)
 ax.grid(alpha=0.3)
 fig.tight_layout()
 
