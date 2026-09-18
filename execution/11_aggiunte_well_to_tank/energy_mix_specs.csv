@@ -1,0 +1,5 @@
+parametro,nominale,PDF,fonte,motivazione
+eta_catena,0.457875458,"Triangolare(0.434982, 0.457875, 0.480769) + fondo 0.18",GREET,Rendimento medio di catena dalla fonte primaria all'elettricità di rete
+gco2_el,140.26,"Triangolare(133.247, 140.26, 147.273) + fondo 0.18",GREET,"Intensità di carbonio dell'elettricità di rete, per MJ elettrico"
+eta_kerosene,0.900455,"Triangolare(0.855432, 0.900455, 0.945478) + fondo 0.18",ICAO e GREET,"Rendimento well-to-tank del cherosene: estrazione, raffinazione, trasporto"
+gco2_kerosene_upstream,7.402,"Triangolare(7.0319, 7.402, 7.7721) + fondo 0.18",ICAO e GREET,"CO2 della filiera a monte del cherosene, per MJ al serbatoio (la combustione, 73.5 g/MJ, è deterministica)"

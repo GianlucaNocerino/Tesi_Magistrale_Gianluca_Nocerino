@@ -63,6 +63,7 @@ from ..model.constants import (TechAssumptions, WellToTankEfficiencies,
 __all__ = [
     "ParameterSpec",
     "triangular",
+    "TriangularWithFloor",
     "scaled_beta",
     "reflected_lognormal",
     "build_default_specs",
@@ -126,6 +127,42 @@ def triangular(a: float, m: float, b: float):
     if not (a <= m <= b) or a >= b:
         raise ValueError(f"Triangolare non valida: a={a}, m={m}, b={b}")
     return stats.triang(c=(m - a) / (b - a), loc=a, scale=b - a)
+
+
+class TriangularWithFloor:
+    """Miscela di una triangolare e di un'uniforme sullo stesso [a, b].
+
+    La triangolare pura vale zero agli estremi, cioè dichiara che minimo
+    e massimo sono valori praticamente esclusi. Qui l'estremo resta
+    plausibile: la densità in a e in b vale floor/(b-a), e il rapporto
+    fra estremi e picco è floor/(2-floor). Per un rapporto r desiderato:
+    floor = 2r/(1+r), quindi 0.18 dà circa il 10% e 0.40 circa il 25%.
+
+    Il supporto resta esattamente [a, b], come per scaled_beta: nessun
+    campione esce dai limiti fisici. La ppf non è analitica e si ottiene
+    invertendo la CDF per interpolazione su una griglia fitta, che per
+    il campionamento per trasformata inversa è più che sufficiente.
+    """
+
+    def __init__(self, a: float, m: float, b: float, floor: float = 0.18,
+                 n_nodes: int = 4001):
+        if not 0.0 < floor < 1.0:
+            raise ValueError(f"floor deve stare in (0, 1), non {floor}")
+        self.a, self.m, self.b, self.floor = float(a), float(m), float(b), float(floor)
+        self._tri = triangular(a, m, b)
+        self._uni = stats.uniform(loc=a, scale=b - a)
+        self._x = np.linspace(a, b, n_nodes)
+        self._F = (1 - floor) * self._tri.cdf(self._x) + floor * self._uni.cdf(self._x)
+
+    def ppf(self, u):
+        """Trasformata inversa: è quello che usa sample_literature_parameters."""
+        return np.interp(u, self._F, self._x)
+
+    def cdf(self, x):
+        return np.interp(x, self._x, self._F)
+
+    def pdf(self, x):
+        return (1 - self.floor) * self._tri.pdf(x) + self.floor * self._uni.pdf(x)
 
 
 def scaled_beta(alpha: float, beta: float, a: float, b: float):
@@ -281,9 +318,9 @@ def build_default_specs() -> dict:
         # --- well-to-tank ---------------------------------------------
         ParameterSpec(
             name="electricity",
-            dist=stats.uniform(loc=0.83, scale=0.05),
+            dist=stats.uniform(loc=0.82, scale=0.06),
             nominal=nom_wtt.electricity,
-            pdf_label="Uniforme(0.83, 0.88)",
+            pdf_label="Uniforme(0.82, 0.88)",
             source="Letteratura",
             rationale=(
                 "si dispone di un intervallo credibile ma di nessuna base per "
@@ -318,7 +355,7 @@ def build_default_specs() -> dict:
             dist=scaled_beta(3.6, 3.0, 0.85, 0.99),
             nominal=nom.eta_motor,
             pdf_label="0.85 + 0.14 * Beta(3.6, 3.0)",
-            mode=0.85,
+            mode=0.93,
             source="Letteratura",
             rationale=(
                 "efficienza limitata a un intervallo fisico [0.85, 0.99]: Beta "
@@ -332,7 +369,7 @@ def build_default_specs() -> dict:
             dist=scaled_beta(4.0, 4.0, 0.80, 0.90),
             nominal=nom.eta_p_propeller,
             pdf_label="0.80 + 0.10 * Beta(4, 4)",
-            mode=0.80,
+            mode=0.85,
             source="Letteratura",
             rationale=(
                 "Beta simmetrica: intervallo fisico noto, nessuna ragione per "
@@ -344,7 +381,7 @@ def build_default_specs() -> dict:
             dist=scaled_beta(4.0, 4.0, 0.70, 0.80),
             nominal=nom.eta_p_fan,
             pdf_label="0.70 + 0.10 * Beta(4, 4)",
-            mode=0.70,
+            mode=0.75,
             source="Letteratura",
             rationale=(
                 "stessa motivazione di eta_p_propeller, su intervallo diverso"
@@ -373,7 +410,7 @@ def build_default_specs() -> dict:
             dist=stats.truncnorm(-4.0, 4.0, loc=0.56036, scale=0.00870),
             nominal=nom.oew_fan_r_pivot,
             pdf_label="N(0.56036, 0.00870) troncata a +/-4 sigma",
-            mode=0.56036,
+            mode=0.4623,
             source="Regressione bayesiana su 25 turbofan storici",
             rationale=(
                 f"rapporto OEW/MTOW a MTOW_pivot = {OEW_FAN_MTOW_PIVOT:,.0f} kg, "
@@ -412,7 +449,7 @@ def build_default_specs() -> dict:
         ),
         # c: DERIVATO (vedi build_default_correlations). Sta in questa tabella
         # perche' il sizer legge oew_*_c e quindi la colonna deve esistere in
-        # theta, ma NON consuma una colonna LHS: la sua marginale effettiva e'
+        # theta, ma NON consuma una colonna LHS: la sua marginale effettiva è
         # quella INDOTTA da (b, r_pivot), non la dist dichiarata qui, che serve
         # solo come riferimento leggibile in tabella.
         ParameterSpec(

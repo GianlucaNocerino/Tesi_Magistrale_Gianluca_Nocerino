@@ -1,0 +1,7 @@
+scenario,parametro,nominale,PDF,fonte,motivazione
+2050,eta_grid,0.8417508418,"Triangolare(0.698812, 0.841751, 1.21212) + fondo 0.18",,"Rendimento di catena well-to-tank [2050]: Elettricità di rete, mix 2050 (batteria)"
+2050,gco2_grid,45.4,"Triangolare(5.9, 45.4, 68.9) + fondo 0.18",,"Indice di emissione per MJ di vettore prodotto [2050]: Elettricità di rete, mix 2050 (batteria)"
+2050,eta_lh2,0.45692,"Triangolare(0.379472, 0.45692, 0.6565) + fondo 0.18",,"Rendimento di catena well-to-tank [2050]: Idrogeno liquido, filiera 2050"
+2050,gco2_lh2,83.8563,"Triangolare(11.5094, 83.8563, 127.091) + fondo 0.18",,"Indice di emissione per MJ di vettore prodotto [2050]: Idrogeno liquido, filiera 2050"
+2050,eta_saf,0.222913351,"Triangolare(0.204469, 0.222913, 0.27032) + fondo 0.18",,"Rendimento di catena well-to-tank [2050]: SAF, filiera 2050"
+2050,gco2_saf,206.0585,"Triangolare(35.3564, 206.059, 308.071) + fondo 0.18",,"Indice di emissione per MJ di vettore prodotto [2050]: SAF, filiera 2050"

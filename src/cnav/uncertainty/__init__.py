@@ -24,6 +24,7 @@ completo.
 from .distributions import (
     ParameterSpec,
     triangular,
+    TriangularWithFloor,
     scaled_beta,
     reflected_lognormal,
     build_default_specs,
@@ -76,7 +77,7 @@ from .technology_map import (
 )
  
 __all__ = [
-    "ParameterSpec", "triangular", "scaled_beta", "reflected_lognormal",
+    "ParameterSpec", "triangular", "TriangularWithFloor", "scaled_beta", "reflected_lognormal",
     "build_default_specs",
     "specs_table", "CopulaPair", "CorrelationModel",
     "DerivedParameter", "DerivedFromMany",
