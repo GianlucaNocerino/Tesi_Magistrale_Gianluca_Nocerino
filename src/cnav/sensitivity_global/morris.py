@@ -381,9 +381,9 @@ def _draw_cloud(ax, x, y, labels, selected, soglia, title, xlabel, ylabel,
     y = np.asarray(y, dtype=float)
 
     ax.scatter(x[~sel], y[~sel], s=35, facecolors="none", edgecolors="0.6",
-               linewidths=1.0, label=f"sotto soglia ({int((~sel).sum())})", zorder=2)
+               linewidths=1.0, label=f"Under threshold ({int((~sel).sum())})", zorder=2)
     ax.scatter(x[sel], y[sel], s=55, color="tab:red", zorder=3,
-               label=f"selezionati ({int(sel.sum())})")
+               label=f"Selected ({int(sel.sum())})")
 
     lim = float(np.nanmax(np.hypot(x, y))) * 1.15 if len(x) else 1.0
     lim = max(lim, 1e-12)
@@ -391,7 +391,7 @@ def _draw_cloud(ax, x, y, labels, selected, soglia, title, xlabel, ylabel,
     # arco della soglia: dentro l'arco = vicino all'origine = si butta
     theta = np.linspace(0, np.pi / 2, 200)
     ax.plot(soglia * np.cos(theta), soglia * np.sin(theta), ls="--", lw=1.2,
-            color="tab:red", alpha=0.7, label=f"soglia d = {soglia:.3g}")
+            color="tab:red", alpha=0.7, label=f"Threshold d = {soglia:.3g}")
     # riferimento sigma = mu*: sopra questa retta l'effetto dipende dal
     # punto più di quanto valga in media
     ax.plot([0, lim], [0, lim], ls=":", lw=1.0, color="0.4", alpha=0.8,
@@ -495,7 +495,7 @@ def plot_all_morris_clouds(df_morris: pd.DataFrame, threshold: float = 0.1,
                label=f"Threshold: d > {threshold:.0%} of the maximum bounding box distance"),
         Line2D([], [], ls=":", color="0.4", label=r"$\sigma = \mu^*$"),
     ]
-    fig.legend(handles=handles, loc="lower right", ncol=2, fontsize=15)
+    fig.legend(handles=handles, loc="lower right", ncol=4, fontsize=15)
     fig.suptitle(f"Morris Screening: clouds per operating point"
                  f"(Threshold = {threshold:.0%})", fontsize=18, fontweight='bold')
     fig.tight_layout(rect=(0, 0.04, 1, 0.97))
@@ -526,7 +526,7 @@ def plot_aggregate_morris_cloud(df_morris: pd.DataFrame, threshold: float = 0.1,
 
     _draw_cloud(ax, agg["mu_star_medio"], agg["sigma_medio"], labels,
                 agg["selezionato"], float(agg["soglia"].iloc[0]),
-                title="Aggregate Cloud: mean over operating points"
+                title="Aggregate Cloud: mean over operating points\n"
                       f"(Threshold = {threshold:.0%})",
                 xlabel=r"$\overline{\mu^*}$ (normalized per output)",
                 ylabel=r"$\overline{\sigma}$ (normalized per output)",

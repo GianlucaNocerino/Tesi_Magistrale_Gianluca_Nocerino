@@ -161,7 +161,7 @@ def main():
             if np.nanmax(p50) > ylim[1]:
                 clipped.append(label.rsplit(" (", 1)[0])
         if clipped:
-            ax.text(0.02, 0.97, "fuori scala: " + ", ".join(clipped),
+            ax.text(0.02, 0.97, "Out of Scale: " + ", ".join(clipped),
                     transform=ax.transAxes, va="top", fontsize=7.5,
                     style="italic", color="0.35")
 
@@ -219,7 +219,7 @@ def main():
         ax_all.set_xlabel("Boundary's Range [nmi]", fontsize=18,)
         ax_all.set_ylabel("Cruise Speed [kt]", fontsize=18,)
         ax_all.set_title(f"System's Boundaries: Median and Confindence Band", fontsize=18, fontweight='bold')
-        ax_all.legend(fontsize=15, loc="best")
+        ax_all.legend(fontsize=10, loc="best")
         ax_all.grid(alpha=0.15)
         fig_all.tight_layout()
         path = OUT_DIR / "boundary_dispersion_all.png"

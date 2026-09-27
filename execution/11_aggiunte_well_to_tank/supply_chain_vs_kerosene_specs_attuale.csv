@@ -1,0 +1,9 @@
+scenario,parametro,nominale,PDF,fonte,motivazione
+attuale,eta_grid,0.457875458,"Triangolare(0.434982, 0.457875, 0.480769) + fondo 0.18",GREET,Rendimento di catena well-to-tank [attuale]: World Electric Mix (Battery)
+attuale,gco2_grid,140.26,"Triangolare(133.247, 140.26, 147.273) + fondo 0.18",GREET,Indice di emissione per MJ di vettore prodotto [attuale]: World Electric Mix (Battery)
+attuale,eta_lh2,0.463073,"Triangolare(0.439919, 0.463073, 0.486227) + fondo 0.18",GREET,"Rendimento di catena well-to-tank [attuale]: Liquid Hydrogen, 100% from Natural Gas"
+attuale,gco2_lh2,126.7482,"Triangolare(120.411, 126.748, 133.086) + fondo 0.18",GREET,"Indice di emissione per MJ di vettore prodotto [attuale]: Liquid Hydrogen, 100% from Natural Gas"
+attuale,eta_saf,0.455974,"Triangolare(0.433175, 0.455974, 0.478773) + fondo 0.18",GREET,"Rendimento di catena well-to-tank [attuale]: SAF, 100% through HEFA"
+attuale,gco2_saf,32.0,"Triangolare(30.4, 32, 33.6) + fondo 0.18",GREET,"Indice di emissione per MJ di vettore prodotto [attuale]: SAF, 100% through HEFA"
+attuale,eta_kerosene,0.900455,"Triangolare(0.855432, 0.900455, 0.945478) + fondo 0.18",ICAO e GREET,"Rendimento well-to-tank del cherosene: estrazione, raffinazione, trasporto"
+attuale,gco2_kerosene_upstream,7.402,"Triangolare(7.0319, 7.402, 7.7721) + fondo 0.18",ICAO e GREET,"CO2 della filiera a monte del cherosene, per MJ al serbatoio (la combustione, 73.5 g/MJ, è deterministica)"

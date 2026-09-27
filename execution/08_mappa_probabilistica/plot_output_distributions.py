@@ -89,11 +89,11 @@ CLIP_VIOLINI = (1, 99)
 # diversi: tipicamente ai raggi corti, dove qualche configurazione
 # diverge vicino al proprio limite di fattibilità
 PUNTI = [
-    (OperatingPoint(100.0, 350.0, "fan", "short_low_speed_fan"), True),
+    (OperatingPoint(50.0, 350.0, "fan", "very_short_low_speed_fan"), True),
     (OperatingPoint(100.0, 450.0, "fan", "short_high_speed_fan"), True),
     (OperatingPoint(1500.0, 450.0, "fan", "medium_fan"), True),
     (OperatingPoint(6000.0, 450.0, "fan", "long_fan"), True),
-    (OperatingPoint(100.0, 200.0, "propeller", "short_low_speed_propeller"), True),
+    (OperatingPoint(50.0, 200.0, "propeller", "very_short_low_speed_propeller"), True),
     (OperatingPoint(100.0, 300.0, "propeller", "short_high_speed_propeller"), True),
     (OperatingPoint(1500.0, 250.0, "propeller", "medium_propeller"), True),
     (OperatingPoint(6000.0, 250.0, "propeller", "long_propeller"), True),

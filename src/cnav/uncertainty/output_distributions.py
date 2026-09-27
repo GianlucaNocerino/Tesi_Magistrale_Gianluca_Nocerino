@@ -348,40 +348,39 @@ def plot_intensity_pdf(sample: PointSample, ax=None,
         ax.stairs(conteggi * peso, bordi, fill=True, alpha=0.18,
                   color=colore, lw=0)
 
-        etichetta = (f"{label.rsplit(' (', 1)[0]}  "
-                     f"[P(fatt)={sample.p_feasible(label):.2f}, "
-                     f"P(mig)={sample.p_best(label):.2f}]")
+        etichetta = (f"{label.rsplit(' (', 1)[0]} ")
+                     #f"[P(feas.)={sample.p_feasible(label):.2f}, "
+                     #f"P(best)={sample.p_best(label):.2f}]")
         dens = _density(trasf(v), t_griglia) if kde else None
         if dens is not None:
-            ax.plot(griglia, dens * peso, color=colore, lw=1.8, label=etichetta)
+            ax.plot(griglia, dens * peso, color=colore, lw=2, label=etichetta)
         else:
-            ax.stairs(conteggi * peso, bordi, color=colore, lw=1.8, label=etichetta)
+            ax.stairs(conteggi * peso, bordi, color=colore, lw=2, label=etichetta)
 
         if show_median:
-            ax.axvline(np.median(v), color=colore, ls=":", lw=1.1, alpha=0.9)
+            ax.axvline(np.median(v), color=colore, ls=":", lw=1.8, alpha=0.9)
         if nominal and label in nominal and np.isfinite(nominal[label]):
-            ax.axvline(nominal[label], color=colore, ls="--", lw=1.3, alpha=0.9)
+            ax.axvline(nominal[label], color=colore, ls="--", lw=1.8, alpha=0.9)
 
     if log_x:
         ax.set_xscale("log")
     ax.set_xlim(griglia[0], griglia[-1])
-    ax.set_xlabel("Electricity intensity [MJ/(pax*nmi)]")
-    ax.set_ylabel(("densità per decade" if log_x else "densità di probabilità") +
-                  (" x P(fattibile)" if scale_by_feasibility else ""))
-    ax.set_title(f"Distribuzione dell'output - {sample.point.title}\n"
-                 f"N = {sample.n_samples} campioni, punto {sample.source} "
-                 f"a {sample.range_nmi:.0f} nmi / {sample.speed_kt:.0f} kt")
-    ax.legend(fontsize=8)
+    ax.set_xlabel("Electricity intensity [MJ/(pax*nmi)]", fontsize=16)
+    ax.set_ylabel(("Density per Decade" if log_x else "Probability Density") +
+                  (" x P(feas.)" if scale_by_feasibility else ""), fontsize=16)
+    ax.set_title(f"Output Probability Distribution\n"
+                 f"{sample.range_nmi:.0f} nmi - {sample.speed_kt:.0f} kt", fontsize=16, fontweight='bold')
+    ax.legend(fontsize=12, framealpha=0.5)
     ax.grid(alpha=0.3)
 
     note = []
     if show_median:
-        note.append("punteggiata: mediana")
+        note.append("Dotted Line: Median")
     if nominal:
-        note.append("tratteggiata: valore deterministico")
+        note.append("Dashed Line: Determinisitc Value")
     if note:
         ax.text(0.99, 0.02, " | ".join(note), transform=ax.transAxes,
-                ha="right", va="bottom", fontsize=7, style="italic", color="0.35")
+                ha="right", va="bottom", fontsize=12, style="italic", color="black")
     return ax
 
 

@@ -17,6 +17,13 @@ Cosa produce:
   model_form_deterministic.png  le mappe deterministiche affiancate
   model_form_maps.png           le mappe probabilistiche affiancate
   model_form_disagreement.png   dove le mappe non sono d'accordo
+  model_form_maps_<slug>.png, model_form_deterministic_<slug>.png
+                                una figura per forma (FIGURE_SINGOLE)
+  model_form_disagreement_<slug>.png
+                                il disaccordo di una variante per volta
+                                (FIGURE_SINGOLE)
+  model_form_maps_griglia.png, model_form_deterministic_griglia.png
+                                le forme di FORME_GRIGLIA in griglia
 
 La tabella dei parametri per forma e quella degli spostamenti vengono
 stampate a schermo e basta: sono da leggere mentre gira, non da
@@ -87,9 +94,9 @@ THETA_ACC_PATH = Path(__file__).resolve().parents[1] / "06_incertezza_calibrazio
 # ma non QUALE ipotesi lo sta causando
 FORMS = ["base", "raymer", "polare", "easa", "tutte"]
 
-N_SAMPLES = 60            # 60 per provare, 500-1000 per il run da tesi
-N_RANGES = 20             # griglia rada per la prova, 45 x 40 per la tesi
-N_SPEEDS = 16
+N_SAMPLES = 750            # 60 per provare, 500-1000 per il run da tesi
+N_RANGES = 45             # griglia rada per la prova, 45 x 40 per la tesi
+N_SPEEDS = 40
 SEED = 0
 N_WORKERS = 1             # > 1 richiede il blocco if __name__ (c'è già)
 
@@ -112,6 +119,43 @@ SALVA_CUBI = True
 #   True  -> aggregate alle 4 tecnologie
 # Gli indici di confronto restano comunque a 8 etichette
 MAPPE_AGGREGATE = False
+
+# Figure aggiuntive, oltre a quelle con tutte le forme affiancate
+#   FIGURE_SINGOLE  una figura per forma:
+#                   model_form_maps_<slug>.png, model_form_deterministic_<slug>.png
+#                   e, per le sole varianti, model_form_disagreement_<slug>.png
+#   FORME_GRIGLIA   le forme della figura a griglia, riempita per righe:
+#                   model_form_maps_griglia.png e model_form_deterministic_griglia.png
+#                   Lista vuota = niente griglia
+FIGURE_SINGOLE = True
+FORME_GRIGLIA = ["base", "raymer", "polare", "easa"]
+GRIGLIA_NCOLS = 2
+
+# dimensione (pollici) di tutte le figure singole: la stessa di
+# best_system_map.png e di probabilistic_technology_map.png, per cui sono
+# pensate le legende dentro il pannello
+FIGSIZE_SINGOLA = (9.5, 6.5)
+
+# dimensione del titolo del pannello (non del suptitle): nelle figure
+# singole il pannello è più grande e il titolo cresce con lui
+FONTSIZE_TITOLO_PANNELLO = 12
+FONTSIZE_TITOLO_SINGOLA = 15
+
+# Titoli dei pannelli, uno per forma. None = titolo automatico, cioè
+# quello di sempre:
+#   mappe deterministiche e probabilistiche  "<nome>: <label del preset>"
+#                                            (solo "base" per il modello base)
+#   mappe di disaccordo                      "<nome>: xx.x% delle celle"
+# Con una stringa, quella stringa prende il posto del titolo in tutte le
+# figure; nelle mappe di disaccordo le si aggiunge ": xx.x% delle celle".
+# Esempio:  "raymer": "Stima dei pesi secondo Raymer",
+TITOLI_FORME = {
+    "base":   "Baseline Model",
+    "raymer": "Raymer OEW Fraction Estimation",
+    "polare": "Altitude-Sensitive Aerodynamic Efficiency",
+    "easa":   "EASA Conform Reserve Formulation",
+    "tutte":  "ALL",
+}
 
 LABELS = technology_labels()
 
@@ -209,12 +253,38 @@ def mappa_deterministica(grid: FlightGrid, form) -> np.ndarray:
     return best
 
 
-def plot_mappe_deterministiche(mappe: dict, grid: FlightGrid, etichette: list):
-    """Le mappe nominali di tutte le forme, affiancate.
+def titolo_forma(nome: str, breve: bool = False) -> str:
+    """Il titolo del pannello di una forma, vedi TITOLI_FORME.
+
+    breve=True è la versione delle mappe di disaccordo, dove il titolo
+    automatico è il solo nome della forma
+    """
+    personalizzato = TITOLI_FORME.get(nome)
+    if personalizzato is not None:
+        return personalizzato
+    forma = MODEL_FORM_PRESETS[nome]
+    if breve or forma.is_baseline:
+        return nome
+    return f"{nome}: {forma.label}"
+
+
+def _layout(n: int, ncols) -> tuple:
+    """(righe, colonne) per n pannelli; ncols=None = tutti su una riga"""
+    ncols = n if ncols is None else min(ncols, n)
+    return -(-n // ncols), ncols
+
+
+def plot_mappe_deterministiche(mappe: dict, grid: FlightGrid, etichette: list,
+                               ncols=None,
+                               titolo="Best Carbon-Neutral System under different model assumption\n"
+                                      "(Deterministic Map)"):
+    """Le mappe nominali delle forme in `mappe`, su una griglia di pannelli.
 
     Colori uguali a quelli della mappa probabilistica (label_color), così
     le due figure si leggono una sotto l'altra senza dover reimparare la
-    legenda. Il grigio è "nessun sistema fattibile"
+    legenda. Il grigio è "nessun sistema fattibile". ncols=None mette
+    tutti i pannelli su una riga; con una sola forma esce la figura singola,
+    e lì la legenda va dentro il pannello, semitrasparente, invece che sotto
     """
     from matplotlib.colors import ListedColormap
     from matplotlib.patches import Patch
@@ -223,30 +293,158 @@ def plot_mappe_deterministiche(mappe: dict, grid: FlightGrid, etichette: list):
     colori = ["#BBBBBB"] + [label_color(e) for e in etichette]
     cmap = ListedColormap(colori)
 
-    fig, axes = plt.subplots(1, len(nomi), figsize=(4.8 * len(nomi), 4.3),
+    presenti = sorted({int(v) for m in mappe.values() for v in np.unique(m)})
+    handles = [Patch(color=colori[k + 1],
+                     label=etichette[k] if k >= 0 else "nessuno fattibile")
+               for k in presenti]
+    nrows, ncols = _layout(len(nomi), ncols)
+    interna = len(nomi) == 1        # figura singola: legenda sopra la mappa
+    ncol_leg = max(1, min(len(handles), 4 if ncols >= 4 else ncols))
+    h_leg = 0.0 if interna else 0.3 + 0.36 * (-(-len(handles) // ncol_leg))  # pollici
+    h_tit = 0.75
+    larghezza = max(4.8 * ncols, 6.5)
+    altezza = 3.8 * nrows + h_leg + h_tit
+    if interna:
+        # come la figura di plot_best_system_map: la legenda a 15 punti
+        # dentro il pannello è pensata per questa dimensione
+        larghezza, altezza = FIGSIZE_SINGOLA
+
+    fig, axes = plt.subplots(nrows, ncols, figsize=(larghezza, altezza),
                              squeeze=False)
-    for ax, nome in zip(axes[0], nomi):
+    for ax in axes.flat[len(nomi):]:
+        ax.set_visible(False)
+    for ax, nome in zip(axes.flat, nomi):
         # +1 perche' -1 (non fattibile) deve finire sul primo colore
         ax.pcolormesh(grid.ranges_nmi, grid.speeds_kt, mappe[nome] + 1,
                       cmap=cmap, vmin=-0.5, vmax=len(colori) - 0.5,
                       shading="auto")
         ax.set_xscale("log")
         ax.set_xlabel("Range [nmi]")
-        ax.set_ylabel("Velocità di crociera [kt]")
-        forma = MODEL_FORM_PRESETS[nome]
-        ax.set_title(nome if forma.is_baseline else f"{nome}: {forma.label}",
-                     fontsize=10)
+        ax.set_ylabel("Cruise Speed [kt]")
+        ax.set_title(titolo_forma(nome), fontweight='bold',
+                     fontsize=FONTSIZE_TITOLO_SINGOLA if interna
+                     else FONTSIZE_TITOLO_PANNELLO)
 
-    presenti = sorted({int(v) for m in mappe.values() for v in np.unique(m)})
-    handles = [Patch(color=colori[k + 1],
-                     label=etichette[k] if k >= 0 else "nessuno fattibile")
-               for k in presenti]
-    fig.legend(handles=handles, loc="lower center",
-               ncol=min(len(handles), 4), fontsize=9)
-    fig.suptitle("Sistema più efficiente con i parametri al valore nominale "
-                 "(mappa deterministica)", fontsize=12)
-    fig.tight_layout(rect=(0, 0.12, 1, 0.93))
+    if interna:
+        # stesse impostazioni della legenda di plot_probability_map
+        axes.flat[0].legend(handles=handles, loc="upper right", fontsize=15,
+                            framealpha=0.2)
+    else:
+        fig.legend(handles=handles, loc="lower center", ncol=ncol_leg, fontsize=14)
+    fig.suptitle(titolo, fontsize=16, fontweight='bold')
+    # il suptitle lo conta già tight_layout: il rect riserva solo la legenda
+    fig.tight_layout(rect=(0, h_leg / altezza, 1, 1))
     return fig
+
+
+def plot_mappe_probabilistiche(pmaps: dict, nomi: list, ncols=None,
+                               titolo="Best Carbon-Neutral System under different model assumption\n"
+                                      "(Probabilistic Map)"):
+    """Le mappe probabilistiche delle forme in `nomi`, su una griglia di
+    pannelli. ncols=None = tutte su una riga; una sola forma = figura
+    singola.
+
+    plot_probability_map mette una legenda dentro ogni pannello. Nella
+    figura singola resta quella; con più pannelli la si toglie e se ne fa
+    una sola, in basso, come per le deterministiche. Le
+    voci vengono prese dalle legende dei pannelli prima di rimuoverle, così
+    restano identiche (colori e confine P = soglia compresi) senza dover
+    sapere come le costruisce technology_map
+    """
+    nrows, ncols = _layout(len(nomi), ncols)
+    fig, axes = plt.subplots(nrows, ncols, figsize=(5.2 * ncols, 4.4 * nrows),
+                             squeeze=False)
+    for ax in axes.flat[len(nomi):]:
+        ax.set_visible(False)
+
+    comune = len(nomi) > 1          # figura singola: legenda di default
+    voci = {}                                   # testo -> handle, senza doppioni
+    for ax, nome in zip(axes.flat, nomi):
+        pm = aggregate_to_technologies(pmaps[nome]) if MAPPE_AGGREGATE else pmaps[nome]
+        plot_probability_map(pm, ax=ax)
+        ax.set_xlabel("Range [nmi]")
+        ax.set_ylabel("Cruise Speed [kt]")
+        ax.set_title(titolo_forma(nome), fontweight='bold',
+                     fontsize=FONTSIZE_TITOLO_PANNELLO if comune
+                     else FONTSIZE_TITOLO_SINGOLA)
+
+        leg = ax.get_legend()
+        if comune and leg is not None:
+            # legend_handles da matplotlib 3.7, legendHandles prima
+            handles = getattr(leg, "legend_handles", None) or leg.legendHandles
+            for h, t in zip(handles, leg.get_texts()):
+                voci.setdefault(t.get_text(), h)
+            leg.remove()
+
+    # prima le tecnologie nell'ordine di sempre, poi il resto (il confine)
+    ordine = list(TECHNOLOGIES) if MAPPE_AGGREGATE else LABELS
+    testi = sorted(voci, key=lambda t: ordine.index(t) if t in ordine else len(ordine))
+
+    ncol_leg = max(1, min(len(testi), 4 if ncols >= 4 else ncols))
+    h_leg = (0.3 + 0.36 * (-(-len(testi) // ncol_leg))       # pollici, per fontsize 14
+             if testi else 0.0)
+    h_tit = 0.75
+    altezza = 4.4 * nrows + h_leg + h_tit
+    larghezza = 5.2 * ncols
+    if not comune:
+        # come la mappa di plot_probabilistic_technology_map, per cui è
+        # dimensionata la legenda di default di plot_probability_map
+        larghezza, altezza = FIGSIZE_SINGOLA
+    fig.set_size_inches(larghezza, altezza)
+
+    if testi:
+        fig.legend([voci[t] for t in testi], testi, loc="lower center",
+                   ncol=ncol_leg, fontsize=14)
+    fig.suptitle(titolo, fontsize=16, fontweight='bold')
+    # il suptitle lo conta già tight_layout: il rect riserva solo la legenda
+    fig.tight_layout(rect=(0, h_leg / altezza, 1, 1))
+    return fig
+
+
+def plot_disaccordo(pmaps: dict, varianti: list, ncols=None,
+                    titolo="Where the model's variation changes the Best System\n"
+                           "(Red = different from Baseline)"):
+    """Per ogni variante, le celle in cui la tecnologia più probabile è
+    diversa da quella del modello base: una cella accesa = lì la variante
+    cambia la decisione. ncols=None = tutte su una riga; una sola variante
+    = figura singola
+    """
+    nrows, ncols = _layout(len(varianti), ncols)
+    dimensione = (FIGSIZE_SINGOLA if len(varianti) == 1
+                  else (max(4.6 * ncols, 6.0), 4.0 * nrows + 0.5))
+    # constrained: lascia a matplotlib lo spazio per il suptitle, che
+    # nella figura singola va su più righe
+    fig, axes = plt.subplots(nrows, ncols, figsize=dimensione,
+                             squeeze=False, layout="constrained")
+    for ax in axes.flat[len(varianti):]:
+        ax.set_visible(False)
+    vincitore_base = np.argmax(pmaps["base"].probabilities, axis=0)
+    for ax, nome in zip(axes.flat, varianti):
+        diverso = (np.argmax(pmaps[nome].probabilities, axis=0) != vincitore_base)
+        ax.pcolormesh(pmaps["base"].ranges_nmi, pmaps["base"].speeds_kt,
+                      diverso.astype(float), cmap="Reds", vmin=0, vmax=1,
+                      shading="auto")
+        ax.set_xscale("log")
+        ax.set_xlabel("Range [nmi]")
+        ax.set_ylabel("Cruise Speed [kt]")
+        # nella singola il titolo entra in una riga; affiancate, a capo
+        singola = len(varianti) == 1
+        sep = " " if singola else "\n"
+        ax.set_title(f"{titolo_forma(nome, breve=True)}:{sep}"
+                     f"{diverso.mean():.1%} of the cells", fontweight='bold',
+                     fontsize=FONTSIZE_TITOLO_SINGOLA if singola
+                     else FONTSIZE_TITOLO_PANNELLO)
+    fig.suptitle(titolo, fontsize=16, fontweight='bold')
+    return fig
+
+
+def controlla_forme_griglia():
+    mancanti = [nm for nm in FORME_GRIGLIA if nm not in FORMS]
+    if mancanti:
+        raise ValueError(f"FORME_GRIGLIA contiene forme non in FORMS: {mancanti}")
+    ignoti = [nm for nm in TITOLI_FORME if nm not in MODEL_FORM_PRESETS]
+    if ignoti:
+        raise ValueError(f"TITOLI_FORME contiene forme inesistenti: {ignoti}")
 
 
 def confronta_mappe_deterministiche(mappe: dict, riferimento: str = "base") -> pd.DataFrame:
@@ -276,6 +474,9 @@ def confronta_mappe_deterministiche(mappe: dict, riferimento: str = "base") -> p
 def main():
     pd.set_option("display.width", 220)
     pd.set_option("display.max_rows", 300)
+
+    # prima di tutto: scoprirlo dopo ore di propagazione sarebbe uno spreco
+    controlla_forme_griglia()
 
     theta_acc = load_theta_acc(THETA_ACC_PATH)
     grid = FlightGrid.default(n_ranges=N_RANGES, n_speeds=N_SPEEDS)
@@ -312,6 +513,26 @@ def main():
     det_path = OUT_DIR / "model_form_deterministic.png"
     fig.savefig(det_path, dpi=140)
     plt.close(fig)
+    figure_extra = []
+
+    if FIGURE_SINGOLE:
+        for nome in FORMS:
+            fig = plot_mappe_deterministiche(
+                {nome: mappe_fig[nome]}, grid, etichette_fig,
+                titolo="Deterministic Map")
+            p = OUT_DIR / f"model_form_deterministic_{MODEL_FORM_PRESETS[nome].slug}.png"
+            fig.savefig(p, dpi=140)
+            plt.close(fig)
+            figure_extra.append(p)
+
+    if FORME_GRIGLIA:
+        fig = plot_mappe_deterministiche(
+            {nm: mappe_fig[nm] for nm in FORME_GRIGLIA}, grid, etichette_fig,
+            ncols=GRIGLIA_NCOLS)
+        p = OUT_DIR / "model_form_deterministic_griglia.png"
+        fig.savefig(p, dpi=140)
+        plt.close(fig)
+        figure_extra.append(p)
 
     # -----------------------------------------------------------------
     # Propagazione, una per forma
@@ -377,43 +598,49 @@ def main():
     # -----------------------------------------------------------------
     # Figure
     # -----------------------------------------------------------------
-    fig, axes = plt.subplots(1, len(FORMS),
-                             figsize=(5.2 * len(FORMS), 4.4), squeeze=False)
-    for ax, nome in zip(axes[0], FORMS):
-        pm = aggregate_to_technologies(pmaps[nome]) if MAPPE_AGGREGATE else pmaps[nome]
-        plot_probability_map(pm, ax=ax)
-        forma = MODEL_FORM_PRESETS[nome]
-        ax.set_title(nome if forma.is_baseline else f"{nome}: {forma.label}",
-                     fontsize=10)
-    fig.suptitle("Mappa probabilistica sotto le diverse forme del modello",
-                 fontsize=12)
-    fig.tight_layout(rect=(0, 0, 1, 0.94))
+    fig = plot_mappe_probabilistiche(pmaps, FORMS)
     maps_path = OUT_DIR / "model_form_maps.png"
     fig.savefig(maps_path, dpi=140)
+    plt.close(fig)
+
+    if FIGURE_SINGOLE:
+        for nome in FORMS:
+            fig = plot_mappe_probabilistiche(pmaps, [nome],
+                                             titolo="Probabilistic Map")
+            p = OUT_DIR / f"model_form_maps_{MODEL_FORM_PRESETS[nome].slug}.png"
+            fig.savefig(p, dpi=140)
+            plt.close(fig)
+            figure_extra.append(p)
+
+    if FORME_GRIGLIA:
+        fig = plot_mappe_probabilistiche(pmaps, FORME_GRIGLIA,
+                                         ncols=GRIGLIA_NCOLS)
+        p = OUT_DIR / "model_form_maps_griglia.png"
+        fig.savefig(p, dpi=140)
+        plt.close(fig)
+        figure_extra.append(p)
 
     # dove le mappe non sono d'accordo: una cella accesa = lì la
     # variante cambia la tecnologia consigliata
     varianti = [nm for nm in FORMS if nm != "base"]
-    fig, axes = plt.subplots(1, len(varianti),
-                             figsize=(4.6 * len(varianti), 4.0), squeeze=False)
-    vincitore_base = np.argmax(pmaps["base"].probabilities, axis=0)
-    for ax, nome in zip(axes[0], varianti):
-        diverso = (np.argmax(pmaps[nome].probabilities, axis=0) != vincitore_base)
-        ax.pcolormesh(pmaps["base"].ranges_nmi, pmaps["base"].speeds_kt,
-                      diverso.astype(float), cmap="Reds", vmin=0, vmax=1,
-                      shading="auto")
-        ax.set_xscale("log")
-        ax.set_xlabel("range [nmi]")
-        ax.set_ylabel("velocità [kt]")
-        ax.set_title(f"{nome}: {diverso.mean():.1%} delle celle", fontsize=10)
-    fig.suptitle("Dove la variante cambia la tecnologia consigliata "
-                 "(rosso = decisione diversa dal modello base)", fontsize=12)
-    fig.tight_layout(rect=(0, 0, 1, 0.92))
+    fig = plot_disaccordo(pmaps, varianti)
     dis_path = OUT_DIR / "model_form_disagreement.png"
     fig.savefig(dis_path, dpi=140)
+    plt.close(fig)
+
+    if FIGURE_SINGOLE:
+        for nome in varianti:
+            fig = plot_disaccordo(
+                pmaps, [nome],
+                titolo="Where the model's variation\nchanges the Best System\n"
+                       "(Red = different from Baseline)")
+            p = OUT_DIR / f"model_form_disagreement_{MODEL_FORM_PRESETS[nome].slug}.png"
+            fig.savefig(p, dpi=140)
+            plt.close(fig)
+            figure_extra.append(p)
 
     print(f"\nFigure salvate in {OUT_DIR}:")
-    for p in (det_path, maps_path, dis_path):
+    for p in (det_path, maps_path, dis_path, *figure_extra):
         print(f"  {p.name}")
 
     plt.close("all")

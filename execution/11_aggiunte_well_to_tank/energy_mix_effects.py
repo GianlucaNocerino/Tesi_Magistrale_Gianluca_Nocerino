@@ -211,11 +211,11 @@ MISSIONI = [
 ]
 
 NOME_BREVE = {
-    "Battery-electric": "batteria",
-    "Hydrogen fuel cell": "fuel cell H2",
-    "Hydrogen combustion": "combustione H2",
-    "e-SAF combustion": "e-SAF",
-    KEROSENE_LABEL: "cherosene",
+    "Battery-electric": "Battery-electric",
+    "Hydrogen fuel cell": "H2 fuel cell",
+    "Hydrogen combustion": "H2 Combustion",
+    "e-SAF combustion": "e-SAF Combustion",
+    KEROSENE_LABEL: "kerosene",
 }
 
 
@@ -672,7 +672,7 @@ def disegna_vantaggio(prob: np.ndarray, grid, titolo: str, slug: str) -> None:
     ax.set_xlabel("Range [nmi]", fontsize=18)
     ax.set_ylabel("Speed Cruise [kt]", fontsize=18)
     ax.set_title(titolo, fontsize=18, fontweight='bold')
-    fig.colorbar(mesh, ax=ax, label="probabilità")
+    fig.colorbar(mesh, ax=ax, label="probability")
     fig.tight_layout()
     fig.savefig(OUT_DIR / f"advantage_{slug}.png", dpi=150)
     plt.close(fig)
@@ -819,8 +819,8 @@ def plot_missioni(df: pd.DataFrame, metrica: str, ylabel: str, titolo: str,
     larghezza = 0.38
 
     fig, ax = plt.subplots(figsize=(11, 6))
-    serie = [("sost", "migliore sostenibile", "#4C72B0"),
-             ("kero", "cherosene", "#8C8C8C")]
+    serie = [("sost", "Best Sustainable", "#4C72B0"),
+             ("kero", "Kerosene", "#8C8C8C")]
     altezza_max = 0.0
     for p, (prefisso, nome, colore) in enumerate(serie):
         mediane = blocco[f"{prefisso}_mediana"].to_numpy(dtype=float)

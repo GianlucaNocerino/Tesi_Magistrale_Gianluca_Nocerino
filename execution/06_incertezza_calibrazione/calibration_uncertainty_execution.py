@@ -34,7 +34,7 @@ from cnav.calibration import (
 # Il tuo J* trovato in calibrazione deterministica, sostituisci con il 
 # numero vero della tua run
 # ---------------------------------------------------------------------
-J_STAR = 0.806  # <-- SOSTITUISCI con best_run.cost della tua ultima calibrazione
+J_STAR = 1.999992  # <-- SOSTITUISCI con best_run.cost della tua ultima calibrazione
 MARGIN = 0.15  # tolleranza di riproduzione accettabile
 J_THR = j_thr_from_margin(J_STAR, margin=MARGIN)
 

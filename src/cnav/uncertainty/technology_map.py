@@ -450,7 +450,7 @@ def plot_intensity_band(result: PropagationResult, speed_kt: float,
     ax.set_ylabel("Electricity intensity [MJ/(pax*nmi)]", fontsize=18)
     ax.set_title(f"Electricity Intensity at {actual_speed:.0f} kt, Median and "
                  f"p{int(lo)}-p{int(hi)} Band", fontsize=18, fontweight='bold')
-    ax.legend( loc="upper center", fontsize=15, framealpha=0.2)
+    ax.legend( loc="best", fontsize=14, framealpha=0.2)
     ax.grid(alpha=0.15)
     return ax
 

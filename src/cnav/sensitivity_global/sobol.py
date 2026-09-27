@@ -671,7 +671,7 @@ def _bars(ax, sub: pd.DataFrame, title: str, show_ci: bool = True,
 
     ax.axvline(0.0, color="0.3", lw=1)
     ax.set_yticks(y)
-    ax.set_yticklabels(sub["Factor"], fontsize=fontsize)
+    ax.set_yticklabels(sub["fattore"], fontsize=fontsize)
     ax.set_xlabel("Fraction of Variance", fontsize=16)
     ax.set_title(title, fontsize=18, fontweight='bold')
     ax.grid(axis="x", alpha=0.25)
@@ -751,8 +751,9 @@ def plot_sobol_aggregate(df_sobol: pd.DataFrame, ax=None):
 
     # qui le "barre di errore" non sono un bootstrap ma l'escursione
     # fra punti operativi: è l'informazione più utile da vedere
-    _bars(ax, agg, "Aggregated Sobol Indices: " 
-                   "Error bars show the spread across operating conditions")
+    _bars(ax, agg, "Aggregated Sobol Indices:\n" 
+                   "Error bars show the spread\n" 
+                   "across operating conditions")
     if created:
         ax.legend(fontsize=15, loc="lower right")
         plt.tight_layout()
@@ -787,11 +788,11 @@ def plot_sobol_convergence(df_conv: pd.DataFrame, output: Optional[str] = None,
     ax.set_xscale("log", base=2)
     ax.set_xlabel("N", fontsize=16)
     ax.set_ylabel(r"$S_{T_i}$" if index == "ST" else r"$S_i$", fontsize=16)
-    ax.set_title("Convergence of Indices" +
-                 (f": {output}" if output else " (Mean over operating points)"),
+    ax.set_title("Convergence of Indices\n" 
+                 + (f": {output}" if output else " (Mean over operating points)"),
                  fontsize=16, fontweight='bold')
     ax.grid(alpha=0.25)
     if created:
-        ax.legend(fontsize=15, ncol=2, loc="best", alpha=0.1)
+        ax.legend(fontsize=15, ncol=1, loc="best", framealpha=0.1)
         plt.tight_layout()
     return ax
