@@ -101,10 +101,18 @@ SELECTED_FACTORS = [
     "liquid_hydrogen",                      # H2: include il fattore comune di elettrolisi
     "e_saf",                                # e-SAF: residuo idiosincratico
     "gamma_tank",                           # serbatoi criogenici
+    # rendimenti propulsivi: esclusi nella prima selezione perché nella
+    # nube cumulativa di Morris erano diluiti (agiscono solo sui punti
+    # con quel propulsore). La prima Sobol ha dato ST[resto] fino a 0.20
+    # sui punti a elica e fino a 0.11 su quelli a fan: screening_check li
+    # ha promossi
+    "eta_p_propeller",
+    "eta_p_fan",
 ]
 
-# Restano fuori: eta_p_fan, eta_p_propeller, oew_prop_b, oew_prop_r_pivot, electricity.
-# Se screening_check li promuove, si rilancia con quel fattore aggiunto.
+# Restano fuori: oew_prop_b, oew_prop_r_pivot, electricity.
+# eta_p_propeller ed eta_p_fan sono stati promossi dopo la prima Sobol
+# (ST[resto] sopra tolleranza sui punti a elica e a fan).
 #
 # NOTA sul costo: qui i fattori totali sono 15 e il modello costa ~25 ms
 # a valutazione, quindi la Sobol completa (N*17) costerebbe solo il 30%
