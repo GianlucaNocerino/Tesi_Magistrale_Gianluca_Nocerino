@@ -122,6 +122,8 @@ SHARED_PARAMETERS = [
 ]
 
 DEFAULT_NONCONVERGENCE_PENALTY = 10.0  # "grande" rispetto a un tipico scarto normalizzato (~0.01-1)
+DEFAULT_RANGE_TERM_WEIGHT = 3.0  # peso del termine sul range massimo fattibile (solo Battery-electric),
+                                  # unica fonte per system_cost e global_cost
 
 
 def _normalized_sq_residual(model_val: float, target_val: float,
@@ -195,7 +197,7 @@ def system_cost(system_name: str, propulsor: str, tech: TechAssumptions,
                  range_weights: Optional[list] = None,
                  intensity_norm_values: Optional[list] = None,
                  nonconvergence_penalty: float = DEFAULT_NONCONVERGENCE_PENALTY,
-                 range_term_weight: float = 10.0,
+                 range_term_weight: float = DEFAULT_RANGE_TERM_WEIGHT,
                  range_norm_value: Optional[float] = None) -> float:
     """WLS di un sistema in una configurazione (fan @450kt oppure
     propeller @250kt): somma sui Range del paper degli scarti
@@ -261,7 +263,7 @@ def global_cost(propulsor: str, tech: TechAssumptions, wtt: WellToTankEfficienci
                  system_weights: Optional[dict] = None,
                  range_weights: Optional[list] = None,
                  nonconvergence_penalty: float = DEFAULT_NONCONVERGENCE_PENALTY,
-                 range_term_weight: float = 1.0,
+                 range_term_weight: float = DEFAULT_RANGE_TERM_WEIGHT,
                  norm_overrides: Optional[dict] = None) -> tuple:
     """Costo globale per una configurazione (fan o propeller): somma
     pesata di system_cost su tutti i sistemi disponibili nel paper per

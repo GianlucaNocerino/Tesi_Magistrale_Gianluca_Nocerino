@@ -84,6 +84,7 @@ ax.set_title("Best Carbon-Neutral Propulsion System", fontsize=18, fontweight='b
 
 legend_handles = [Patch(color=colors[i], label=used_labels[i]) for i in range(len(used_labels))]
 ax.legend(handles=legend_handles, loc="upper right", fontsize=15, framealpha=0.2)
+ax.tick_params(axis='both', which='major', labelsize=14)
 
 fig.tight_layout()
 out_path = Path(__file__).resolve().parent / "best_system_map.png"

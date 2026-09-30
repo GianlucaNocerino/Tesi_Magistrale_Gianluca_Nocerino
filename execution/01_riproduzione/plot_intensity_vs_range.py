@@ -43,6 +43,7 @@ for propulsor, speed_kt, ax, title in panels:
     ax.set_ylim(0, 15)
     ax.set_ylabel("Electricity Intensity\n[MJ/(pax*nmi)]", fontsize=17)
     ax.set_title(title, fontsize=18, fontweight='bold')
+    ax.tick_params(axis='both', which='major', labelsize=14)
     ax.grid(True, which="both", alpha=0.3)
 
 axes[0].legend(loc="best", fontsize=16)

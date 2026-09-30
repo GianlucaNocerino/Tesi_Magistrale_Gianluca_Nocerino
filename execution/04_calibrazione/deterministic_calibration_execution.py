@@ -63,6 +63,18 @@ DE_POPSIZE = 15   # per la calibrazione "vera": alza a 10-15
 RANGE_WEIGHTS = [1, 5.0, 5.0, 5.0, 3.0, 3.0, 2.0, 2.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 2.0, 2.0, 3.0] 
 # i pesi della funzione di costo ai diversi valori del Range
 
+# Pesi per sistema dentro J_fan / J_propeller: Battery-electric pesato 3
+# perché il paper gli dà dati su pochissimi Range (3 punti fan, 5 propeller
+# + il range massimo), gli altri sistemi su 19: senza peso extra il suo
+# contributo al costo sarebbe marginale.
+SYSTEM_WEIGHTS_FAN = {"Battery-electric": 3.0, "e-SAF combustion": 1.0,
+                      "Hydrogen combustion": 1.0}
+SYSTEM_WEIGHTS_PROPELLER = {"Battery-electric": 3.0, "e-SAF combustion": 1.0,
+                            "Hydrogen combustion": 1.0, "Hydrogen fuel cell": 1.0}
+
+FAN_KWARGS = {"range_weights": RANGE_WEIGHTS, "system_weights": SYSTEM_WEIGHTS_FAN}
+PROPELLER_KWARGS = {"range_weights": RANGE_WEIGHTS, "system_weights": SYSTEM_WEIGHTS_PROPELLER}
+
 # Pesi globali fan/propeller dentro combined_cost: J = fan_weight*J_fan +
 # propeller_weight*J_propeller. Invece di pesi fissi, uso il reciproco
 # del costo nominale grezzo (non pesato) di ciascun ramo, così
@@ -75,8 +87,7 @@ RANGE_WEIGHTS = [1, 5.0, 5.0, 5.0, 3.0, 3.0, 2.0, 2.0, 1.0, 1.0, 1.0, 1.0, 1.0, 
 # nella somma).
 tech_nominal, wtt_nominal = TechAssumptions(), WellToTankEfficiencies()
 _, nominal_detail_raw = combined_cost(tech_nominal, wtt_nominal,
-                                       fan_weight=1.0, propeller_weight=1.0,fan_kwargs={"range_weights": RANGE_WEIGHTS}, 
-                                       propeller_kwargs={"range_weights": RANGE_WEIGHTS})
+                                       fan_weight=1.0, propeller_weight=1.0,fan_kwargs=FAN_KWARGS, propeller_kwargs=PROPELLER_KWARGS)
 
 j_fan_nominal = nominal_detail_raw["fan"]["total"]
 j_propeller_nominal = nominal_detail_raw["propeller"]["total"]
@@ -143,8 +154,7 @@ for p in param_names:
 # J costruita qui, esplicitamente, a partire da combined_cost
 J = make_objective(
     combined_cost, param_names,
-    cost_kwargs=dict(fan_weight=FAN_WEIGHT, propeller_weight=PROPELLER_WEIGHT, fan_kwargs={"range_weights": RANGE_WEIGHTS}, 
-    propeller_kwargs={"range_weights": RANGE_WEIGHTS})
+    cost_kwargs=dict(fan_weight=FAN_WEIGHT, propeller_weight=PROPELLER_WEIGHT, fan_kwargs=FAN_KWARGS, propeller_kwargs=PROPELLER_KWARGS)
 )
 
 t0 = time.time()
@@ -184,8 +194,7 @@ for i, row in df_runs_sorted.iterrows():
     run_theta_star = [row[f"theta_{p}"] for p in param_names]
     tech_star, wtt_star = theta_to_tech_wtt(run_theta_star, param_names)
     _, star_detail = combined_cost(tech_star, wtt_star,
-                                    fan_weight=FAN_WEIGHT, propeller_weight=PROPELLER_WEIGHT, fan_kwargs={"range_weights": RANGE_WEIGHTS},
-                                    propeller_kwargs={"range_weights": RANGE_WEIGHTS})
+                                    fan_weight=FAN_WEIGHT, propeller_weight=PROPELLER_WEIGHT, fan_kwargs=FAN_KWARGS, propeller_kwargs=PROPELLER_KWARGS)
 
     header = f"RUN #{i + 1}  [{row['method']}]  costo J = {row['cost']:.6g}"
     if is_best:

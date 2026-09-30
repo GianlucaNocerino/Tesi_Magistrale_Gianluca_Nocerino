@@ -34,7 +34,7 @@ from cnav.calibration import (
 # Il tuo J* trovato in calibrazione deterministica, sostituisci con il 
 # numero vero della tua run
 # ---------------------------------------------------------------------
-J_STAR = 1.999992  # <-- SOSTITUISCI con best_run.cost della tua ultima calibrazione
+J_STAR = 1.995762  # <-- SOSTITUISCI con best_run.cost della tua ultima calibrazione
 MARGIN = 0.15  # tolleranza di riproduzione accettabile
 J_THR = j_thr_from_margin(J_STAR, margin=MARGIN)
 
@@ -55,6 +55,12 @@ RESUME = True  # se CHECKPOINT_PATH esiste già, riprende da lì invece di
                # ripetere le valutazioni già fatte
 
 RANGE_WEIGHTS = [1, 5.0, 5.0, 5.0, 3.0, 3.0, 2.0, 2.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 2.0, 2.0, 3.0]
+SYSTEM_WEIGHTS_FAN = {"Battery-electric": 3.0, "e-SAF combustion": 1.0,
+                      "Hydrogen combustion": 1.0}
+SYSTEM_WEIGHTS_PROPELLER = {"Battery-electric": 3.0, "e-SAF combustion": 1.0,
+                            "Hydrogen combustion": 1.0, "Hydrogen fuel cell": 1.0}
+FAN_KWARGS = {"range_weights": RANGE_WEIGHTS, "system_weights": SYSTEM_WEIGHTS_FAN}
+PROPELLER_KWARGS = {"range_weights": RANGE_WEIGHTS, "system_weights": SYSTEM_WEIGHTS_PROPELLER}
 
 # ---------------------------------------------------------------------
 # Stessi bounds e stessa J della calibrazione deterministica
@@ -62,8 +68,7 @@ RANGE_WEIGHTS = [1, 5.0, 5.0, 5.0, 3.0, 3.0, 2.0, 2.0, 1.0, 1.0, 1.0, 1.0, 1.0, 
 tech_nominal, wtt_nominal = TechAssumptions(), WellToTankEfficiencies()
 _, nominal_detail_raw = combined_cost(tech_nominal, wtt_nominal,
                                        fan_weight=1.0, propeller_weight=1.0,
-                                       fan_kwargs={"range_weights": RANGE_WEIGHTS},
-                                       propeller_kwargs={"range_weights": RANGE_WEIGHTS})
+                                       fan_kwargs=FAN_KWARGS, propeller_kwargs=PROPELLER_KWARGS,)
 FAN_WEIGHT = 1.0 / nominal_detail_raw["fan"]["total"]
 PROPELLER_WEIGHT = 1.0 / nominal_detail_raw["propeller"]["total"]
 
@@ -86,8 +91,7 @@ bounds = manual_bounds(ALL_BOUNDS_SPEC)
 J = make_objective(
     combined_cost, param_names,
     cost_kwargs=dict(fan_weight=FAN_WEIGHT, propeller_weight=PROPELLER_WEIGHT,
-                      fan_kwargs={"range_weights": RANGE_WEIGHTS},
-                      propeller_kwargs={"range_weights": RANGE_WEIGHTS}),
+                      fan_kwargs=FAN_KWARGS, propeller_kwargs=PROPELLER_KWARGS,),
 )
 
 print(f"J_star = {J_STAR:.6g}  ->  J_thr = {J_THR:.6g}  (margine {100 * MARGIN:.0f}%)")

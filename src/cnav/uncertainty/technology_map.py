@@ -387,6 +387,7 @@ def plot_probability_map(pmap: ProbabilityMap, threshold: float = 0.90,
     handles.append(Patch(facecolor="white", edgecolor="k", linestyle="--",
                          label=f"Boundary, P = {threshold:.2f}"))
     ax.legend(handles=handles, loc="upper right", fontsize=15, framealpha=0.2)
+    ax.tick_params(axis='both', which='major', labelsize=14)
     return ax
 
 
@@ -451,6 +452,7 @@ def plot_intensity_band(result: PropagationResult, speed_kt: float,
     ax.set_title(f"Electricity Intensity at {actual_speed:.0f} kt, Median and "
                  f"p{int(lo)}-p{int(hi)} Band", fontsize=18, fontweight='bold')
     ax.legend( loc="best", fontsize=14, framealpha=0.2)
+    ax.tick_params(axis='both', which='major', labelsize=14)
     ax.grid(alpha=0.15)
     return ax
 
