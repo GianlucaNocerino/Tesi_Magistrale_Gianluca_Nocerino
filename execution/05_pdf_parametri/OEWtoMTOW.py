@@ -430,7 +430,7 @@ def grafico_fit(m: ModelloRapportoOEW, outdir: Path) -> None:
  
     ax.set_xscale("log")
     ax.set_xlabel("MTOW [kg]")
-    ax.set_ylabel("OEW / MTOW [-]")
+    ax.set_ylabel("OEW / MTOW")
     ax.set_title(f"Regressione bayesiana - {m.nome}  (n = {len(m.mtow)})")
     ax.grid(alpha=0.3, which="both")
     ax.legend(loc="upper right", fontsize=9)
@@ -452,7 +452,7 @@ def grafico_confronto(modelli: list[ModelloRapportoOEW], outdir: Path) -> None:
     ax.set_xscale("log")
     ax.set_xlabel("MTOW [kg]")
     ax.set_ylabel("OEW / MTOW [-]")
-    ax.set_title(f"Confronto fan / elica - bande al {CI:g}% sulla curva media")
+    ax.set_title(f"Fan / Propeller - {CI:g}% band on Median curve", fontsize=16, fontweight='bold')
     ax.grid(alpha=0.3, which="both")
     ax.legend()
     fig.tight_layout()
