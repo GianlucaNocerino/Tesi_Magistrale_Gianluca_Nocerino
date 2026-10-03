@@ -1,47 +1,48 @@
 """
-Gli output scalari Y su cui si fa lo screening.
+Gli output scalari Y su cui si calcolano gli indici.
 
 La grandezza è una sola: la renewable electricity intensity
-[MJ/(pax*nmi)], la stessa del modello deterministico
+[MJ/(pax*nmi)], la stessa del modello deterministico.
 
-Perchè comunque più di una colonna
-------------------------------------
-Morris e Sobol hanno bisogno di uno scalare per campione, mentre
-l'intensity è una superficie E(R, V) definita su tutto il piano
-range-velocità. La superficie non si può dare in pasto agli indici:
-la si campiona in un numero finito di MISSIONI RAPPRESENTATIVE,
-esattamente come nella sensibilità locale
-(OPERATING_CONDITIONS in cnav.sensitivity.local_sensitivity).
+Perchè tante colonne
+--------------------
+Sobol vuole uno scalare per campione, mentre l'intensity è una
+superficie E(R, V) per ciascuna architettura. La superficie si campiona
+su una GRIGLIA regolare del piano range-velocità (log-spaziata in
+range, lineare in velocità, come le mappe del "most likely best"), e
+ogni colonna di Y è l'intensity di un'architettura in un nodo:
 
-Ogni colonna di Y è, quindi, la stessa grandezza fisica, valutata in un
-punto diverso della superficie e per un sistema propulsivo diverso. Le
-colonne condividono l'unità di misura ma non l'ordine di grandezza (il
-fuel cell con fan sta a decine di MJ/pax/nmi, la combustione a idrogeno
-a poche unita'), per cui il grafico cumulativo su tutti i punti chiede
-comunque una normalizzazione: vedi plots.py
+    n_colonne = n_architetture x n_range x n_velocità
 
-Perchè le missioni non sono le stesse per tutti i sistemi
-----------------------------------------------------------
-Perchè i domini di fattibilità non lo sono. La batteria non converge
-oltre poche decine di miglia, e a 450 kt con fan non converge quasi
-mai: chiederle l'intensity a 1500 nmi produce una colonna di soli NaN,
-cioè zero effetti elementari e nessuna informazione. Ogni sistema
-riceve perciò le missioni della tassonomia dell'analisi di sensibilità locale 
-(very short / short a bassa e alta velocità / medium / long), ma troncate al suo 
-dominio di fattibilità, più un punto sul propulsore "sbagliato" dove ha senso
-(la combustione a elica, il fuel cell con fan) per vedere se il ranking
-dei fattori cambia col propulsore.
+Architettura = (sistema propulsivo, propulsore), quindi 4 x 2 = 8. Le
+colonne condividono il campione theta: tech, wtt, sizer e sistemi si
+costruiscono una volta per riga e si riusano su tutte le colonne.
+
+Il costo e come contenerlo
+--------------------------
+Le righe sono N*(g+2) (g = fattori selezionati + others), le colonne
+qualche centinaio. Tre accorgimenti:
+
+  1. prescreen_outputs: un campione pilota piccolo scarta in anticipo
+     le colonne quasi sempre infattibili (la batteria a 3000 nmi). Sono
+     le più care, perché il sizing non converge e itera fino al limite
+  2. evaluate_outputs(n_jobs=...): le righe sono indipendenti, si
+     dividono fra processi
+  3. la cache su disco nello script: le figure si rifanno senza
+     rivalutare il modello
 
 I NaN
 -----
-Una configurazione infattibile da NaN, e i NaN non mancano a caso:
-mancano dove i parametri sono sfavorevoli. Non si scartano e non si
-riempiono, restano NaN e diventano passi non calcolabili negli effetti
-elementari (colonna n_ee di morris_indices). Prima di leggere gli
-indici si guarda sempre nan_report: sopra il 20-30% di NaN la colonna
-dice più sulla fattibilità che sulla sensibilità, e il punto
-operativo va spostato più corto o più lento.
+Una configurazione infattibile dà NaN, e i NaN non mancano a caso:
+mancano dove i parametri sono sfavorevoli. Non si riempiono: le
+colonne con più del nan_tol di NaN vengono marcate non fattibili
+(sobol.py) e nelle mappe compaiono come zona tratteggiata.
+
+MISSION_LIBRARY e REPRESENTATIVE_MISSIONS restano per compatibilità
+(e per confrontare con l'analisi locale), ma l'analisi globale ora
+lavora sulla griglia.
 """
+from concurrent.futures import ProcessPoolExecutor
 from dataclasses import dataclass
 from typing import Optional
 
@@ -56,22 +57,45 @@ from ..model.well_to_tank import build_energy_carriers
 from ..uncertainty.propagation import theta_row_to_tech_wtt
 
 __all__ = [
+    "SYSTEMS",
+    "PROPULSORS",
+    "BEST_SYSTEM",
     "IntensityAt",
     "MISSION_LIBRARY",
     "REPRESENTATIVE_MISSIONS",
-    "default_outputs",
+    "architecture_label",
+    "grid_outputs",
     "outputs_from_missions",
+    "default_outputs",
     "outputs_table",
     "evaluate_outputs",
+    "prescreen_outputs",
+    "append_best_system",
     "nan_report",
 ]
 
+# i sistemi propulsivi del modello (i nomi di build_default_systems)
+SYSTEMS = [
+    "Battery-electric",
+    "Hydrogen fuel cell",
+    "Hydrogen combustion",
+    "e-SAF combustion",
+]
+PROPULSORS = ["propeller", "fan"]
+
+# nome della pseudo-architettura "il migliore fra i candidati" (vedi
+# append_best_system)
+BEST_SYSTEM = "Best system"
+
+
+def architecture_label(system_name: str, propulsor: str) -> str:
+    return f"{system_name} ({propulsor})"
+
 
 # ---------------------------------------------------------------------
-# La libreria delle missioni
+# Libreria delle missioni dell'analisi locale (compatibilità)
 # ---------------------------------------------------------------------
 MISSION_LIBRARY = {
-    # --- elica ---
     "battery_very_short_low_speed": Mission(range_nmi=10.0,   cruise_speed_kt=200.0, propulsor="propeller"),
     "battery_very_short":           Mission(range_nmi=10.0,   cruise_speed_kt=250.0, propulsor="propeller"),
     "battery_short":                Mission(range_nmi=20.0,   cruise_speed_kt=250.0, propulsor="propeller"),
@@ -79,7 +103,6 @@ MISSION_LIBRARY = {
     "short_high_speed_propeller":   Mission(range_nmi=100.0,  cruise_speed_kt=300.0, propulsor="propeller"),
     "medium_propeller":             Mission(range_nmi=1500.0, cruise_speed_kt=250.0, propulsor="propeller"),
     "long_propeller":               Mission(range_nmi=6000.0, cruise_speed_kt=250.0, propulsor="propeller"),
-    # --- fan ---
     "battery_very_short_fan":       Mission(range_nmi=5.0,    cruise_speed_kt=300.0, propulsor="fan"),
     "short_low_speed_fan":          Mission(range_nmi=100.0,  cruise_speed_kt=350.0, propulsor="fan"),
     "short_high_speed_fan":         Mission(range_nmi=100.0,  cruise_speed_kt=450.0, propulsor="fan"),
@@ -87,54 +110,22 @@ MISSION_LIBRARY = {
     "long_fan":                     Mission(range_nmi=6000.0, cruise_speed_kt=450.0, propulsor="fan"),
 }
 
-# ---------------------------------------------------------------------
-# Quali missioni a quale sistema
-#
-#    Questa è la tabella da modificare per cambiare i punti
-#    dell'analisi: aggiungere una voce qui aggiunge una colonna di Y e
-#    quindi un grafico a nube. Ogni scelta è stata verificata sulla
-#    frazione di NaN su un campione della PDF, non sul solo valore
-#    nominale.
-# ---------------------------------------------------------------------
 REPRESENTATIVE_MISSIONS = {
-    # dominio minuscolo: tre punti tutti dentro l'autonomia, uno per
-    # isolare l'effetto della velocita' e uno per quello del range
-    "Battery-electric": [
-        "battery_very_short_low_speed",
-        "battery_very_short",
-        "battery_short",
-        "battery_very_short_fan",
-    ],
-    # a elica copre tutto il piano; il punto con fan serve a vedere se
-    # il ranking cambia quando cambia il propulsore, ed è corto apposta
-    # (con fan a lungo raggio il fuel cell non converge in un quinto dei
-    # campioni, e la colonna diventa piu' un test di fattibilita' che di
-    # sensibilita')
-    "Hydrogen fuel cell": [
-        "short_low_speed_propeller",
-        "short_high_speed_propeller",
-        "medium_propeller",
-        "long_propeller",
-        "short_low_speed_fan",
-        "short_high_speed_fan",
-    ],
-    # il sistema che domina la mappa: tassonomia completa con fan, più
-    # un punto a elica
-    "Hydrogen combustion": [
-        "short_low_speed_fan",
-        "short_high_speed_fan",
-        "medium_fan",
-        "long_fan",
-        "medium_propeller",
-    ],
-    "e-SAF combustion": [
-        "short_low_speed_fan",
-        "medium_fan",
-        "long_fan",
-        "medium_propeller",
-    ],
+    "Battery-electric": ["battery_very_short_low_speed", "battery_very_short",
+                         "battery_short", "battery_very_short_fan"],
+    "Hydrogen fuel cell": ["short_low_speed_propeller", "short_high_speed_propeller",
+                           "medium_propeller", "long_propeller",
+                           "short_low_speed_fan", "short_high_speed_fan"],
+    "Hydrogen combustion": ["short_low_speed_fan", "short_high_speed_fan",
+                            "medium_fan", "long_fan", "medium_propeller"],
+    "e-SAF combustion": ["short_low_speed_fan", "medium_fan", "long_fan",
+                         "medium_propeller"],
 }
 
+
+# ---------------------------------------------------------------------
+# Output
+# ---------------------------------------------------------------------
 
 def _intensity(system_name, mission, systems, tech, sizer) -> float:
     """Intensity di un sistema, NaN se non fattibile o se il modello
@@ -148,13 +139,8 @@ def _intensity(system_name, mission, systems, tech, sizer) -> float:
 
 @dataclass(frozen=True)
 class IntensityAt:
-    """Renewable electricity intensity [MJ/(pax*nmi)] di un sistema in
-    una missione.
-
-    mission_label è l'etichetta della missione in MISSION_LIBRARY,
-    tenuta per poter raggruppare e titolare i grafici: non entra nel
-    calcolo.
-    """
+    """Renewable electricity intensity [MJ/(pax*nmi)] di un'architettura
+    (sistema + propulsore) in un punto (range, velocità)"""
     system_name: str
     range_nmi: float
     speed_kt: float
@@ -167,6 +153,10 @@ class IntensityAt:
                 f"{self.speed_kt:g}kt_{self.propulsor}")
 
     @property
+    def architecture(self) -> str:
+        return architecture_label(self.system_name, self.propulsor)
+
+    @property
     def mission(self) -> Mission:
         return Mission(range_nmi=self.range_nmi, cruise_speed_kt=self.speed_kt,
                        propulsor=self.propulsor)
@@ -175,26 +165,43 @@ class IntensityAt:
         return _intensity(self.system_name, self.mission, systems, tech, sizer)
 
 
+def _round_sig(x, sig: int = 3):
+    x = np.asarray(x, dtype=float)
+    with np.errstate(divide="ignore"):
+        mag = np.floor(np.log10(np.abs(x)))
+    return np.round(x / 10 ** (mag - sig + 1)) * 10 ** (mag - sig + 1)
+
+
+def grid_outputs(ranges_nmi, speeds_kt, systems: Optional[list] = None,
+                 propulsors: Optional[list] = None) -> list:
+    """Un IntensityAt per ogni (sistema, propulsore, range, velocità).
+
+    I range vengono arrotondati a 3 cifre significative (nomi di colonna
+    leggibili, nessun effetto pratico sulla mappa)"""
+    systems = systems or SYSTEMS
+    propulsors = propulsors or PROPULSORS
+    ranges_nmi = _round_sig(ranges_nmi)
+    out = []
+    for s in systems:
+        for p in propulsors:
+            for v in speeds_kt:
+                for r in ranges_nmi:
+                    out.append(IntensityAt(system_name=s, range_nmi=float(r),
+                                           speed_kt=float(v), propulsor=p,
+                                           mission_label="grid"))
+    return out
+
+
 def outputs_from_missions(assignment: Optional[dict] = None,
                           library: Optional[dict] = None) -> list:
-    """Costruisce la lista di IntensityAt da una tabella
-    {nome_sistema: [etichette di missione]}.
-
-    Serve a definire un insieme di punti diverso da quello di default
-    senza riscrivere gli IntensityAt a mano:
-
-        outputs = outputs_from_missions({"Hydrogen combustion":
-                                         ["medium_fan", "long_fan"]})
-    """
+    """IntensityAt da una tabella {sistema: [etichette di missione]}"""
     assignment = assignment or REPRESENTATIVE_MISSIONS
     library = library or MISSION_LIBRARY
-
     outputs = []
     for system_name, labels in assignment.items():
         for label in labels:
             if label not in library:
-                raise ValueError(f"Missione sconosciuta: {label!r}. Le missioni "
-                                 f"disponibili sono {list(library)}")
+                raise ValueError(f"Missione sconosciuta: {label!r}")
             m = library[label]
             outputs.append(IntensityAt(system_name=system_name, range_nmi=m.range_nmi,
                                        speed_kt=m.cruise_speed_kt, propulsor=m.propulsor,
@@ -203,38 +210,30 @@ def outputs_from_missions(assignment: Optional[dict] = None,
 
 
 def default_outputs() -> list:
-    """L'insieme di partenza: la intensity di ciascun sistema nelle sue
-    missioni rappresentative (REPRESENTATIVE_MISSIONS)"""
+    """Le missioni rappresentative dell'analisi locale (compatibilità)"""
     return outputs_from_missions()
 
 
-def outputs_table(outputs: Optional[list] = None) -> pd.DataFrame:
-    """I punti scelti, in tabella. Da stampare in tesi accanto alla
-    tabella delle condizioni operative: si vede a colpo
-    d'occhio quali punti sono in comune fra analisi locale e globale, ed
-    è su quelli che il confronto fra elasticità e mu* ha senso"""
-    outputs = outputs or default_outputs()
+def outputs_table(outputs: list) -> pd.DataFrame:
+    """I metadati degli output: sono le colonne su cui si raggruppa per
+    aggregare (sistema, propulsore, architettura, range, velocità)"""
     return pd.DataFrame([{"output": o.name, "sistema": o.system_name,
-                          "missione": o.mission_label, "range_nmi": o.range_nmi,
-                          "velocita_kt": o.speed_kt, "propulsore": o.propulsor}
+                          "propulsore": o.propulsor, "architettura": o.architecture,
+                          "range_nmi": o.range_nmi, "velocita_kt": o.speed_kt,
+                          "missione": o.mission_label}
                          for o in outputs])
 
 
-def evaluate_outputs(theta: pd.DataFrame, outputs: Optional[list] = None,
-                     verbose: bool = False, progress_every: int = 200) -> pd.DataFrame:
-    """Valuta tutti gli output su tutte le righe di theta.
+# ---------------------------------------------------------------------
+# Valutazione
+# ---------------------------------------------------------------------
 
-    Ritorna un DataFrame (n_campioni x n_output) con i nomi degli output
-    come colonne. tech, wtt, sizer e la lista dei sistemi si costruiscono
-    una volta per riga e si riusano per tutti gli output: è la ragione
-    per cui conviene valutarli insieme invece che uno alla volta
-    """
-    outputs = outputs or default_outputs()
-    names = [o.name for o in outputs]
+def _evaluate_serial(theta: pd.DataFrame, outputs: list, verbose: bool = False,
+                     progress_every: int = 200) -> np.ndarray:
     values = np.full((len(theta), len(outputs)), np.nan)
-
-    for i in range(len(theta)):
-        tech, wtt = theta_row_to_tech_wtt(theta.iloc[i].to_dict())
+    records = theta.to_dict("records")
+    for i, row in enumerate(records):
+        tech, wtt = theta_row_to_tech_wtt(row)
         sizer = AircraftSizer(tech)
         systems = build_default_systems(build_energy_carriers(wtt))
         for j, out in enumerate(outputs):
@@ -243,15 +242,105 @@ def evaluate_outputs(theta: pd.DataFrame, outputs: Optional[list] = None,
             except Exception:
                 values[i, j] = np.nan
         if verbose and (i + 1) % progress_every == 0:
-            print(f"    {i + 1}/{len(theta)} valutazioni")
+            print(f"    {i + 1}/{len(theta)} righe")
+    return values
 
-    return pd.DataFrame(values, columns=names)
+
+def _evaluate_chunk(args) -> np.ndarray:
+    theta, outputs = args
+    return _evaluate_serial(theta, outputs)
 
 
-def nan_report(Y: pd.DataFrame) -> pd.DataFrame:
-    """Frazione di NaN per output. Da guardare prima degli indici: un
-    output con molti NaN non è analizzabile, e il suo punto operativo va
-    spostato dentro il dominio di fattibilità del sistema"""
-    return (Y.isna().mean().rename("frazione_nan").to_frame()
-            .assign(n_validi=Y.notna().sum())
-            .sort_values("frazione_nan", ascending=False))
+def evaluate_outputs(theta: pd.DataFrame, outputs: list, n_jobs: int = 1,
+                     chunk_size: int = 100, verbose: bool = False,
+                     progress_every: int = 500) -> pd.DataFrame:
+    """Valuta tutti gli output su tutte le righe di theta.
+
+    n_jobs > 1 divide le righe fra processi (blocchi di chunk_size
+    righe). Su Windows funziona solo se lo script chiamante ha la guardia
+    if __name__ == "__main__" (lo script di analisi ce l'ha); in un
+    notebook conviene n_jobs=1
+    """
+    names = [o.name for o in outputs]
+    if n_jobs is None or n_jobs <= 1 or len(theta) <= chunk_size:
+        values = _evaluate_serial(theta, outputs, verbose=verbose,
+                                  progress_every=progress_every)
+        return pd.DataFrame(values, columns=names)
+
+    chunks = [theta.iloc[i:i + chunk_size] for i in range(0, len(theta), chunk_size)]
+    parts, done = [], 0
+    with ProcessPoolExecutor(max_workers=n_jobs) as ex:
+        for part in ex.map(_evaluate_chunk, [(c, outputs) for c in chunks]):
+            parts.append(part)
+            done += len(part)
+            if verbose and (done // chunk_size) % max(1, progress_every // chunk_size) == 0:
+                print(f"    {done}/{len(theta)} righe")
+    return pd.DataFrame(np.vstack(parts), columns=names)
+
+
+def prescreen_outputs(space, outputs: list, n_pilot: int = 64, max_nan: float = 0.5,
+                      seed: int = 123, n_jobs: int = 1) -> tuple:
+    """Campione pilota dalle PDF: scarta le colonne con più di max_nan
+    di NaN. Ritorna (tenuti, scartati, frazione_nan_pilota).
+
+    La soglia è larga apposta (0.5): il pilota deve solo evitare di
+    pagare colonne sicuramente infattibili, la decisione vera la prende
+    nan_tol sul campione completo
+    """
+    from scipy.stats import qmc
+    U = qmc.Sobol(d=space.k, scramble=True, seed=seed).random(n_pilot)
+    Y = evaluate_outputs(space.theta_from_unit(U), outputs, n_jobs=n_jobs,
+                         chunk_size=max(8, n_pilot // max(1, n_jobs)))
+    frac = Y.isna().mean()
+    keep = [o for o in outputs if frac[o.name] <= max_nan]
+    drop = [o for o in outputs if frac[o.name] > max_nan]
+    return keep, drop, frac
+
+
+def append_best_system(Y: pd.DataFrame, meta: pd.DataFrame,
+                       candidates: Optional[list] = None) -> tuple:
+    """Aggiunge, per ogni nodo (range, velocità), la colonna
+    E_best = min sulle architetture candidate dell'intensity.
+
+    È l'intensity dell'architettura migliore IN QUEL CAMPIONE: un output
+    scalare vero, i cui indici di Sobol dicono quale parametro governa
+    l'incertezza della soluzione migliore, tenendo conto anche del fatto
+    che al variare dei parametri il migliore può cambiare. Le
+    architetture infattibili in un campione (NaN) non sono candidate in
+    quel campione. Costa zero: si ricava dalle colonne già calcolate.
+
+    candidates: lista di etichette di architettura; None = tutte
+    """
+    m = meta[meta["sistema"] != BEST_SYSTEM]
+    if candidates is not None:
+        m = m[m["architettura"].isin(candidates)]
+    new_cols, new_meta = {}, []
+    for (r, v), cell in m.groupby(["range_nmi", "velocita_kt"], sort=False):
+        vals = Y[cell["output"].tolist()].to_numpy()
+        with np.errstate(invalid="ignore"):
+            best = np.where(np.isfinite(vals).any(axis=1),
+                            np.nanmin(np.where(np.isfinite(vals), vals, np.inf), axis=1),
+                            np.nan)
+        name = f"E[{BEST_SYSTEM}]@{r:g}nmi_{v:g}kt"
+        new_cols[name] = best
+        new_meta.append({"output": name, "sistema": BEST_SYSTEM, "propulsore": "-",
+                         "architettura": BEST_SYSTEM, "range_nmi": r,
+                         "velocita_kt": v, "missione": "grid"})
+    Y2 = pd.concat([Y, pd.DataFrame(new_cols, index=Y.index)], axis=1)
+    meta2 = pd.concat([meta, pd.DataFrame(new_meta)], ignore_index=True)
+    return Y2, meta2
+
+
+def nan_report(Y: pd.DataFrame, meta: Optional[pd.DataFrame] = None,
+               by: str = "architettura") -> pd.DataFrame:
+    """Frazione di NaN. Con meta, riassunta per architettura (con
+    centinaia di colonne la tabella per colonna non si legge)"""
+    frac = Y.isna().mean()
+    if meta is None:
+        return frac.rename("frazione_nan").to_frame().sort_values("frazione_nan")
+    df = meta.set_index("output").reindex(frac.index)
+    df["frazione_nan"] = frac
+    return (df.groupby(by)["frazione_nan"]
+            .agg(punti="size", mediana="median",
+                 sopra_10pc=lambda s: int((s > 0.10).sum()))
+            .sort_values("mediana"))

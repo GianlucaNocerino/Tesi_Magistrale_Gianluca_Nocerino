@@ -1,84 +1,83 @@
 """
-Sensitività globale.
+Sensibilità globale (indici di Sobol) della renewable electricity
+intensity rispetto ai parametri tecnologici incerti.
 
-La sequenza è quella della guideline: screening locale -> calibrazione
--> PDF -> sensibilità globale. Qui dentro, due passi:
+Niente screening: i parametri da analizzare singolarmente li sceglie
+l'analista (SELECTED_FACTORS nello script). Tutti gli altri restano
+campionati dalle loro PDF e formano il gruppo "others", così la varianza
+al denominatore è quella vera e S_T[others] misura quanto pesa
+l'incertezza non tecnologica.
 
-  1. MORRIS (morris.py): screening a basso costo su tutti i fattori,
-     r*(k+1) valutazioni. Ordina i fattori per influenza e segnala
-     quali sono coinvolti in interazioni. Non quantifica.
-
-  2. SOBOL (sobol.py): indici di varianza sul sottoinsieme scelto a mano dopo
-     aver letto il Morris, con tutti gli altri fattori tenuti
-     campionati e raggruppati in un unico fattore "resto", così la
-     varianza totale resta quella vera e si può verificare che lo
-     screening non abbia buttato via niente.
-
-Lo spazio dei fattori (factors.py) non coincide con le 23 colonne di
-theta: si campionano i quantili dei parametri indipendenti e un fattore
-di gruppo per il blocco di calibrazione. Vedi il docstring di
-factors.py per il perchè.
-
-L'output è uno solo, la renewable electricity intensity, valutata su
-un insieme di missioni rappresentative per ciascun sistema propulsivo
-(outputs.py). I grafici a nube (mu*, sigma) con cui si filtrano i
-fattori, uno per punto operativo più quello cumulativo, stanno in
-morris.py accanto agli indici che disegnano
+Moduli:
+  factors.py      lo spazio dei fattori (quantili indipendenti + blocco
+                  di calibrazione)
+  outputs.py      la griglia range-velocità x architetture, la
+                  valutazione del modello, la pseudo-architettura E_best
+  sobol.py        disegno di Saltelli, indici con bootstrap condiviso
+  aggregation.py  come si aggregano indici di output diversi (media
+                  pesata con la varianza = indice generalizzato), mappe
+                  del parametro più influente
+  plots.py        barre aggregate, mappe, convergenza
 """
 from .factors import CALIBRATION_FACTOR, FactorSpace
-from .morris import (
-    aggregate_morris_cloud,
-    elementary_effects,
-    morris_cloud_table,
-    morris_indices,
-    morris_trajectories,
-    plot_aggregate_morris_cloud,
-    plot_all_morris_clouds,
-    plot_morris_cloud,
-    plot_morris_cloud_interactive,
-    ranking_table,
-    select_factors,
+from .outputs import (
+    BEST_SYSTEM,
+    MISSION_LIBRARY,
+    PROPULSORS,
+    REPRESENTATIVE_MISSIONS,
+    SYSTEMS,
+    IntensityAt,
+    append_best_system,
+    architecture_label,
+    default_outputs,
+    evaluate_outputs,
+    grid_outputs,
+    nan_report,
+    outputs_from_missions,
+    outputs_table,
+    prescreen_outputs,
 )
 from .sobol import (
     RESIDUAL_GROUP,
     SobolDesign,
-    compare_with_morris,
-    plot_all_sobol_bars,
-    plot_sobol_aggregate,
-    plot_sobol_bars,
-    plot_sobol_convergence,
-    screening_check,
-    sobol_convergence,
+    SobolField,
+    residual_report,
     sobol_design,
-    sobol_indices,
-    sobol_summary,
+    sobol_field,
     sobol_table,
     tail_report,
 )
-from .outputs import (
-    MISSION_LIBRARY,
-    REPRESENTATIVE_MISSIONS,
-    IntensityAt,
-    default_outputs,
-    evaluate_outputs,
-    nan_report,
-    outputs_from_missions,
-    outputs_table,
+from .aggregation import (
+    WEIGHT_SCHEMES,
+    aggregate_indices,
+    best_probability,
+    best_system_map,
+    define_groups,
+    influence_map,
+    sobol_convergence,
+)
+from .plots import (
+    ARCHITECTURE_COLORS,
+    FACTOR_COLORS,
+    FACTOR_LABELS,
+    factor_label,
+    plot_best_system_map,
+    plot_influence_map,
+    plot_sobol_aggregate,
+    plot_sobol_convergence,
 )
 
 __all__ = [
     "FactorSpace", "CALIBRATION_FACTOR",
-    "IntensityAt", "MISSION_LIBRARY", "REPRESENTATIVE_MISSIONS",
-    "outputs_from_missions", "outputs_table",
-    "default_outputs", "evaluate_outputs", "nan_report",
-    "morris_trajectories", "elementary_effects", "morris_indices",
-    "ranking_table",
-    "morris_cloud_table", "aggregate_morris_cloud", "select_factors",
-    "plot_morris_cloud", "plot_all_morris_clouds",
-    "plot_aggregate_morris_cloud", "plot_morris_cloud_interactive",
-    "RESIDUAL_GROUP", "SobolDesign", "sobol_design", "sobol_indices",
-    "sobol_summary", "screening_check", "sobol_table", "sobol_convergence",
-    "compare_with_morris", "tail_report",
-    "plot_sobol_bars", "plot_all_sobol_bars", "plot_sobol_aggregate",
+    "SYSTEMS", "PROPULSORS", "BEST_SYSTEM", "IntensityAt", "MISSION_LIBRARY",
+    "REPRESENTATIVE_MISSIONS", "architecture_label", "grid_outputs",
+    "outputs_from_missions", "default_outputs", "outputs_table", "evaluate_outputs",
+    "prescreen_outputs", "append_best_system", "nan_report",
+    "RESIDUAL_GROUP", "SobolDesign", "SobolField", "sobol_design", "sobol_field",
+    "tail_report", "residual_report", "sobol_table",
+    "WEIGHT_SCHEMES", "define_groups", "best_probability", "aggregate_indices",
+    "influence_map", "best_system_map", "sobol_convergence",
+    "FACTOR_LABELS", "FACTOR_COLORS", "ARCHITECTURE_COLORS", "factor_label",
+    "plot_sobol_aggregate", "plot_influence_map", "plot_best_system_map",
     "plot_sobol_convergence",
 ]

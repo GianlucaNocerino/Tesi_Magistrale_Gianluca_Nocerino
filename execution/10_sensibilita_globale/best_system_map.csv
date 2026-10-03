@@ -1,0 +1,1801 @@
+range_nmi,velocita_kt,fattibile,leader,P_best
+10.0,175.0,True,Battery-electric (propeller),0.9970703125
+11.700000000000001,175.0,True,Battery-electric (propeller),0.99462890625
+13.700000000000001,175.0,True,Battery-electric (propeller),0.984375
+16.0,175.0,True,Battery-electric (propeller),0.966796875
+18.7,175.0,True,Battery-electric (propeller),0.94970703125
+21.900000000000002,175.0,True,Battery-electric (propeller),0.92138671875
+25.700000000000003,175.0,True,Battery-electric (propeller),0.87744140625
+30.0,175.0,True,Battery-electric (propeller),0.81396484375
+35.1,175.0,True,Battery-electric (propeller),0.72119140625
+41.1,175.0,True,Battery-electric (propeller),0.59130859375
+48.1,175.0,True,Hydrogen fuel cell (propeller),0.5830078125
+56.2,175.0,True,Hydrogen fuel cell (propeller),0.98046875
+65.8,175.0,True,Hydrogen fuel cell (propeller),0.97998046875
+77.0,175.0,True,Hydrogen fuel cell (propeller),0.97998046875
+90.10000000000001,175.0,True,Hydrogen fuel cell (propeller),0.97900390625
+105.0,175.0,True,Hydrogen fuel cell (propeller),0.97802734375
+123.0,175.0,True,Hydrogen fuel cell (propeller),0.9765625
+144.0,175.0,True,Hydrogen fuel cell (propeller),0.9755859375
+169.0,175.0,True,Hydrogen fuel cell (propeller),0.97412109375
+197.0,175.0,True,Hydrogen fuel cell (propeller),0.9736328125
+231.0,175.0,True,Hydrogen fuel cell (propeller),0.9697265625
+270.0,175.0,True,Hydrogen fuel cell (propeller),0.96826171875
+316.0,175.0,True,Hydrogen fuel cell (propeller),0.96630859375
+370.0,175.0,True,Hydrogen fuel cell (propeller),0.96044921875
+433.0,175.0,True,Hydrogen fuel cell (propeller),0.95654296875
+506.0,175.0,True,Hydrogen fuel cell (propeller),0.95166015625
+593.0,175.0,True,Hydrogen fuel cell (propeller),0.9423828125
+693.0,175.0,True,Hydrogen fuel cell (propeller),0.931640625
+811.0,175.0,True,Hydrogen fuel cell (propeller),0.92236328125
+949.0,175.0,True,Hydrogen fuel cell (propeller),0.90966796875
+1110.0,175.0,True,Hydrogen fuel cell (propeller),0.88818359375
+1300.0,175.0,True,Hydrogen fuel cell (propeller),0.859375
+1520.0,175.0,True,Hydrogen fuel cell (propeller),0.82373046875
+1780.0,175.0,True,Hydrogen fuel cell (propeller),0.78466796875
+2080.0,175.0,True,Hydrogen fuel cell (propeller),0.73779296875
+2430.0,175.0,True,Hydrogen fuel cell (propeller),0.689453125
+2850.0,175.0,True,Hydrogen fuel cell (propeller),0.6328125
+3330.0,175.0,True,Hydrogen fuel cell (propeller),0.5625
+3900.0,175.0,True,Hydrogen fuel cell (propeller),0.4990234375
+4560.0,175.0,True,Hydrogen fuel cell (propeller),0.42431640625
+5340.0,175.0,True,Hydrogen combustion (propeller),0.40966796875
+6240.0,175.0,True,Hydrogen combustion (propeller),0.40087890625
+7310.0,175.0,True,Hydrogen combustion (fan),0.400390625
+8550.0,175.0,True,Hydrogen combustion (fan),0.4951171875
+10000.0,175.0,True,Hydrogen combustion (fan),0.5712890625
+10.0,183.3,True,Battery-electric (propeller),0.99462890625
+11.700000000000001,183.3,True,Battery-electric (propeller),0.98876953125
+13.700000000000001,183.3,True,Battery-electric (propeller),0.974609375
+16.0,183.3,True,Battery-electric (propeller),0.95947265625
+18.7,183.3,True,Battery-electric (propeller),0.9384765625
+21.900000000000002,183.3,True,Battery-electric (propeller),0.91015625
+25.700000000000003,183.3,True,Battery-electric (propeller),0.85986328125
+30.0,183.3,True,Battery-electric (propeller),0.8017578125
+35.1,183.3,True,Battery-electric (propeller),0.6953125
+41.1,183.3,True,Battery-electric (propeller),0.5712890625
+48.1,183.3,True,Hydrogen fuel cell (propeller),0.58935546875
+56.2,183.3,True,Hydrogen fuel cell (propeller),0.970703125
+65.8,183.3,True,Hydrogen fuel cell (propeller),0.96923828125
+77.0,183.3,True,Hydrogen fuel cell (propeller),0.96923828125
+90.10000000000001,183.3,True,Hydrogen fuel cell (propeller),0.96630859375
+105.0,183.3,True,Hydrogen fuel cell (propeller),0.96435546875
+123.0,183.3,True,Hydrogen fuel cell (propeller),0.96142578125
+144.0,183.3,True,Hydrogen fuel cell (propeller),0.9599609375
+169.0,183.3,True,Hydrogen fuel cell (propeller),0.95751953125
+197.0,183.3,True,Hydrogen fuel cell (propeller),0.95263671875
+231.0,183.3,True,Hydrogen fuel cell (propeller),0.95166015625
+270.0,183.3,True,Hydrogen fuel cell (propeller),0.94775390625
+316.0,183.3,True,Hydrogen fuel cell (propeller),0.94287109375
+370.0,183.3,True,Hydrogen fuel cell (propeller),0.9365234375
+433.0,183.3,True,Hydrogen fuel cell (propeller),0.92822265625
+506.0,183.3,True,Hydrogen fuel cell (propeller),0.921875
+593.0,183.3,True,Hydrogen fuel cell (propeller),0.91015625
+693.0,183.3,True,Hydrogen fuel cell (propeller),0.90185546875
+811.0,183.3,True,Hydrogen fuel cell (propeller),0.88623046875
+949.0,183.3,True,Hydrogen fuel cell (propeller),0.86572265625
+1110.0,183.3,True,Hydrogen fuel cell (propeller),0.83447265625
+1300.0,183.3,True,Hydrogen fuel cell (propeller),0.8017578125
+1520.0,183.3,True,Hydrogen fuel cell (propeller),0.76953125
+1780.0,183.3,True,Hydrogen fuel cell (propeller),0.72705078125
+2080.0,183.3,True,Hydrogen fuel cell (propeller),0.681640625
+2430.0,183.3,True,Hydrogen fuel cell (propeller),0.6220703125
+2850.0,183.3,True,Hydrogen fuel cell (propeller),0.55859375
+3330.0,183.3,True,Hydrogen fuel cell (propeller),0.49853515625
+3900.0,183.3,True,Hydrogen fuel cell (propeller),0.4267578125
+4560.0,183.3,True,Hydrogen combustion (propeller),0.3583984375
+5340.0,183.3,True,Hydrogen combustion (fan),0.37744140625
+6240.0,183.3,True,Hydrogen combustion (fan),0.4755859375
+7310.0,183.3,True,Hydrogen combustion (fan),0.57861328125
+8550.0,183.3,True,Hydrogen combustion (fan),0.67138671875
+10000.0,183.3,True,Hydrogen combustion (fan),0.74267578125
+10.0,191.60000000000002,True,Battery-electric (propeller),0.98974609375
+11.700000000000001,191.60000000000002,True,Battery-electric (propeller),0.97802734375
+13.700000000000001,191.60000000000002,True,Battery-electric (propeller),0.96484375
+16.0,191.60000000000002,True,Battery-electric (propeller),0.94921875
+18.7,191.60000000000002,True,Battery-electric (propeller),0.92919921875
+21.900000000000002,191.60000000000002,True,Battery-electric (propeller),0.89453125
+25.700000000000003,191.60000000000002,True,Battery-electric (propeller),0.84423828125
+30.0,191.60000000000002,True,Battery-electric (propeller),0.78076171875
+35.1,191.60000000000002,True,Battery-electric (propeller),0.67431640625
+41.1,191.60000000000002,True,Battery-electric (propeller),0.544921875
+48.1,191.60000000000002,True,Hydrogen fuel cell (propeller),0.59228515625
+56.2,191.60000000000002,True,Hydrogen fuel cell (propeller),0.9453125
+65.8,191.60000000000002,True,Hydrogen fuel cell (propeller),0.9443359375
+77.0,191.60000000000002,True,Hydrogen fuel cell (propeller),0.94384765625
+90.10000000000001,191.60000000000002,True,Hydrogen fuel cell (propeller),0.9423828125
+105.0,191.60000000000002,True,Hydrogen fuel cell (propeller),0.939453125
+123.0,191.60000000000002,True,Hydrogen fuel cell (propeller),0.93603515625
+144.0,191.60000000000002,True,Hydrogen fuel cell (propeller),0.93359375
+169.0,191.60000000000002,True,Hydrogen fuel cell (propeller),0.93017578125
+197.0,191.60000000000002,True,Hydrogen fuel cell (propeller),0.92724609375
+231.0,191.60000000000002,True,Hydrogen fuel cell (propeller),0.9208984375
+270.0,191.60000000000002,True,Hydrogen fuel cell (propeller),0.91650390625
+316.0,191.60000000000002,True,Hydrogen fuel cell (propeller),0.9111328125
+370.0,191.60000000000002,True,Hydrogen fuel cell (propeller),0.900390625
+433.0,191.60000000000002,True,Hydrogen fuel cell (propeller),0.89501953125
+506.0,191.60000000000002,True,Hydrogen fuel cell (propeller),0.88427734375
+593.0,191.60000000000002,True,Hydrogen fuel cell (propeller),0.87158203125
+693.0,191.60000000000002,True,Hydrogen fuel cell (propeller),0.857421875
+811.0,191.60000000000002,True,Hydrogen fuel cell (propeller),0.83447265625
+949.0,191.60000000000002,True,Hydrogen fuel cell (propeller),0.81201171875
+1110.0,191.60000000000002,True,Hydrogen fuel cell (propeller),0.77978515625
+1300.0,191.60000000000002,True,Hydrogen fuel cell (propeller),0.7470703125
+1520.0,191.60000000000002,True,Hydrogen fuel cell (propeller),0.7080078125
+1780.0,191.60000000000002,True,Hydrogen fuel cell (propeller),0.65966796875
+2080.0,191.60000000000002,True,Hydrogen fuel cell (propeller),0.60400390625
+2430.0,191.60000000000002,True,Hydrogen fuel cell (propeller),0.5478515625
+2850.0,191.60000000000002,True,Hydrogen fuel cell (propeller),0.48828125
+3330.0,191.60000000000002,True,Hydrogen fuel cell (propeller),0.41943359375
+3900.0,191.60000000000002,True,Hydrogen combustion (fan),0.349609375
+4560.0,191.60000000000002,True,Hydrogen combustion (fan),0.443359375
+5340.0,191.60000000000002,True,Hydrogen combustion (fan),0.55224609375
+6240.0,191.60000000000002,True,Hydrogen combustion (fan),0.65478515625
+7310.0,191.60000000000002,True,Hydrogen combustion (fan),0.74609375
+8550.0,191.60000000000002,True,Hydrogen combustion (fan),0.81640625
+10000.0,191.60000000000002,True,Hydrogen combustion (fan),0.8740234375
+10.0,199.90000000000003,True,Battery-electric (propeller),0.978515625
+11.700000000000001,199.90000000000003,True,Battery-electric (propeller),0.96630859375
+13.700000000000001,199.90000000000003,True,Battery-electric (propeller),0.95556640625
+16.0,199.90000000000003,True,Battery-electric (propeller),0.9375
+18.7,199.90000000000003,True,Battery-electric (propeller),0.91455078125
+21.900000000000002,199.90000000000003,True,Battery-electric (propeller),0.8779296875
+25.700000000000003,199.90000000000003,True,Battery-electric (propeller),0.82568359375
+30.0,199.90000000000003,True,Battery-electric (propeller),0.755859375
+35.1,199.90000000000003,True,Battery-electric (propeller),0.64892578125
+41.1,199.90000000000003,True,Battery-electric (propeller),0.51416015625
+48.1,199.90000000000003,True,Hydrogen fuel cell (propeller),0.58935546875
+56.2,199.90000000000003,True,Hydrogen fuel cell (propeller),0.9189453125
+65.8,199.90000000000003,True,Hydrogen fuel cell (propeller),0.91748046875
+77.0,199.90000000000003,True,Hydrogen fuel cell (propeller),0.91748046875
+90.10000000000001,199.90000000000003,True,Hydrogen fuel cell (propeller),0.91455078125
+105.0,199.90000000000003,True,Hydrogen fuel cell (propeller),0.90869140625
+123.0,199.90000000000003,True,Hydrogen fuel cell (propeller),0.90625
+144.0,199.90000000000003,True,Hydrogen fuel cell (propeller),0.9013671875
+169.0,199.90000000000003,True,Hydrogen fuel cell (propeller),0.896484375
+197.0,199.90000000000003,True,Hydrogen fuel cell (propeller),0.890625
+231.0,199.90000000000003,True,Hydrogen fuel cell (propeller),0.884765625
+270.0,199.90000000000003,True,Hydrogen fuel cell (propeller),0.87744140625
+316.0,199.90000000000003,True,Hydrogen fuel cell (propeller),0.86865234375
+370.0,199.90000000000003,True,Hydrogen fuel cell (propeller),0.85986328125
+433.0,199.90000000000003,True,Hydrogen fuel cell (propeller),0.84814453125
+506.0,199.90000000000003,True,Hydrogen fuel cell (propeller),0.833984375
+593.0,199.90000000000003,True,Hydrogen fuel cell (propeller),0.818359375
+693.0,199.90000000000003,True,Hydrogen fuel cell (propeller),0.7978515625
+811.0,199.90000000000003,True,Hydrogen fuel cell (propeller),0.77587890625
+949.0,199.90000000000003,True,Hydrogen fuel cell (propeller),0.7490234375
+1110.0,199.90000000000003,True,Hydrogen fuel cell (propeller),0.7216796875
+1300.0,199.90000000000003,True,Hydrogen fuel cell (propeller),0.6787109375
+1520.0,199.90000000000003,True,Hydrogen fuel cell (propeller),0.64208984375
+1780.0,199.90000000000003,True,Hydrogen fuel cell (propeller),0.58544921875
+2080.0,199.90000000000003,True,Hydrogen fuel cell (propeller),0.5341796875
+2430.0,199.90000000000003,True,Hydrogen fuel cell (propeller),0.47216796875
+2850.0,199.90000000000003,True,Hydrogen fuel cell (propeller),0.3955078125
+3330.0,199.90000000000003,True,Hydrogen combustion (fan),0.41064453125
+3900.0,199.90000000000003,True,Hydrogen combustion (fan),0.52001953125
+4560.0,199.90000000000003,True,Hydrogen combustion (fan),0.623046875
+5340.0,199.90000000000003,True,Hydrogen combustion (fan),0.72509765625
+6240.0,199.90000000000003,True,Hydrogen combustion (fan),0.8046875
+7310.0,199.90000000000003,True,Hydrogen combustion (fan),0.8681640625
+8550.0,199.90000000000003,True,Hydrogen combustion (fan),0.9091796875
+10000.0,199.90000000000003,True,Hydrogen combustion (fan),0.943359375
+10.0,208.20000000000005,True,Battery-electric (propeller),0.96630859375
+11.700000000000001,208.20000000000005,True,Battery-electric (propeller),0.95849609375
+13.700000000000001,208.20000000000005,True,Battery-electric (propeller),0.94189453125
+16.0,208.20000000000005,True,Battery-electric (propeller),0.9248046875
+18.7,208.20000000000005,True,Battery-electric (propeller),0.8974609375
+21.900000000000002,208.20000000000005,True,Battery-electric (propeller),0.8564453125
+25.700000000000003,208.20000000000005,True,Battery-electric (propeller),0.8046875
+30.0,208.20000000000005,True,Battery-electric (propeller),0.732421875
+35.1,208.20000000000005,True,Battery-electric (propeller),0.623046875
+41.1,208.20000000000005,True,Battery-electric (propeller),0.484375
+48.1,208.20000000000005,True,Hydrogen fuel cell (propeller),0.8828125
+56.2,208.20000000000005,True,Hydrogen fuel cell (propeller),0.8798828125
+65.8,208.20000000000005,True,Hydrogen fuel cell (propeller),0.87841796875
+77.0,208.20000000000005,True,Hydrogen fuel cell (propeller),0.87548828125
+90.10000000000001,208.20000000000005,True,Hydrogen fuel cell (propeller),0.87060546875
+105.0,208.20000000000005,True,Hydrogen fuel cell (propeller),0.8662109375
+123.0,208.20000000000005,True,Hydrogen fuel cell (propeller),0.8603515625
+144.0,208.20000000000005,True,Hydrogen fuel cell (propeller),0.85498046875
+169.0,208.20000000000005,True,Hydrogen fuel cell (propeller),0.84814453125
+197.0,208.20000000000005,True,Hydrogen fuel cell (propeller),0.84375
+231.0,208.20000000000005,True,Hydrogen fuel cell (propeller),0.833984375
+270.0,208.20000000000005,True,Hydrogen fuel cell (propeller),0.8271484375
+316.0,208.20000000000005,True,Hydrogen fuel cell (propeller),0.81494140625
+370.0,208.20000000000005,True,Hydrogen fuel cell (propeller),0.80224609375
+433.0,208.20000000000005,True,Hydrogen fuel cell (propeller),0.79052734375
+506.0,208.20000000000005,True,Hydrogen fuel cell (propeller),0.77490234375
+593.0,208.20000000000005,True,Hydrogen fuel cell (propeller),0.7548828125
+693.0,208.20000000000005,True,Hydrogen fuel cell (propeller),0.734375
+811.0,208.20000000000005,True,Hydrogen fuel cell (propeller),0.712890625
+949.0,208.20000000000005,True,Hydrogen fuel cell (propeller),0.68408203125
+1110.0,208.20000000000005,True,Hydrogen fuel cell (propeller),0.65087890625
+1300.0,208.20000000000005,True,Hydrogen fuel cell (propeller),0.60693359375
+1520.0,208.20000000000005,True,Hydrogen fuel cell (propeller),0.5625
+1780.0,208.20000000000005,True,Hydrogen fuel cell (propeller),0.5126953125
+2080.0,208.20000000000005,True,Hydrogen fuel cell (propeller),0.44482421875
+2430.0,208.20000000000005,True,Hydrogen fuel cell (propeller),0.3779296875
+2850.0,208.20000000000005,True,Hydrogen combustion (fan),0.4775390625
+3330.0,208.20000000000005,True,Hydrogen combustion (fan),0.58740234375
+3900.0,208.20000000000005,True,Hydrogen combustion (fan),0.68896484375
+4560.0,208.20000000000005,True,Hydrogen combustion (fan),0.7744140625
+5340.0,208.20000000000005,True,Hydrogen combustion (fan),0.84912109375
+6240.0,208.20000000000005,True,Hydrogen combustion (fan),0.90185546875
+7310.0,208.20000000000005,True,Hydrogen combustion (fan),0.93505859375
+8550.0,208.20000000000005,True,Hydrogen combustion (fan),0.96533203125
+10000.0,208.20000000000005,True,Hydrogen combustion (fan),0.97998046875
+10.0,216.50000000000006,True,Battery-electric (propeller),0.95654296875
+11.700000000000001,216.50000000000006,True,Battery-electric (propeller),0.94482421875
+13.700000000000001,216.50000000000006,True,Battery-electric (propeller),0.9287109375
+16.0,216.50000000000006,True,Battery-electric (propeller),0.9072265625
+18.7,216.50000000000006,True,Battery-electric (propeller),0.87548828125
+21.900000000000002,216.50000000000006,True,Battery-electric (propeller),0.8349609375
+25.700000000000003,216.50000000000006,True,Battery-electric (propeller),0.77734375
+30.0,216.50000000000006,True,Battery-electric (propeller),0.6953125
+35.1,216.50000000000006,True,Battery-electric (propeller),0.59814453125
+41.1,216.50000000000006,True,Battery-electric (propeller),0.45166015625
+48.1,216.50000000000006,True,Hydrogen fuel cell (propeller),0.826171875
+56.2,216.50000000000006,True,Hydrogen fuel cell (propeller),0.8251953125
+65.8,216.50000000000006,True,Hydrogen fuel cell (propeller),0.8232421875
+77.0,216.50000000000006,True,Hydrogen fuel cell (propeller),0.82080078125
+90.10000000000001,216.50000000000006,True,Hydrogen fuel cell (propeller),0.818359375
+105.0,216.50000000000006,True,Hydrogen fuel cell (propeller),0.8125
+123.0,216.50000000000006,True,Hydrogen fuel cell (propeller),0.80712890625
+144.0,216.50000000000006,True,Hydrogen fuel cell (propeller),0.79931640625
+169.0,216.50000000000006,True,Hydrogen fuel cell (propeller),0.7919921875
+197.0,216.50000000000006,True,Hydrogen fuel cell (propeller),0.78564453125
+231.0,216.50000000000006,True,Hydrogen fuel cell (propeller),0.77783203125
+270.0,216.50000000000006,True,Hydrogen fuel cell (propeller),0.77001953125
+316.0,216.50000000000006,True,Hydrogen fuel cell (propeller),0.75390625
+370.0,216.50000000000006,True,Hydrogen fuel cell (propeller),0.73681640625
+433.0,216.50000000000006,True,Hydrogen fuel cell (propeller),0.72314453125
+506.0,216.50000000000006,True,Hydrogen fuel cell (propeller),0.70361328125
+593.0,216.50000000000006,True,Hydrogen fuel cell (propeller),0.685546875
+693.0,216.50000000000006,True,Hydrogen fuel cell (propeller),0.669921875
+811.0,216.50000000000006,True,Hydrogen fuel cell (propeller),0.64453125
+949.0,216.50000000000006,True,Hydrogen fuel cell (propeller),0.609375
+1110.0,216.50000000000006,True,Hydrogen fuel cell (propeller),0.572265625
+1300.0,216.50000000000006,True,Hydrogen fuel cell (propeller),0.52734375
+1520.0,216.50000000000006,True,Hydrogen fuel cell (propeller),0.47314453125
+1780.0,216.50000000000006,True,Hydrogen fuel cell (propeller),0.416015625
+2080.0,216.50000000000006,True,Hydrogen combustion (fan),0.451171875
+2430.0,216.50000000000006,True,Hydrogen combustion (fan),0.5556640625
+2850.0,216.50000000000006,True,Hydrogen combustion (fan),0.65771484375
+3330.0,216.50000000000006,True,Hydrogen combustion (fan),0.74267578125
+3900.0,216.50000000000006,True,Hydrogen combustion (fan),0.82080078125
+4560.0,216.50000000000006,True,Hydrogen combustion (fan),0.88232421875
+5340.0,216.50000000000006,True,Hydrogen combustion (fan),0.92041015625
+6240.0,216.50000000000006,True,Hydrogen combustion (fan),0.95458984375
+7310.0,216.50000000000006,True,Hydrogen combustion (fan),0.97412109375
+8550.0,216.50000000000006,True,Hydrogen combustion (fan),0.9853515625
+10000.0,216.50000000000006,True,Hydrogen combustion (fan),0.99169921875
+10.0,224.80000000000007,True,Battery-electric (propeller),0.94287109375
+11.700000000000001,224.80000000000007,True,Battery-electric (propeller),0.93017578125
+13.700000000000001,224.80000000000007,True,Battery-electric (propeller),0.9111328125
+16.0,224.80000000000007,True,Battery-electric (propeller),0.88720703125
+18.7,224.80000000000007,True,Battery-electric (propeller),0.85205078125
+21.900000000000002,224.80000000000007,True,Battery-electric (propeller),0.81298828125
+25.700000000000003,224.80000000000007,True,Battery-electric (propeller),0.74853515625
+30.0,224.80000000000007,True,Battery-electric (propeller),0.6640625
+35.1,224.80000000000007,True,Battery-electric (propeller),0.5634765625
+41.1,224.80000000000007,True,Hydrogen fuel cell (propeller),0.4501953125
+48.1,224.80000000000007,True,Hydrogen fuel cell (propeller),0.77197265625
+56.2,224.80000000000007,True,Hydrogen fuel cell (propeller),0.77001953125
+65.8,224.80000000000007,True,Hydrogen fuel cell (propeller),0.76708984375
+77.0,224.80000000000007,True,Hydrogen fuel cell (propeller),0.7626953125
+90.10000000000001,224.80000000000007,True,Hydrogen fuel cell (propeller),0.7587890625
+105.0,224.80000000000007,True,Hydrogen fuel cell (propeller),0.75390625
+123.0,224.80000000000007,True,Hydrogen fuel cell (propeller),0.74267578125
+144.0,224.80000000000007,True,Hydrogen fuel cell (propeller),0.73388671875
+169.0,224.80000000000007,True,Hydrogen fuel cell (propeller),0.7255859375
+197.0,224.80000000000007,True,Hydrogen fuel cell (propeller),0.716796875
+231.0,224.80000000000007,True,Hydrogen fuel cell (propeller),0.70849609375
+270.0,224.80000000000007,True,Hydrogen fuel cell (propeller),0.69775390625
+316.0,224.80000000000007,True,Hydrogen fuel cell (propeller),0.68994140625
+370.0,224.80000000000007,True,Hydrogen fuel cell (propeller),0.67578125
+433.0,224.80000000000007,True,Hydrogen fuel cell (propeller),0.66162109375
+506.0,224.80000000000007,True,Hydrogen fuel cell (propeller),0.64794921875
+593.0,224.80000000000007,True,Hydrogen fuel cell (propeller),0.62158203125
+693.0,224.80000000000007,True,Hydrogen fuel cell (propeller),0.59716796875
+811.0,224.80000000000007,True,Hydrogen fuel cell (propeller),0.56298828125
+949.0,224.80000000000007,True,Hydrogen fuel cell (propeller),0.52490234375
+1110.0,224.80000000000007,True,Hydrogen fuel cell (propeller),0.48388671875
+1300.0,224.80000000000007,True,Hydrogen fuel cell (propeller),0.435546875
+1520.0,224.80000000000007,True,Hydrogen combustion (fan),0.45703125
+1780.0,224.80000000000007,True,Hydrogen combustion (fan),0.5400390625
+2080.0,224.80000000000007,True,Hydrogen combustion (fan),0.6259765625
+2430.0,224.80000000000007,True,Hydrogen combustion (fan),0.7138671875
+2850.0,224.80000000000007,True,Hydrogen combustion (fan),0.7880859375
+3330.0,224.80000000000007,True,Hydrogen combustion (fan),0.85595703125
+3900.0,224.80000000000007,True,Hydrogen combustion (fan),0.90576171875
+4560.0,224.80000000000007,True,Hydrogen combustion (fan),0.9384765625
+5340.0,224.80000000000007,True,Hydrogen combustion (fan),0.96240234375
+6240.0,224.80000000000007,True,Hydrogen combustion (fan),0.9794921875
+7310.0,224.80000000000007,True,Hydrogen combustion (fan),0.98779296875
+8550.0,224.80000000000007,True,Hydrogen combustion (fan),0.9921875
+10000.0,224.80000000000007,True,Hydrogen combustion (fan),0.99755859375
+10.0,233.10000000000008,True,Battery-electric (propeller),0.92724609375
+11.700000000000001,233.10000000000008,True,Battery-electric (propeller),0.91162109375
+13.700000000000001,233.10000000000008,True,Battery-electric (propeller),0.89111328125
+16.0,233.10000000000008,True,Battery-electric (propeller),0.86083984375
+18.7,233.10000000000008,True,Battery-electric (propeller),0.82763671875
+21.900000000000002,233.10000000000008,True,Battery-electric (propeller),0.78076171875
+25.700000000000003,233.10000000000008,True,Battery-electric (propeller),0.71630859375
+30.0,233.10000000000008,True,Battery-electric (propeller),0.63134765625
+35.1,233.10000000000008,True,Battery-electric (propeller),0.51806640625
+41.1,233.10000000000008,True,Hydrogen fuel cell (propeller),0.42578125
+48.1,233.10000000000008,True,Hydrogen fuel cell (propeller),0.69921875
+56.2,233.10000000000008,True,Hydrogen fuel cell (propeller),0.69677734375
+65.8,233.10000000000008,True,Hydrogen fuel cell (propeller),0.693359375
+77.0,233.10000000000008,True,Hydrogen fuel cell (propeller),0.6904296875
+90.10000000000001,233.10000000000008,True,Hydrogen fuel cell (propeller),0.68603515625
+105.0,233.10000000000008,True,Hydrogen fuel cell (propeller),0.68310546875
+123.0,233.10000000000008,True,Hydrogen fuel cell (propeller),0.67919921875
+144.0,233.10000000000008,True,Hydrogen fuel cell (propeller),0.671875
+169.0,233.10000000000008,True,Hydrogen fuel cell (propeller),0.666015625
+197.0,233.10000000000008,True,Hydrogen fuel cell (propeller),0.65576171875
+231.0,233.10000000000008,True,Hydrogen fuel cell (propeller),0.6474609375
+270.0,233.10000000000008,True,Hydrogen fuel cell (propeller),0.63525390625
+316.0,233.10000000000008,True,Hydrogen fuel cell (propeller),0.62548828125
+370.0,233.10000000000008,True,Hydrogen fuel cell (propeller),0.6103515625
+433.0,233.10000000000008,True,Hydrogen fuel cell (propeller),0.59326171875
+506.0,233.10000000000008,True,Hydrogen fuel cell (propeller),0.5732421875
+593.0,233.10000000000008,True,Hydrogen fuel cell (propeller),0.541015625
+693.0,233.10000000000008,True,Hydrogen fuel cell (propeller),0.50830078125
+811.0,233.10000000000008,True,Hydrogen fuel cell (propeller),0.47021484375
+949.0,233.10000000000008,True,Hydrogen fuel cell (propeller),0.43408203125
+1110.0,233.10000000000008,True,Hydrogen combustion (fan),0.4775390625
+1300.0,233.10000000000008,True,Hydrogen combustion (fan),0.54931640625
+1520.0,233.10000000000008,True,Hydrogen combustion (fan),0.62353515625
+1780.0,233.10000000000008,True,Hydrogen combustion (fan),0.69775390625
+2080.0,233.10000000000008,True,Hydrogen combustion (fan),0.76171875
+2430.0,233.10000000000008,True,Hydrogen combustion (fan),0.82763671875
+2850.0,233.10000000000008,True,Hydrogen combustion (fan),0.880859375
+3330.0,233.10000000000008,True,Hydrogen combustion (fan),0.92236328125
+3900.0,233.10000000000008,True,Hydrogen combustion (fan),0.94775390625
+4560.0,233.10000000000008,True,Hydrogen combustion (fan),0.966796875
+5340.0,233.10000000000008,True,Hydrogen combustion (fan),0.9814453125
+6240.0,233.10000000000008,True,Hydrogen combustion (fan),0.98828125
+7310.0,233.10000000000008,True,Hydrogen combustion (fan),0.994140625
+8550.0,233.10000000000008,True,Hydrogen combustion (fan),0.99755859375
+10000.0,233.10000000000008,True,Hydrogen combustion (fan),0.99755859375
+10.0,241.4000000000001,True,Battery-electric (propeller),0.90771484375
+11.700000000000001,241.4000000000001,True,Battery-electric (propeller),0.89111328125
+13.700000000000001,241.4000000000001,True,Battery-electric (propeller),0.865234375
+16.0,241.4000000000001,True,Battery-electric (propeller),0.83740234375
+18.7,241.4000000000001,True,Battery-electric (propeller),0.8017578125
+21.900000000000002,241.4000000000001,True,Battery-electric (propeller),0.75
+25.700000000000003,241.4000000000001,True,Battery-electric (propeller),0.68017578125
+30.0,241.4000000000001,True,Battery-electric (propeller),0.5966796875
+35.1,241.4000000000001,True,Battery-electric (propeller),0.4794921875
+41.1,241.4000000000001,True,Hydrogen fuel cell (propeller),0.40966796875
+48.1,241.4000000000001,True,Hydrogen fuel cell (propeller),0.63623046875
+56.2,241.4000000000001,True,Hydrogen fuel cell (propeller),0.634765625
+65.8,241.4000000000001,True,Hydrogen fuel cell (propeller),0.63134765625
+77.0,241.4000000000001,True,Hydrogen fuel cell (propeller),0.62841796875
+90.10000000000001,241.4000000000001,True,Hydrogen fuel cell (propeller),0.625
+105.0,241.4000000000001,True,Hydrogen fuel cell (propeller),0.62060546875
+123.0,241.4000000000001,True,Hydrogen fuel cell (propeller),0.6162109375
+144.0,241.4000000000001,True,Hydrogen fuel cell (propeller),0.60986328125
+169.0,241.4000000000001,True,Hydrogen fuel cell (propeller),0.599609375
+197.0,241.4000000000001,True,Hydrogen fuel cell (propeller),0.5908203125
+231.0,241.4000000000001,True,Hydrogen fuel cell (propeller),0.57958984375
+270.0,241.4000000000001,True,Hydrogen fuel cell (propeller),0.5693359375
+316.0,241.4000000000001,True,Hydrogen fuel cell (propeller),0.5556640625
+370.0,241.4000000000001,True,Hydrogen fuel cell (propeller),0.53271484375
+433.0,241.4000000000001,True,Hydrogen fuel cell (propeller),0.5107421875
+506.0,241.4000000000001,True,Hydrogen fuel cell (propeller),0.484375
+593.0,241.4000000000001,True,Hydrogen fuel cell (propeller),0.45263671875
+693.0,241.4000000000001,True,Hydrogen fuel cell (propeller),0.41796875
+811.0,241.4000000000001,True,Hydrogen combustion (fan),0.4921875
+949.0,241.4000000000001,True,Hydrogen combustion (fan),0.56689453125
+1110.0,241.4000000000001,True,Hydrogen combustion (fan),0.63818359375
+1300.0,241.4000000000001,True,Hydrogen combustion (fan),0.69384765625
+1520.0,241.4000000000001,True,Hydrogen combustion (fan),0.75439453125
+1780.0,241.4000000000001,True,Hydrogen combustion (fan),0.8095703125
+2080.0,241.4000000000001,True,Hydrogen combustion (fan),0.857421875
+2430.0,241.4000000000001,True,Hydrogen combustion (fan),0.90283203125
+2850.0,241.4000000000001,True,Hydrogen combustion (fan),0.93408203125
+3330.0,241.4000000000001,True,Hydrogen combustion (fan),0.9541015625
+3900.0,241.4000000000001,True,Hydrogen combustion (fan),0.97412109375
+4560.0,241.4000000000001,True,Hydrogen combustion (fan),0.984375
+5340.0,241.4000000000001,True,Hydrogen combustion (fan),0.98876953125
+6240.0,241.4000000000001,True,Hydrogen combustion (fan),0.99658203125
+7310.0,241.4000000000001,True,Hydrogen combustion (fan),0.99755859375
+8550.0,241.4000000000001,True,Hydrogen combustion (fan),0.998046875
+10000.0,241.4000000000001,True,Hydrogen combustion (fan),0.9990234375
+10.0,249.7000000000001,True,Battery-electric (propeller),0.88330078125
+11.700000000000001,249.7000000000001,True,Battery-electric (propeller),0.86279296875
+13.700000000000001,249.7000000000001,True,Battery-electric (propeller),0.8408203125
+16.0,249.7000000000001,True,Battery-electric (propeller),0.81201171875
+18.7,249.7000000000001,True,Battery-electric (propeller),0.77001953125
+21.900000000000002,249.7000000000001,True,Battery-electric (propeller),0.71337890625
+25.700000000000003,249.7000000000001,True,Battery-electric (propeller),0.63818359375
+30.0,249.7000000000001,True,Battery-electric (propeller),0.55419921875
+35.1,249.7000000000001,True,Battery-electric (propeller),0.43212890625
+41.1,249.7000000000001,True,Hydrogen fuel cell (propeller),0.5693359375
+48.1,249.7000000000001,True,Hydrogen fuel cell (propeller),0.56787109375
+56.2,249.7000000000001,True,Hydrogen fuel cell (propeller),0.5625
+65.8,249.7000000000001,True,Hydrogen fuel cell (propeller),0.5595703125
+77.0,249.7000000000001,True,Hydrogen fuel cell (propeller),0.5546875
+90.10000000000001,249.7000000000001,True,Hydrogen fuel cell (propeller),0.548828125
+105.0,249.7000000000001,True,Hydrogen fuel cell (propeller),0.54150390625
+123.0,249.7000000000001,True,Hydrogen fuel cell (propeller),0.54248046875
+144.0,249.7000000000001,True,Hydrogen fuel cell (propeller),0.5322265625
+169.0,249.7000000000001,True,Hydrogen fuel cell (propeller),0.525390625
+197.0,249.7000000000001,True,Hydrogen fuel cell (propeller),0.51806640625
+231.0,249.7000000000001,True,Hydrogen fuel cell (propeller),0.50439453125
+270.0,249.7000000000001,True,Hydrogen fuel cell (propeller),0.49365234375
+316.0,249.7000000000001,True,Hydrogen fuel cell (propeller),0.47509765625
+370.0,249.7000000000001,True,Hydrogen fuel cell (propeller),0.45166015625
+433.0,249.7000000000001,True,Hydrogen fuel cell (propeller),0.423828125
+506.0,249.7000000000001,True,Hydrogen fuel cell (propeller),0.39404296875
+593.0,249.7000000000001,True,Hydrogen combustion (fan),0.48046875
+693.0,249.7000000000001,True,Hydrogen combustion (fan),0.56787109375
+811.0,249.7000000000001,True,Hydrogen combustion (fan),0.63427734375
+949.0,249.7000000000001,True,Hydrogen combustion (fan),0.6923828125
+1110.0,249.7000000000001,True,Hydrogen combustion (fan),0.75244140625
+1300.0,249.7000000000001,True,Hydrogen combustion (fan),0.8046875
+1520.0,249.7000000000001,True,Hydrogen combustion (fan),0.84375
+1780.0,249.7000000000001,True,Hydrogen combustion (fan),0.8857421875
+2080.0,249.7000000000001,True,Hydrogen combustion (fan),0.91650390625
+2430.0,249.7000000000001,True,Hydrogen combustion (fan),0.94384765625
+2850.0,249.7000000000001,True,Hydrogen combustion (fan),0.9638671875
+3330.0,249.7000000000001,True,Hydrogen combustion (fan),0.97802734375
+3900.0,249.7000000000001,True,Hydrogen combustion (fan),0.986328125
+4560.0,249.7000000000001,True,Hydrogen combustion (fan),0.98974609375
+5340.0,249.7000000000001,True,Hydrogen combustion (fan),0.9970703125
+6240.0,249.7000000000001,True,Hydrogen combustion (fan),0.99755859375
+7310.0,249.7000000000001,True,Hydrogen combustion (fan),0.998046875
+8550.0,249.7000000000001,True,Hydrogen combustion (fan),1.0
+10000.0,249.7000000000001,True,Hydrogen combustion (fan),1.0
+10.0,258.0000000000001,True,Battery-electric (propeller),0.85791015625
+11.700000000000001,258.0000000000001,True,Battery-electric (propeller),0.83544921875
+13.700000000000001,258.0000000000001,True,Battery-electric (propeller),0.81298828125
+16.0,258.0000000000001,True,Battery-electric (propeller),0.77587890625
+18.7,258.0000000000001,True,Battery-electric (propeller),0.73486328125
+21.900000000000002,258.0000000000001,True,Battery-electric (propeller),0.673828125
+25.700000000000003,258.0000000000001,True,Battery-electric (propeller),0.599609375
+30.0,258.0000000000001,True,Battery-electric (propeller),0.50390625
+35.1,258.0000000000001,True,Battery-electric (propeller),0.3916015625
+41.1,258.0000000000001,True,Hydrogen fuel cell (propeller),0.4951171875
+48.1,258.0000000000001,True,Hydrogen fuel cell (propeller),0.49169921875
+56.2,258.0000000000001,True,Hydrogen fuel cell (propeller),0.48779296875
+65.8,258.0000000000001,True,Hydrogen fuel cell (propeller),0.482421875
+77.0,258.0000000000001,True,Hydrogen fuel cell (propeller),0.478515625
+90.10000000000001,258.0000000000001,True,Hydrogen fuel cell (propeller),0.4716796875
+105.0,258.0000000000001,True,Hydrogen fuel cell (propeller),0.466796875
+123.0,258.0000000000001,True,Hydrogen combustion (propeller),0.48193359375
+144.0,258.0000000000001,True,Hydrogen combustion (propeller),0.521484375
+169.0,258.0000000000001,True,Hydrogen combustion (propeller),0.52392578125
+197.0,258.0000000000001,True,Hydrogen combustion (propeller),0.5146484375
+231.0,258.0000000000001,True,Hydrogen combustion (propeller),0.49609375
+270.0,258.0000000000001,True,Hydrogen combustion (propeller),0.4609375
+316.0,258.0000000000001,True,Hydrogen combustion (propeller),0.40478515625
+370.0,258.0000000000001,True,Hydrogen fuel cell (propeller),0.36767578125
+433.0,258.0000000000001,True,Hydrogen combustion (fan),0.42041015625
+506.0,258.0000000000001,True,Hydrogen combustion (fan),0.52490234375
+593.0,258.0000000000001,True,Hydrogen combustion (fan),0.61669921875
+693.0,258.0000000000001,True,Hydrogen combustion (fan),0.6884765625
+811.0,258.0000000000001,True,Hydrogen combustion (fan),0.75244140625
+949.0,258.0000000000001,True,Hydrogen combustion (fan),0.802734375
+1110.0,258.0000000000001,True,Hydrogen combustion (fan),0.83984375
+1300.0,258.0000000000001,True,Hydrogen combustion (fan),0.875
+1520.0,258.0000000000001,True,Hydrogen combustion (fan),0.90673828125
+1780.0,258.0000000000001,True,Hydrogen combustion (fan),0.93408203125
+2080.0,258.0000000000001,True,Hydrogen combustion (fan),0.95458984375
+2430.0,258.0000000000001,True,Hydrogen combustion (fan),0.9677734375
+2850.0,258.0000000000001,True,Hydrogen combustion (fan),0.98046875
+3330.0,258.0000000000001,True,Hydrogen combustion (fan),0.98681640625
+3900.0,258.0000000000001,True,Hydrogen combustion (fan),0.994140625
+4560.0,258.0000000000001,True,Hydrogen combustion (fan),0.99658203125
+5340.0,258.0000000000001,True,Hydrogen combustion (fan),0.998046875
+6240.0,258.0000000000001,True,Hydrogen combustion (fan),0.99853515625
+7310.0,258.0000000000001,True,Hydrogen combustion (fan),1.0
+8550.0,258.0000000000001,True,Hydrogen combustion (fan),1.0
+10000.0,258.0000000000001,True,Hydrogen combustion (fan),1.0
+10.0,266.3000000000001,True,Battery-electric (propeller),0.828125
+11.700000000000001,266.3000000000001,True,Battery-electric (propeller),0.80908203125
+13.700000000000001,266.3000000000001,True,Battery-electric (propeller),0.77587890625
+16.0,266.3000000000001,True,Battery-electric (propeller),0.73974609375
+18.7,266.3000000000001,True,Battery-electric (propeller),0.69287109375
+21.900000000000002,266.3000000000001,True,Battery-electric (propeller),0.62939453125
+25.700000000000003,266.3000000000001,True,Battery-electric (propeller),0.552734375
+30.0,266.3000000000001,True,Battery-electric (propeller),0.45654296875
+35.1,266.3000000000001,True,Battery-electric (propeller),0.3515625
+41.1,266.3000000000001,True,Hydrogen combustion (propeller),0.5009765625
+48.1,266.3000000000001,True,Hydrogen combustion (propeller),0.4931640625
+56.2,266.3000000000001,True,Hydrogen combustion (propeller),0.48291015625
+65.8,266.3000000000001,True,Hydrogen combustion (propeller),0.47265625
+77.0,266.3000000000001,True,Hydrogen combustion (propeller),0.45654296875
+90.10000000000001,266.3000000000001,True,Hydrogen combustion (propeller),0.44091796875
+105.0,266.3000000000001,True,Hydrogen combustion (propeller),0.41552734375
+123.0,266.3000000000001,True,Hydrogen combustion (propeller),0.49365234375
+144.0,266.3000000000001,True,Hydrogen combustion (propeller),0.56884765625
+169.0,266.3000000000001,True,Hydrogen combustion (propeller),0.58056640625
+197.0,266.3000000000001,True,Hydrogen combustion (propeller),0.55810546875
+231.0,266.3000000000001,True,Hydrogen combustion (propeller),0.5205078125
+270.0,266.3000000000001,True,Hydrogen combustion (propeller),0.46337890625
+316.0,266.3000000000001,True,Hydrogen combustion (propeller),0.37744140625
+370.0,266.3000000000001,True,Hydrogen combustion (fan),0.43212890625
+433.0,266.3000000000001,True,Hydrogen combustion (fan),0.5517578125
+506.0,266.3000000000001,True,Hydrogen combustion (fan),0.66162109375
+593.0,266.3000000000001,True,Hydrogen combustion (fan),0.7373046875
+693.0,266.3000000000001,True,Hydrogen combustion (fan),0.79931640625
+811.0,266.3000000000001,True,Hydrogen combustion (fan),0.84033203125
+949.0,266.3000000000001,True,Hydrogen combustion (fan),0.87451171875
+1110.0,266.3000000000001,True,Hydrogen combustion (fan),0.904296875
+1300.0,266.3000000000001,True,Hydrogen combustion (fan),0.92626953125
+1520.0,266.3000000000001,True,Hydrogen combustion (fan),0.94775390625
+1780.0,266.3000000000001,True,Hydrogen combustion (fan),0.96240234375
+2080.0,266.3000000000001,True,Hydrogen combustion (fan),0.97509765625
+2430.0,266.3000000000001,True,Hydrogen combustion (fan),0.982421875
+2850.0,266.3000000000001,True,Hydrogen combustion (fan),0.9873046875
+3330.0,266.3000000000001,True,Hydrogen combustion (fan),0.9951171875
+3900.0,266.3000000000001,True,Hydrogen combustion (fan),0.9970703125
+4560.0,266.3000000000001,True,Hydrogen combustion (fan),0.998046875
+5340.0,266.3000000000001,True,Hydrogen combustion (fan),0.9990234375
+6240.0,266.3000000000001,True,Hydrogen combustion (fan),1.0
+7310.0,266.3000000000001,True,Hydrogen combustion (fan),1.0
+8550.0,266.3000000000001,True,Hydrogen combustion (fan),1.0
+10000.0,266.3000000000001,True,Hydrogen combustion (fan),1.0
+10.0,274.60000000000014,True,Battery-electric (propeller),0.7978515625
+11.700000000000001,274.60000000000014,True,Battery-electric (propeller),0.7685546875
+13.700000000000001,274.60000000000014,True,Battery-electric (propeller),0.73876953125
+16.0,274.60000000000014,True,Battery-electric (propeller),0.70068359375
+18.7,274.60000000000014,True,Battery-electric (propeller),0.64697265625
+21.900000000000002,274.60000000000014,True,Battery-electric (propeller),0.5888671875
+25.700000000000003,274.60000000000014,True,Battery-electric (propeller),0.4990234375
+30.0,274.60000000000014,True,Battery-electric (propeller),0.40966796875
+35.1,274.60000000000014,True,Hydrogen combustion (propeller),0.53515625
+41.1,274.60000000000014,True,Hydrogen combustion (propeller),0.52197265625
+48.1,274.60000000000014,True,Hydrogen combustion (propeller),0.50830078125
+56.2,274.60000000000014,True,Hydrogen combustion (propeller),0.494140625
+65.8,274.60000000000014,True,Hydrogen combustion (propeller),0.4814453125
+77.0,274.60000000000014,True,Hydrogen combustion (propeller),0.45556640625
+90.10000000000001,274.60000000000014,True,Hydrogen combustion (propeller),0.42333984375
+105.0,274.60000000000014,True,Hydrogen combustion (propeller),0.38916015625
+123.0,274.60000000000014,True,Hydrogen combustion (propeller),0.4658203125
+144.0,274.60000000000014,True,Hydrogen combustion (propeller),0.59619140625
+169.0,274.60000000000014,True,Hydrogen combustion (propeller),0.6298828125
+197.0,274.60000000000014,True,Hydrogen combustion (propeller),0.59375
+231.0,274.60000000000014,True,Hydrogen combustion (propeller),0.52685546875
+270.0,274.60000000000014,True,Hydrogen combustion (propeller),0.43505859375
+316.0,274.60000000000014,True,Hydrogen combustion (fan),0.42236328125
+370.0,274.60000000000014,True,Hydrogen combustion (fan),0.568359375
+433.0,274.60000000000014,True,Hydrogen combustion (fan),0.68115234375
+506.0,274.60000000000014,True,Hydrogen combustion (fan),0.77294921875
+593.0,274.60000000000014,True,Hydrogen combustion (fan),0.82861328125
+693.0,274.60000000000014,True,Hydrogen combustion (fan),0.873046875
+811.0,274.60000000000014,True,Hydrogen combustion (fan),0.90576171875
+949.0,274.60000000000014,True,Hydrogen combustion (fan),0.92333984375
+1110.0,274.60000000000014,True,Hydrogen combustion (fan),0.94384765625
+1300.0,274.60000000000014,True,Hydrogen combustion (fan),0.9599609375
+1520.0,274.60000000000014,True,Hydrogen combustion (fan),0.96923828125
+1780.0,274.60000000000014,True,Hydrogen combustion (fan),0.97802734375
+2080.0,274.60000000000014,True,Hydrogen combustion (fan),0.984375
+2430.0,274.60000000000014,True,Hydrogen combustion (fan),0.9892578125
+2850.0,274.60000000000014,True,Hydrogen combustion (fan),0.99609375
+3330.0,274.60000000000014,True,Hydrogen combustion (fan),0.99755859375
+3900.0,274.60000000000014,True,Hydrogen combustion (fan),0.99853515625
+4560.0,274.60000000000014,True,Hydrogen combustion (fan),0.99951171875
+5340.0,274.60000000000014,True,Hydrogen combustion (fan),1.0
+6240.0,274.60000000000014,True,Hydrogen combustion (fan),1.0
+7310.0,274.60000000000014,True,Hydrogen combustion (fan),1.0
+8550.0,274.60000000000014,True,Hydrogen combustion (fan),1.0
+10000.0,274.60000000000014,True,Hydrogen combustion (fan),1.0
+10.0,282.90000000000015,True,Battery-electric (propeller),0.75634765625
+11.700000000000001,282.90000000000015,True,Battery-electric (propeller),0.7314453125
+13.700000000000001,282.90000000000015,True,Battery-electric (propeller),0.697265625
+16.0,282.90000000000015,True,Battery-electric (propeller),0.64892578125
+18.7,282.90000000000015,True,Battery-electric (propeller),0.599609375
+21.900000000000002,282.90000000000015,True,Battery-electric (propeller),0.533203125
+25.700000000000003,282.90000000000015,True,Battery-electric (propeller),0.44970703125
+30.0,282.90000000000015,True,Battery-electric (propeller),0.36083984375
+35.1,282.90000000000015,True,Hydrogen combustion (propeller),0.55224609375
+41.1,282.90000000000015,True,Hydrogen combustion (propeller),0.53515625
+48.1,282.90000000000015,True,Hydrogen combustion (propeller),0.51806640625
+56.2,282.90000000000015,True,Hydrogen combustion (propeller),0.4892578125
+65.8,282.90000000000015,True,Hydrogen combustion (propeller),0.46044921875
+77.0,282.90000000000015,True,Hydrogen combustion (propeller),0.4267578125
+90.10000000000001,282.90000000000015,True,Hydrogen combustion (propeller),0.38623046875
+105.0,282.90000000000015,True,Hydrogen combustion (fan),0.42724609375
+123.0,282.90000000000015,True,Hydrogen combustion (fan),0.4140625
+144.0,282.90000000000015,True,Hydrogen combustion (propeller),0.5419921875
+169.0,282.90000000000015,True,Hydrogen combustion (propeller),0.626953125
+197.0,282.90000000000015,True,Hydrogen combustion (propeller),0.5576171875
+231.0,282.90000000000015,True,Hydrogen combustion (propeller),0.46923828125
+270.0,282.90000000000015,True,Hydrogen combustion (fan),0.43896484375
+316.0,282.90000000000015,True,Hydrogen combustion (fan),0.58740234375
+370.0,282.90000000000015,True,Hydrogen combustion (fan),0.71240234375
+433.0,282.90000000000015,True,Hydrogen combustion (fan),0.802734375
+506.0,282.90000000000015,True,Hydrogen combustion (fan),0.86572265625
+593.0,282.90000000000015,True,Hydrogen combustion (fan),0.9052734375
+693.0,282.90000000000015,True,Hydrogen combustion (fan),0.92724609375
+811.0,282.90000000000015,True,Hydrogen combustion (fan),0.94775390625
+949.0,282.90000000000015,True,Hydrogen combustion (fan),0.96044921875
+1110.0,282.90000000000015,True,Hydrogen combustion (fan),0.9677734375
+1300.0,282.90000000000015,True,Hydrogen combustion (fan),0.974609375
+1520.0,282.90000000000015,True,Hydrogen combustion (fan),0.98291015625
+1780.0,282.90000000000015,True,Hydrogen combustion (fan),0.98828125
+2080.0,282.90000000000015,True,Hydrogen combustion (fan),0.99365234375
+2430.0,282.90000000000015,True,Hydrogen combustion (fan),0.99609375
+2850.0,282.90000000000015,True,Hydrogen combustion (fan),0.998046875
+3330.0,282.90000000000015,True,Hydrogen combustion (fan),0.99853515625
+3900.0,282.90000000000015,True,Hydrogen combustion (fan),0.99951171875
+4560.0,282.90000000000015,True,Hydrogen combustion (fan),1.0
+5340.0,282.90000000000015,True,Hydrogen combustion (fan),1.0
+6240.0,282.90000000000015,True,Hydrogen combustion (fan),1.0
+7310.0,282.90000000000015,True,Hydrogen combustion (fan),1.0
+8550.0,282.90000000000015,True,Hydrogen combustion (fan),1.0
+10000.0,282.90000000000015,True,Hydrogen combustion (fan),1.0
+10.0,291.20000000000016,True,Battery-electric (propeller),0.71533203125
+11.700000000000001,291.20000000000016,True,Battery-electric (propeller),0.68505859375
+13.700000000000001,291.20000000000016,True,Battery-electric (propeller),0.6435546875
+16.0,291.20000000000016,True,Battery-electric (propeller),0.6025390625
+18.7,291.20000000000016,True,Battery-electric (propeller),0.54541015625
+21.900000000000002,291.20000000000016,True,Battery-electric (propeller),0.4765625
+25.700000000000003,291.20000000000016,True,Battery-electric (propeller),0.40185546875
+30.0,291.20000000000016,True,Hydrogen combustion (propeller),0.56787109375
+35.1,291.20000000000016,True,Hydrogen combustion (propeller),0.54833984375
+41.1,291.20000000000016,True,Hydrogen combustion (propeller),0.515625
+48.1,291.20000000000016,True,Hydrogen combustion (propeller),0.4814453125
+56.2,291.20000000000016,True,Hydrogen combustion (propeller),0.44677734375
+65.8,291.20000000000016,True,Hydrogen combustion (propeller),0.4091796875
+77.0,291.20000000000016,True,Hydrogen combustion (fan),0.44873046875
+90.10000000000001,291.20000000000016,True,Hydrogen combustion (fan),0.51904296875
+105.0,291.20000000000016,True,Hydrogen combustion (fan),0.6015625
+123.0,291.20000000000016,True,Hydrogen combustion (fan),0.658203125
+144.0,291.20000000000016,True,Hydrogen combustion (fan),0.421875
+169.0,291.20000000000016,True,Hydrogen combustion (propeller),0.54443359375
+197.0,291.20000000000016,True,Hydrogen combustion (propeller),0.470703125
+231.0,291.20000000000016,True,Hydrogen combustion (fan),0.48095703125
+270.0,291.20000000000016,True,Hydrogen combustion (fan),0.61181640625
+316.0,291.20000000000016,True,Hydrogen combustion (fan),0.734375
+370.0,291.20000000000016,True,Hydrogen combustion (fan),0.83349609375
+433.0,291.20000000000016,True,Hydrogen combustion (fan),0.89404296875
+506.0,291.20000000000016,True,Hydrogen combustion (fan),0.935546875
+593.0,291.20000000000016,True,Hydrogen combustion (fan),0.953125
+693.0,291.20000000000016,True,Hydrogen combustion (fan),0.96240234375
+811.0,291.20000000000016,True,Hydrogen combustion (fan),0.97265625
+949.0,291.20000000000016,True,Hydrogen combustion (fan),0.9775390625
+1110.0,291.20000000000016,True,Hydrogen combustion (fan),0.9833984375
+1300.0,291.20000000000016,True,Hydrogen combustion (fan),0.9873046875
+1520.0,291.20000000000016,True,Hydrogen combustion (fan),0.9912109375
+1780.0,291.20000000000016,True,Hydrogen combustion (fan),0.99462890625
+2080.0,291.20000000000016,True,Hydrogen combustion (fan),0.9970703125
+2430.0,291.20000000000016,True,Hydrogen combustion (fan),0.998046875
+2850.0,291.20000000000016,True,Hydrogen combustion (fan),0.9990234375
+3330.0,291.20000000000016,True,Hydrogen combustion (fan),1.0
+3900.0,291.20000000000016,True,Hydrogen combustion (fan),1.0
+4560.0,291.20000000000016,True,Hydrogen combustion (fan),1.0
+5340.0,291.20000000000016,True,Hydrogen combustion (fan),1.0
+6240.0,291.20000000000016,True,Hydrogen combustion (fan),1.0
+7310.0,291.20000000000016,True,Hydrogen combustion (fan),1.0
+8550.0,291.20000000000016,True,Hydrogen combustion (fan),1.0
+10000.0,291.20000000000016,True,Hydrogen combustion (fan),1.0
+10.0,299.50000000000017,True,Battery-electric (propeller),0.662109375
+11.700000000000001,299.50000000000017,True,Battery-electric (propeller),0.63037109375
+13.700000000000001,299.50000000000017,True,Battery-electric (propeller),0.59521484375
+16.0,299.50000000000017,True,Battery-electric (propeller),0.5439453125
+18.7,299.50000000000017,True,Battery-electric (propeller),0.48291015625
+21.900000000000002,299.50000000000017,True,Battery-electric (propeller),0.41796875
+25.700000000000003,299.50000000000017,True,Hydrogen combustion (propeller),0.369140625
+30.0,299.50000000000017,True,Hydrogen combustion (propeller),0.54150390625
+35.1,299.50000000000017,True,Hydrogen combustion (propeller),0.49658203125
+41.1,299.50000000000017,True,Hydrogen combustion (propeller),0.45703125
+48.1,299.50000000000017,True,Hydrogen combustion (fan),0.42626953125
+56.2,299.50000000000017,True,Hydrogen combustion (fan),0.48681640625
+65.8,299.50000000000017,True,Hydrogen combustion (fan),0.54345703125
+77.0,299.50000000000017,True,Hydrogen combustion (fan),0.60986328125
+90.10000000000001,299.50000000000017,True,Hydrogen combustion (fan),0.67578125
+105.0,299.50000000000017,True,Hydrogen combustion (fan),0.73681640625
+123.0,299.50000000000017,True,Hydrogen combustion (fan),0.79541015625
+144.0,299.50000000000017,True,Hydrogen combustion (fan),0.607421875
+169.0,299.50000000000017,True,Hydrogen combustion (propeller),0.44677734375
+197.0,299.50000000000017,True,Hydrogen combustion (fan),0.490234375
+231.0,299.50000000000017,True,Hydrogen combustion (fan),0.61279296875
+270.0,299.50000000000017,True,Hydrogen combustion (fan),0.73388671875
+316.0,299.50000000000017,True,Hydrogen combustion (fan),0.84619140625
+370.0,299.50000000000017,True,Hydrogen combustion (fan),0.91162109375
+433.0,299.50000000000017,True,Hydrogen combustion (fan),0.94921875
+506.0,299.50000000000017,True,Hydrogen combustion (fan),0.96337890625
+593.0,299.50000000000017,True,Hydrogen combustion (fan),0.97509765625
+693.0,299.50000000000017,True,Hydrogen combustion (fan),0.97900390625
+811.0,299.50000000000017,True,Hydrogen combustion (fan),0.98291015625
+949.0,299.50000000000017,True,Hydrogen combustion (fan),0.9873046875
+1110.0,299.50000000000017,True,Hydrogen combustion (fan),0.99072265625
+1300.0,299.50000000000017,True,Hydrogen combustion (fan),0.99267578125
+1520.0,299.50000000000017,True,Hydrogen combustion (fan),0.99609375
+1780.0,299.50000000000017,True,Hydrogen combustion (fan),0.99755859375
+2080.0,299.50000000000017,True,Hydrogen combustion (fan),0.998046875
+2430.0,299.50000000000017,True,Hydrogen combustion (fan),0.99951171875
+2850.0,299.50000000000017,True,Hydrogen combustion (fan),1.0
+3330.0,299.50000000000017,True,Hydrogen combustion (fan),1.0
+3900.0,299.50000000000017,True,Hydrogen combustion (fan),1.0
+4560.0,299.50000000000017,True,Hydrogen combustion (fan),1.0
+5340.0,299.50000000000017,True,Hydrogen combustion (fan),1.0
+6240.0,299.50000000000017,True,Hydrogen combustion (fan),1.0
+7310.0,299.50000000000017,True,Hydrogen combustion (fan),1.0
+8550.0,299.50000000000017,True,Hydrogen combustion (fan),1.0
+10000.0,299.50000000000017,True,Hydrogen combustion (fan),1.0
+10.0,307.8000000000002,True,Battery-electric (propeller),0.5869140625
+11.700000000000001,307.8000000000002,True,Battery-electric (propeller),0.55224609375
+13.700000000000001,307.8000000000002,True,Battery-electric (propeller),0.50537109375
+16.0,307.8000000000002,True,Battery-electric (propeller),0.45751953125
+18.7,307.8000000000002,True,Battery-electric (propeller),0.39697265625
+21.900000000000002,307.8000000000002,True,Battery-electric (propeller),0.3583984375
+25.700000000000003,307.8000000000002,True,Hydrogen combustion (propeller),0.49658203125
+30.0,307.8000000000002,True,Hydrogen combustion (propeller),0.4501953125
+35.1,307.8000000000002,True,Hydrogen combustion (fan),0.4755859375
+41.1,307.8000000000002,True,Hydrogen combustion (fan),0.52880859375
+48.1,307.8000000000002,True,Hydrogen combustion (fan),0.58251953125
+56.2,307.8000000000002,True,Hydrogen combustion (fan),0.63232421875
+65.8,307.8000000000002,True,Hydrogen combustion (fan),0.68896484375
+77.0,307.8000000000002,True,Hydrogen combustion (fan),0.74072265625
+90.10000000000001,307.8000000000002,True,Hydrogen combustion (fan),0.79345703125
+105.0,307.8000000000002,True,Hydrogen combustion (fan),0.837890625
+123.0,307.8000000000002,True,Hydrogen combustion (fan),0.8837890625
+144.0,307.8000000000002,True,Hydrogen combustion (fan),0.77734375
+169.0,307.8000000000002,True,Hydrogen combustion (fan),0.60107421875
+197.0,307.8000000000002,True,Hydrogen combustion (fan),0.61279296875
+231.0,307.8000000000002,True,Hydrogen combustion (fan),0.73681640625
+270.0,307.8000000000002,True,Hydrogen combustion (fan),0.84814453125
+316.0,307.8000000000002,True,Hydrogen combustion (fan),0.92041015625
+370.0,307.8000000000002,True,Hydrogen combustion (fan),0.96142578125
+433.0,307.8000000000002,True,Hydrogen combustion (fan),0.9755859375
+506.0,307.8000000000002,True,Hydrogen combustion (fan),0.9814453125
+593.0,307.8000000000002,True,Hydrogen combustion (fan),0.986328125
+693.0,307.8000000000002,True,Hydrogen combustion (fan),0.990234375
+811.0,307.8000000000002,True,Hydrogen combustion (fan),0.99169921875
+949.0,307.8000000000002,True,Hydrogen combustion (fan),0.994140625
+1110.0,307.8000000000002,True,Hydrogen combustion (fan),0.99609375
+1300.0,307.8000000000002,True,Hydrogen combustion (fan),0.9970703125
+1520.0,307.8000000000002,True,Hydrogen combustion (fan),0.99853515625
+1780.0,307.8000000000002,True,Hydrogen combustion (fan),0.9990234375
+2080.0,307.8000000000002,True,Hydrogen combustion (fan),0.99951171875
+2430.0,307.8000000000002,True,Hydrogen combustion (fan),1.0
+2850.0,307.8000000000002,True,Hydrogen combustion (fan),1.0
+3330.0,307.8000000000002,True,Hydrogen combustion (fan),1.0
+3900.0,307.8000000000002,True,Hydrogen combustion (fan),1.0
+4560.0,307.8000000000002,True,Hydrogen combustion (fan),1.0
+5340.0,307.8000000000002,True,Hydrogen combustion (fan),1.0
+6240.0,307.8000000000002,True,Hydrogen combustion (fan),1.0
+7310.0,307.8000000000002,True,Hydrogen combustion (fan),1.0
+8550.0,307.8000000000002,True,Hydrogen combustion (fan),1.0
+10000.0,307.8000000000002,True,Hydrogen combustion (fan),1.0
+10.0,316.1000000000002,True,Battery-electric (propeller),0.46044921875
+11.700000000000001,316.1000000000002,True,Battery-electric (propeller),0.427734375
+13.700000000000001,316.1000000000002,True,Battery-electric (propeller),0.38916015625
+16.0,316.1000000000002,True,Battery-electric (propeller),0.34326171875
+18.7,316.1000000000002,True,Battery-electric (propeller),0.294921875
+21.900000000000002,316.1000000000002,True,Hydrogen combustion (fan),0.466796875
+25.700000000000003,316.1000000000002,True,Hydrogen combustion (fan),0.51513671875
+30.0,316.1000000000002,True,Hydrogen combustion (fan),0.56591796875
+35.1,316.1000000000002,True,Hydrogen combustion (fan),0.61328125
+41.1,316.1000000000002,True,Hydrogen combustion (fan),0.65966796875
+48.1,316.1000000000002,True,Hydrogen combustion (fan),0.70751953125
+56.2,316.1000000000002,True,Hydrogen combustion (fan),0.755859375
+65.8,316.1000000000002,True,Hydrogen combustion (fan),0.79638671875
+77.0,316.1000000000002,True,Hydrogen combustion (fan),0.841796875
+90.10000000000001,316.1000000000002,True,Hydrogen combustion (fan),0.8818359375
+105.0,316.1000000000002,True,Hydrogen combustion (fan),0.90771484375
+123.0,316.1000000000002,True,Hydrogen combustion (fan),0.94091796875
+144.0,316.1000000000002,True,Hydrogen combustion (fan),0.89794921875
+169.0,316.1000000000002,True,Hydrogen combustion (fan),0.75146484375
+197.0,316.1000000000002,True,Hydrogen combustion (fan),0.7255859375
+231.0,316.1000000000002,True,Hydrogen combustion (fan),0.8310546875
+270.0,316.1000000000002,True,Hydrogen combustion (fan),0.9140625
+316.0,316.1000000000002,True,Hydrogen combustion (fan),0.96044921875
+370.0,316.1000000000002,True,Hydrogen combustion (fan),0.98046875
+433.0,316.1000000000002,True,Hydrogen combustion (fan),0.98681640625
+506.0,316.1000000000002,True,Hydrogen combustion (fan),0.9912109375
+593.0,316.1000000000002,True,Hydrogen combustion (fan),0.99267578125
+693.0,316.1000000000002,True,Hydrogen combustion (fan),0.994140625
+811.0,316.1000000000002,True,Hydrogen combustion (fan),0.99560546875
+949.0,316.1000000000002,True,Hydrogen combustion (fan),0.99658203125
+1110.0,316.1000000000002,True,Hydrogen combustion (fan),0.998046875
+1300.0,316.1000000000002,True,Hydrogen combustion (fan),0.99853515625
+1520.0,316.1000000000002,True,Hydrogen combustion (fan),0.99951171875
+1780.0,316.1000000000002,True,Hydrogen combustion (fan),1.0
+2080.0,316.1000000000002,True,Hydrogen combustion (fan),1.0
+2430.0,316.1000000000002,True,Hydrogen combustion (fan),1.0
+2850.0,316.1000000000002,True,Hydrogen combustion (fan),1.0
+3330.0,316.1000000000002,True,Hydrogen combustion (fan),1.0
+3900.0,316.1000000000002,True,Hydrogen combustion (fan),1.0
+4560.0,316.1000000000002,True,Hydrogen combustion (fan),1.0
+5340.0,316.1000000000002,True,Hydrogen combustion (fan),1.0
+6240.0,316.1000000000002,True,Hydrogen combustion (fan),1.0
+7310.0,316.1000000000002,True,Hydrogen combustion (fan),1.0
+8550.0,316.1000000000002,True,Hydrogen combustion (fan),1.0
+10000.0,316.1000000000002,True,Hydrogen combustion (fan),1.0
+10.0,324.4000000000002,True,Battery-electric (propeller),0.36181640625
+11.700000000000001,324.4000000000002,True,Battery-electric (propeller),0.33447265625
+13.700000000000001,324.4000000000002,True,Battery-electric (propeller),0.29736328125
+16.0,324.4000000000002,True,Hydrogen combustion (fan),0.33251953125
+18.7,324.4000000000002,True,Hydrogen combustion (fan),0.5341796875
+21.900000000000002,324.4000000000002,True,Hydrogen combustion (fan),0.58203125
+25.700000000000003,324.4000000000002,True,Hydrogen combustion (fan),0.62890625
+30.0,324.4000000000002,True,Hydrogen combustion (fan),0.669921875
+35.1,324.4000000000002,True,Hydrogen combustion (fan),0.72265625
+41.1,324.4000000000002,True,Hydrogen combustion (fan),0.767578125
+48.1,324.4000000000002,True,Hydrogen combustion (fan),0.80908203125
+56.2,324.4000000000002,True,Hydrogen combustion (fan),0.85107421875
+65.8,324.4000000000002,True,Hydrogen combustion (fan),0.8798828125
+77.0,324.4000000000002,True,Hydrogen combustion (fan),0.91357421875
+90.10000000000001,324.4000000000002,True,Hydrogen combustion (fan),0.93408203125
+105.0,324.4000000000002,True,Hydrogen combustion (fan),0.953125
+123.0,324.4000000000002,True,Hydrogen combustion (fan),0.97216796875
+144.0,324.4000000000002,True,Hydrogen combustion (fan),0.95849609375
+169.0,324.4000000000002,True,Hydrogen combustion (fan),0.87109375
+197.0,324.4000000000002,True,Hydrogen combustion (fan),0.8046875
+231.0,324.4000000000002,True,Hydrogen combustion (fan),0.8984375
+270.0,324.4000000000002,True,Hydrogen combustion (fan),0.95361328125
+316.0,324.4000000000002,True,Hydrogen combustion (fan),0.9833984375
+370.0,324.4000000000002,True,Hydrogen combustion (fan),0.990234375
+433.0,324.4000000000002,True,Hydrogen combustion (fan),0.99365234375
+506.0,324.4000000000002,True,Hydrogen combustion (fan),0.99462890625
+593.0,324.4000000000002,True,Hydrogen combustion (fan),0.99609375
+693.0,324.4000000000002,True,Hydrogen combustion (fan),0.99755859375
+811.0,324.4000000000002,True,Hydrogen combustion (fan),0.99755859375
+949.0,324.4000000000002,True,Hydrogen combustion (fan),0.998046875
+1110.0,324.4000000000002,True,Hydrogen combustion (fan),0.9990234375
+1300.0,324.4000000000002,True,Hydrogen combustion (fan),0.99951171875
+1520.0,324.4000000000002,True,Hydrogen combustion (fan),1.0
+1780.0,324.4000000000002,True,Hydrogen combustion (fan),1.0
+2080.0,324.4000000000002,True,Hydrogen combustion (fan),1.0
+2430.0,324.4000000000002,True,Hydrogen combustion (fan),1.0
+2850.0,324.4000000000002,True,Hydrogen combustion (fan),1.0
+3330.0,324.4000000000002,True,Hydrogen combustion (fan),1.0
+3900.0,324.4000000000002,True,Hydrogen combustion (fan),1.0
+4560.0,324.4000000000002,True,Hydrogen combustion (fan),1.0
+5340.0,324.4000000000002,True,Hydrogen combustion (fan),1.0
+6240.0,324.4000000000002,True,Hydrogen combustion (fan),1.0
+7310.0,324.4000000000002,True,Hydrogen combustion (fan),1.0
+8550.0,324.4000000000002,True,Hydrogen combustion (fan),1.0
+10000.0,324.4000000000002,True,Hydrogen combustion (fan),1.0
+10.0,332.7000000000002,True,Battery-electric (propeller),0.27685546875
+11.700000000000001,332.7000000000002,True,Hydrogen combustion (fan),0.30517578125
+13.700000000000001,332.7000000000002,True,Hydrogen combustion (fan),0.3701171875
+16.0,332.7000000000002,True,Hydrogen combustion (fan),0.41748046875
+18.7,332.7000000000002,True,Hydrogen combustion (fan),0.64111328125
+21.900000000000002,332.7000000000002,True,Hydrogen combustion (fan),0.6865234375
+25.700000000000003,332.7000000000002,True,Hydrogen combustion (fan),0.72802734375
+30.0,332.7000000000002,True,Hydrogen combustion (fan),0.76806640625
+35.1,332.7000000000002,True,Hydrogen combustion (fan),0.81201171875
+41.1,332.7000000000002,True,Hydrogen combustion (fan),0.85302734375
+48.1,332.7000000000002,True,Hydrogen combustion (fan),0.8837890625
+56.2,332.7000000000002,True,Hydrogen combustion (fan),0.91162109375
+65.8,332.7000000000002,True,Hydrogen combustion (fan),0.9326171875
+77.0,332.7000000000002,True,Hydrogen combustion (fan),0.9501953125
+90.10000000000001,332.7000000000002,True,Hydrogen combustion (fan),0.96630859375
+105.0,332.7000000000002,True,Hydrogen combustion (fan),0.97998046875
+123.0,332.7000000000002,True,Hydrogen combustion (fan),0.98876953125
+144.0,332.7000000000002,True,Hydrogen combustion (fan),0.9892578125
+169.0,332.7000000000002,True,Hydrogen combustion (fan),0.94384765625
+197.0,332.7000000000002,True,Hydrogen combustion (fan),0.884765625
+231.0,332.7000000000002,True,Hydrogen combustion (fan),0.9443359375
+270.0,332.7000000000002,True,Hydrogen combustion (fan),0.9814453125
+316.0,332.7000000000002,True,Hydrogen combustion (fan),0.99267578125
+370.0,332.7000000000002,True,Hydrogen combustion (fan),0.9951171875
+433.0,332.7000000000002,True,Hydrogen combustion (fan),0.99658203125
+506.0,332.7000000000002,True,Hydrogen combustion (fan),0.998046875
+593.0,332.7000000000002,True,Hydrogen combustion (fan),0.9990234375
+693.0,332.7000000000002,True,Hydrogen combustion (fan),0.9990234375
+811.0,332.7000000000002,True,Hydrogen combustion (fan),0.9990234375
+949.0,332.7000000000002,True,Hydrogen combustion (fan),0.99951171875
+1110.0,332.7000000000002,True,Hydrogen combustion (fan),1.0
+1300.0,332.7000000000002,True,Hydrogen combustion (fan),1.0
+1520.0,332.7000000000002,True,Hydrogen combustion (fan),1.0
+1780.0,332.7000000000002,True,Hydrogen combustion (fan),1.0
+2080.0,332.7000000000002,True,Hydrogen combustion (fan),1.0
+2430.0,332.7000000000002,True,Hydrogen combustion (fan),1.0
+2850.0,332.7000000000002,True,Hydrogen combustion (fan),1.0
+3330.0,332.7000000000002,True,Hydrogen combustion (fan),1.0
+3900.0,332.7000000000002,True,Hydrogen combustion (fan),1.0
+4560.0,332.7000000000002,True,Hydrogen combustion (fan),1.0
+5340.0,332.7000000000002,True,Hydrogen combustion (fan),1.0
+6240.0,332.7000000000002,True,Hydrogen combustion (fan),1.0
+7310.0,332.7000000000002,True,Hydrogen combustion (fan),1.0
+8550.0,332.7000000000002,True,Hydrogen combustion (fan),1.0
+10000.0,332.7000000000002,True,Hydrogen combustion (fan),1.0
+10.0,341.0000000000002,True,Battery-electric (fan),0.37451171875
+11.700000000000001,341.0000000000002,True,Hydrogen combustion (fan),0.4091796875
+13.700000000000001,341.0000000000002,True,Hydrogen combustion (fan),0.45263671875
+16.0,341.0000000000002,True,Hydrogen combustion (fan),0.689453125
+18.7,341.0000000000002,True,Hydrogen combustion (fan),0.72900390625
+21.900000000000002,341.0000000000002,True,Hydrogen combustion (fan),0.76953125
+25.700000000000003,341.0000000000002,True,Hydrogen combustion (fan),0.810546875
+30.0,341.0000000000002,True,Hydrogen combustion (fan),0.84765625
+35.1,341.0000000000002,True,Hydrogen combustion (fan),0.88330078125
+41.1,341.0000000000002,True,Hydrogen combustion (fan),0.90478515625
+48.1,341.0000000000002,True,Hydrogen combustion (fan),0.92822265625
+56.2,341.0000000000002,True,Hydrogen combustion (fan),0.9462890625
+65.8,341.0000000000002,True,Hydrogen combustion (fan),0.962890625
+77.0,341.0000000000002,True,Hydrogen combustion (fan),0.9775390625
+90.10000000000001,341.0000000000002,True,Hydrogen combustion (fan),0.98583984375
+105.0,341.0000000000002,True,Hydrogen combustion (fan),0.99267578125
+123.0,341.0000000000002,True,Hydrogen combustion (fan),0.99462890625
+144.0,341.0000000000002,True,Hydrogen combustion (fan),0.998046875
+169.0,341.0000000000002,True,Hydrogen combustion (fan),0.98486328125
+197.0,341.0000000000002,True,Hydrogen combustion (fan),0.93896484375
+231.0,341.0000000000002,True,Hydrogen combustion (fan),0.97509765625
+270.0,341.0000000000002,True,Hydrogen combustion (fan),0.99560546875
+316.0,341.0000000000002,True,Hydrogen combustion (fan),0.99853515625
+370.0,341.0000000000002,True,Hydrogen combustion (fan),0.99951171875
+433.0,341.0000000000002,True,Hydrogen combustion (fan),0.99951171875
+506.0,341.0000000000002,True,Hydrogen combustion (fan),0.99951171875
+593.0,341.0000000000002,True,Hydrogen combustion (fan),0.99951171875
+693.0,341.0000000000002,True,Hydrogen combustion (fan),1.0
+811.0,341.0000000000002,True,Hydrogen combustion (fan),1.0
+949.0,341.0000000000002,True,Hydrogen combustion (fan),1.0
+1110.0,341.0000000000002,True,Hydrogen combustion (fan),1.0
+1300.0,341.0000000000002,True,Hydrogen combustion (fan),1.0
+1520.0,341.0000000000002,True,Hydrogen combustion (fan),1.0
+1780.0,341.0000000000002,True,Hydrogen combustion (fan),1.0
+2080.0,341.0000000000002,True,Hydrogen combustion (fan),1.0
+2430.0,341.0000000000002,True,Hydrogen combustion (fan),1.0
+2850.0,341.0000000000002,True,Hydrogen combustion (fan),1.0
+3330.0,341.0000000000002,True,Hydrogen combustion (fan),1.0
+3900.0,341.0000000000002,True,Hydrogen combustion (fan),1.0
+4560.0,341.0000000000002,True,Hydrogen combustion (fan),1.0
+5340.0,341.0000000000002,True,Hydrogen combustion (fan),1.0
+6240.0,341.0000000000002,True,Hydrogen combustion (fan),1.0
+7310.0,341.0000000000002,True,Hydrogen combustion (fan),1.0
+8550.0,341.0000000000002,True,Hydrogen combustion (fan),1.0
+10000.0,341.0000000000002,True,Hydrogen combustion (fan),1.0
+10.0,349.30000000000024,True,Hydrogen combustion (fan),0.4345703125
+11.700000000000001,349.30000000000024,True,Hydrogen combustion (fan),0.47509765625
+13.700000000000001,349.30000000000024,True,Hydrogen combustion (fan),0.71875
+16.0,349.30000000000024,True,Hydrogen combustion (fan),0.7578125
+18.7,349.30000000000024,True,Hydrogen combustion (fan),0.7939453125
+21.900000000000002,349.30000000000024,True,Hydrogen combustion (fan),0.833984375
+25.700000000000003,349.30000000000024,True,Hydrogen combustion (fan),0.8671875
+30.0,349.30000000000024,True,Hydrogen combustion (fan),0.8984375
+35.1,349.30000000000024,True,Hydrogen combustion (fan),0.92138671875
+41.1,349.30000000000024,True,Hydrogen combustion (fan),0.9404296875
+48.1,349.30000000000024,True,Hydrogen combustion (fan),0.9599609375
+56.2,349.30000000000024,True,Hydrogen combustion (fan),0.9736328125
+65.8,349.30000000000024,True,Hydrogen combustion (fan),0.984375
+77.0,349.30000000000024,True,Hydrogen combustion (fan),0.9921875
+90.10000000000001,349.30000000000024,True,Hydrogen combustion (fan),0.99560546875
+105.0,349.30000000000024,True,Hydrogen combustion (fan),0.998046875
+123.0,349.30000000000024,True,Hydrogen combustion (fan),0.9990234375
+144.0,349.30000000000024,True,Hydrogen combustion (fan),0.9990234375
+169.0,349.30000000000024,True,Hydrogen combustion (fan),0.99853515625
+197.0,349.30000000000024,True,Hydrogen combustion (fan),0.98681640625
+231.0,349.30000000000024,True,Hydrogen combustion (fan),0.99462890625
+270.0,349.30000000000024,True,Hydrogen combustion (fan),0.99853515625
+316.0,349.30000000000024,True,Hydrogen combustion (fan),0.9990234375
+370.0,349.30000000000024,True,Hydrogen combustion (fan),0.99951171875
+433.0,349.30000000000024,True,Hydrogen combustion (fan),0.99951171875
+506.0,349.30000000000024,True,Hydrogen combustion (fan),1.0
+593.0,349.30000000000024,True,Hydrogen combustion (fan),1.0
+693.0,349.30000000000024,True,Hydrogen combustion (fan),1.0
+811.0,349.30000000000024,True,Hydrogen combustion (fan),1.0
+949.0,349.30000000000024,True,Hydrogen combustion (fan),1.0
+1110.0,349.30000000000024,True,Hydrogen combustion (fan),1.0
+1300.0,349.30000000000024,True,Hydrogen combustion (fan),1.0
+1520.0,349.30000000000024,True,Hydrogen combustion (fan),1.0
+1780.0,349.30000000000024,True,Hydrogen combustion (fan),1.0
+2080.0,349.30000000000024,True,Hydrogen combustion (fan),1.0
+2430.0,349.30000000000024,True,Hydrogen combustion (fan),1.0
+2850.0,349.30000000000024,True,Hydrogen combustion (fan),1.0
+3330.0,349.30000000000024,True,Hydrogen combustion (fan),1.0
+3900.0,349.30000000000024,True,Hydrogen combustion (fan),1.0
+4560.0,349.30000000000024,True,Hydrogen combustion (fan),1.0
+5340.0,349.30000000000024,True,Hydrogen combustion (fan),1.0
+6240.0,349.30000000000024,True,Hydrogen combustion (fan),1.0
+7310.0,349.30000000000024,True,Hydrogen combustion (fan),1.0
+8550.0,349.30000000000024,True,Hydrogen combustion (fan),1.0
+10000.0,349.30000000000024,True,Hydrogen combustion (fan),1.0
+10.0,357.60000000000025,True,Hydrogen combustion (fan),0.4970703125
+11.700000000000001,357.60000000000025,True,Hydrogen combustion (fan),0.74072265625
+13.700000000000001,357.60000000000025,True,Hydrogen combustion (fan),0.77587890625
+16.0,357.60000000000025,True,Hydrogen combustion (fan),0.81396484375
+18.7,357.60000000000025,True,Hydrogen combustion (fan),0.85595703125
+21.900000000000002,357.60000000000025,True,Hydrogen combustion (fan),0.8876953125
+25.700000000000003,357.60000000000025,True,Hydrogen combustion (fan),0.91357421875
+30.0,357.60000000000025,True,Hydrogen combustion (fan),0.9375
+35.1,357.60000000000025,True,Hydrogen combustion (fan),0.955078125
+41.1,357.60000000000025,True,Hydrogen combustion (fan),0.97119140625
+48.1,357.60000000000025,True,Hydrogen combustion (fan),0.98095703125
+56.2,357.60000000000025,True,Hydrogen combustion (fan),0.9892578125
+65.8,357.60000000000025,True,Hydrogen combustion (fan),0.99609375
+77.0,357.60000000000025,True,Hydrogen combustion (fan),0.998046875
+90.10000000000001,357.60000000000025,True,Hydrogen combustion (fan),0.9990234375
+105.0,357.60000000000025,True,Hydrogen combustion (fan),0.9990234375
+123.0,357.60000000000025,True,Hydrogen combustion (fan),0.99951171875
+144.0,357.60000000000025,True,Hydrogen combustion (fan),1.0
+169.0,357.60000000000025,True,Hydrogen combustion (fan),1.0
+197.0,357.60000000000025,True,Hydrogen combustion (fan),1.0
+231.0,357.60000000000025,True,Hydrogen combustion (fan),1.0
+270.0,357.60000000000025,True,Hydrogen combustion (fan),1.0
+316.0,357.60000000000025,True,Hydrogen combustion (fan),1.0
+370.0,357.60000000000025,True,Hydrogen combustion (fan),1.0
+433.0,357.60000000000025,True,Hydrogen combustion (fan),1.0
+506.0,357.60000000000025,True,Hydrogen combustion (fan),1.0
+593.0,357.60000000000025,True,Hydrogen combustion (fan),1.0
+693.0,357.60000000000025,True,Hydrogen combustion (fan),1.0
+811.0,357.60000000000025,True,Hydrogen combustion (fan),1.0
+949.0,357.60000000000025,True,Hydrogen combustion (fan),1.0
+1110.0,357.60000000000025,True,Hydrogen combustion (fan),1.0
+1300.0,357.60000000000025,True,Hydrogen combustion (fan),1.0
+1520.0,357.60000000000025,True,Hydrogen combustion (fan),1.0
+1780.0,357.60000000000025,True,Hydrogen combustion (fan),1.0
+2080.0,357.60000000000025,True,Hydrogen combustion (fan),1.0
+2430.0,357.60000000000025,True,Hydrogen combustion (fan),1.0
+2850.0,357.60000000000025,True,Hydrogen combustion (fan),1.0
+3330.0,357.60000000000025,True,Hydrogen combustion (fan),1.0
+3900.0,357.60000000000025,True,Hydrogen combustion (fan),1.0
+4560.0,357.60000000000025,True,Hydrogen combustion (fan),1.0
+5340.0,357.60000000000025,True,Hydrogen combustion (fan),1.0
+6240.0,357.60000000000025,True,Hydrogen combustion (fan),1.0
+7310.0,357.60000000000025,True,Hydrogen combustion (fan),1.0
+8550.0,357.60000000000025,True,Hydrogen combustion (fan),1.0
+10000.0,357.60000000000025,True,Hydrogen combustion (fan),1.0
+10.0,365.90000000000026,True,Hydrogen combustion (fan),0.78369140625
+11.700000000000001,365.90000000000026,True,Hydrogen combustion (fan),0.81396484375
+13.700000000000001,365.90000000000026,True,Hydrogen combustion (fan),0.84765625
+16.0,365.90000000000026,True,Hydrogen combustion (fan),0.87939453125
+18.7,365.90000000000026,True,Hydrogen combustion (fan),0.9072265625
+21.900000000000002,365.90000000000026,True,Hydrogen combustion (fan),0.92724609375
+25.700000000000003,365.90000000000026,True,Hydrogen combustion (fan),0.9453125
+30.0,365.90000000000026,True,Hydrogen combustion (fan),0.96142578125
+35.1,365.90000000000026,True,Hydrogen combustion (fan),0.9775390625
+41.1,365.90000000000026,True,Hydrogen combustion (fan),0.98779296875
+48.1,365.90000000000026,True,Hydrogen combustion (fan),0.99462890625
+56.2,365.90000000000026,True,Hydrogen combustion (fan),0.99853515625
+65.8,365.90000000000026,True,Hydrogen combustion (fan),0.99853515625
+77.0,365.90000000000026,True,Hydrogen combustion (fan),0.9990234375
+90.10000000000001,365.90000000000026,True,Hydrogen combustion (fan),0.9990234375
+105.0,365.90000000000026,True,Hydrogen combustion (fan),1.0
+123.0,365.90000000000026,True,Hydrogen combustion (fan),1.0
+144.0,365.90000000000026,True,Hydrogen combustion (fan),1.0
+169.0,365.90000000000026,True,Hydrogen combustion (fan),1.0
+197.0,365.90000000000026,True,Hydrogen combustion (fan),1.0
+231.0,365.90000000000026,True,Hydrogen combustion (fan),1.0
+270.0,365.90000000000026,True,Hydrogen combustion (fan),1.0
+316.0,365.90000000000026,True,Hydrogen combustion (fan),1.0
+370.0,365.90000000000026,True,Hydrogen combustion (fan),1.0
+433.0,365.90000000000026,True,Hydrogen combustion (fan),1.0
+506.0,365.90000000000026,True,Hydrogen combustion (fan),1.0
+593.0,365.90000000000026,True,Hydrogen combustion (fan),1.0
+693.0,365.90000000000026,True,Hydrogen combustion (fan),1.0
+811.0,365.90000000000026,True,Hydrogen combustion (fan),1.0
+949.0,365.90000000000026,True,Hydrogen combustion (fan),1.0
+1110.0,365.90000000000026,True,Hydrogen combustion (fan),1.0
+1300.0,365.90000000000026,True,Hydrogen combustion (fan),1.0
+1520.0,365.90000000000026,True,Hydrogen combustion (fan),1.0
+1780.0,365.90000000000026,True,Hydrogen combustion (fan),1.0
+2080.0,365.90000000000026,True,Hydrogen combustion (fan),1.0
+2430.0,365.90000000000026,True,Hydrogen combustion (fan),1.0
+2850.0,365.90000000000026,True,Hydrogen combustion (fan),1.0
+3330.0,365.90000000000026,True,Hydrogen combustion (fan),1.0
+3900.0,365.90000000000026,True,Hydrogen combustion (fan),1.0
+4560.0,365.90000000000026,True,Hydrogen combustion (fan),1.0
+5340.0,365.90000000000026,True,Hydrogen combustion (fan),1.0
+6240.0,365.90000000000026,True,Hydrogen combustion (fan),1.0
+7310.0,365.90000000000026,True,Hydrogen combustion (fan),1.0
+8550.0,365.90000000000026,True,Hydrogen combustion (fan),1.0
+10000.0,365.90000000000026,True,Hydrogen combustion (fan),1.0
+10.0,374.2000000000003,True,Hydrogen combustion (fan),0.8466796875
+11.700000000000001,374.2000000000003,True,Hydrogen combustion (fan),0.8720703125
+13.700000000000001,374.2000000000003,True,Hydrogen combustion (fan),0.8994140625
+16.0,374.2000000000003,True,Hydrogen combustion (fan),0.923828125
+18.7,374.2000000000003,True,Hydrogen combustion (fan),0.943359375
+21.900000000000002,374.2000000000003,True,Hydrogen combustion (fan),0.9609375
+25.700000000000003,374.2000000000003,True,Hydrogen combustion (fan),0.97607421875
+30.0,374.2000000000003,True,Hydrogen combustion (fan),0.98583984375
+35.1,374.2000000000003,True,Hydrogen combustion (fan),0.9931640625
+41.1,374.2000000000003,True,Hydrogen combustion (fan),0.9970703125
+48.1,374.2000000000003,True,Hydrogen combustion (fan),0.99853515625
+56.2,374.2000000000003,True,Hydrogen combustion (fan),0.9990234375
+65.8,374.2000000000003,True,Hydrogen combustion (fan),0.99951171875
+77.0,374.2000000000003,True,Hydrogen combustion (fan),1.0
+90.10000000000001,374.2000000000003,True,Hydrogen combustion (fan),1.0
+105.0,374.2000000000003,True,Hydrogen combustion (fan),1.0
+123.0,374.2000000000003,True,Hydrogen combustion (fan),1.0
+144.0,374.2000000000003,True,Hydrogen combustion (fan),1.0
+169.0,374.2000000000003,True,Hydrogen combustion (fan),1.0
+197.0,374.2000000000003,True,Hydrogen combustion (fan),1.0
+231.0,374.2000000000003,True,Hydrogen combustion (fan),1.0
+270.0,374.2000000000003,True,Hydrogen combustion (fan),1.0
+316.0,374.2000000000003,True,Hydrogen combustion (fan),1.0
+370.0,374.2000000000003,True,Hydrogen combustion (fan),1.0
+433.0,374.2000000000003,True,Hydrogen combustion (fan),1.0
+506.0,374.2000000000003,True,Hydrogen combustion (fan),1.0
+593.0,374.2000000000003,True,Hydrogen combustion (fan),1.0
+693.0,374.2000000000003,True,Hydrogen combustion (fan),1.0
+811.0,374.2000000000003,True,Hydrogen combustion (fan),1.0
+949.0,374.2000000000003,True,Hydrogen combustion (fan),1.0
+1110.0,374.2000000000003,True,Hydrogen combustion (fan),1.0
+1300.0,374.2000000000003,True,Hydrogen combustion (fan),1.0
+1520.0,374.2000000000003,True,Hydrogen combustion (fan),1.0
+1780.0,374.2000000000003,True,Hydrogen combustion (fan),1.0
+2080.0,374.2000000000003,True,Hydrogen combustion (fan),1.0
+2430.0,374.2000000000003,True,Hydrogen combustion (fan),1.0
+2850.0,374.2000000000003,True,Hydrogen combustion (fan),1.0
+3330.0,374.2000000000003,True,Hydrogen combustion (fan),1.0
+3900.0,374.2000000000003,True,Hydrogen combustion (fan),1.0
+4560.0,374.2000000000003,True,Hydrogen combustion (fan),1.0
+5340.0,374.2000000000003,True,Hydrogen combustion (fan),1.0
+6240.0,374.2000000000003,True,Hydrogen combustion (fan),1.0
+7310.0,374.2000000000003,True,Hydrogen combustion (fan),1.0
+8550.0,374.2000000000003,True,Hydrogen combustion (fan),1.0
+10000.0,374.2000000000003,True,Hydrogen combustion (fan),1.0
+10.0,382.5000000000003,True,Hydrogen combustion (fan),0.9296875
+11.700000000000001,382.5000000000003,True,Hydrogen combustion (fan),0.947265625
+13.700000000000001,382.5000000000003,True,Hydrogen combustion (fan),0.9560546875
+16.0,382.5000000000003,True,Hydrogen combustion (fan),0.96826171875
+18.7,382.5000000000003,True,Hydrogen combustion (fan),0.9775390625
+21.900000000000002,382.5000000000003,True,Hydrogen combustion (fan),0.9853515625
+25.700000000000003,382.5000000000003,True,Hydrogen combustion (fan),0.9921875
+30.0,382.5000000000003,True,Hydrogen combustion (fan),0.9951171875
+35.1,382.5000000000003,True,Hydrogen combustion (fan),0.9990234375
+41.1,382.5000000000003,True,Hydrogen combustion (fan),1.0
+48.1,382.5000000000003,True,Hydrogen combustion (fan),1.0
+56.2,382.5000000000003,True,Hydrogen combustion (fan),1.0
+65.8,382.5000000000003,True,Hydrogen combustion (fan),1.0
+77.0,382.5000000000003,True,Hydrogen combustion (fan),1.0
+90.10000000000001,382.5000000000003,True,Hydrogen combustion (fan),1.0
+105.0,382.5000000000003,True,Hydrogen combustion (fan),1.0
+123.0,382.5000000000003,True,Hydrogen combustion (fan),1.0
+144.0,382.5000000000003,True,Hydrogen combustion (fan),1.0
+169.0,382.5000000000003,True,Hydrogen combustion (fan),1.0
+197.0,382.5000000000003,True,Hydrogen combustion (fan),1.0
+231.0,382.5000000000003,True,Hydrogen combustion (fan),1.0
+270.0,382.5000000000003,True,Hydrogen combustion (fan),1.0
+316.0,382.5000000000003,True,Hydrogen combustion (fan),1.0
+370.0,382.5000000000003,True,Hydrogen combustion (fan),1.0
+433.0,382.5000000000003,True,Hydrogen combustion (fan),1.0
+506.0,382.5000000000003,True,Hydrogen combustion (fan),1.0
+593.0,382.5000000000003,True,Hydrogen combustion (fan),1.0
+693.0,382.5000000000003,True,Hydrogen combustion (fan),1.0
+811.0,382.5000000000003,True,Hydrogen combustion (fan),1.0
+949.0,382.5000000000003,True,Hydrogen combustion (fan),1.0
+1110.0,382.5000000000003,True,Hydrogen combustion (fan),1.0
+1300.0,382.5000000000003,True,Hydrogen combustion (fan),1.0
+1520.0,382.5000000000003,True,Hydrogen combustion (fan),1.0
+1780.0,382.5000000000003,True,Hydrogen combustion (fan),1.0
+2080.0,382.5000000000003,True,Hydrogen combustion (fan),1.0
+2430.0,382.5000000000003,True,Hydrogen combustion (fan),1.0
+2850.0,382.5000000000003,True,Hydrogen combustion (fan),1.0
+3330.0,382.5000000000003,True,Hydrogen combustion (fan),1.0
+3900.0,382.5000000000003,True,Hydrogen combustion (fan),1.0
+4560.0,382.5000000000003,True,Hydrogen combustion (fan),1.0
+5340.0,382.5000000000003,True,Hydrogen combustion (fan),1.0
+6240.0,382.5000000000003,True,Hydrogen combustion (fan),1.0
+7310.0,382.5000000000003,True,Hydrogen combustion (fan),1.0
+8550.0,382.5000000000003,True,Hydrogen combustion (fan),1.0
+10000.0,382.5000000000003,True,Hydrogen combustion (fan),1.0
+10.0,390.8000000000003,True,Hydrogen combustion (fan),0.97412109375
+11.700000000000001,390.8000000000003,True,Hydrogen combustion (fan),0.9794921875
+13.700000000000001,390.8000000000003,True,Hydrogen combustion (fan),0.98486328125
+16.0,390.8000000000003,True,Hydrogen combustion (fan),0.98974609375
+18.7,390.8000000000003,True,Hydrogen combustion (fan),0.99560546875
+21.900000000000002,390.8000000000003,True,Hydrogen combustion (fan),0.99853515625
+25.700000000000003,390.8000000000003,True,Hydrogen combustion (fan),1.0
+30.0,390.8000000000003,True,Hydrogen combustion (fan),1.0
+35.1,390.8000000000003,True,Hydrogen combustion (fan),1.0
+41.1,390.8000000000003,True,Hydrogen combustion (fan),1.0
+48.1,390.8000000000003,True,Hydrogen combustion (fan),1.0
+56.2,390.8000000000003,True,Hydrogen combustion (fan),1.0
+65.8,390.8000000000003,True,Hydrogen combustion (fan),1.0
+77.0,390.8000000000003,True,Hydrogen combustion (fan),1.0
+90.10000000000001,390.8000000000003,True,Hydrogen combustion (fan),1.0
+105.0,390.8000000000003,True,Hydrogen combustion (fan),1.0
+123.0,390.8000000000003,True,Hydrogen combustion (fan),1.0
+144.0,390.8000000000003,True,Hydrogen combustion (fan),1.0
+169.0,390.8000000000003,True,Hydrogen combustion (fan),1.0
+197.0,390.8000000000003,True,Hydrogen combustion (fan),1.0
+231.0,390.8000000000003,True,Hydrogen combustion (fan),1.0
+270.0,390.8000000000003,True,Hydrogen combustion (fan),1.0
+316.0,390.8000000000003,True,Hydrogen combustion (fan),1.0
+370.0,390.8000000000003,True,Hydrogen combustion (fan),1.0
+433.0,390.8000000000003,True,Hydrogen combustion (fan),1.0
+506.0,390.8000000000003,True,Hydrogen combustion (fan),1.0
+593.0,390.8000000000003,True,Hydrogen combustion (fan),1.0
+693.0,390.8000000000003,True,Hydrogen combustion (fan),1.0
+811.0,390.8000000000003,True,Hydrogen combustion (fan),1.0
+949.0,390.8000000000003,True,Hydrogen combustion (fan),1.0
+1110.0,390.8000000000003,True,Hydrogen combustion (fan),1.0
+1300.0,390.8000000000003,True,Hydrogen combustion (fan),1.0
+1520.0,390.8000000000003,True,Hydrogen combustion (fan),1.0
+1780.0,390.8000000000003,True,Hydrogen combustion (fan),1.0
+2080.0,390.8000000000003,True,Hydrogen combustion (fan),1.0
+2430.0,390.8000000000003,True,Hydrogen combustion (fan),1.0
+2850.0,390.8000000000003,True,Hydrogen combustion (fan),1.0
+3330.0,390.8000000000003,True,Hydrogen combustion (fan),1.0
+3900.0,390.8000000000003,True,Hydrogen combustion (fan),1.0
+4560.0,390.8000000000003,True,Hydrogen combustion (fan),1.0
+5340.0,390.8000000000003,True,Hydrogen combustion (fan),1.0
+6240.0,390.8000000000003,True,Hydrogen combustion (fan),1.0
+7310.0,390.8000000000003,True,Hydrogen combustion (fan),1.0
+8550.0,390.8000000000003,True,Hydrogen combustion (fan),1.0
+10000.0,390.8000000000003,True,Hydrogen combustion (fan),1.0
+10.0,399.1000000000003,True,Hydrogen combustion (fan),0.99658203125
+11.700000000000001,399.1000000000003,True,Hydrogen combustion (fan),0.998046875
+13.700000000000001,399.1000000000003,True,Hydrogen combustion (fan),1.0
+16.0,399.1000000000003,True,Hydrogen combustion (fan),1.0
+18.7,399.1000000000003,True,Hydrogen combustion (fan),1.0
+21.900000000000002,399.1000000000003,True,Hydrogen combustion (fan),1.0
+25.700000000000003,399.1000000000003,True,Hydrogen combustion (fan),1.0
+30.0,399.1000000000003,True,Hydrogen combustion (fan),1.0
+35.1,399.1000000000003,True,Hydrogen combustion (fan),1.0
+41.1,399.1000000000003,True,Hydrogen combustion (fan),1.0
+48.1,399.1000000000003,True,Hydrogen combustion (fan),1.0
+56.2,399.1000000000003,True,Hydrogen combustion (fan),1.0
+65.8,399.1000000000003,True,Hydrogen combustion (fan),1.0
+77.0,399.1000000000003,True,Hydrogen combustion (fan),1.0
+90.10000000000001,399.1000000000003,True,Hydrogen combustion (fan),1.0
+105.0,399.1000000000003,True,Hydrogen combustion (fan),1.0
+123.0,399.1000000000003,True,Hydrogen combustion (fan),1.0
+144.0,399.1000000000003,True,Hydrogen combustion (fan),1.0
+169.0,399.1000000000003,True,Hydrogen combustion (fan),1.0
+197.0,399.1000000000003,True,Hydrogen combustion (fan),1.0
+231.0,399.1000000000003,True,Hydrogen combustion (fan),1.0
+270.0,399.1000000000003,True,Hydrogen combustion (fan),1.0
+316.0,399.1000000000003,True,Hydrogen combustion (fan),1.0
+370.0,399.1000000000003,True,Hydrogen combustion (fan),1.0
+433.0,399.1000000000003,True,Hydrogen combustion (fan),1.0
+506.0,399.1000000000003,True,Hydrogen combustion (fan),1.0
+593.0,399.1000000000003,True,Hydrogen combustion (fan),1.0
+693.0,399.1000000000003,True,Hydrogen combustion (fan),1.0
+811.0,399.1000000000003,True,Hydrogen combustion (fan),1.0
+949.0,399.1000000000003,True,Hydrogen combustion (fan),1.0
+1110.0,399.1000000000003,True,Hydrogen combustion (fan),1.0
+1300.0,399.1000000000003,True,Hydrogen combustion (fan),1.0
+1520.0,399.1000000000003,True,Hydrogen combustion (fan),1.0
+1780.0,399.1000000000003,True,Hydrogen combustion (fan),1.0
+2080.0,399.1000000000003,True,Hydrogen combustion (fan),1.0
+2430.0,399.1000000000003,True,Hydrogen combustion (fan),1.0
+2850.0,399.1000000000003,True,Hydrogen combustion (fan),1.0
+3330.0,399.1000000000003,True,Hydrogen combustion (fan),1.0
+3900.0,399.1000000000003,True,Hydrogen combustion (fan),1.0
+4560.0,399.1000000000003,True,Hydrogen combustion (fan),1.0
+5340.0,399.1000000000003,True,Hydrogen combustion (fan),1.0
+6240.0,399.1000000000003,True,Hydrogen combustion (fan),1.0
+7310.0,399.1000000000003,True,Hydrogen combustion (fan),1.0
+8550.0,399.1000000000003,True,Hydrogen combustion (fan),1.0
+10000.0,399.1000000000003,True,Hydrogen combustion (fan),1.0
+10.0,407.4000000000003,True,Hydrogen combustion (fan),1.0
+11.700000000000001,407.4000000000003,True,Hydrogen combustion (fan),1.0
+13.700000000000001,407.4000000000003,True,Hydrogen combustion (fan),1.0
+16.0,407.4000000000003,True,Hydrogen combustion (fan),1.0
+18.7,407.4000000000003,True,Hydrogen combustion (fan),1.0
+21.900000000000002,407.4000000000003,True,Hydrogen combustion (fan),1.0
+25.700000000000003,407.4000000000003,True,Hydrogen combustion (fan),1.0
+30.0,407.4000000000003,True,Hydrogen combustion (fan),1.0
+35.1,407.4000000000003,True,Hydrogen combustion (fan),1.0
+41.1,407.4000000000003,True,Hydrogen combustion (fan),1.0
+48.1,407.4000000000003,True,Hydrogen combustion (fan),1.0
+56.2,407.4000000000003,True,Hydrogen combustion (fan),1.0
+65.8,407.4000000000003,True,Hydrogen combustion (fan),1.0
+77.0,407.4000000000003,True,Hydrogen combustion (fan),1.0
+90.10000000000001,407.4000000000003,True,Hydrogen combustion (fan),1.0
+105.0,407.4000000000003,True,Hydrogen combustion (fan),1.0
+123.0,407.4000000000003,True,Hydrogen combustion (fan),1.0
+144.0,407.4000000000003,True,Hydrogen combustion (fan),1.0
+169.0,407.4000000000003,True,Hydrogen combustion (fan),1.0
+197.0,407.4000000000003,True,Hydrogen combustion (fan),1.0
+231.0,407.4000000000003,True,Hydrogen combustion (fan),1.0
+270.0,407.4000000000003,True,Hydrogen combustion (fan),1.0
+316.0,407.4000000000003,True,Hydrogen combustion (fan),1.0
+370.0,407.4000000000003,True,Hydrogen combustion (fan),1.0
+433.0,407.4000000000003,True,Hydrogen combustion (fan),1.0
+506.0,407.4000000000003,True,Hydrogen combustion (fan),1.0
+593.0,407.4000000000003,True,Hydrogen combustion (fan),1.0
+693.0,407.4000000000003,True,Hydrogen combustion (fan),1.0
+811.0,407.4000000000003,True,Hydrogen combustion (fan),1.0
+949.0,407.4000000000003,True,Hydrogen combustion (fan),1.0
+1110.0,407.4000000000003,True,Hydrogen combustion (fan),1.0
+1300.0,407.4000000000003,True,Hydrogen combustion (fan),1.0
+1520.0,407.4000000000003,True,Hydrogen combustion (fan),1.0
+1780.0,407.4000000000003,True,Hydrogen combustion (fan),1.0
+2080.0,407.4000000000003,True,Hydrogen combustion (fan),1.0
+2430.0,407.4000000000003,True,Hydrogen combustion (fan),1.0
+2850.0,407.4000000000003,True,Hydrogen combustion (fan),1.0
+3330.0,407.4000000000003,True,Hydrogen combustion (fan),1.0
+3900.0,407.4000000000003,True,Hydrogen combustion (fan),1.0
+4560.0,407.4000000000003,True,Hydrogen combustion (fan),1.0
+5340.0,407.4000000000003,True,Hydrogen combustion (fan),1.0
+6240.0,407.4000000000003,True,Hydrogen combustion (fan),1.0
+7310.0,407.4000000000003,True,Hydrogen combustion (fan),1.0
+8550.0,407.4000000000003,True,Hydrogen combustion (fan),1.0
+10000.0,407.4000000000003,True,Hydrogen combustion (fan),1.0
+10.0,415.70000000000033,True,Hydrogen combustion (fan),1.0
+11.700000000000001,415.70000000000033,True,Hydrogen combustion (fan),1.0
+13.700000000000001,415.70000000000033,True,Hydrogen combustion (fan),1.0
+16.0,415.70000000000033,True,Hydrogen combustion (fan),1.0
+18.7,415.70000000000033,True,Hydrogen combustion (fan),1.0
+21.900000000000002,415.70000000000033,True,Hydrogen combustion (fan),1.0
+25.700000000000003,415.70000000000033,True,Hydrogen combustion (fan),1.0
+30.0,415.70000000000033,True,Hydrogen combustion (fan),1.0
+35.1,415.70000000000033,True,Hydrogen combustion (fan),1.0
+41.1,415.70000000000033,True,Hydrogen combustion (fan),1.0
+48.1,415.70000000000033,True,Hydrogen combustion (fan),1.0
+56.2,415.70000000000033,True,Hydrogen combustion (fan),1.0
+65.8,415.70000000000033,True,Hydrogen combustion (fan),1.0
+77.0,415.70000000000033,True,Hydrogen combustion (fan),1.0
+90.10000000000001,415.70000000000033,True,Hydrogen combustion (fan),1.0
+105.0,415.70000000000033,True,Hydrogen combustion (fan),1.0
+123.0,415.70000000000033,True,Hydrogen combustion (fan),1.0
+144.0,415.70000000000033,True,Hydrogen combustion (fan),1.0
+169.0,415.70000000000033,True,Hydrogen combustion (fan),1.0
+197.0,415.70000000000033,True,Hydrogen combustion (fan),1.0
+231.0,415.70000000000033,True,Hydrogen combustion (fan),1.0
+270.0,415.70000000000033,True,Hydrogen combustion (fan),1.0
+316.0,415.70000000000033,True,Hydrogen combustion (fan),1.0
+370.0,415.70000000000033,True,Hydrogen combustion (fan),1.0
+433.0,415.70000000000033,True,Hydrogen combustion (fan),1.0
+506.0,415.70000000000033,True,Hydrogen combustion (fan),1.0
+593.0,415.70000000000033,True,Hydrogen combustion (fan),1.0
+693.0,415.70000000000033,True,Hydrogen combustion (fan),1.0
+811.0,415.70000000000033,True,Hydrogen combustion (fan),1.0
+949.0,415.70000000000033,True,Hydrogen combustion (fan),1.0
+1110.0,415.70000000000033,True,Hydrogen combustion (fan),1.0
+1300.0,415.70000000000033,True,Hydrogen combustion (fan),1.0
+1520.0,415.70000000000033,True,Hydrogen combustion (fan),1.0
+1780.0,415.70000000000033,True,Hydrogen combustion (fan),1.0
+2080.0,415.70000000000033,True,Hydrogen combustion (fan),1.0
+2430.0,415.70000000000033,True,Hydrogen combustion (fan),1.0
+2850.0,415.70000000000033,True,Hydrogen combustion (fan),1.0
+3330.0,415.70000000000033,True,Hydrogen combustion (fan),1.0
+3900.0,415.70000000000033,True,Hydrogen combustion (fan),1.0
+4560.0,415.70000000000033,True,Hydrogen combustion (fan),1.0
+5340.0,415.70000000000033,True,Hydrogen combustion (fan),1.0
+6240.0,415.70000000000033,True,Hydrogen combustion (fan),1.0
+7310.0,415.70000000000033,True,Hydrogen combustion (fan),1.0
+8550.0,415.70000000000033,True,Hydrogen combustion (fan),1.0
+10000.0,415.70000000000033,True,Hydrogen combustion (fan),1.0
+10.0,424.00000000000034,True,Hydrogen combustion (fan),1.0
+11.700000000000001,424.00000000000034,True,Hydrogen combustion (fan),1.0
+13.700000000000001,424.00000000000034,True,Hydrogen combustion (fan),1.0
+16.0,424.00000000000034,True,Hydrogen combustion (fan),1.0
+18.7,424.00000000000034,True,Hydrogen combustion (fan),1.0
+21.900000000000002,424.00000000000034,True,Hydrogen combustion (fan),1.0
+25.700000000000003,424.00000000000034,True,Hydrogen combustion (fan),1.0
+30.0,424.00000000000034,True,Hydrogen combustion (fan),1.0
+35.1,424.00000000000034,True,Hydrogen combustion (fan),1.0
+41.1,424.00000000000034,True,Hydrogen combustion (fan),1.0
+48.1,424.00000000000034,True,Hydrogen combustion (fan),1.0
+56.2,424.00000000000034,True,Hydrogen combustion (fan),1.0
+65.8,424.00000000000034,True,Hydrogen combustion (fan),1.0
+77.0,424.00000000000034,True,Hydrogen combustion (fan),1.0
+90.10000000000001,424.00000000000034,True,Hydrogen combustion (fan),1.0
+105.0,424.00000000000034,True,Hydrogen combustion (fan),1.0
+123.0,424.00000000000034,True,Hydrogen combustion (fan),1.0
+144.0,424.00000000000034,True,Hydrogen combustion (fan),1.0
+169.0,424.00000000000034,True,Hydrogen combustion (fan),1.0
+197.0,424.00000000000034,True,Hydrogen combustion (fan),1.0
+231.0,424.00000000000034,True,Hydrogen combustion (fan),1.0
+270.0,424.00000000000034,True,Hydrogen combustion (fan),1.0
+316.0,424.00000000000034,True,Hydrogen combustion (fan),1.0
+370.0,424.00000000000034,True,Hydrogen combustion (fan),1.0
+433.0,424.00000000000034,True,Hydrogen combustion (fan),1.0
+506.0,424.00000000000034,True,Hydrogen combustion (fan),1.0
+593.0,424.00000000000034,True,Hydrogen combustion (fan),1.0
+693.0,424.00000000000034,True,Hydrogen combustion (fan),1.0
+811.0,424.00000000000034,True,Hydrogen combustion (fan),1.0
+949.0,424.00000000000034,True,Hydrogen combustion (fan),1.0
+1110.0,424.00000000000034,True,Hydrogen combustion (fan),1.0
+1300.0,424.00000000000034,True,Hydrogen combustion (fan),1.0
+1520.0,424.00000000000034,True,Hydrogen combustion (fan),1.0
+1780.0,424.00000000000034,True,Hydrogen combustion (fan),1.0
+2080.0,424.00000000000034,True,Hydrogen combustion (fan),1.0
+2430.0,424.00000000000034,True,Hydrogen combustion (fan),1.0
+2850.0,424.00000000000034,True,Hydrogen combustion (fan),1.0
+3330.0,424.00000000000034,True,Hydrogen combustion (fan),1.0
+3900.0,424.00000000000034,True,Hydrogen combustion (fan),1.0
+4560.0,424.00000000000034,True,Hydrogen combustion (fan),1.0
+5340.0,424.00000000000034,True,Hydrogen combustion (fan),1.0
+6240.0,424.00000000000034,True,Hydrogen combustion (fan),1.0
+7310.0,424.00000000000034,True,Hydrogen combustion (fan),1.0
+8550.0,424.00000000000034,True,Hydrogen combustion (fan),1.0
+10000.0,424.00000000000034,True,Hydrogen combustion (fan),1.0
+10.0,432.30000000000035,True,Hydrogen combustion (fan),1.0
+11.700000000000001,432.30000000000035,True,Hydrogen combustion (fan),1.0
+13.700000000000001,432.30000000000035,True,Hydrogen combustion (fan),1.0
+16.0,432.30000000000035,True,Hydrogen combustion (fan),1.0
+18.7,432.30000000000035,True,Hydrogen combustion (fan),1.0
+21.900000000000002,432.30000000000035,True,Hydrogen combustion (fan),1.0
+25.700000000000003,432.30000000000035,True,Hydrogen combustion (fan),1.0
+30.0,432.30000000000035,True,Hydrogen combustion (fan),1.0
+35.1,432.30000000000035,True,Hydrogen combustion (fan),1.0
+41.1,432.30000000000035,True,Hydrogen combustion (fan),1.0
+48.1,432.30000000000035,True,Hydrogen combustion (fan),1.0
+56.2,432.30000000000035,True,Hydrogen combustion (fan),1.0
+65.8,432.30000000000035,True,Hydrogen combustion (fan),1.0
+77.0,432.30000000000035,True,Hydrogen combustion (fan),1.0
+90.10000000000001,432.30000000000035,True,Hydrogen combustion (fan),1.0
+105.0,432.30000000000035,True,Hydrogen combustion (fan),1.0
+123.0,432.30000000000035,True,Hydrogen combustion (fan),1.0
+144.0,432.30000000000035,True,Hydrogen combustion (fan),1.0
+169.0,432.30000000000035,True,Hydrogen combustion (fan),1.0
+197.0,432.30000000000035,True,Hydrogen combustion (fan),1.0
+231.0,432.30000000000035,True,Hydrogen combustion (fan),1.0
+270.0,432.30000000000035,True,Hydrogen combustion (fan),1.0
+316.0,432.30000000000035,True,Hydrogen combustion (fan),1.0
+370.0,432.30000000000035,True,Hydrogen combustion (fan),1.0
+433.0,432.30000000000035,True,Hydrogen combustion (fan),1.0
+506.0,432.30000000000035,True,Hydrogen combustion (fan),1.0
+593.0,432.30000000000035,True,Hydrogen combustion (fan),1.0
+693.0,432.30000000000035,True,Hydrogen combustion (fan),1.0
+811.0,432.30000000000035,True,Hydrogen combustion (fan),1.0
+949.0,432.30000000000035,True,Hydrogen combustion (fan),1.0
+1110.0,432.30000000000035,True,Hydrogen combustion (fan),1.0
+1300.0,432.30000000000035,True,Hydrogen combustion (fan),1.0
+1520.0,432.30000000000035,True,Hydrogen combustion (fan),1.0
+1780.0,432.30000000000035,True,Hydrogen combustion (fan),1.0
+2080.0,432.30000000000035,True,Hydrogen combustion (fan),1.0
+2430.0,432.30000000000035,True,Hydrogen combustion (fan),1.0
+2850.0,432.30000000000035,True,Hydrogen combustion (fan),1.0
+3330.0,432.30000000000035,True,Hydrogen combustion (fan),1.0
+3900.0,432.30000000000035,True,Hydrogen combustion (fan),1.0
+4560.0,432.30000000000035,True,Hydrogen combustion (fan),1.0
+5340.0,432.30000000000035,True,Hydrogen combustion (fan),1.0
+6240.0,432.30000000000035,True,Hydrogen combustion (fan),1.0
+7310.0,432.30000000000035,True,Hydrogen combustion (fan),1.0
+8550.0,432.30000000000035,True,Hydrogen combustion (fan),1.0
+10000.0,432.30000000000035,True,Hydrogen combustion (fan),1.0
+10.0,440.60000000000036,True,Hydrogen combustion (fan),1.0
+11.700000000000001,440.60000000000036,True,Hydrogen combustion (fan),1.0
+13.700000000000001,440.60000000000036,True,Hydrogen combustion (fan),1.0
+16.0,440.60000000000036,True,Hydrogen combustion (fan),1.0
+18.7,440.60000000000036,True,Hydrogen combustion (fan),1.0
+21.900000000000002,440.60000000000036,True,Hydrogen combustion (fan),1.0
+25.700000000000003,440.60000000000036,True,Hydrogen combustion (fan),1.0
+30.0,440.60000000000036,True,Hydrogen combustion (fan),1.0
+35.1,440.60000000000036,True,Hydrogen combustion (fan),1.0
+41.1,440.60000000000036,True,Hydrogen combustion (fan),1.0
+48.1,440.60000000000036,True,Hydrogen combustion (fan),1.0
+56.2,440.60000000000036,True,Hydrogen combustion (fan),1.0
+65.8,440.60000000000036,True,Hydrogen combustion (fan),1.0
+77.0,440.60000000000036,True,Hydrogen combustion (fan),1.0
+90.10000000000001,440.60000000000036,True,Hydrogen combustion (fan),1.0
+105.0,440.60000000000036,True,Hydrogen combustion (fan),1.0
+123.0,440.60000000000036,True,Hydrogen combustion (fan),1.0
+144.0,440.60000000000036,True,Hydrogen combustion (fan),1.0
+169.0,440.60000000000036,True,Hydrogen combustion (fan),1.0
+197.0,440.60000000000036,True,Hydrogen combustion (fan),1.0
+231.0,440.60000000000036,True,Hydrogen combustion (fan),1.0
+270.0,440.60000000000036,True,Hydrogen combustion (fan),1.0
+316.0,440.60000000000036,True,Hydrogen combustion (fan),1.0
+370.0,440.60000000000036,True,Hydrogen combustion (fan),1.0
+433.0,440.60000000000036,True,Hydrogen combustion (fan),1.0
+506.0,440.60000000000036,True,Hydrogen combustion (fan),1.0
+593.0,440.60000000000036,True,Hydrogen combustion (fan),1.0
+693.0,440.60000000000036,True,Hydrogen combustion (fan),1.0
+811.0,440.60000000000036,True,Hydrogen combustion (fan),1.0
+949.0,440.60000000000036,True,Hydrogen combustion (fan),1.0
+1110.0,440.60000000000036,True,Hydrogen combustion (fan),1.0
+1300.0,440.60000000000036,True,Hydrogen combustion (fan),1.0
+1520.0,440.60000000000036,True,Hydrogen combustion (fan),1.0
+1780.0,440.60000000000036,True,Hydrogen combustion (fan),1.0
+2080.0,440.60000000000036,True,Hydrogen combustion (fan),1.0
+2430.0,440.60000000000036,True,Hydrogen combustion (fan),1.0
+2850.0,440.60000000000036,True,Hydrogen combustion (fan),1.0
+3330.0,440.60000000000036,True,Hydrogen combustion (fan),1.0
+3900.0,440.60000000000036,True,Hydrogen combustion (fan),1.0
+4560.0,440.60000000000036,True,Hydrogen combustion (fan),1.0
+5340.0,440.60000000000036,True,Hydrogen combustion (fan),1.0
+6240.0,440.60000000000036,True,Hydrogen combustion (fan),1.0
+7310.0,440.60000000000036,True,Hydrogen combustion (fan),1.0
+8550.0,440.60000000000036,True,Hydrogen combustion (fan),1.0
+10000.0,440.60000000000036,True,Hydrogen combustion (fan),1.0
+10.0,448.9000000000004,True,Hydrogen combustion (fan),1.0
+11.700000000000001,448.9000000000004,True,Hydrogen combustion (fan),1.0
+13.700000000000001,448.9000000000004,True,Hydrogen combustion (fan),1.0
+16.0,448.9000000000004,True,Hydrogen combustion (fan),1.0
+18.7,448.9000000000004,True,Hydrogen combustion (fan),1.0
+21.900000000000002,448.9000000000004,True,Hydrogen combustion (fan),1.0
+25.700000000000003,448.9000000000004,True,Hydrogen combustion (fan),1.0
+30.0,448.9000000000004,True,Hydrogen combustion (fan),1.0
+35.1,448.9000000000004,True,Hydrogen combustion (fan),1.0
+41.1,448.9000000000004,True,Hydrogen combustion (fan),1.0
+48.1,448.9000000000004,True,Hydrogen combustion (fan),1.0
+56.2,448.9000000000004,True,Hydrogen combustion (fan),1.0
+65.8,448.9000000000004,True,Hydrogen combustion (fan),1.0
+77.0,448.9000000000004,True,Hydrogen combustion (fan),1.0
+90.10000000000001,448.9000000000004,True,Hydrogen combustion (fan),1.0
+105.0,448.9000000000004,True,Hydrogen combustion (fan),1.0
+123.0,448.9000000000004,True,Hydrogen combustion (fan),1.0
+144.0,448.9000000000004,True,Hydrogen combustion (fan),1.0
+169.0,448.9000000000004,True,Hydrogen combustion (fan),1.0
+197.0,448.9000000000004,True,Hydrogen combustion (fan),1.0
+231.0,448.9000000000004,True,Hydrogen combustion (fan),1.0
+270.0,448.9000000000004,True,Hydrogen combustion (fan),1.0
+316.0,448.9000000000004,True,Hydrogen combustion (fan),1.0
+370.0,448.9000000000004,True,Hydrogen combustion (fan),1.0
+433.0,448.9000000000004,True,Hydrogen combustion (fan),1.0
+506.0,448.9000000000004,True,Hydrogen combustion (fan),1.0
+593.0,448.9000000000004,True,Hydrogen combustion (fan),1.0
+693.0,448.9000000000004,True,Hydrogen combustion (fan),1.0
+811.0,448.9000000000004,True,Hydrogen combustion (fan),1.0
+949.0,448.9000000000004,True,Hydrogen combustion (fan),1.0
+1110.0,448.9000000000004,True,Hydrogen combustion (fan),1.0
+1300.0,448.9000000000004,True,Hydrogen combustion (fan),1.0
+1520.0,448.9000000000004,True,Hydrogen combustion (fan),1.0
+1780.0,448.9000000000004,True,Hydrogen combustion (fan),1.0
+2080.0,448.9000000000004,True,Hydrogen combustion (fan),1.0
+2430.0,448.9000000000004,True,Hydrogen combustion (fan),1.0
+2850.0,448.9000000000004,True,Hydrogen combustion (fan),1.0
+3330.0,448.9000000000004,True,Hydrogen combustion (fan),1.0
+3900.0,448.9000000000004,True,Hydrogen combustion (fan),1.0
+4560.0,448.9000000000004,True,Hydrogen combustion (fan),1.0
+5340.0,448.9000000000004,True,Hydrogen combustion (fan),1.0
+6240.0,448.9000000000004,True,Hydrogen combustion (fan),1.0
+7310.0,448.9000000000004,True,Hydrogen combustion (fan),1.0
+8550.0,448.9000000000004,True,Hydrogen combustion (fan),1.0
+10000.0,448.9000000000004,True,Hydrogen combustion (fan),1.0
+10.0,457.2000000000004,True,Hydrogen combustion (fan),1.0
+11.700000000000001,457.2000000000004,True,Hydrogen combustion (fan),1.0
+13.700000000000001,457.2000000000004,True,Hydrogen combustion (fan),1.0
+16.0,457.2000000000004,True,Hydrogen combustion (fan),1.0
+18.7,457.2000000000004,True,Hydrogen combustion (fan),1.0
+21.900000000000002,457.2000000000004,True,Hydrogen combustion (fan),1.0
+25.700000000000003,457.2000000000004,True,Hydrogen combustion (fan),1.0
+30.0,457.2000000000004,True,Hydrogen combustion (fan),1.0
+35.1,457.2000000000004,True,Hydrogen combustion (fan),1.0
+41.1,457.2000000000004,True,Hydrogen combustion (fan),1.0
+48.1,457.2000000000004,True,Hydrogen combustion (fan),1.0
+56.2,457.2000000000004,True,Hydrogen combustion (fan),1.0
+65.8,457.2000000000004,True,Hydrogen combustion (fan),1.0
+77.0,457.2000000000004,True,Hydrogen combustion (fan),1.0
+90.10000000000001,457.2000000000004,True,Hydrogen combustion (fan),1.0
+105.0,457.2000000000004,True,Hydrogen combustion (fan),1.0
+123.0,457.2000000000004,True,Hydrogen combustion (fan),1.0
+144.0,457.2000000000004,True,Hydrogen combustion (fan),1.0
+169.0,457.2000000000004,True,Hydrogen combustion (fan),1.0
+197.0,457.2000000000004,True,Hydrogen combustion (fan),1.0
+231.0,457.2000000000004,True,Hydrogen combustion (fan),1.0
+270.0,457.2000000000004,True,Hydrogen combustion (fan),1.0
+316.0,457.2000000000004,True,Hydrogen combustion (fan),1.0
+370.0,457.2000000000004,True,Hydrogen combustion (fan),1.0
+433.0,457.2000000000004,True,Hydrogen combustion (fan),1.0
+506.0,457.2000000000004,True,Hydrogen combustion (fan),1.0
+593.0,457.2000000000004,True,Hydrogen combustion (fan),1.0
+693.0,457.2000000000004,True,Hydrogen combustion (fan),1.0
+811.0,457.2000000000004,True,Hydrogen combustion (fan),1.0
+949.0,457.2000000000004,True,Hydrogen combustion (fan),1.0
+1110.0,457.2000000000004,True,Hydrogen combustion (fan),1.0
+1300.0,457.2000000000004,True,Hydrogen combustion (fan),1.0
+1520.0,457.2000000000004,True,Hydrogen combustion (fan),1.0
+1780.0,457.2000000000004,True,Hydrogen combustion (fan),1.0
+2080.0,457.2000000000004,True,Hydrogen combustion (fan),1.0
+2430.0,457.2000000000004,True,Hydrogen combustion (fan),1.0
+2850.0,457.2000000000004,True,Hydrogen combustion (fan),1.0
+3330.0,457.2000000000004,True,Hydrogen combustion (fan),1.0
+3900.0,457.2000000000004,True,Hydrogen combustion (fan),1.0
+4560.0,457.2000000000004,True,Hydrogen combustion (fan),1.0
+5340.0,457.2000000000004,True,Hydrogen combustion (fan),1.0
+6240.0,457.2000000000004,True,Hydrogen combustion (fan),1.0
+7310.0,457.2000000000004,True,Hydrogen combustion (fan),1.0
+8550.0,457.2000000000004,True,Hydrogen combustion (fan),1.0
+10000.0,457.2000000000004,True,Hydrogen combustion (fan),1.0
+10.0,465.5000000000004,True,Hydrogen combustion (fan),1.0
+11.700000000000001,465.5000000000004,True,Hydrogen combustion (fan),1.0
+13.700000000000001,465.5000000000004,True,Hydrogen combustion (fan),1.0
+16.0,465.5000000000004,True,Hydrogen combustion (fan),1.0
+18.7,465.5000000000004,True,Hydrogen combustion (fan),1.0
+21.900000000000002,465.5000000000004,True,Hydrogen combustion (fan),1.0
+25.700000000000003,465.5000000000004,True,Hydrogen combustion (fan),1.0
+30.0,465.5000000000004,True,Hydrogen combustion (fan),1.0
+35.1,465.5000000000004,True,Hydrogen combustion (fan),1.0
+41.1,465.5000000000004,True,Hydrogen combustion (fan),1.0
+48.1,465.5000000000004,True,Hydrogen combustion (fan),1.0
+56.2,465.5000000000004,True,Hydrogen combustion (fan),1.0
+65.8,465.5000000000004,True,Hydrogen combustion (fan),1.0
+77.0,465.5000000000004,True,Hydrogen combustion (fan),1.0
+90.10000000000001,465.5000000000004,True,Hydrogen combustion (fan),1.0
+105.0,465.5000000000004,True,Hydrogen combustion (fan),1.0
+123.0,465.5000000000004,True,Hydrogen combustion (fan),1.0
+144.0,465.5000000000004,True,Hydrogen combustion (fan),1.0
+169.0,465.5000000000004,True,Hydrogen combustion (fan),1.0
+197.0,465.5000000000004,True,Hydrogen combustion (fan),1.0
+231.0,465.5000000000004,True,Hydrogen combustion (fan),1.0
+270.0,465.5000000000004,True,Hydrogen combustion (fan),1.0
+316.0,465.5000000000004,True,Hydrogen combustion (fan),1.0
+370.0,465.5000000000004,True,Hydrogen combustion (fan),1.0
+433.0,465.5000000000004,True,Hydrogen combustion (fan),1.0
+506.0,465.5000000000004,True,Hydrogen combustion (fan),1.0
+593.0,465.5000000000004,True,Hydrogen combustion (fan),1.0
+693.0,465.5000000000004,True,Hydrogen combustion (fan),1.0
+811.0,465.5000000000004,True,Hydrogen combustion (fan),1.0
+949.0,465.5000000000004,True,Hydrogen combustion (fan),1.0
+1110.0,465.5000000000004,True,Hydrogen combustion (fan),1.0
+1300.0,465.5000000000004,True,Hydrogen combustion (fan),1.0
+1520.0,465.5000000000004,True,Hydrogen combustion (fan),1.0
+1780.0,465.5000000000004,True,Hydrogen combustion (fan),1.0
+2080.0,465.5000000000004,True,Hydrogen combustion (fan),1.0
+2430.0,465.5000000000004,True,Hydrogen combustion (fan),1.0
+2850.0,465.5000000000004,True,Hydrogen combustion (fan),1.0
+3330.0,465.5000000000004,True,Hydrogen combustion (fan),1.0
+3900.0,465.5000000000004,True,Hydrogen combustion (fan),1.0
+4560.0,465.5000000000004,True,Hydrogen combustion (fan),1.0
+5340.0,465.5000000000004,True,Hydrogen combustion (fan),1.0
+6240.0,465.5000000000004,True,Hydrogen combustion (fan),1.0
+7310.0,465.5000000000004,True,Hydrogen combustion (fan),1.0
+8550.0,465.5000000000004,True,Hydrogen combustion (fan),1.0
+10000.0,465.5000000000004,True,Hydrogen combustion (fan),1.0
+10.0,473.8000000000004,True,Hydrogen combustion (fan),1.0
+11.700000000000001,473.8000000000004,True,Hydrogen combustion (fan),1.0
+13.700000000000001,473.8000000000004,True,Hydrogen combustion (fan),1.0
+16.0,473.8000000000004,True,Hydrogen combustion (fan),1.0
+18.7,473.8000000000004,True,Hydrogen combustion (fan),1.0
+21.900000000000002,473.8000000000004,True,Hydrogen combustion (fan),1.0
+25.700000000000003,473.8000000000004,True,Hydrogen combustion (fan),1.0
+30.0,473.8000000000004,True,Hydrogen combustion (fan),1.0
+35.1,473.8000000000004,True,Hydrogen combustion (fan),1.0
+41.1,473.8000000000004,True,Hydrogen combustion (fan),1.0
+48.1,473.8000000000004,True,Hydrogen combustion (fan),1.0
+56.2,473.8000000000004,True,Hydrogen combustion (fan),1.0
+65.8,473.8000000000004,True,Hydrogen combustion (fan),1.0
+77.0,473.8000000000004,True,Hydrogen combustion (fan),1.0
+90.10000000000001,473.8000000000004,True,Hydrogen combustion (fan),1.0
+105.0,473.8000000000004,True,Hydrogen combustion (fan),1.0
+123.0,473.8000000000004,True,Hydrogen combustion (fan),1.0
+144.0,473.8000000000004,True,Hydrogen combustion (fan),1.0
+169.0,473.8000000000004,True,Hydrogen combustion (fan),1.0
+197.0,473.8000000000004,True,Hydrogen combustion (fan),1.0
+231.0,473.8000000000004,True,Hydrogen combustion (fan),1.0
+270.0,473.8000000000004,True,Hydrogen combustion (fan),1.0
+316.0,473.8000000000004,True,Hydrogen combustion (fan),1.0
+370.0,473.8000000000004,True,Hydrogen combustion (fan),1.0
+433.0,473.8000000000004,True,Hydrogen combustion (fan),1.0
+506.0,473.8000000000004,True,Hydrogen combustion (fan),1.0
+593.0,473.8000000000004,True,Hydrogen combustion (fan),1.0
+693.0,473.8000000000004,True,Hydrogen combustion (fan),1.0
+811.0,473.8000000000004,True,Hydrogen combustion (fan),1.0
+949.0,473.8000000000004,True,Hydrogen combustion (fan),1.0
+1110.0,473.8000000000004,True,Hydrogen combustion (fan),1.0
+1300.0,473.8000000000004,True,Hydrogen combustion (fan),1.0
+1520.0,473.8000000000004,True,Hydrogen combustion (fan),1.0
+1780.0,473.8000000000004,True,Hydrogen combustion (fan),1.0
+2080.0,473.8000000000004,True,Hydrogen combustion (fan),1.0
+2430.0,473.8000000000004,True,Hydrogen combustion (fan),1.0
+2850.0,473.8000000000004,True,Hydrogen combustion (fan),1.0
+3330.0,473.8000000000004,True,Hydrogen combustion (fan),1.0
+3900.0,473.8000000000004,True,Hydrogen combustion (fan),1.0
+4560.0,473.8000000000004,True,Hydrogen combustion (fan),1.0
+5340.0,473.8000000000004,True,Hydrogen combustion (fan),1.0
+6240.0,473.8000000000004,True,Hydrogen combustion (fan),1.0
+7310.0,473.8000000000004,True,Hydrogen combustion (fan),1.0
+8550.0,473.8000000000004,True,Hydrogen combustion (fan),1.0
+10000.0,473.8000000000004,True,Hydrogen combustion (fan),1.0
+10.0,482.1000000000004,True,Hydrogen combustion (fan),1.0
+11.700000000000001,482.1000000000004,True,Hydrogen combustion (fan),1.0
+13.700000000000001,482.1000000000004,True,Hydrogen combustion (fan),1.0
+16.0,482.1000000000004,True,Hydrogen combustion (fan),1.0
+18.7,482.1000000000004,True,Hydrogen combustion (fan),1.0
+21.900000000000002,482.1000000000004,True,Hydrogen combustion (fan),1.0
+25.700000000000003,482.1000000000004,True,Hydrogen combustion (fan),1.0
+30.0,482.1000000000004,True,Hydrogen combustion (fan),1.0
+35.1,482.1000000000004,True,Hydrogen combustion (fan),1.0
+41.1,482.1000000000004,True,Hydrogen combustion (fan),1.0
+48.1,482.1000000000004,True,Hydrogen combustion (fan),1.0
+56.2,482.1000000000004,True,Hydrogen combustion (fan),1.0
+65.8,482.1000000000004,True,Hydrogen combustion (fan),1.0
+77.0,482.1000000000004,True,Hydrogen combustion (fan),1.0
+90.10000000000001,482.1000000000004,True,Hydrogen combustion (fan),1.0
+105.0,482.1000000000004,True,Hydrogen combustion (fan),1.0
+123.0,482.1000000000004,True,Hydrogen combustion (fan),1.0
+144.0,482.1000000000004,True,Hydrogen combustion (fan),1.0
+169.0,482.1000000000004,True,Hydrogen combustion (fan),1.0
+197.0,482.1000000000004,True,Hydrogen combustion (fan),1.0
+231.0,482.1000000000004,True,Hydrogen combustion (fan),1.0
+270.0,482.1000000000004,True,Hydrogen combustion (fan),1.0
+316.0,482.1000000000004,True,Hydrogen combustion (fan),1.0
+370.0,482.1000000000004,True,Hydrogen combustion (fan),1.0
+433.0,482.1000000000004,True,Hydrogen combustion (fan),1.0
+506.0,482.1000000000004,True,Hydrogen combustion (fan),1.0
+593.0,482.1000000000004,True,Hydrogen combustion (fan),1.0
+693.0,482.1000000000004,True,Hydrogen combustion (fan),1.0
+811.0,482.1000000000004,True,Hydrogen combustion (fan),1.0
+949.0,482.1000000000004,True,Hydrogen combustion (fan),1.0
+1110.0,482.1000000000004,True,Hydrogen combustion (fan),1.0
+1300.0,482.1000000000004,True,Hydrogen combustion (fan),1.0
+1520.0,482.1000000000004,True,Hydrogen combustion (fan),1.0
+1780.0,482.1000000000004,True,Hydrogen combustion (fan),1.0
+2080.0,482.1000000000004,True,Hydrogen combustion (fan),1.0
+2430.0,482.1000000000004,True,Hydrogen combustion (fan),1.0
+2850.0,482.1000000000004,True,Hydrogen combustion (fan),1.0
+3330.0,482.1000000000004,True,Hydrogen combustion (fan),1.0
+3900.0,482.1000000000004,True,Hydrogen combustion (fan),1.0
+4560.0,482.1000000000004,True,Hydrogen combustion (fan),1.0
+5340.0,482.1000000000004,True,Hydrogen combustion (fan),1.0
+6240.0,482.1000000000004,True,Hydrogen combustion (fan),1.0
+7310.0,482.1000000000004,True,Hydrogen combustion (fan),1.0
+8550.0,482.1000000000004,True,Hydrogen combustion (fan),1.0
+10000.0,482.1000000000004,True,Hydrogen combustion (fan),1.0
+10.0,490.40000000000043,True,Hydrogen combustion (fan),1.0
+11.700000000000001,490.40000000000043,True,Hydrogen combustion (fan),1.0
+13.700000000000001,490.40000000000043,True,Hydrogen combustion (fan),1.0
+16.0,490.40000000000043,True,Hydrogen combustion (fan),1.0
+18.7,490.40000000000043,True,Hydrogen combustion (fan),1.0
+21.900000000000002,490.40000000000043,True,Hydrogen combustion (fan),1.0
+25.700000000000003,490.40000000000043,True,Hydrogen combustion (fan),1.0
+30.0,490.40000000000043,True,Hydrogen combustion (fan),1.0
+35.1,490.40000000000043,True,Hydrogen combustion (fan),1.0
+41.1,490.40000000000043,True,Hydrogen combustion (fan),1.0
+48.1,490.40000000000043,True,Hydrogen combustion (fan),1.0
+56.2,490.40000000000043,True,Hydrogen combustion (fan),1.0
+65.8,490.40000000000043,True,Hydrogen combustion (fan),1.0
+77.0,490.40000000000043,True,Hydrogen combustion (fan),1.0
+90.10000000000001,490.40000000000043,True,Hydrogen combustion (fan),1.0
+105.0,490.40000000000043,True,Hydrogen combustion (fan),1.0
+123.0,490.40000000000043,True,Hydrogen combustion (fan),1.0
+144.0,490.40000000000043,True,Hydrogen combustion (fan),1.0
+169.0,490.40000000000043,True,Hydrogen combustion (fan),1.0
+197.0,490.40000000000043,True,Hydrogen combustion (fan),1.0
+231.0,490.40000000000043,True,Hydrogen combustion (fan),1.0
+270.0,490.40000000000043,True,Hydrogen combustion (fan),1.0
+316.0,490.40000000000043,True,Hydrogen combustion (fan),1.0
+370.0,490.40000000000043,True,Hydrogen combustion (fan),1.0
+433.0,490.40000000000043,True,Hydrogen combustion (fan),1.0
+506.0,490.40000000000043,True,Hydrogen combustion (fan),1.0
+593.0,490.40000000000043,True,Hydrogen combustion (fan),1.0
+693.0,490.40000000000043,True,Hydrogen combustion (fan),1.0
+811.0,490.40000000000043,True,Hydrogen combustion (fan),1.0
+949.0,490.40000000000043,True,Hydrogen combustion (fan),1.0
+1110.0,490.40000000000043,True,Hydrogen combustion (fan),1.0
+1300.0,490.40000000000043,True,Hydrogen combustion (fan),1.0
+1520.0,490.40000000000043,True,Hydrogen combustion (fan),1.0
+1780.0,490.40000000000043,True,Hydrogen combustion (fan),1.0
+2080.0,490.40000000000043,True,Hydrogen combustion (fan),1.0
+2430.0,490.40000000000043,True,Hydrogen combustion (fan),1.0
+2850.0,490.40000000000043,True,Hydrogen combustion (fan),1.0
+3330.0,490.40000000000043,True,Hydrogen combustion (fan),1.0
+3900.0,490.40000000000043,True,Hydrogen combustion (fan),1.0
+4560.0,490.40000000000043,True,Hydrogen combustion (fan),1.0
+5340.0,490.40000000000043,True,Hydrogen combustion (fan),1.0
+6240.0,490.40000000000043,True,Hydrogen combustion (fan),1.0
+7310.0,490.40000000000043,True,Hydrogen combustion (fan),1.0
+8550.0,490.40000000000043,True,Hydrogen combustion (fan),1.0
+10000.0,490.40000000000043,True,Hydrogen combustion (fan),1.0
+10.0,498.70000000000044,True,Hydrogen combustion (fan),1.0
+11.700000000000001,498.70000000000044,True,Hydrogen combustion (fan),1.0
+13.700000000000001,498.70000000000044,True,Hydrogen combustion (fan),1.0
+16.0,498.70000000000044,True,Hydrogen combustion (fan),1.0
+18.7,498.70000000000044,True,Hydrogen combustion (fan),1.0
+21.900000000000002,498.70000000000044,True,Hydrogen combustion (fan),1.0
+25.700000000000003,498.70000000000044,True,Hydrogen combustion (fan),1.0
+30.0,498.70000000000044,True,Hydrogen combustion (fan),1.0
+35.1,498.70000000000044,True,Hydrogen combustion (fan),1.0
+41.1,498.70000000000044,True,Hydrogen combustion (fan),1.0
+48.1,498.70000000000044,True,Hydrogen combustion (fan),1.0
+56.2,498.70000000000044,True,Hydrogen combustion (fan),1.0
+65.8,498.70000000000044,True,Hydrogen combustion (fan),1.0
+77.0,498.70000000000044,True,Hydrogen combustion (fan),1.0
+90.10000000000001,498.70000000000044,True,Hydrogen combustion (fan),1.0
+105.0,498.70000000000044,True,Hydrogen combustion (fan),1.0
+123.0,498.70000000000044,True,Hydrogen combustion (fan),1.0
+144.0,498.70000000000044,True,Hydrogen combustion (fan),1.0
+169.0,498.70000000000044,True,Hydrogen combustion (fan),1.0
+197.0,498.70000000000044,True,Hydrogen combustion (fan),1.0
+231.0,498.70000000000044,True,Hydrogen combustion (fan),1.0
+270.0,498.70000000000044,True,Hydrogen combustion (fan),1.0
+316.0,498.70000000000044,True,Hydrogen combustion (fan),1.0
+370.0,498.70000000000044,True,Hydrogen combustion (fan),1.0
+433.0,498.70000000000044,True,Hydrogen combustion (fan),1.0
+506.0,498.70000000000044,True,Hydrogen combustion (fan),1.0
+593.0,498.70000000000044,True,Hydrogen combustion (fan),1.0
+693.0,498.70000000000044,True,Hydrogen combustion (fan),1.0
+811.0,498.70000000000044,True,Hydrogen combustion (fan),1.0
+949.0,498.70000000000044,True,Hydrogen combustion (fan),1.0
+1110.0,498.70000000000044,True,Hydrogen combustion (fan),1.0
+1300.0,498.70000000000044,True,Hydrogen combustion (fan),1.0
+1520.0,498.70000000000044,True,Hydrogen combustion (fan),1.0
+1780.0,498.70000000000044,True,Hydrogen combustion (fan),1.0
+2080.0,498.70000000000044,True,Hydrogen combustion (fan),1.0
+2430.0,498.70000000000044,True,Hydrogen combustion (fan),1.0
+2850.0,498.70000000000044,True,Hydrogen combustion (fan),1.0
+3330.0,498.70000000000044,True,Hydrogen combustion (fan),1.0
+3900.0,498.70000000000044,True,Hydrogen combustion (fan),1.0
+4560.0,498.70000000000044,True,Hydrogen combustion (fan),1.0
+5340.0,498.70000000000044,True,Hydrogen combustion (fan),1.0
+6240.0,498.70000000000044,True,Hydrogen combustion (fan),1.0
+7310.0,498.70000000000044,True,Hydrogen combustion (fan),1.0
+8550.0,498.70000000000044,True,Hydrogen combustion (fan),1.0
+10000.0,498.70000000000044,True,Hydrogen combustion (fan),1.0
