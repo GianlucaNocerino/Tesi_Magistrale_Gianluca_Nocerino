@@ -252,7 +252,10 @@ def _draw_category_map(ax, mp: pd.DataFrame, ranges, speeds, colors, labels,
 
 
 def plot_influence_map(mp: pd.DataFrame, ranges, speeds, group_name: str,
-                       weights: str = "varianza", ax=None):
+                       weights: str = "varianza", ax=None,
+                       title: str = "Most Influential Technological Parameter",
+                       legend_title: str = r"Largest $S_{T_i}$",
+                       colors: Optional[dict] = None, labels: Optional[dict] = None):
     """Mappa del parametro tecnologico più influente (S_T massimo) al
     variare di range e velocità: una cella per nodo della griglia,
     colore = parametro in testa. Deterministica: nessuna sfumatura e
@@ -261,16 +264,16 @@ def plot_influence_map(mp: pd.DataFrame, ranges, speeds, group_name: str,
     if created:
         _, ax = plt.subplots(figsize=MAP_FIGSIZE)
     _draw_category_map(ax, mp, ranges, speeds,
-                       colors=lambda c: _color(c, FACTOR_COLORS),
-                       labels=FACTOR_LABELS, legend_loc="below",
+                       colors=lambda c: _color(c, colors or FACTOR_COLORS),
+                       labels=labels if labels is not None else FACTOR_LABELS, legend_loc="below",
                        label_size=MAP_LABEL_SIZE, tick_size=MAP_TICK_SIZE,
                        legend_size=MAP_LEGEND_SIZE, legend_ncol=MAP_LEGEND_NCOL,
-                       legend_title=r"Largest $S_{T_i}$")
+                       legend_title=legend_title)
     wtxt = {"varianza": "variance-weighted", "uniforme": "unweighted",
             "probabilita_migliore": "weighted by P(best)"}.get(weights, weights)
     n_arch = mp["n_architetture"].max() if "n_architetture" in mp else 1
     sub = group_name if n_arch <= 1 else f"{group_name} — {wtxt}"
-    ax.set_title(f"Most Influential Technological Parameter\n{sub}",
+    ax.set_title(f"{title}\n{sub}",
                  fontsize=MAP_TITLE_SIZE, fontweight="bold")
     if created:
         plt.tight_layout()

@@ -38,6 +38,9 @@ Produce (in questa cartella):
   best_system_map.png       controllo: "most likely best" dagli stessi campioni
   best_system_map.csv
   sobol_convergence.csv/.png
+
+Gli effetti di Shapley dei singoli parametri di calibrazione stanno in
+shapley_calibration.py (stessa cartella), da lanciare dopo questo.
   sobol_cache/              valutazioni per blocco (FORCE_RECOMPUTE = True per rifarle)
 """
 import hashlib
@@ -131,6 +134,7 @@ LEADER_INCLUDE_RESIDUAL = True
 INCLUDE_BEST = True         # mappa aggiuntiva per E_best = min sulle architetture
 BEST_CANDIDATES = None      # None = tutte le architetture; altrimenti lista di etichette
 
+
 N_JOBS = max(1, (os.cpu_count() or 2) - 1)
 FORCE_RECOMPUTE = False     # True per cancellare la cache e rivalutare tutto
 
@@ -144,14 +148,19 @@ PREVIOUS_SELECTED_FACTORS = [
 ]
 
 
-def _signature(space, all_outputs) -> str:
+def _signature(space, all_outputs, include_theta_acc: bool = True) -> str:
     """Ciò che cambia le valutazioni di OGNI blocco: se cambia uno di
-    questi la cache non vale più. SELECTED_FACTORS non c'è apposta: le
+    questi (compreso il contenuto di theta_acc) la cache non vale più. SELECTED_FACTORS non c'è apposta: le
     matrici A e B dipendono solo da N, seed e numero di fattori, quindi
     cambiando i fattori selezionati si riusano tutti i blocchi già
     calcolati e si valutano solo quelli nuovi (vedi _block_keys)"""
     key = repr((N_BASE, SEED, space.names, PILOT_N, PILOT_MAX_NAN,
                 [o.name for o in all_outputs]))
+    if include_theta_acc and space.theta_acc is not None:
+        # se si rifà la calibrazione cambiano le righe di theta_acc, e con
+        # loro tutte le valutazioni: la cache non deve sopravvivere
+        key += hashlib.sha1(np.ascontiguousarray(
+            space.theta_acc.to_numpy(dtype=float)).tobytes()).hexdigest()
     return hashlib.sha1(key.encode()).hexdigest()
 
 
@@ -189,13 +198,21 @@ def _write_meta(sig, columns):
     os.replace(tmp, CACHE_DIR / "meta.json")
 
 
-def _read_meta(sig):
+def _read_meta(sig, sig_without_theta=None):
     """Gli output tenuti dal prescreen, se la cache è di questa
-    configurazione; None altrimenti"""
+    configurazione; None altrimenti.
+
+    sig_without_theta: la firma calcolata come nella versione precedente
+    dello script (senza il contenuto di theta_acc). Una cache scritta da
+    quella versione viene riconosciuta e aggiornata, non cancellata"""
     f = CACHE_DIR / "meta.json"
     if not f.exists():
         return None
     meta = json.loads(f.read_text())
+    if sig_without_theta is not None and meta.get("signature") == sig_without_theta:
+        _write_meta(sig, meta["columns"])
+        print("\nCache della versione precedente riconosciuta e aggiornata")
+        return meta["columns"]
     if meta.get("signature") != sig:
         print("\nCache di un'altra configurazione (N, seed, griglia, pilota o "
               "fattori dello spazio): si riparte da zero")
@@ -220,7 +237,8 @@ def _migrate_legacy(sig, space, all_outputs):
     columns = [str(c) for c in z["columns"]]
 
     # versione a blocchi in un unico .npz
-    if old_sig == sig and any(k.startswith("blk__") for k in z.files):
+    if (old_sig == _signature(space, all_outputs, include_theta_acc=False)
+            and any(k.startswith("blk__") for k in z.files)):
         blocks = {k[len("blk__"):]: z[k] for k in z.files if k.startswith("blk__")}
     else:
         blocks = None
@@ -277,7 +295,7 @@ def main():
         for p in CACHE_DIR.glob("*"):
             p.unlink()
         print("\nFORCE_RECOMPUTE: cache cancellata")
-    kept = _read_meta(sig)
+    kept = _read_meta(sig, _signature(space, all_outputs, include_theta_acc=False))
     if kept is None and not FORCE_RECOMPUTE:
         kept = _migrate_legacy(sig, space, all_outputs)
 
